@@ -5,23 +5,25 @@
       "name": "Django runserver",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/manage.py",
+      "program": "${workspaceFolder}/src/manage.py",
       "args": ["runserver", "127.0.0.1:8000", "--noreload"],
       "django": true,
       "justMyCode": true,
       "console": "integratedTerminal",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}/src"
     },
     {
       "name": "Django shell",
       "type": "python",
       "request": "launch",
-      "program": "${workspaceFolder}/manage.py",
+      "program": "${workspaceFolder}/src/manage.py",
       "args": ["shell"],
       "django": true,
       "justMyCode": true,
       "console": "integratedTerminal",
-      "envFile": "${workspaceFolder}/.env"
+      "envFile": "${workspaceFolder}/.env",
+      "cwd": "${workspaceFolder}/src"
     }
   ]
 }
