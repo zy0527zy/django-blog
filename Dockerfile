@@ -4,7 +4,7 @@ FROM node:20-alpine AS frontend-builder
 WORKDIR /app
 
 # Copy frontend package files
-COPY frontend/package*.json ./frontend/
+COPY src/frontend/package*.json ./frontend/
 
 # Set npm registry to official registry and install dependencies (including devDependencies for build)
 RUN cd frontend && \
@@ -12,10 +12,10 @@ RUN cd frontend && \
     npm ci
 
 # Copy frontend source files
-COPY frontend/ ./frontend/
+COPY src/frontend/ ./frontend/
 
 # Copy templates for Tailwind CSS content scanning
-COPY templates/ ./templates/
+COPY src/templates/ ./templates/
 
 # Build frontend assets (output goes to ../blog/static/blog/dist)
 # Vite will create the output directory structure automatically
@@ -33,14 +33,17 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Copy and install Python dependencies
-COPY requirements.txt requirements.txt
+COPY src/requirements.txt requirements.txt
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt && \
     pip install --no-cache-dir gunicorn[gevent] && \
     pip cache purge
 
 # Copy application code (excluding old build artifacts)
-COPY . .
+COPY src/ .
+
+# Copy deployment scripts kept at repository root
+COPY deploy/ ./deploy/
 
 # Remove any old build artifacts that might have been copied
 RUN rm -rf /code/djangoblog/blog/static/blog/dist

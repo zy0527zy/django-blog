@@ -1,12 +1,7 @@
 name: 自动部署到生产环境
 
 on:
-  workflow_run:
-    workflows: ["Django CI", "Frontend CI"]
-    types:
-      - completed
-    branches:
-      - master
+  # Course project: production deployment is manual only.
   workflow_dispatch:
     inputs:
       environment:

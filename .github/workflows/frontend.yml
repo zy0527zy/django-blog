@@ -6,14 +6,14 @@ on:
       - master
       - dev
     paths:
-      - 'frontend/**'
+      - 'src/frontend/**'
       - '.github/workflows/frontend.yml'
   pull_request:
     branches:
       - master
       - dev
     paths:
-      - 'frontend/**'
+      - 'src/frontend/**'
       - '.github/workflows/frontend.yml'
 
 concurrency:
@@ -55,22 +55,22 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-          cache-dependency-path: 'frontend/package-lock.json'
+          cache-dependency-path: 'src/frontend/package-lock.json'
 
       # 缓存node_modules
       - name: 缓存Node模块
         uses: actions/cache@v5
         with:
           path: |
-            frontend/node_modules
+            src/frontend/node_modules
             ~/.npm
-          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('frontend/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('src/frontend/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-${{ matrix.node-version }}-
             ${{ runner.os }}-node-
 
       - name: 安装依赖
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "📦 安装前端依赖 (Node ${{ matrix.node-version }})"
           npm ci
@@ -83,7 +83,7 @@ jobs:
           npm list vite
 
       - name: 构建前端资源
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "🔨 构建前端资源"
           npm run build
@@ -115,7 +115,7 @@ jobs:
           echo "✅ 找到 $js_files 个JS文件"
 
       - name: 检查文件大小
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "📊 检查构建产物大小"
 
@@ -143,7 +143,7 @@ jobs:
           fi
 
       - name: 验证CSS语法
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "🎨 验证CSS文件"
 
@@ -177,7 +177,7 @@ jobs:
           fi
 
       - name: 验证JS语法
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "🔍 验证JS文件"
 
@@ -205,7 +205,7 @@ jobs:
           fi
 
       - name: 检查manifest.json
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "📋 验证Vite manifest"
 
@@ -231,7 +231,7 @@ jobs:
 
       - name: 构建统计
         if: always()
-        working-directory: ./frontend
+        working-directory: ./src/frontend
         run: |
           echo "📊 ============ 构建统计 ============"
           echo "   🏷️  Node版本: ${{ matrix.node-version }}"
