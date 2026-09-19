@@ -168,7 +168,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
-          cache-dependency-path: 'src/requirements.txt'
+          cache-dependency-path: 'requirements.txt'
           
       # 多层缓存策略优化
       - name: 缓存Python依赖
@@ -178,9 +178,9 @@ jobs:
           path: |
             ~/.cache/pip
             .pytest_cache
-          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('src/requirements.txt') }}-${{ hashFiles('**/pyproject.toml') }}
+          key: ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('requirements.txt') }}-${{ hashFiles('**/pyproject.toml') }}
           restore-keys: |
-            ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('src/requirements.txt') }}-
+            ${{ runner.os }}-python-${{ matrix.python-version }}-${{ hashFiles('requirements.txt') }}-
             ${{ runner.os }}-python-${{ matrix.python-version }}-
             ${{ runner.os }}-python-
             
@@ -205,7 +205,7 @@ jobs:
           python -m pip install --upgrade pip setuptools wheel
           
           # 安装基础依赖
-          pip install -r src/requirements.txt
+          pip install -r requirements.txt
           
           # 根据测试类型安装额外依赖
           if [ "${{ matrix.coverage }}" = "true" ]; then
@@ -268,13 +268,13 @@ jobs:
           
           # 检查迁移文件
           echo "📋 检查待应用的迁移..."
-          python src/manage.py showmigrations
+          python manage.py showmigrations
           
           # 检查是否有未创建的迁移
-          python src/manage.py makemigrations --check --verbosity 2
+          python manage.py makemigrations --check --verbosity 2
           
           # 执行迁移
-          python src/manage.py migrate --verbosity 2
+          python manage.py migrate --verbosity 2
           
           echo "✅ 数据库迁移完成"
           
@@ -288,12 +288,12 @@ jobs:
           echo "🧪 开始执行 ${{ matrix.test-type }} 测试 (Python ${{ matrix.python-version }})"
           
           # 显示Django配置信息
-          python src/manage.py diffsettings | head -20
+          python manage.py diffsettings | head -20
           
           # 运行测试
           if [ "${{ matrix.coverage }}" = "true" ]; then
             echo "📊 运行测试并生成覆盖率报告"
-            coverage run --source='.' --omit='*/venv/*,*/migrations/*,*/tests/*,manage.py' src/manage.py test --verbosity=2
+            coverage run --source='.' --omit='*/venv/*,*/migrations/*,*/tests/*,manage.py' manage.py test --verbosity=2
             
             echo "📈 生成覆盖率报告"
             coverage xml
@@ -304,7 +304,7 @@ jobs:
             coverage report | tail -1
           else
             echo "🧪 运行标准测试"
-            python src/manage.py test --verbosity=2 --failfast
+            python manage.py test --verbosity=2 --failfast
           fi
           
           echo "✅ 测试执行完成"

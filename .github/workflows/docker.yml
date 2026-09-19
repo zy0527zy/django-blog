@@ -1,7 +1,13 @@
 name: docker
 
 on:
-  # Course project: container publishing is manual only.
+  push:
+    paths-ignore:
+      - '**/*.md'
+      - '**/*.yml'
+    branches:
+      - 'master'
+      - 'dev'
   workflow_dispatch:
 
 concurrency:
