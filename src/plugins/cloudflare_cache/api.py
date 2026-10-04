@@ -1,7 +1,6 @@
 """
-Cloudflare API 封装
-
-提供与Cloudflare API交互的功能，用于清除缓存。
+Cloudflare缓存插件API封装文件
+封装Cloudflare官方接口，提供按URL、全量、缓存标签清除CDN缓存能力，同时校验API账号权限
 """
 
 import logging
@@ -12,8 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class CloudflareAPI:
-    """Cloudflare API 客户端"""
-
+   """Cloudflare API 客户端，封装缓存清理相关接口"""
     API_BASE = "https://api.cloudflare.com/client/v4"
 
     def __init__(self, zone_id: str, api_token: str):
