@@ -23,6 +23,7 @@ from djangoblog.plugin_manage import hooks
 
 logger = logging.getLogger(__name__)
 
+# 创建模板标签库，下面注册的 tag 和 filter 才能在 Django 模板中使用
 register = template.Library()
 
 
@@ -51,6 +52,7 @@ def datetimeformat(data):
 
 @register.filter()
 @stringfilter
+# 将 Markdown 内容转换为 HTML，并允许文章内容插件继续处理转换结果
 def custom_markdown(content):
     """
     通用markdown过滤器，应用文章内容插件
@@ -74,6 +76,7 @@ def sidebar_markdown(content):
 
 
 @register.simple_tag(takes_context=True)
+# 渲染文章正文或摘要，并将结果交给插件系统进一步处理
 def render_article_content(context, article, is_summary=False):
     """
     渲染文章内容，包含完整的上下文信息供插件使用
@@ -208,6 +211,7 @@ def truncate(content):
 
 
 @register.inclusion_tag('blog/tags/breadcrumb.html')
+# 准备文章的面包屑导航数据，例如：首页 > 分类 > 子分类 > 当前文章
 def load_breadcrumb(article):
     """
     获得文章面包屑
@@ -229,6 +233,7 @@ def load_breadcrumb(article):
 
 
 @register.inclusion_tag('blog/tags/article_tag_list.html')
+# 获取当前文章的所有标签，并准备标签链接、文章数量和显示颜色
 def load_articletags(article):
     """
     文章标签
@@ -249,6 +254,7 @@ def load_articletags(article):
 
 
 @register.inclusion_tag('blog/tags/sidebar.html')
+# 准备侧边栏需要的最新文章、热门文章、分类、评论、标签和友情链接等数据
 def load_sidebar(user, linktype):
     """
     加载侧边栏
@@ -264,6 +270,7 @@ def load_sidebar(user, linktype):
         blogsetting = get_blog_setting()
 
         # 优化：添加select_related/prefetch_related减少查询
+        # 查询最近发布的文章，用于侧边栏的最新文章区域
         recent_articles = Article.objects.filter(
             status='p'
         ).select_related('author', 'category')[:blogsetting.sidebar_article_count]
@@ -274,6 +281,7 @@ def load_sidebar(user, linktype):
             is_enable=True
         ).order_by('sequence')
 
+        # 按浏览量倒序查询热门文章
         most_read_articles = Article.objects.filter(
             status='p'
         ).select_related('author', 'category').order_by(
@@ -324,6 +332,7 @@ def load_sidebar(user, linktype):
 
 
 @register.inclusion_tag('blog/tags/article_meta_info.html')
+# 将文章和当前用户信息交给文章元信息片段模板显示
 def load_article_metas(article, user):
     """
     获得文章meta信息
@@ -337,6 +346,7 @@ def load_article_metas(article, user):
 
 
 @register.inclusion_tag('blog/tags/article_pagination.html')
+# 根据当前页面类型生成上一页、下一页和页码导航链接
 def load_pagination_info(page_obj, page_type, tag_name):
     previous_url = ''
     next_url = ''
@@ -407,6 +417,7 @@ def load_pagination_info(page_obj, page_type, tag_name):
 
 
 @register.inclusion_tag('blog/tags/article_info.html')
+# 准备普通文章详情片段需要的数据，列表页时可按摘要方式显示
 def load_article_detail(article, isindex, user, query=None):
     """
     加载文章详情
@@ -428,6 +439,7 @@ def load_article_detail(article, isindex, user, query=None):
 
 
 @register.inclusion_tag('blog/tags/article_info_highlight.html')
+# 准备带搜索关键词高亮效果的文章详情数据
 def load_article_detail_with_highlight(article, highlighted, isindex, user):
     """
     加载文章详情（带搜索高亮）
@@ -450,6 +462,7 @@ def load_article_detail_with_highlight(article, highlighted, isindex, user):
 
 
 @register.filter
+# 在文本中查找搜索关键词，并使用 mark 标签进行高亮显示
 def highlight_search_term(text, query):
     """
     在文本中高亮搜索关键词
@@ -518,6 +531,7 @@ def highlight_content(html_content, query):
 # 返回用户头像URL
 # 模板使用方法:  {{ email|gravatar_url:150 }}
 @register.filter
+# 根据邮箱查找用户头像，优先使用 OAuth 头像，否则使用默认头像
 def gravatar_url(email, size=40):
     """获得用户头像 - 优先使用OAuth头像，否则使用默认头像"""
     cachekey = 'avatar/' + email
@@ -581,6 +595,7 @@ def addstr(arg1, arg2):
 # === 插件系统模板标签 ===
 
 @register.simple_tag(takes_context=True)
+# 收集指定页面位置的插件组件，并按优先级组合成最终 HTML
 def render_plugin_widgets(context, position, **kwargs):
     """
     渲染指定位置的所有插件组件
@@ -682,6 +697,7 @@ def plugin_body_resources(context):
 
 
 @register.inclusion_tag('plugins/css_includes.html')
+# 收集所有已加载插件的 CSS 文件并交给统一模板引入
 def plugin_compressed_css():
     """插件CSS压缩包含模板"""
     from djangoblog.plugin_manage.loader import get_loaded_plugins
@@ -696,6 +712,7 @@ def plugin_compressed_css():
 
 
 @register.inclusion_tag('plugins/js_includes.html')
+# 收集所有已加载插件的 JavaScript 文件并交给统一模板引入
 def plugin_compressed_js():
     """插件JS压缩包含模板"""
     from djangoblog.plugin_manage.loader import get_loaded_plugins
