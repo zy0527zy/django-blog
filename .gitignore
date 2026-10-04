@@ -90,3 +90,6 @@ specs/
 # 本地开发环境（虚拟环境与密钥，勿提交）
 .venv/
 .env
+
+# Windows system files
+desktop.ini
