@@ -16,6 +16,14 @@ from pathlib import Path
 from django.utils.translation import gettext_lazy as _
 
 
+# ==================== 项目全局配置总览 ====================
+# 本文件是 DjangoBlog 的"总配置文件"，负责三件全局大事：
+# 1) INSTALLED_APPS —— 注册应用：把 Django 内置库、三方库、本项目各业务 app 登记进来，
+#    注册后 Django 才会去各 app 目录里找 models / views / urls / 模板 / 静态文件；
+# 2) MIDDLEWARE —— 请求处理管道：请求进入后按顺序穿过这一串中间件，再交给视图；
+# 3) ROOT_URLCONF —— 全局路由入口：所有 URL 先汇总到 djangoblog/urls.py，再分发给各 app。
+
+
 def env_to_bool(env, default):
     str_val = os.environ.get(env)
     return default if str_val is None else str_val == 'True'
@@ -42,27 +50,34 @@ CSRF_TRUSTED_ORIGINS = ['http://example.com']
 # Application definition
 
 
+# 应用注册表（app 怎么被注册）：
+# Django 靠这个列表"知道"项目里有哪些应用。注册后它会去各 app 目录：
+#  - 找 models.py 生成数据表、找 urls.py 参与路由、找 templates/ 参与模板查找、找 static/ 参与静态文件查找
 INSTALLED_APPS = [
+    # ---- Django 内置应用（提供后台、认证、会话等基础能力）----
     # 'django.contrib.admin',
-    'django.contrib.admin.apps.SimpleAdminConfig',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.sites',
-    'django.contrib.sitemaps',
-    'mdeditor',
-    'haystack',
-    'blog',
-    'accounts',
-    'comments',
-    'oauth',
-    'servermanager',
-    'compressor',
-    'djangoblog'
+    'django.contrib.admin.apps.SimpleAdminConfig',  # 后台管理
+    'django.contrib.auth',                  # 用户认证（登录/权限）
+    'django.contrib.contenttypes',          # 内容类型框架（外键可指向"任意模型"）
+    'django.contrib.sessions',              # 会话（Session）
+    'django.contrib.messages',              # 一次性消息提示
+    'django.contrib.staticfiles',           # 静态文件收集与伺服
+    'django.contrib.sites',                 # 多站点框架
+    'django.contrib.sitemaps',              # 站点地图（SEO）
+    # ---- 第三方应用 ----
+    'mdeditor',                             # Markdown 编辑器
+    'haystack',                             # 全文搜索框架（对接 Whoosh / Elasticsearch）
+    # ---- 本项目业务应用（一个 app 一个功能模块）----
+    'blog',                                 # 博客：文章/分类/标签/侧栏
+    'accounts',                             # 账号：用户模型 BlogUser/登录/注册
+    'comments',                             # 评论：文章评论与点赞
+    'oauth',                                # 第三方 OAuth 登录（GitHub 等）
+    'servermanager',                        # 服务器管理：运维命令/邮件/日志
+    'compressor',                           # 静态资源压缩（CSS/JS）
+    'djangoblog'                            # 项目自身 app（自定义后台/搜索后端等）
 ]
 
+# 中间件链：请求 → 按顺序穿过这些中间件（安全/会话/本地化/压缩/CSRF/认证/消息等）→ URL 路由 → 视图 → 响应原路返回
 MIDDLEWARE = [
 
     'django.middleware.security.SecurityMiddleware',
@@ -80,8 +95,10 @@ MIDDLEWARE = [
     'blog.middleware.OnlineMiddleware'
 ]
 
+# 全局路由入口：请求进来后先交给 djangoblog/urls.py，由它把 URL 分发给各 app 的 urls.py
 ROOT_URLCONF = 'djangoblog.urls'
 
+# 模板引擎配置：APP_DIRS=True 表示会到每个"已注册 app"的 templates/ 目录下查找模板
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -99,6 +116,7 @@ TEMPLATES = [
     },
 ]
 
+# WSGI 入口：部署时由 Web 服务器（uwsgi/gunicorn 等）通过这个 WSGI 应用调用 Django
 WSGI_APPLICATION = 'djangoblog.wsgi.application'
 
 # Database
