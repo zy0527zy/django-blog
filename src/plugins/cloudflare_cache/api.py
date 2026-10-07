@@ -11,7 +11,7 @@ logger = logging.getLogger(__name__)
 
 
 class CloudflareAPI:
-   """Cloudflare API 客户端，封装缓存清理相关接口"""
+    """Cloudflare API 客户端，封装缓存清理相关接口"""
     API_BASE = "https://api.cloudflare.com/client/v4"
 
     def __init__(self, zone_id: str, api_token: str):
