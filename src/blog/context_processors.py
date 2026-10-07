@@ -8,6 +8,7 @@ from .models import Category, Article
 logger = logging.getLogger(__name__)
 
 
+# 全局模板上下文处理器，为页面提供站点配置、导航和 SEO 数据
 def seo_processor(requests):
     key = 'seo_processor'
     value = cache.get(key)

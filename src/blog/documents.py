@@ -73,6 +73,7 @@ if ELASTICSEARCH_ENABLED:
         })
 
 
+# Elasticsearch 中保存访问者 IP 地理位置信息的内嵌文档
 class GeoIp(InnerDoc):
     continent_name = Keyword()
     country_iso_code = Keyword()
@@ -80,21 +81,25 @@ class GeoIp(InnerDoc):
     location = GeoPoint()
 
 
+# 保存客户端浏览器名称和版本信息
 class UserAgentBrowser(InnerDoc):
     Family = Keyword()
     Version = Keyword()
 
 
+# 保存客户端操作系统名称和版本信息
 class UserAgentOS(UserAgentBrowser):
     pass
 
 
+# 保存客户端设备品牌和型号等信息
 class UserAgentDevice(InnerDoc):
     Family = Keyword()
     Brand = Keyword()
     Model = Keyword()
 
 
+# 汇总浏览器、操作系统和设备等客户端信息
 class UserAgent(InnerDoc):
     browser = Object(UserAgentBrowser, required=False)
     os = Object(UserAgentOS, required=False)
@@ -103,6 +108,7 @@ class UserAgent(InnerDoc):
     is_bot = Boolean()
 
 
+# 页面性能日志文档，保存 URL、耗时、IP 和客户端信息
 class ElapsedTimeDocument(Document):
     url = Keyword()
     time_taken = Long()
@@ -119,6 +125,7 @@ class ElapsedTimeDocument(Document):
         }
 
 
+# 页面性能日志管理器，负责性能索引的创建、删除和写入
 class ElaspedTimeDocumentManager:
     @staticmethod
     def build_index():
@@ -171,6 +178,7 @@ class ElaspedTimeDocumentManager:
         doc.save(pipeline="geoip")
 
 
+# Elasticsearch 文章文档结构，用于保存可全文检索的文章信息
 class ArticleDocument(Document):
     body = Text(analyzer='ik_max_word', search_analyzer='ik_smart')
     title = Text(analyzer='ik_max_word', search_analyzer='ik_smart')
@@ -202,6 +210,7 @@ class ArticleDocument(Document):
         }
 
 
+# 文章搜索文档管理器，负责文章索引的创建、转换、重建和更新
 class ArticleDocumentManager():
 
     def __init__(self):
@@ -218,6 +227,7 @@ class ArticleDocumentManager():
         except elasticsearch.exceptions.NotFoundError:
             pass
 
+    # 将 Django 的 Article 对象转换为 Elasticsearch 文档
     def convert_to_doc(self, articles):
         return [
             ArticleDocument(
@@ -242,6 +252,7 @@ class ArticleDocumentManager():
                 views=article.views,
                 article_order=article.article_order) for article in articles]
 
+    # 根据文章数据重新建立 Elasticsearch 搜索索引
     def rebuild(self, articles=None):
         ArticleDocument.init()
         articles = articles if articles else Article.objects.all()

@@ -9,11 +9,14 @@ from blog.documents import ELASTICSEARCH_ENABLED, ElaspedTimeDocumentManager
 logger = logging.getLogger(__name__)
 
 
+# 页面性能统计中间件，负责记录请求耗时和客户端访问信息
 class OnlineMiddleware(object):
+    # 保存 Django 后续中间件或视图的调用入口
     def __init__(self, get_response=None):
         self.get_response = get_response
         super().__init__()
 
+    # 处理每次请求，统计页面处理时间并记录性能数据
     def __call__(self, request):
         ''' page render time '''
         start_time = time.time()
