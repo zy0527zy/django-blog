@@ -1,6 +1,11 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
+"""
+djangoblog utils.py 文件
+功能：全局工具函数集合
+包含缓存装饰器、Markdown 转换、邮件发送、头像保存、HTML 安全过滤（防 XSS）等通用能力
+"""
 
 import logging
 import os
@@ -22,18 +27,21 @@ logger = logging.getLogger(__name__)
 
 
 def get_max_articleid_commentid():
+    """获取当前文章和评论的最大主键（用于生成新记录 id 等场景）"""
     from blog.models import Article
     from comments.models import Comment
     return (Article.objects.latest().pk, Comment.objects.latest().pk)
 
 
 def get_sha256(value):
+    """用 SECRET_KEY 对 value 做 HMAC-SHA256 签名，生成带密钥的摘要（防篡改）"""
     key = settings.SECRET_KEY.encode('utf-8')
     msg = str(value).encode('utf-8')
     return hmac.new(key, msg, hashlib.sha256).hexdigest()
 
 
 def cache_decorator(expiration=3 * 60):
+    """缓存装饰器工厂：把函数返回值缓存起来，命中缓存直接返回，未命中才执行函数"""
     def wrapper(func):
         def news(*args, **kwargs):
             try:
@@ -96,13 +104,17 @@ def expire_view_cache(path, servername, serverport, key_prefix=None):
 
 @cache_decorator()
 def get_current_site():
+    """获取当前站点对象（带缓存）"""
     site = Site.objects.get_current()
     return site
 
 
 class CommonMarkdown:
+    """Markdown 转 HTML 工具类：封装 markdown 库，支持代码高亮、目录、表格等扩展"""
+
     @staticmethod
     def _convert_markdown(value):
+        """内部转换：把 Markdown 文本转为 HTML 正文和目录"""
         md = markdown.Markdown(
             extensions=[
                 'extra',
@@ -127,6 +139,7 @@ class CommonMarkdown:
 
 
 def send_email(emailto, title, content):
+    """发送邮件：通过信号触发，实际发送逻辑由 blog_signals 中的处理器完成"""
     from djangoblog.blog_signals import send_email_signal
     send_email_signal.send(
         send_email.__class__,
@@ -141,6 +154,7 @@ def generate_code() -> str:
 
 
 def parse_dict_to_url(dict):
+    """把字典拼接成 URL 查询串（键值对用 & 连接，值做 URL 编码）"""
     from urllib.parse import quote
     url = '&'.join(['{}={}'.format(quote(k, safe='/'), quote(v, safe='/'))
                     for k, v in dict.items()])
@@ -148,6 +162,7 @@ def parse_dict_to_url(dict):
 
 
 def get_blog_setting():
+    """获取博客全局配置（带缓存）；库中无配置时自动创建一份默认配置"""
     value = cache.get('get_blog_setting')
     if value:
         return value
@@ -204,6 +219,7 @@ def save_user_avatar(url):
 
 
 def delete_sidebar_cache():
+    """清理所有侧边栏相关缓存（按 LinkShowType 的每种取值删除对应缓存键）"""
     from blog.models import LinkShowType
     keys = ["sidebar" + x for x in LinkShowType.values]
     for k in keys:
@@ -212,12 +228,14 @@ def delete_sidebar_cache():
 
 
 def delete_view_cache(prefix, keys):
+    """删除模板片段缓存（按 prefix + keys 生成片段缓存键后删除）"""
     from django.core.cache.utils import make_template_fragment_key
     key = make_template_fragment_key(prefix, keys)
     cache.delete(key)
 
 
 def get_resource_url():
+    """获取静态资源 URL 前缀（优先用配置的 STATIC_URL，否则拼接当前站点域名）"""
     if settings.STATIC_URL:
         return settings.STATIC_URL
     else:

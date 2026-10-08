@@ -1,5 +1,10 @@
 # encoding: utf-8
-
+"""
+djangoblog whoosh_cn_backend.py 文件
+功能：Haystack 的 Whoosh 中文搜索后端
+在官方 Whoosh 后端基础上，把分词器替换为结巴分词（ChineseAnalyzer），并自定义搜索结果高亮，
+实现支持中文的全文搜索
+"""
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import json
@@ -63,7 +68,9 @@ class WhooshHtmlFormatter(HtmlFormatter):
 
 
 class WhooshSearchBackend(BaseSearchBackend):
-    # Word reserved by Whoosh for special use.
+    """Whoosh 搜索后端：封装索引的创建/更新/删除与搜索，文本字段使用中文分词器（结巴）"""
+
+    # Whoosh 保留字（用于查询清洗）
     RESERVED_WORDS = (
         'AND',
         'NOT',
@@ -145,6 +152,7 @@ class WhooshSearchBackend(BaseSearchBackend):
         self.setup_complete = True
 
     def build_schema(self, fields):
+        """根据搜索字段构建 Whoosh Schema（文本字段默认使用中文分词器 ChineseAnalyzer）"""
         schema_fields = {
             ID: WHOOSH_ID(stored=True, unique=True),
             DJANGO_CT: WHOOSH_ID(stored=True),
@@ -345,6 +353,7 @@ class WhooshSearchBackend(BaseSearchBackend):
         page_num += 1
         return page_num, page_length
 
+    # 核心搜索方法：解析查询、按条件检索并分页返回结果（空查询或过短查询直接返回空结果）
     @log_query
     def search(
             self,
@@ -920,6 +929,8 @@ class WhooshSearchBackend(BaseSearchBackend):
 
 
 class WhooshSearchQuery(BaseSearchQuery):
+    """Whoosh 查询构造器：把 Haystack 查询条件转成 Whoosh 可识别的查询语法"""
+
     def _convert_datetime(self, date):
         if hasattr(date, 'hour'):
             return force_str(date.strftime('%Y%m%d%H%M%S'))
@@ -1089,5 +1100,6 @@ class WhooshSearchQuery(BaseSearchQuery):
 
 
 class WhooshEngine(BaseEngine):
+    """搜索引擎入口：把 Whoosh 后端类和查询构造器注册给 Haystack"""
     backend = WhooshSearchBackend
     query = WhooshSearchQuery
