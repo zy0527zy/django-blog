@@ -1,0 +1,1500 @@
+<presentation id="YwOfs2AjilpYAHd8w2VcSTwhnJg" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>当AI开始写代码：Vibe Coding 与 SDD</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pNN">
+    <style>
+      <fill id="fNN">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <img id="bmm" src="JFvtbbMUco7VjHxKG2ycGr1OnlQ" width="960" height="540" topLeftX="0" topLeftY="0">
+        <crop type="rect" leftOffset="0" rightOffset="0" topOffset="0.0659340659340728" bottomOffset="0.06593406593412965"/>
+      </img>
+      <shape width="960" height="540" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bms">
+        <fill>
+          <fillColor color="linear-gradient(90deg,rgba(26, 26, 30, 0.97) 0%,rgba(26, 26, 30, 0.9) 42%,rgba(26, 26, 30, 0) 74%)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="520" height="26" topLeftX="64" topLeftY="66" type="text" id="bmu">
+        <content verticalAlign="top" textType="caption" fontSize="13" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>$ software_engineering / ai_coding</p>
+        </content>
+      </shape>
+      <line id="bmd" startX="64" startY="106" endX="118.00925846556311" endY="106">
+        <border color="rgba(212, 233, 44, 1)"/>
+      </line>
+      <shape width="540" height="70" topLeftX="62" topLeftY="140" type="text" id="bmz">
+        <content verticalAlign="top" textType="title" fontSize="42" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>当 AI 开始写代码</p>
+        </content>
+      </shape>
+      <shape width="540" height="48" topLeftX="62" topLeftY="226" type="text" id="bmZ">
+        <content verticalAlign="top" textType="headline" fontSize="28" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>Vibe Coding 与 SDD</p>
+        </content>
+      </shape>
+      <shape width="500" height="60" topLeftX="64" topLeftY="292" type="text" id="bma">
+        <content verticalAlign="top" fontSize="15" fontFamily="思源黑体" color="rgba(184, 188, 194, 1)" lineSpacing="multiple:1.6">
+          <p>AI 时代新出现的一种软件开发「方式」，与一种软件开发「过程」</p>
+          <p>——两项新方法的内涵与当前发展状态调研</p>
+        </content>
+      </shape>
+      <line id="bmI" startX="64" startY="430" endX="560.0010080634917" endY="430">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="520" height="50" topLeftX="64" topLeftY="446" type="text" id="bme">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(138, 143, 148, 1)" lineSpacing="multiple:1.7">
+          <p>课程：软件工程　|　汇报人：　　　　　班级：　　　　　日期：</p>
+          <p>topic: (1) vibe-coding (2) spec-driven-development</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bmh">
+      <content>
+        <p>开场（约20秒）：今天介绍AI时代新出现的两个概念。Vibe Coding是一种新的软件开发「方式」，SDD规格驱动开发是一种新的软件开发「过程」。我会讲清它们各自的内涵、怎么工作，以及2025年至今的发展状态，最后对比二者关系。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNa">
+    <style>
+      <fill id="fNa">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bmG">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>00 / BACKGROUND</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bmw">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>02 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="82" type="text" id="bmn">
+        <content verticalAlign="top" textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>AI 已经在写大量代码，两种代表性新范式随之出现</p>
+        </content>
+      </shape>
+      <line id="bmM" startX="64" startY="146" endX="896.0006009613214" endY="146">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="262" height="66" topLeftX="64" topLeftY="178" type="text" id="bmQ">
+        <content verticalAlign="top" textType="headline" fontSize="52" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>84%</p>
+        </content>
+      </shape>
+      <shape width="262" height="24" topLeftX="64" topLeftY="252" type="text" id="bmU">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>开发者已用上 AI 编码工具</p>
+        </content>
+      </shape>
+      <shape width="256" height="64" topLeftX="64" topLeftY="282" type="text" id="bmV">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>全球 84% 的开发者已使用或计划使用 AI 编码工具；美国这一比例约 92%。</p>
+        </content>
+      </shape>
+      <line id="bmP" startX="336" startY="182" endX="336" endY="350.00297616411444">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="262" height="66" topLeftX="356" topLeftY="178" type="text" id="bmK">
+        <content verticalAlign="top" textType="headline" fontSize="52" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>25%+</p>
+        </content>
+      </shape>
+      <shape width="262" height="24" topLeftX="356" topLeftY="252" type="text" id="bmg">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>大厂新代码由 AI 生成</p>
+        </content>
+      </shape>
+      <shape width="256" height="64" topLeftX="356" topLeftY="282" type="text" id="bml">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>Google 披露超过 25% 的新代码由 AI 生成，再经工程师审查、接受。</p>
+        </content>
+      </shape>
+      <line id="bmE" startX="628" startY="182" endX="628" endY="350.00297616411444">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="262" height="66" topLeftX="648" topLeftY="178" type="text" id="bmC">
+        <content verticalAlign="top" textType="headline" fontSize="52" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>1/4</p>
+        </content>
+      </shape>
+      <shape width="262" height="24" topLeftX="648" topLeftY="252" type="text" id="bmX">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>初创代码库几乎全由 AI 写</p>
+        </content>
+      </shape>
+      <shape width="248" height="64" topLeftX="648" topLeftY="282" type="text" id="bmo">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>YC 2025 冬季批次约四分之一初创，代码库 95% 由 AI 生成。</p>
+        </content>
+      </shape>
+      <line id="bmy" startX="64" startY="372" endX="896.0006009613214" endY="372">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="832" height="28" topLeftX="64" topLeftY="392" type="text" id="bmL">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" wrap="false">
+          <p><strong><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">▸ VIBE CODING　</span></strong><span color="rgba(220, 222, 226, 1)">一种开发「方式」：用自然语言描述意图，AI 写代码，人来引导</span></p>
+        </content>
+      </shape>
+      <shape width="832" height="28" topLeftX="64" topLeftY="428" type="text" id="bmb">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" wrap="false">
+          <p><strong><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">▸ SDD　　　　　</span></strong><span color="rgba(220, 222, 226, 1)">一种开发「过程」：规格（Spec）作为唯一真相源，驱动 AI 规划与实现</span></p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bmp">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://survey.stackoverflow.co/2025/">Stack Overflow Developer Survey 2025</a>　|　Google CEO Sundar Pichai 2025 年公开表态　|　Y Combinator（Jared Friedman, 2025）</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bmq">
+      <content>
+        <p>第2页（约30秒）：先看三组数据——Stack Overflow 2025调查显示全球84%开发者已用或计划用AI编码工具；Google称超25%新代码由AI生成再由人审查；YC冬季批次四分之一初创代码库95%是AI写的。当AI写代码成为常态，催生两种代表性新范式：Vibe Coding是一种开发方式，SDD是一种开发过程。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNH">
+    <style>
+      <fill id="fNH">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bmH">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>01 / VIBE CODING · 内涵</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bmJ">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>03 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="bmf">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>Vibe Coding：说清「想要什么」，让 AI 写代码，人不再逐行读代码</p>
+        </content>
+      </shape>
+      <line id="bmY" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="402" height="324" topLeftX="64" topLeftY="156" presetHandlers="0" type="rect" id="bmN">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="402" height="30" topLeftX="64" topLeftY="156" presetHandlers="0" type="rect" id="bmv">
+        <fill>
+          <fillColor color="rgba(42, 42, 49, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="8" height="8" topLeftX="78" topLeftY="167" type="ellipse" id="bmc">
+        <fill>
+          <fillColor color="rgba(120, 124, 132, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="8" height="8" topLeftX="94" topLeftY="167" type="ellipse" id="bmF">
+        <fill>
+          <fillColor color="rgba(120, 124, 132, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="8" height="8" topLeftX="110" topLeftY="167" type="ellipse" id="bmx">
+        <fill>
+          <fillColor color="rgba(120, 124, 132, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="320" height="20" topLeftX="132" topLeftY="161" type="text" id="bmT">
+        <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(138, 143, 148, 1)" wrap="false">
+          <p>karpathy @ X · 2025-02-02</p>
+        </content>
+      </shape>
+      <shape width="362" height="260" topLeftX="84" topLeftY="204" type="text" id="bmW">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.7">
+          <p><span color="rgba(212, 233, 44, 1)">$</span> cat vibe.txt</p>
+          <p>&quot;There&apos;s a new kind of coding</p>
+          <p>I call <span color="rgba(212, 233, 44, 1)">&apos;vibe coding&apos;</span>, where you</p>
+          <p>fully give in to the vibes,</p>
+          <p>embrace exponentials, and</p>
+          <p><span color="rgba(212, 233, 44, 1)">forget that the code even exists.</span>&quot;</p>
+          <p/>
+          <p><span color="rgba(138, 143, 148, 1)">— I barely even touch the</span></p>
+          <p><span color="rgba(138, 143, 148, 1)">keyboard. Accept All, I don&apos;t</span></p>
+          <p><span color="rgba(138, 143, 148, 1)">read the diffs anymore.</span></p>
+        </content>
+      </shape>
+      <shape width="396" height="20" topLeftX="500" topLeftY="156" type="text" id="bmS">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// DEFINITION</p>
+        </content>
+      </shape>
+      <shape width="396" height="72" topLeftX="500" topLeftY="182" type="text" id="bmO">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(214, 216, 220, 1)" lineSpacing="multiple:1.6">
+          <p>用自然语言提示描述想要的效果，由 AI 生成、修改代码的开发方式；开发者主要通过对话引导方向、判断运行结果，而非逐行编写与审查代码。</p>
+        </content>
+      </shape>
+      <line id="bmR" startX="500" startY="266" endX="896.0012626242496" endY="266">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="396" height="20" topLeftX="500" topLeftY="280" type="text" id="bmB">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// ROLE SHIFT　角色转变</p>
+        </content>
+      </shape>
+      <shape width="396" height="30" topLeftX="500" topLeftY="306" type="text" id="bmD">
+        <content verticalAlign="top" fontSize="17" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>代码编写者 ⟶ 意图引导者</p>
+        </content>
+      </shape>
+      <shape width="396" height="40" topLeftX="500" topLeftY="342" type="text" id="bmr">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>更像产品经理或指挥者：描述目标、验收效果，把具体实现交给 AI。</p>
+        </content>
+      </shape>
+      <line id="bmt" startX="500" startY="396" endX="896.0012626242496" endY="396">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="396" height="20" topLeftX="500" topLeftY="410" type="text" id="bmk">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// SIGNATURE MOVES　标志性动作</p>
+        </content>
+      </shape>
+      <shape width="396" height="64" topLeftX="500" topLeftY="436" type="text" id="bmA">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.7">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 一路 Accept All，接受 AI 补全</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 不再阅读每次改动的代码 diff</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 报错原样贴回，让 AI 反复改到能跑</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bmi">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://x.com/karpathy">A. Karpathy 于 X 的原帖（2025-02-02）</a>　|　<a href="https://cloud.google.com/discover/what-is-vibe-coding">Google Cloud: What is vibe coding</a>　|　Collins Dictionary 2025 年度词汇释义</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bmj">
+      <content>
+        <p>第3页（约40秒）：Vibe Coding这个词是OpenAI创始成员、前Tesla AI总监Karpathy在2025年2月2日的一条帖子里提出的。他的原话是&quot;完全沉浸在感觉里，拥抱指数级进步，甚至忘记代码的存在&quot;&quot;我几乎不碰键盘，总是点全部接受，再也不读代码改动了&quot;。它的内涵是：用自然语言说清想要什么，AI来写代码，开发者从逐行写代码的人，变成引导意图、验收结果的人。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNZ">
+    <style>
+      <fill id="fNZ">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bZH">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>01 / VIBE CODING · 工作方式</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bZx">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>04 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="bZW">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>工作循环：描述 → 生成 → 运行 → 微调，一圈圈逼近预期</p>
+        </content>
+      </shape>
+      <line id="bZZ" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="180" height="140" topLeftX="64" topLeftY="158" presetHandlers="0" type="rect" id="bZz">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="152" height="20" topLeftX="78" topLeftY="172" type="text" id="bZJ">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>01 · describe</p>
+        </content>
+      </shape>
+      <shape width="152" height="22" topLeftX="78" topLeftY="198" type="text" id="bZY">
+        <content verticalAlign="top" fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>描述意图</p>
+        </content>
+      </shape>
+      <shape width="152" height="56" topLeftX="78" topLeftY="228" type="text" id="bZm">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>用自然语言、语音或截图说清「想要什么」，不规定怎么实现。</p>
+        </content>
+      </shape>
+      <shape width="180" height="140" topLeftX="264" topLeftY="158" presetHandlers="0" type="rect" id="bZh">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="152" height="20" topLeftX="278" topLeftY="172" type="text" id="bZt">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02 · generate</p>
+        </content>
+      </shape>
+      <shape width="152" height="22" topLeftX="278" topLeftY="198" type="text" id="bZA">
+        <content verticalAlign="top" fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>AI 生成</p>
+        </content>
+      </shape>
+      <shape width="152" height="56" topLeftX="278" topLeftY="228" type="text" id="bZa">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>大模型直接产出代码与文件，人通常不逐行阅读。</p>
+        </content>
+      </shape>
+      <shape width="180" height="140" topLeftX="464" topLeftY="158" presetHandlers="0" type="rect" id="bZv">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="152" height="20" topLeftX="478" topLeftY="172" type="text" id="bZO">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>03 · run</p>
+        </content>
+      </shape>
+      <shape width="152" height="22" topLeftX="478" topLeftY="198" type="text" id="bZB">
+        <content verticalAlign="top" fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>运行看效果</p>
+        </content>
+      </shape>
+      <shape width="152" height="56" topLeftX="478" topLeftY="228" type="text" id="bZs">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>运行应用、试用功能，凭结果和「感觉」判断对不对。</p>
+        </content>
+      </shape>
+      <shape width="180" height="140" topLeftX="664" topLeftY="158" presetHandlers="0" type="rect" id="bZj">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="152" height="20" topLeftX="678" topLeftY="172" type="text" id="bZF">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>04 · nudge</p>
+        </content>
+      </shape>
+      <shape width="152" height="22" topLeftX="678" topLeftY="198" type="text" id="bZT">
+        <content verticalAlign="top" fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>反馈微调</p>
+        </content>
+      </shape>
+      <shape width="152" height="56" topLeftX="678" topLeftY="228" type="text" id="bZI">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>把报错或不满原样贴回，让 AI 再改，直到能跑通。</p>
+        </content>
+      </shape>
+      <line id="bZr" startX="244" startY="228" endX="262.0277563773199" endY="228">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="bZf" startX="444" startY="228" endX="462.0277563773199" endY="228">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="bZN" startX="644" startY="228" endX="662.02775637732" endY="228">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="bZu" startX="844" startY="316" endX="71.99935233187796" endY="316.00000000000006">
+        <border color="rgba(122, 139, 44, 1)" dashArray="dash" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="296" height="20" topLeftX="600" topLeftY="322" type="text" id="bZS">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" textAlign="right" wrap="false">
+          <p>loop until it feels right</p>
+        </content>
+      </shape>
+      <line id="bZk" startX="64" startY="356" endX="896.0006009613214" endY="356">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="480" height="20" topLeftX="64" topLeftY="372" type="text" id="bZi">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// 分水岭：你还读不读代码？</p>
+        </content>
+      </shape>
+      <shape width="480" height="72" topLeftX="64" topLeftY="400" type="text" id="bZe">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.7">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 不审查、一路 Accept All —— 严格意义上的 vibe coding</p>
+          <p><span color="rgba(138, 143, 148, 1)" fontFamily="Roboto Mono">·</span> <span color="rgba(150, 154, 160, 1)">逐行审查后再合并 —— 其实回到了「AI 辅助编程」</span></p>
+        </content>
+      </shape>
+      <shape width="328" height="20" topLeftX="568" topLeftY="372" type="text" id="bZc">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// 代表性工具</p>
+        </content>
+      </shape>
+      <shape width="328" height="64" topLeftX="568" topLeftY="402" type="text" id="bZR">
+        <content verticalAlign="top" fontSize="12" fontFamily="Roboto Mono" color="rgba(190, 194, 200, 1)" lineSpacing="multiple:1.8">
+          <p>Cursor · Claude Code · Windsurf</p>
+          <p>Replit Agent · Lovable · bolt.new · v0</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bZD">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://scrimba.com/articles/what-is-vibe-coding/">Scrimba: What Is Vibe Coding（describe→generate→run→nudge 循环与「审查即分界」）</a>　|　各工具官网</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bZd">
+      <content>
+        <p>第4页（约35秒）：它的工作方式是一个四步循环——先用自然语言描述意图，AI生成代码，运行看效果，不满意就把报错贴回去让它改，循环往复直到感觉对了。关键分水岭是&quot;你还读不读代码&quot;：完全不审查、一路Accept All才是严格意义的vibe coding；只要逐行审查，就回到了普通的AI辅助编程。代表工具包括Cursor、Claude Code、Windsurf、Replit Agent、Lovable、bolt.new等。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNF">
+    <style>
+      <fill id="fNF">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bZn">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>01 / VIBE CODING · 发展状态</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bsm">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>05 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="bsh">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>不到一年：从一条帖子到年度词汇，质量警钟也随之敲响</p>
+        </content>
+      </shape>
+      <line id="bsO" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <line id="bZp" startX="90" startY="206" endX="872.0006393859279" endY="206">
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+      </line>
+      <shape width="180" height="20" topLeftX="40" topLeftY="158" type="text" id="bsa">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="center" wrap="false">
+          <p>2025.02</p>
+        </content>
+      </shape>
+      <shape width="12" height="12" topLeftX="124" topLeftY="200" type="ellipse" id="bsv">
+        <fill>
+          <fillColor color="rgba(212, 233, 44, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="22" topLeftX="35" topLeftY="226" type="text" id="bsF">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center" wrap="false">
+          <p>概念诞生</p>
+        </content>
+      </shape>
+      <shape width="190" height="56" topLeftX="35" topLeftY="252" type="text" id="bZE">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)" textAlign="center">
+          <p>Karpathy 在 X 提出 vibe coding，迅速在开发者圈引爆。</p>
+        </content>
+      </shape>
+      <shape width="180" height="20" topLeftX="282" topLeftY="158" type="text" id="bss">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="center" wrap="false">
+          <p>2025 春夏</p>
+        </content>
+      </shape>
+      <shape width="12" height="12" topLeftX="366" topLeftY="200" type="ellipse" id="bsj">
+        <fill>
+          <fillColor color="rgba(212, 233, 44, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="22" topLeftX="277" topLeftY="226" type="text" id="bZP">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center" wrap="false">
+          <p>工具爆发</p>
+        </content>
+      </shape>
+      <shape width="190" height="56" topLeftX="277" topLeftY="252" type="text" id="bsI">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)" textAlign="center">
+          <p>Cursor、Lovable、v0、Replit Agent 等普及，原型大量涌现。</p>
+        </content>
+      </shape>
+      <shape width="180" height="20" topLeftX="524" topLeftY="158" type="text" id="bsr">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(201, 48, 44, 1)" bold="true" textAlign="center" wrap="false">
+          <p>2025.05</p>
+        </content>
+      </shape>
+      <shape width="12" height="12" topLeftX="608" topLeftY="200" type="ellipse" id="bZM">
+        <fill>
+          <fillColor color="rgba(201, 48, 44, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="22" topLeftX="519" topLeftY="226" type="text" id="bsu">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center" wrap="false">
+          <p>安全警钟</p>
+        </content>
+      </shape>
+      <shape width="190" height="56" topLeftX="519" topLeftY="252" type="text" id="bsS">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)" textAlign="center">
+          <p>Lovable 生成应用被发现高危漏洞 CVE-2025-48757，可致数据泄露。</p>
+        </content>
+      </shape>
+      <shape width="180" height="20" topLeftX="766" topLeftY="158" type="text" id="bZX">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="center" wrap="false">
+          <p>2025.11</p>
+        </content>
+      </shape>
+      <shape width="12" height="12" topLeftX="850" topLeftY="200" type="ellipse" id="bse">
+        <fill>
+          <fillColor color="rgba(212, 233, 44, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="190" height="22" topLeftX="761" topLeftY="226" type="text" id="bsc">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center" wrap="false">
+          <p>主流认可</p>
+        </content>
+      </shape>
+      <shape width="190" height="56" topLeftX="761" topLeftY="252" type="text" id="bZC">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)" textAlign="center">
+          <p>vibe coding 当选 Collins 词典 2025 年度词汇。</p>
+        </content>
+      </shape>
+      <line id="bsd" startX="64" startY="324" endX="896.0006009613214" endY="324">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="400" height="20" topLeftX="64" topLeftY="340" type="text" id="bsH">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// 擅长：求快、一次性</p>
+        </content>
+      </shape>
+      <shape width="400" height="120" topLeftX="64" topLeftY="368" type="text" id="bsJ">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.8">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">[+]</span> 原型 / MVP 快速验证想法</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">[+]</span> 黑客松、周末项目、演示 Demo</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">[+]</span> 一次性脚本、内部小工具</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">[+]</span> 非开发者搭建轻量应用</p>
+        </content>
+      </shape>
+      <shape width="400" height="20" topLeftX="496" topLeftY="340" type="text" id="bZV">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(201, 48, 44, 1)" wrap="false">
+          <p>// 边界：生产环境要谨慎</p>
+        </content>
+      </shape>
+      <shape width="400" height="120" topLeftX="496" topLeftY="368" type="text" id="bsZ">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.8">
+          <p><span color="rgba(201, 48, 44, 1)" fontFamily="Roboto Mono">[!]</span> 不读代码，易留可维护性、正确性隐患</p>
+          <p><span color="rgba(201, 48, 44, 1)" fontFamily="Roboto Mono">[!]</span> 默认配置错误可致安全漏洞与数据泄露</p>
+          <p><span color="rgba(201, 48, 44, 1)" fontFamily="Roboto Mono">[!]</span> 复杂系统中技术债会快速累积</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bsz">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://www.collinsdictionary.com/woty">Collins Dictionary WOTY 2025</a>　|　<a href="https://www.martinfowler.com/bliki/VibeCoding.html">Martin Fowler: VibeCoding（最适合一次性软件）</a>　|　CVE-2025-48757（研究员 Matt Palmer, 2025-05）</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bst">
+      <content>
+        <p>第5页（约40秒）：发展时间线——2025年2月Karpathy造词；春夏Cursor、Lovable等工具爆发；5月安全研究员在Lovable生成的应用里发现高危漏洞CVE-48757，CVSS 8.26，扫描的1600多个应用中170个可被未授权访问用户数据和API密钥；11月它当选Collins词典年度词汇。它擅长原型、Demo、一次性脚本和非开发者做轻应用；但Martin Fowler指出，不读代码会带来可维护性、正确性、安全问题，最适合面向有限受众的&quot;一次性软件&quot;，上生产必须有审查和工程纪律。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNr">
+    <style>
+      <fill id="fNr">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="600" height="22" topLeftX="64" topLeftY="60" type="text" id="bZK">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02 / SPEC-DRIVEN DEVELOPMENT · 转折</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="60" type="text" id="bZG">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>06 / 10</p>
+        </content>
+      </shape>
+      <shape width="700" height="30" topLeftX="80" topLeftY="150" type="text" id="bZg">
+        <content verticalAlign="top" fontSize="19" fontFamily="Roboto Mono" color="rgba(138, 143, 148, 1)" strikethrough="true" wrap="false">
+          <p><del><span color="rgba(138, 143, 148, 1)">&quot;forget that the code even exists&quot;</span></del></p>
+        </content>
+      </shape>
+      <shape width="700" height="20" topLeftX="80" topLeftY="184" type="text" id="bZw">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>—— Vibe Coding 的信条</p>
+        </content>
+      </shape>
+      <line id="bZl" startX="100" startY="226" endX="100" endY="262.01388621073824">
+        <border color="rgba(212, 233, 44, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="500" height="22" topLeftX="124" topLeftY="234" type="text" id="bZq">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>workflow inverted · 工作流被反转</p>
+        </content>
+      </shape>
+      <shape width="820" height="42" topLeftX="80" topLeftY="286" type="text" id="bZy">
+        <content verticalAlign="top" textType="headline" fontSize="27" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>&quot;the spec is the source of truth&quot;</p>
+        </content>
+      </shape>
+      <shape width="700" height="20" topLeftX="80" topLeftY="332" type="text" id="bZQ">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(150, 154, 160, 1)" wrap="false">
+          <p>—— SDD 的信条：规格才是唯一真相源</p>
+        </content>
+      </shape>
+      <line id="bZL" startX="64" startY="378" endX="896.0006009613214" endY="378">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="832" height="24" topLeftX="64" topLeftY="398" type="text" id="bZU">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>为什么会出现 SDD？</p>
+        </content>
+      </shape>
+      <shape width="832" height="64" topLeftX="64" topLeftY="428" type="text" id="bZb">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(190, 194, 200, 1)" lineSpacing="multiple:1.6">
+          <p>AI agent 强大但不可预测，一句自然语言 prompt 是「有损」的，意图与约束在对话中不断丢失；走向生产后，<span color="rgba(201, 48, 44, 1)">不可预测、难维护、难审计</span>集中暴露。SDD 的回应是：先把「要什么」写成精确、可验证的规格，再让 AI 去实现。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bZo">
+      <content>
+        <p>第6页（约25秒，转折页）：Vibe Coding的信条是&quot;忘记代码的存在&quot;，但当它被用于生产系统就撞了墙。AI agent强大但不可预测，一句随口的自然语言是有损的，意图和约束在对话里不断丢失，导致结果不可预测、难维护、难审计。2025年年中出现的SDD反转了工作流，它的信条是&quot;规格才是唯一真相源&quot;——先把要什么写清楚，再让AI实现。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNW">
+    <style>
+      <fill id="fNW">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bsR">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02 / SDD · 内涵</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bsT">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>07 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="bsK">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>SDD：规格而非代码是主要产物，代码只是规格的生成结果</p>
+        </content>
+      </shape>
+      <line id="bsl" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="430" height="20" topLeftX="64" topLeftY="152" type="text" id="bsP">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// DEFINITION</p>
+        </content>
+      </shape>
+      <shape width="430" height="130" topLeftX="64" topLeftY="180" type="text" id="baI">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(205, 208, 213, 1)" lineSpacing="multiple:1.75">
+          <p>面向 AI 编码 agent 的一种开发方法：结构化的规格说明——需求、场景、约束——而不是代码，才是项目的主要产物与<span color="rgba(212, 233, 44, 1)">唯一事实来源</span>。</p>
+          <p/>
+          <p>先写规格，再由规格依次驱动计划、任务与实现；代码是规格的生成与验证产物。需求变化时，先改规格、再重新生成代码。</p>
+        </content>
+      </shape>
+      <line id="bsx" startX="516" startY="152" endX="516" endY="306.0032467190222">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="360" height="20" topLeftX="536" topLeftY="152" type="text" id="bsY">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// 三个核心主张</p>
+        </content>
+      </shape>
+      <shape width="360" height="40" topLeftX="536" topLeftY="182" type="text" id="bsq">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)">
+          <p><strong><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">01　</span></strong><strong><span color="rgba(255, 255, 255, 1)">规格先行　</span></strong><span color="rgba(150, 154, 160, 1)">动手前写清「做什么」与验收标准</span></p>
+        </content>
+      </shape>
+      <shape width="360" height="40" topLeftX="536" topLeftY="228" type="text" id="bsU">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)">
+          <p><strong><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">02　</span></strong><strong><span color="rgba(255, 255, 255, 1)">单一真相源　</span></strong><span color="rgba(150, 154, 160, 1)">需求、计划、任务、代码对齐同一 spec</span></p>
+        </content>
+      </shape>
+      <shape width="360" height="40" topLeftX="536" topLeftY="274" type="text" id="bsM">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)">
+          <p><strong><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">03　</span></strong><strong><span color="rgba(255, 255, 255, 1)">持续可演进　</span></strong><span color="rgba(150, 154, 160, 1)">规格纳入版本管理，变更可审计</span></p>
+        </content>
+      </shape>
+      <line id="bau" startX="64" startY="330" endX="896.0006009613214" endY="330">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="400" height="20" topLeftX="64" topLeftY="344" type="text" id="bsf">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>// 工作流被反转</p>
+        </content>
+      </shape>
+      <shape width="52" height="24" topLeftX="64" topLeftY="376" type="text" id="bsA">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(138, 143, 148, 1)" wrap="false">
+          <p>VIBE</p>
+        </content>
+      </shape>
+      <shape width="110" height="32" topLeftX="120" topLeftY="372" presetHandlers="0" type="rect" id="bso">
+        <fill>
+          <fillColor color="rgba(34, 34, 40, 1)"/>
+        </fill>
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="110" height="32" topLeftX="120" topLeftY="372" type="text" id="bsw">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170, 174, 180, 1)" textAlign="center" wrap="false">
+          <p>松散 prompt</p>
+        </content>
+      </shape>
+      <line id="baa" startX="234" startY="388" endX="248.0356688476182" endY="388">
+        <border color="rgba(107, 114, 128, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="118" height="32" topLeftX="252" topLeftY="372" presetHandlers="0" type="rect" id="bsk">
+        <fill>
+          <fillColor color="rgba(34, 34, 40, 1)"/>
+        </fill>
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="118" height="32" topLeftX="252" topLeftY="372" type="text" id="bsD">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170, 174, 180, 1)" textAlign="center" wrap="false">
+          <p>AI 生成</p>
+        </content>
+      </shape>
+      <line id="bsL" startX="374" startY="388" endX="388.0356688476182" endY="388">
+        <border color="rgba(107, 114, 128, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="150" height="32" topLeftX="392" topLeftY="372" presetHandlers="0" type="rect" id="bsp">
+        <fill>
+          <fillColor color="rgba(40, 38, 34, 1)"/>
+        </fill>
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="150" height="32" topLeftX="392" topLeftY="372" type="text" id="bsW">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" textAlign="center" wrap="false">
+          <p>代码 = 真相</p>
+        </content>
+      </shape>
+      <shape width="340" height="24" topLeftX="556" topLeftY="376" type="text" id="bsg">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(138, 143, 148, 1)" wrap="false">
+          <p>规格缺失，意图在来回对话中丢失</p>
+        </content>
+      </shape>
+      <shape width="52" height="24" topLeftX="64" topLeftY="428" type="text" id="bsE">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>SDD</p>
+        </content>
+      </shape>
+      <shape width="86" height="32" topLeftX="120" topLeftY="424" presetHandlers="0" type="rect" id="bas">
+        <fill>
+          <fillColor color="rgba(38, 42, 24, 1)"/>
+        </fill>
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="86" height="32" topLeftX="120" topLeftY="424" type="text" id="bsN">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="center" wrap="false">
+          <p>spec</p>
+        </content>
+      </shape>
+      <line id="bsQ" startX="210" startY="440" endX="224.0356688476182" endY="440">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="82" height="32" topLeftX="228" topLeftY="424" presetHandlers="0" type="rect" id="bsV">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="82" height="32" topLeftX="228" topLeftY="424" type="text" id="baZ">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(200, 204, 210, 1)" textAlign="center" wrap="false">
+          <p>plan</p>
+        </content>
+      </shape>
+      <line id="bsi" startX="314" startY="440" endX="328.0356688476182" endY="440">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="82" height="32" topLeftX="332" topLeftY="424" presetHandlers="0" type="rect" id="bsG">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="82" height="32" topLeftX="332" topLeftY="424" type="text" id="bsn">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(200, 204, 210, 1)" textAlign="center" wrap="false">
+          <p>tasks</p>
+        </content>
+      </shape>
+      <line id="bam" startX="418" startY="440" endX="432.0356688476182" endY="440">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="130" height="32" topLeftX="436" topLeftY="424" presetHandlers="0" type="rect" id="bsB">
+        <fill>
+          <fillColor color="rgba(34, 34, 40, 1)"/>
+        </fill>
+        <border color="rgba(70, 70, 78, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="130" height="32" topLeftX="436" topLeftY="424" type="text" id="bsy">
+        <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170, 174, 180, 1)" textAlign="center" wrap="false">
+          <p>代码 = 产物</p>
+        </content>
+      </shape>
+      <shape width="316" height="24" topLeftX="580" topLeftY="428" type="text" id="bsb">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>规格是真相源，代码可随时重新生成</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bsX">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog: Spec-driven development with AI（2025-09-02）</a>　|　<a href="https://dev.to/bobbyblaine/spec-driven-development-write-the-spec-not-the-code-2p5o">DEV: Write the Spec, Not the Code</a></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bsC">
+      <content>
+        <p>第7页（约40秒）：SDD即规格驱动开发，是面向AI编码agent的方法。它最核心的反转是：规格而不是代码才是主要产物和唯一事实来源。先写结构化规格——需求、场景、约束，再由规格依次驱动计划、任务、实现，代码只是规格的生成产物；需求变了先改规格再重新生成代码。对比看：Vibe是从松散prompt直接到代码、代码成了真相、规格缺失；SDD是spec到plan到tasks再到代码，规格始终是真相源。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNV">
+    <style>
+      <fill id="fNV">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="baX">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02 / SDD · 核心流程</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="bav">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>08 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="baO">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>五段式流水线：先立宪、写规格，再让 agent 按任务实现</p>
+        </content>
+      </shape>
+      <line id="baA" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="152" height="186" topLeftX="64" topLeftY="158" presetHandlers="0" type="rect" id="bao">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="18" topLeftX="78" topLeftY="174" type="text" id="baw">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" wrap="false">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="78" topLeftY="198" type="text" id="baM">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>constitution</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="78" topLeftY="224" type="text" id="bah">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>立宪</p>
+        </content>
+      </shape>
+      <shape width="124" height="62" topLeftX="78" topLeftY="252" type="text" id="bat">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>定原则与技术栈</p>
+        </content>
+      </shape>
+      <line id="baY" startX="78" startY="320" endX="202.00403219250575" endY="320">
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+      </line>
+      <shape width="124" height="16" topLeftX="78" topLeftY="326" type="text" id="baq">
+        <content verticalAlign="top" textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>→ constitution.md</p>
+        </content>
+      </shape>
+      <shape width="152" height="186" topLeftX="234" topLeftY="158" presetHandlers="0" type="rect" id="baP">
+        <fill>
+          <fillColor color="rgba(38, 42, 24, 1)"/>
+        </fill>
+        <border color="rgba(212, 233, 44, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="18" topLeftX="248" topLeftY="174" type="text" id="baz">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="248" topLeftY="198" type="text" id="baJ">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>specify</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="248" topLeftY="224" type="text" id="bax">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>写规格</p>
+        </content>
+      </shape>
+      <shape width="124" height="62" topLeftX="248" topLeftY="252" type="text" id="baU">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 190, 1)">
+          <p>写清需求与验收标准</p>
+        </content>
+      </shape>
+      <line id="bag" startX="248" startY="320" endX="372.00403219250575" endY="320">
+        <border color="rgba(90, 100, 50, 1)" width="1"/>
+      </line>
+      <shape width="124" height="16" topLeftX="248" topLeftY="326" type="text" id="baE">
+        <content verticalAlign="top" textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(150, 154, 120, 1)" wrap="false">
+          <p>→ spec.md（核心）</p>
+        </content>
+      </shape>
+      <shape width="152" height="186" topLeftX="404" topLeftY="158" presetHandlers="0" type="rect" id="bad">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="18" topLeftX="418" topLeftY="174" type="text" id="baH">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" wrap="false">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="418" topLeftY="198" type="text" id="baR">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>plan</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="418" topLeftY="224" type="text" id="baW">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>做计划</p>
+        </content>
+      </shape>
+      <shape width="124" height="62" topLeftX="418" topLeftY="252" type="text" id="baD">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>设计方案与路径</p>
+        </content>
+      </shape>
+      <line id="baL" startX="418" startY="320" endX="542.0040321925057" endY="320">
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+      </line>
+      <shape width="124" height="16" topLeftX="418" topLeftY="326" type="text" id="bap">
+        <content verticalAlign="top" textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>→ plan.md</p>
+        </content>
+      </shape>
+      <shape width="152" height="186" topLeftX="574" topLeftY="158" presetHandlers="0" type="rect" id="bae">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="18" topLeftX="588" topLeftY="174" type="text" id="bac">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" wrap="false">
+          <p>04</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="588" topLeftY="198" type="text" id="bak">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>tasks</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="588" topLeftY="224" type="text" id="bai">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>拆任务</p>
+        </content>
+      </shape>
+      <shape width="124" height="62" topLeftX="588" topLeftY="252" type="text" id="ban">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>拆解为原子任务</p>
+        </content>
+      </shape>
+      <line id="bum" startX="588" startY="320" endX="712.0040321925057" endY="320">
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+      </line>
+      <shape width="124" height="16" topLeftX="588" topLeftY="326" type="text" id="baS">
+        <content verticalAlign="top" textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>→ tasks.md</p>
+        </content>
+      </shape>
+      <shape width="152" height="186" topLeftX="744" topLeftY="158" presetHandlers="0" type="rect" id="baf">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="124" height="18" topLeftX="758" topLeftY="174" type="text" id="baN">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" wrap="false">
+          <p>05</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="758" topLeftY="198" type="text" id="baG">
+        <content verticalAlign="top" fontSize="13" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>implement</p>
+        </content>
+      </shape>
+      <shape width="124" height="20" topLeftX="758" topLeftY="224" type="text" id="baV">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>实现</p>
+        </content>
+      </shape>
+      <shape width="124" height="62" topLeftX="758" topLeftY="252" type="text" id="buZ">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(150, 154, 160, 1)">
+          <p>编码并对照规格验证</p>
+        </content>
+      </shape>
+      <line id="bar" startX="758" startY="320" endX="882.0040321925057" endY="320">
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+      </line>
+      <shape width="124" height="16" topLeftX="758" topLeftY="326" type="text" id="baT">
+        <content verticalAlign="top" textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>→ working code</p>
+        </content>
+      </shape>
+      <line id="baK" startX="218" startY="250" endX="232.0356688476182" endY="250">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="baQ" startX="388" startY="250" endX="402.0356688476182" endY="250">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="bal" startX="558" startY="250" endX="572.0356688476182" endY="250">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="baC" startX="728" startY="250" endX="742.0356688476182" endY="250">
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <endArrow type="arrow"/>
+      </line>
+      <line id="baj" startX="64" startY="372" endX="896.0006009613214" endY="372">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="832" height="24" topLeftX="64" topLeftY="388" type="text" id="baF">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)" wrap="false">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">// Kiro（AWS）三阶段：　</span><span color="rgba(220, 222, 226, 1)" fontFamily="Roboto Mono">requirements</span><span color="rgba(150, 154, 160, 1)"> 需求 → </span><span color="rgba(220, 222, 226, 1)" fontFamily="Roboto Mono">design</span><span color="rgba(150, 154, 160, 1)"> 设计 → </span><span color="rgba(220, 222, 226, 1)" fontFamily="Roboto Mono">tasks</span><span color="rgba(150, 154, 160, 1)"> 任务，再由 agent 生成代码</span></p>
+        </content>
+      </shape>
+      <shape width="832" height="48" topLeftX="64" topLeftY="430" type="text" id="baB">
+        <content verticalAlign="top" fontSize="13" fontFamily="思源黑体" color="rgba(190, 194, 200, 1)" lineSpacing="multiple:1.6">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">↺ </span><strong><span color="rgba(255, 255, 255, 1)">规格持续存活：</span></strong>实现或运行中发现偏差，回到 spec 修改后重新生成，而不是绕开规格直接改代码——这正是它与 Vibe Coding 的根本区别。</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="500" type="text" id="bay">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 官方文档（constitution / specify / plan / tasks / implement）</a>　|　<a href="https://kiro.dev/docs/specs/">Kiro Docs: Specs（requirements / design / tasks）</a></p>
+        </content>
+      </shape>
+    </data>
+    <note id="bab">
+      <content>
+        <p>第8页（约40秒）：以GitHub开源的Spec Kit为代表，SDD是一条五段式流水线：第一步constitution立宪，定工程原则、技术栈和不可违背的约束；第二步specify写规格，写清需求、场景和验收标准，这是核心；第三步plan做技术计划；第四步tasks拆成原子任务；第五步implement由agent逐项编码并对照规格验证。AWS的Kiro把它精简为requirements、design、tasks三阶段。关键是规格持续存活，发现问题回到spec改完再重新生成，而不是直接改代码。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNS">
+    <style>
+      <fill id="fNS">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="buQ">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>02 / SDD · 发展状态</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="buU">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>09 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="40" topLeftX="62" topLeftY="78" type="text" id="buV">
+        <content verticalAlign="top" textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>2025 下半年集中落地：大厂 IDE 与开源工具链相继成型</p>
+        </content>
+      </shape>
+      <line id="buC" startX="64" startY="134" endX="896.0006009613214" endY="134">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="400" height="248" topLeftX="64" topLeftY="156" presetHandlers="0" type="rect" id="bIs">
+        <fill>
+          <fillColor color="rgba(32, 32, 38, 1)"/>
+        </fill>
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="18" topLeftX="84" topLeftY="174" type="text" id="buo">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122, 139, 44, 1)" wrap="false">
+          <p>AWS · AGENTIC IDE</p>
+        </content>
+      </shape>
+      <shape width="360" height="30" topLeftX="84" topLeftY="198" type="text" id="buG">
+        <content verticalAlign="top" textType="headline" fontSize="22" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>Kiro</p>
+        </content>
+      </shape>
+      <shape width="360" height="38" topLeftX="84" topLeftY="234" type="text" id="buw">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(170, 174, 180, 1)">
+          <p>首个围绕 SDD 构建的 agentic IDE，基于 Code OSS、接入 Amazon Bedrock。</p>
+        </content>
+      </shape>
+      <line id="bun" startX="84" startY="284" endX="444.00138888620967" endY="284">
+        <border color="rgba(52, 52, 60, 1)" width="1"/>
+      </line>
+      <shape width="360" height="20" topLeftX="84" topLeftY="294" type="text" id="buP">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>2025.07.14 预览　·　2025.11.17 GA</p>
+        </content>
+      </shape>
+      <shape width="360" height="52" topLeftX="84" topLeftY="322" type="text" id="bIZ">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" lineSpacing="multiple:1.6">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> specs 内置 requirements / design / tasks</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> hooks 自动串联生成、校验与任务推进</p>
+        </content>
+      </shape>
+      <shape width="360" height="18" topLeftX="84" topLeftY="380" type="text" id="bIm">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>// first spec-driven AI IDE</p>
+        </content>
+      </shape>
+      <shape width="400" height="248" topLeftX="496" topLeftY="156" presetHandlers="0" type="rect" id="bIu">
+        <fill>
+          <fillColor color="rgba(38, 42, 24, 1)"/>
+        </fill>
+        <border color="rgba(122, 139, 44, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="18" topLeftX="516" topLeftY="174" type="text" id="buD">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>GITHUB · OPEN SOURCE</p>
+        </content>
+      </shape>
+      <shape width="360" height="30" topLeftX="516" topLeftY="198" type="text" id="buy">
+        <content verticalAlign="top" textType="headline" fontSize="22" fontFamily="Roboto Mono" color="rgba(255, 255, 255, 1)" bold="true" wrap="false">
+          <p>Spec Kit</p>
+        </content>
+      </shape>
+      <shape width="360" height="38" topLeftX="516" topLeftY="234" type="text" id="buL">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(200, 204, 190, 1)">
+          <p>GitHub 官方开源 SDD 工具包，agent 无关，适配 30+ 编码工具。</p>
+        </content>
+      </shape>
+      <line id="bub" startX="516" startY="284" endX="876.0013888862097" endY="284">
+        <border color="rgba(90, 100, 50, 1)" width="1"/>
+      </line>
+      <shape width="360" height="20" topLeftX="516" topLeftY="294" type="text" id="bup">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>2025.09.02 开源（官方博客同日）</p>
+        </content>
+      </shape>
+      <shape width="360" height="52" topLeftX="516" topLeftY="322" type="text" id="buM">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(214, 216, 210, 1)" lineSpacing="multiple:1.6">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 斜杠命令驱动 constitution→implement</p>
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">·</span> 适配 Copilot、Claude Code、Gemini、Cursor</p>
+        </content>
+      </shape>
+      <shape width="200" height="24" topLeftX="516" topLeftY="376" type="text" id="buK">
+        <content verticalAlign="top" fontSize="20" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>130K+ stars</p>
+        </content>
+      </shape>
+      <shape width="160" height="18" topLeftX="716" topLeftY="380" type="text" id="bug">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(150, 154, 120, 1)" textAlign="right" wrap="false">
+          <p>270+ contributors</p>
+        </content>
+      </shape>
+      <line id="bul" startX="64" startY="424" endX="896.0006009613214" endY="424">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="832" height="24" topLeftX="64" topLeftY="438" type="text" id="buE">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(190, 194, 200, 1)" wrap="false">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">// 生态　</span>OpenSpec 面向棕地项目做 Delta 变更隔离、Tessl 等探索可执行规格，方法仍在快速演进</p>
+        </content>
+      </shape>
+      <shape width="832" height="24" topLeftX="64" topLeftY="466" type="text" id="buX">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(190, 194, 200, 1)" wrap="false">
+          <p><span color="rgba(212, 233, 44, 1)" fontFamily="Roboto Mono">// 适用　</span>生产级系统、团队协作、长期维护项目，以及需要可审计、可复现的场景</p>
+        </content>
+      </shape>
+      <shape width="832" height="22" topLeftX="64" topLeftY="502" type="text" id="bIa">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(107, 114, 128, 1)" wrap="false">
+          <p>来源：<a href="https://kiro.dev/blog/general-availability/">Kiro 官方博客（2025-11-17 GA；预览 2025-07-14）</a>　|　<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 项目页（130K+ stars，截至 2026-09）</a>　|　<a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog</a></p>
+        </content>
+      </shape>
+    </data>
+    <note id="buq">
+      <content>
+        <p>第9页（约40秒）：SDD在2025年下半年集中落地。两个代表：一是AWS的Kiro，2025年7月14日公开预览、11月17日正式发布，是第一个围绕规格驱动开发构建的AI IDE，内置requirements、design、tasks三阶段specs和自动化hooks；二是GitHub的Spec Kit，2025年9月2日随官方博客开源，agent无关，适配Copilot、Claude Code、Gemini、Cursor等30多种工具，截至2026年9月官方项目页已有13万多star、270多贡献者。此外OpenSpec面向遗留系统做变更隔离。它主要用于生产级、团队协作和需要审计的长期项目。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pNA">
+    <style>
+      <fill id="fNA">
+        <fillColor color="rgba(26, 26, 30, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="buh">
+        <content verticalAlign="top" textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" wrap="false">
+          <p>03 / 对比与结论</p>
+        </content>
+      </shape>
+      <shape width="96" height="22" topLeftX="800" topLeftY="40" type="text" id="but">
+        <content verticalAlign="top" textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107, 114, 128, 1)" textAlign="right" wrap="false">
+          <p>10 / 10</p>
+        </content>
+      </shape>
+      <shape width="840" height="38" topLeftX="62" topLeftY="76" type="text" id="buA">
+        <content verticalAlign="top" textType="title" fontSize="24" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>不是谁取代谁：原型靠 Vibe 求快，生产靠 SDD 求稳</p>
+        </content>
+      </shape>
+      <table id="bus" width="832" height="236" topLeftX="64" topLeftY="128">
+        <colgroup>
+          <col span="1" width="146"/>
+          <col span="2" width="343"/>
+        </colgroup>
+        <tr height="30">
+          <td id="buj">
+            <fill>
+              <fillColor color="rgba(44, 44, 52, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" textAlign="left">
+              <p>　维度</p>
+            </content>
+          </td>
+          <td id="buF">
+            <fill>
+              <fillColor color="rgba(44, 44, 52, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="left">
+              <p>　VIBE CODING（方式）</p>
+            </content>
+          </td>
+          <td id="buT">
+            <fill>
+              <fillColor color="rgba(44, 44, 52, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="Roboto Mono" color="rgba(212, 233, 44, 1)" bold="true" textAlign="left">
+              <p>　SDD（过程）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="34">
+          <td id="buI">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　主要产物</p>
+            </content>
+          </td>
+          <td id="bur">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" textAlign="left">
+              <p>　能跑的应用、对不对的「感觉」</p>
+            </content>
+          </td>
+          <td id="buf">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　结构化规格 spec</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="34">
+          <td id="buN">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　真相源</p>
+            </content>
+          </td>
+          <td id="buu">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" textAlign="left">
+              <p>　代码与运行结果</p>
+            </content>
+          </td>
+          <td id="buS">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　规格；代码只是生成产物</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="34">
+          <td id="buk">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　人的角色</p>
+            </content>
+          </td>
+          <td id="bui">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" textAlign="left">
+              <p>　描述意图、验收效果，少读代码</p>
+            </content>
+          </td>
+          <td id="bue">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　写规格、做评审、按标准验收</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="34">
+          <td id="buc">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　工作流程</p>
+            </content>
+          </td>
+          <td id="buR">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" textAlign="left">
+              <p>　描述→生成→运行→微调，松散</p>
+            </content>
+          </td>
+          <td id="bud">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　立宪→规格→计划→任务→实现</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="34">
+          <td id="buH">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　最适合</p>
+            </content>
+          </td>
+          <td id="bux">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(200, 204, 210, 1)" textAlign="left">
+              <p>　原型、Demo、一次性工具</p>
+            </content>
+          </td>
+          <td id="buW">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　生产系统、团队协作、长期维护</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="36">
+          <td id="buz">
+            <fill>
+              <fillColor color="rgba(34, 34, 41, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="left">
+              <p>　主要风险</p>
+            </content>
+          </td>
+          <td id="buJ">
+            <fill>
+              <fillColor color="rgba(32, 32, 38, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(220, 150, 148, 1)" textAlign="left">
+              <p>　可维护性、安全、技术债</p>
+            </content>
+          </td>
+          <td id="buY">
+            <fill>
+              <fillColor color="rgba(36, 39, 26, 1)"/>
+            </fill>
+            <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(214, 220, 200, 1)" textAlign="left">
+              <p>　前期投入大，规格需持续维护</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="832" height="28" topLeftX="64" topLeftY="382" type="text" id="buv">
+        <content verticalAlign="top" fontSize="14" fontFamily="思源黑体" color="rgba(212, 233, 44, 1)" bold="true" wrap="false">
+          <p>结论：从 「forget the code」 到 「write the spec」，二者是同一光谱的两端，按项目阶段与风险取舍。</p>
+        </content>
+      </shape>
+      <line id="buO" startX="64" startY="424" endX="896.0006009613214" endY="424">
+        <border color="rgba(46, 46, 54, 1)" width="1"/>
+      </line>
+      <shape width="832" height="64" topLeftX="64" topLeftY="436" type="text" id="buB">
+        <content verticalAlign="top" textType="caption" fontSize="10" fontFamily="思源黑体" color="rgba(120, 124, 132, 1)" lineSpacing="multiple:1.6">
+          <p>资料来源：Karpathy 原帖（X, 2025-02-02）；<a href="https://www.collinsdictionary.com/woty">Collins Dictionary WOTY 2025</a>；<a href="https://survey.stackoverflow.co/2025/">Stack Overflow Developer Survey 2025</a>；<a href="https://www.martinfowler.com/bliki/VibeCoding.html">Martin Fowler: VibeCoding</a>；CVE-2025-48757</p>
+          <p><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog: Spec-driven development（2025-09-02）</a>；<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 项目页</a>；<a href="https://kiro.dev/docs/specs/">Kiro 官方文档与博客</a>；Google Cloud / Cloudflare 释义页</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bua">
+      <content>
+        <p>第10页（约35秒，收尾）：对比二者——Vibe Coding的主要产物是能跑的应用、真相源是代码、人少读代码、流程松散，最适合原型和一次性工具，风险在质量、安全和技术债；SDD的主要产物是规格、规格是真相源、人负责写规格和评审、走五阶段流程，适合生产系统和长期维护，代价是前期投入。它们不是谁取代谁，而是同一光谱的两端：早期探索用Vibe快速试错，进入生产用SDD求稳，按项目阶段和风险取舍。我的介绍到此结束，欢迎提问。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

@@ -1,0 +1,119 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>01 / VIBE CODING · 内涵</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>03 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>Vibe Coding：说清「想要什么」，让 AI 写代码，人不再逐行读代码</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="rect" topLeftX="64" topLeftY="156" width="402" height="324">
+      <fill>
+        <fillColor color="rgb(32,32,38)"/>
+      </fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="156" width="402" height="30">
+      <fill>
+        <fillColor color="rgb(42,42,49)"/>
+      </fill>
+    </shape>
+    <shape type="ellipse" topLeftX="78" topLeftY="167" width="8" height="8">
+      <fill><fillColor color="rgb(120,124,132)"/></fill>
+    </shape>
+    <shape type="ellipse" topLeftX="94" topLeftY="167" width="8" height="8">
+      <fill><fillColor color="rgb(120,124,132)"/></fill>
+    </shape>
+    <shape type="ellipse" topLeftX="110" topLeftY="167" width="8" height="8">
+      <fill><fillColor color="rgb(120,124,132)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="132" topLeftY="161" width="320" height="20">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(138,143,148,1)" verticalAlign="middle" wrap="false">
+        <p>karpathy @ X · 2025-02-02</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="204" width="362" height="260">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.7">
+        <p><span color="rgba(212,233,44,1)">$</span> cat vibe.txt</p>
+        <p>"There's a new kind of coding</p>
+        <p>I call <span color="rgba(212,233,44,1)">'vibe coding'</span>, where you</p>
+        <p>fully give in to the vibes,</p>
+        <p>embrace exponentials, and</p>
+        <p><span color="rgba(212,233,44,1)">forget that the code even exists.</span>"</p>
+        <p> </p>
+        <p><span color="rgba(138,143,148,1)">— I barely even touch the</span></p>
+        <p><span color="rgba(138,143,148,1)">  keyboard. Accept All, I don't</span></p>
+        <p><span color="rgba(138,143,148,1)">  read the diffs anymore.</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="156" width="396" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>// DEFINITION</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="182" width="396" height="72">
+      <content textType="body" fontSize="14" color="rgba(214,216,220,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p>用自然语言提示描述想要的效果，由 AI 生成、修改代码的开发方式；开发者主要通过对话引导方向、判断运行结果，而非逐行编写与审查代码。</p>
+      </content>
+    </shape>
+    <line startX="500" startY="266" endX="896" endY="266">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="500" topLeftY="280" width="396" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>// ROLE SHIFT　角色转变</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="306" width="396" height="30">
+      <content textType="body" fontSize="17" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>代码编写者  ⟶  意图引导者</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="342" width="396" height="40">
+      <content textType="caption" fontSize="12" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p>更像产品经理或指挥者：描述目标、验收效果，把具体实现交给 AI。</p>
+      </content>
+    </shape>
+    <line startX="500" startY="396" endX="896" endY="396">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="500" topLeftY="410" width="396" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>// SIGNATURE MOVES　标志性动作</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="436" width="396" height="64">
+      <content textType="body" fontSize="13" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.7">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 一路 Accept All，接受 AI 补全</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 不再阅读每次改动的代码 diff</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 报错原样贴回，让 AI 反复改到能跑</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://x.com/karpathy">A. Karpathy 于 X 的原帖（2025-02-02）</a>　|　<a href="https://cloud.google.com/discover/what-is-vibe-coding">Google Cloud: What is vibe coding</a>　|　Collins Dictionary 2025 年度词汇释义</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第3页（约40秒）：Vibe Coding这个词是OpenAI创始成员、前Tesla AI总监Karpathy在2025年2月2日的一条帖子里提出的。他的原话是"完全沉浸在感觉里，拥抱指数级进步，甚至忘记代码的存在""我几乎不碰键盘，总是点全部接受，再也不读代码改动了"。它的内涵是：用自然语言说清想要什么，AI来写代码，开发者从逐行写代码的人，变成引导意图、验收结果的人。</p>
+    </content>
+  </note>
+</slide>

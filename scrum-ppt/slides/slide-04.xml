@@ -1,0 +1,57 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>03 · 核心机制</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>运转主线：订单库 → 冲刺开发 → 产品增量，循环往复</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="rect" topLeftX="56" topLeftY="144" width="848" height="244">
+      <fill>
+        <fillColor color="rgb(255,255,255)"/>
+      </fill>
+      <border color="rgb(224,228,236)" width="1"/>
+    </shape>
+    <img src="FkLsbKCgBo9uObxHkc2c5ZSQnvd" topLeftX="70" topLeftY="158" width="820" height="216"/>
+
+    <shape type="text" topLeftX="64" topLeftY="404" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>这张图怎么读</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="428" width="832" height="66">
+      <content textType="body" fontSize="14.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.65">
+        <p><strong>Backlog</strong> 是按优先级排列的全部需求；团队选出本次冲刺能完成的部分形成 <strong>Sprint Backlog</strong>；经 <strong>1~4 周</strong>冲刺开发交付可运行的产品增量并集成进产品，随后<strong>循环进入下一个冲刺</strong>——Scrum 不是一次性直线，而是一圈圈累加增量的循环。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：《软件工程》教材 图 3.11 Scrum 方法的软件开发流程示意图</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>04 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这是教材中的图3.11，展示了Scrum的完整运转主线。最左边是产品订单库Backlog，它是按优先级排序的全部需求清单；团队从中挑出本次冲刺能完成的一部分，形成冲刺订单库Sprint Backlog；随后进入1到4周的冲刺开发，期间每天开短会同步进展；冲刺结束交付一块可运行的软件产品，并集成进整体产品；然后循环进入下一个冲刺。请大家特别注意这个环形箭头——Scrum不是一次性的直线过程，而是一圈一圈持续累加产品增量的循环。</p>
+    </content>
+  </note>
+</slide>

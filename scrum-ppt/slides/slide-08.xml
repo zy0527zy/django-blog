@@ -1,0 +1,134 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>07 · 适用场景与优势</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>什么时候用 Scrum？它到底好在哪里？</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="146" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>适用场景</p>
+      </content>
+    </shape>
+
+    <icon iconType="iconpark/Travel/flag.svg" topLeftX="64" topLeftY="184" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="182" width="340" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>需求不确定、容易变化</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="208" width="336" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>互联网产品、新业务探索等方向尚不明朗的项目。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Peoples/peoples.svg" topLeftX="64" topLeftY="256" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="254" width="340" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>跨职能、可自组织的小团队</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="280" width="336" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>约 5~9 人，开发、测试等能力齐备，能独立交付增量。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Hands/delivery.svg" topLeftX="64" topLeftY="328" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="326" width="340" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>软件可拆分、可分批验收</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="352" width="336" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>系统能切成一块块增量，用户可逐批试用和确认。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Communicate/topic.svg" topLeftX="64" topLeftY="400" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="398" width="340" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>用户愿意持续参与反馈</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="424" width="336" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>客户或用户代表能全程参与，频繁提供业务反馈。</p></content>
+    </shape>
+
+    <line startX="470" startY="150" endX="470" endY="472">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="494" topLeftY="146" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>优势</p>
+      </content>
+    </shape>
+
+    <icon iconType="iconpark/Character/check-one.svg" topLeftX="494" topLeftY="184" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="528" topLeftY="182" width="360" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>尽早交付价值，满意度更高</p></content>
+    </shape>
+    <shape type="text" topLeftX="528" topLeftY="208" width="356" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>每个冲刺都产出可用软件，最有价值的功能最先上线。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Character/check-one.svg" topLeftX="494" topLeftY="256" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="528" topLeftY="254" width="360" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>进度透明，风险早暴露</p></content>
+    </shape>
+    <shape type="text" topLeftX="528" topLeftY="280" width="356" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>以“完成的增量”度量进度，问题在短周期内即被发现。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Character/check-one.svg" topLeftX="494" topLeftY="328" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="528" topLeftY="326" width="360" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>从容拥抱变化</p></content>
+    </shape>
+    <shape type="text" topLeftX="528" topLeftY="352" width="356" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>每个冲刺都是校准方向的机会，不必推翻整个项目计划。</p></content>
+    </shape>
+
+    <icon iconType="iconpark/Character/check-one.svg" topLeftX="494" topLeftY="400" width="22" height="22">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="528" topLeftY="398" width="360" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>团队高效、责任感强</p></content>
+    </shape>
+    <shape type="text" topLeftX="528" topLeftY="424" width="356" height="36">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5"><p>自组织加每日同步，减少等待与推诿，团队士气更高。</p></content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：《软件工程》教材 3.2 敏捷方法特点与应用，并结合 Scrum 通用实践整理</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>08 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>那什么时候该用Scrum？主要有四类场景：需求不确定、容易变化的项目；5到9人、跨职能、能够自组织的团队；软件可以拆成增量、用户能分批验收；以及客户愿意持续参与和反馈。它的优势也由此而来：第一，尽早交付可用软件，最有价值的功能最先上线，客户满意度高；第二，进度透明，用完成的增量说话，风险在每个短周期就暴露；第三，拥抱变化，每个冲刺都能校准方向，不必推翻全局；第四，自组织加上每日站会，团队协作更高效、责任感和士气更高。</p>
+    </content>
+  </note>
+</slide>

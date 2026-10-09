@@ -1,0 +1,105 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>02 / SDD · 发展状态</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>09 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>2025 下半年集中落地：大厂 IDE 与开源工具链相继成型</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="rect" topLeftX="64" topLeftY="156" width="400" height="248">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="174" width="360" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" wrap="false"><p>AWS · AGENTIC IDE</p></content>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="198" width="360" height="30">
+      <content textType="headline" fontSize="22" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>Kiro</p></content>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="234" width="360" height="38">
+      <content textType="caption" fontSize="12" color="rgba(170,174,180,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>首个围绕 SDD 构建的 agentic IDE，基于 Code OSS、接入 Amazon Bedrock。</p></content>
+    </shape>
+    <line startX="84" startY="284" endX="444" endY="284"><border color="rgb(52,52,60)" width="1"/></line>
+    <shape type="text" topLeftX="84" topLeftY="294" width="360" height="20">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>2025.07.14 预览　·　2025.11.17 GA</p></content>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="322" width="360" height="52">
+      <content textType="caption" fontSize="12" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> specs 内置 requirements / design / tasks</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> hooks 自动串联生成、校验与任务推进</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="84" topLeftY="380" width="360" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false"><p>// first spec-driven AI IDE</p></content>
+    </shape>
+    <shape type="rect" topLeftX="496" topLeftY="156" width="400" height="248">
+      <fill><fillColor color="rgb(38,42,24)"/></fill>
+      <border color="rgb(122,139,44)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="516" topLeftY="174" width="360" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>GITHUB · OPEN SOURCE</p></content>
+    </shape>
+    <shape type="text" topLeftX="516" topLeftY="198" width="360" height="30">
+      <content textType="headline" fontSize="22" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>Spec Kit</p></content>
+    </shape>
+    <shape type="text" topLeftX="516" topLeftY="234" width="360" height="38">
+      <content textType="caption" fontSize="12" color="rgba(200,204,190,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>GitHub 官方开源 SDD 工具包，agent 无关，适配 30+ 编码工具。</p></content>
+    </shape>
+    <line startX="516" startY="284" endX="876" endY="284"><border color="rgb(90,100,50)" width="1"/></line>
+    <shape type="text" topLeftX="516" topLeftY="294" width="360" height="20">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>2025.09.02 开源（官方博客同日）</p></content>
+    </shape>
+    <shape type="text" topLeftX="516" topLeftY="322" width="360" height="52">
+      <content textType="caption" fontSize="12" color="rgba(214,216,210,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 斜杠命令驱动 constitution→implement</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 适配 Copilot、Claude Code、Gemini、Cursor</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="516" topLeftY="376" width="200" height="24">
+      <content textType="body" fontSize="20" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>130K+ stars</p></content>
+    </shape>
+    <shape type="text" topLeftX="716" topLeftY="380" width="160" height="18">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(150,154,120,1)" verticalAlign="top" textAlign="right" wrap="false"><p>270+ contributors</p></content>
+    </shape>
+    <line startX="64" startY="424" endX="896" endY="424">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="438" width="832" height="24">
+      <content textType="caption" fontSize="12" color="rgba(190,194,200,1)" verticalAlign="top" wrap="false">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)">// 生态　</span><span>OpenSpec 面向棕地项目做 Delta 变更隔离、Tessl 等探索可执行规格，方法仍在快速演进</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="466" width="832" height="24">
+      <content textType="caption" fontSize="12" color="rgba(190,194,200,1)" verticalAlign="top" wrap="false">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)">// 适用　</span><span>生产级系统、团队协作、长期维护项目，以及需要可审计、可复现的场景</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="502" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://kiro.dev/blog/general-availability/">Kiro 官方博客（2025-11-17 GA；预览 2025-07-14）</a>　|　<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 项目页（130K+ stars，截至 2026-09）</a>　|　<a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog</a></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第9页（约40秒）：SDD在2025年下半年集中落地。两个代表：一是AWS的Kiro，2025年7月14日公开预览、11月17日正式发布，是第一个围绕规格驱动开发构建的AI IDE，内置requirements、design、tasks三阶段specs和自动化hooks；二是GitHub的Spec Kit，2025年9月2日随官方博客开源，agent无关，适配Copilot、Claude Code、Gemini、Cursor等30多种工具，截至2026年9月官方项目页已有13万多star、270多贡献者。此外OpenSpec面向遗留系统做变更隔离。它主要用于生产级、团队协作和需要审计的长期项目。</p>
+    </content>
+  </note>
+</slide>

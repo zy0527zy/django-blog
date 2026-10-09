@@ -1,0 +1,66 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="60" width="600" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>02 / SPEC-DRIVEN DEVELOPMENT · 转折</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="60" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>06 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="150" width="700" height="30">
+      <content textType="body" fontSize="19" fontFamily="Roboto Mono" color="rgba(138,143,148,1)" verticalAlign="top" wrap="false">
+        <p><span color="rgba(138,143,148,1)"><del>"forget that the code even exists"</del></span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="184" width="700" height="20">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>—— Vibe Coding 的信条</p>
+      </content>
+    </shape>
+    <line startX="100" startY="226" endX="100" endY="262">
+      <border color="rgb(212,233,44)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="text" topLeftX="124" topLeftY="234" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>workflow inverted · 工作流被反转</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="286" width="820" height="42">
+      <content textType="headline" fontSize="27" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>"the spec is the source of truth"</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="332" width="700" height="20">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(150,154,160,1)" verticalAlign="top" wrap="false">
+        <p>—— SDD 的信条：规格才是唯一真相源</p>
+      </content>
+    </shape>
+    <line startX="64" startY="378" endX="896" endY="378">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="398" width="832" height="24">
+      <content textType="body" fontSize="14" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>为什么会出现 SDD？</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="428" width="832" height="64">
+      <content textType="body" fontSize="14" color="rgba(190,194,200,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p>AI agent 强大但不可预测，一句自然语言 prompt 是「有损」的，意图与约束在对话中不断丢失；走向生产后，<span color="rgba(201,48,44,1)">不可预测、难维护、难审计</span>集中暴露。SDD 的回应是：先把「要什么」写成精确、可验证的规格，再让 AI 去实现。</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第6页（约25秒，转折页）：Vibe Coding的信条是"忘记代码的存在"，但当它被用于生产系统就撞了墙。AI agent强大但不可预测，一句随口的自然语言是有损的，意图和约束在对话里不断丢失，导致结果不可预测、难维护、难审计。2025年年中出现的SDD反转了工作流，它的信条是"规格才是唯一真相源"——先把要什么写清楚，再让AI实现。</p>
+    </content>
+  </note>
+</slide>

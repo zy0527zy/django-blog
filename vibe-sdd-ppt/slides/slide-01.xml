@@ -1,0 +1,53 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <img src="JFvtbbMUco7VjHxKG2ycGr1OnlQ" topLeftX="0" topLeftY="0" width="960" height="540"/>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="540">
+      <fill>
+        <fillColor color="linear-gradient(90deg,rgba(26,26,30,0.97) 0%,rgba(26,26,30,0.9) 42%,rgba(26,26,30,0) 74%)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="66" width="520" height="26">
+      <content textType="caption" fontSize="13" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>$ software_engineering / ai_coding</p>
+      </content>
+    </shape>
+    <line startX="64" startY="106" endX="118" endY="106">
+      <border color="rgb(212,233,44)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="62" topLeftY="140" width="540" height="70">
+      <content textType="title" fontSize="42" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>当 AI 开始写代码</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="226" width="540" height="48">
+      <content textType="headline" fontSize="28" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>Vibe Coding 与 SDD</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="292" width="500" height="60">
+      <content textType="body" fontSize="15" color="rgba(184,188,194,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p>AI 时代新出现的一种软件开发「方式」，与一种软件开发「过程」</p>
+        <p>——两项新方法的内涵与当前发展状态调研</p>
+      </content>
+    </shape>
+    <line startX="64" startY="430" endX="560" endY="430">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="446" width="520" height="50">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(138,143,148,1)" verticalAlign="top" lineSpacing="multiple:1.7">
+        <p>课程：软件工程　|　汇报人：　　　　　班级：　　　　　日期：</p>
+        <p>topic: (1) vibe-coding  (2) spec-driven-development</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>开场（约20秒）：今天介绍AI时代新出现的两个概念。Vibe Coding是一种新的软件开发「方式」，SDD规格驱动开发是一种新的软件开发「过程」。我会讲清它们各自的内涵、怎么工作，以及2025年至今的发展状态，最后对比二者关系。</p>
+    </content>
+  </note>
+</slide>

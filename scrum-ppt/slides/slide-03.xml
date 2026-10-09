@@ -1,0 +1,128 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>02 · 方法是什么</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>Scrum：用固定长度的“冲刺”迭代交付产品增量</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="148" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>词源</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="178" width="3" height="58">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="176" width="452" height="64">
+      <content textType="body" fontSize="14.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.6">
+        <p>Scrum 是英式橄榄球术语“争球”。团队如同橄榄球队：每个人角色明确、分工清晰，目标一致、高效协作地向前推进。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="262" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>定义</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="292" width="3" height="120">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="288" width="452" height="132">
+      <content textType="body" fontSize="14.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.65">
+        <p>产生于 20 世纪 90 年代中期的一种敏捷方法，以<strong>增量和迭代</strong>方式管理软件项目：开发被拆成一串固定长度（<strong>1~4 周</strong>）的短迭代——<strong>冲刺（Sprint）</strong>，每个冲刺都交付一个“完成的、可用的”产品增量。</p>
+      </content>
+    </shape>
+
+    <line startX="568" startY="150" endX="568" endY="478">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="592" topLeftY="148" width="300" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>它解决什么问题</p>
+      </content>
+    </shape>
+
+    <icon iconType="iconpark/Arrows/play-cycle.svg" topLeftX="592" topLeftY="184" width="22" height="22">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="624" topLeftY="182" width="276" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true">
+        <p>需求变化快，计划追不上</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="624" topLeftY="208" width="276" height="48">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>每个冲刺都是反馈与校准窗口，新变化在下一冲刺即可被接纳。</p>
+      </content>
+    </shape>
+
+    <icon iconType="iconpark/Base/preview-open.svg" topLeftX="592" topLeftY="280" width="22" height="22">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="624" topLeftY="278" width="276" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true">
+        <p>进度不透明，风险发现晚</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="624" topLeftY="304" width="276" height="48">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>每段都产出可运行软件，进度用“真正完成的功能”来度量。</p>
+      </content>
+    </shape>
+
+    <icon iconType="iconpark/Hands/delivery.svg" topLeftX="592" topLeftY="376" width="22" height="22">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="624" topLeftY="374" width="276" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true">
+        <p>价值交付晚，用户等不起</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="624" topLeftY="400" width="276" height="48">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>小步快跑，从最早的冲刺起就持续交付可用价值。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：《软件工程》教材 3.2.3 Scrum 方法</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>03 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>Scrum这个词来自英式橄榄球的“争球”，寓意团队像橄榄球队一样角色明确、目标一致地协同推进。它是20世纪90年代中期出现的一种敏捷方法，核心做法是把开发拆成一串1到4周的短迭代，叫做冲刺，每个冲刺结束都要交出一个真正可用的产品增量。它针对性地解决三个问题：需求变化快，每个冲刺都是一次校准窗口；进度不透明，就用完成的增量来度量；价值交付晚，就从第一个冲刺开始小步交付。</p>
+    </content>
+  </note>
+</slide>

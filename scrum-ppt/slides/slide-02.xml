@@ -1,0 +1,102 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>01 · 为什么需要 SCRUM</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="27" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>需求总在变，为什么软件项目还是频频失控？</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="150" width="60" height="42">
+      <content textType="headline" fontSize="26" color="rgba(37,99,235,1)" bold="true">
+        <p>01</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="150" width="740" height="26">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>需求前期定死，交付即跑偏</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="178" width="752" height="44">
+      <content textType="body" fontSize="14" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>瀑布式开发要求前期花数月冻结需求、写尽文档，直到末期才交付；此时成果往往与用户真实需要相去甚远。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="232" endX="896" endY="232">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="244" width="60" height="42">
+      <content textType="headline" fontSize="26" color="rgba(37,99,235,1)" bold="true">
+        <p>02</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="244" width="740" height="26">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>集成拖到最后，风险集中爆发</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="272" width="752" height="44">
+      <content textType="body" fontSize="14" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>编码、集成与测试长期分离，对接和缺陷被压到项目末期才暴露，返工代价大，一处延期往往拖垮全局。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="326" endX="896" endY="326">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="338" width="60" height="42">
+      <content textType="headline" fontSize="26" color="rgba(37,99,235,1)" bold="true">
+        <p>03</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="338" width="740" height="26">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>进度长期不可见，失控难以挽回</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="128" topLeftY="366" width="752" height="44">
+      <content textType="body" fontSize="14" color="rgba(90,99,115,1)" lineSpacing="multiple:1.5">
+        <p>可运行软件出现之前，真实进度无法度量；等延期和超预算暴露时，项目往往已经没有调整空间。</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="0" topLeftY="428" width="960" height="112">
+      <fill>
+        <fillColor color="rgb(13,19,38)"/>
+      </fill>
+    </shape>
+    <icon iconType="iconpark/Others/thinking-problem.svg" topLeftX="62" topLeftY="456" width="40" height="40">
+      <fill>
+        <fillColor color="rgba(96,165,250,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="120" topLeftY="446" width="780" height="22">
+      <content textType="caption" fontSize="12" color="rgba(96,165,250,1)" bold="true" letterSpacing="1">
+        <p>关键追问</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="470" width="780" height="52">
+      <content textType="body" fontSize="17" color="rgba(255,255,255,1)" bold="true" lineSpacing="multiple:1.5">
+        <p>能不能把大项目切成一段段短周期，每段都交付可运行的软件，并依据反馈随时校准方向？</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>在认识Scrum之前，先看一个长期存在的老问题。传统瀑布式开发像接力赛，需求、设计、编码、测试依次进行，前期就要把需求定死。它有三个典型痛点：一是交付即跑偏，几个月后做出来的东西已经不是用户想要的；二是集成和测试全压在末期，风险集中爆发；三是在软件跑起来之前进度无法度量，等问题暴露已经来不及。于是自然产生一个追问：能不能把项目切成小段，每段都交付可用软件、随时校准？这正是Scrum要回答的问题。</p>
+    </content>
+  </note>
+</slide>

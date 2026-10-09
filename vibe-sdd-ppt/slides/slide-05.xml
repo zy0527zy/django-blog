@@ -1,0 +1,112 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>01 / VIBE CODING · 发展状态</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>05 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>不到一年：从一条帖子到年度词汇，质量警钟也随之敲响</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <line startX="90" startY="206" endX="872" endY="206">
+      <border color="rgb(70,70,78)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="40" topLeftY="158" width="180" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" textAlign="center" wrap="false"><p>2025.02</p></content>
+    </shape>
+    <shape type="ellipse" topLeftX="124" topLeftY="200" width="12" height="12">
+      <fill><fillColor color="rgb(212,233,44)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="35" topLeftY="226" width="190" height="22">
+      <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" textAlign="center" wrap="false"><p>概念诞生</p></content>
+    </shape>
+    <shape type="text" topLeftX="35" topLeftY="252" width="190" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" textAlign="center" lineSpacing="multiple:1.5"><p>Karpathy 在 X 提出 vibe coding，迅速在开发者圈引爆。</p></content>
+    </shape>
+    <shape type="text" topLeftX="282" topLeftY="158" width="180" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" textAlign="center" wrap="false"><p>2025 春夏</p></content>
+    </shape>
+    <shape type="ellipse" topLeftX="366" topLeftY="200" width="12" height="12">
+      <fill><fillColor color="rgb(212,233,44)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="277" topLeftY="226" width="190" height="22">
+      <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" textAlign="center" wrap="false"><p>工具爆发</p></content>
+    </shape>
+    <shape type="text" topLeftX="277" topLeftY="252" width="190" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" textAlign="center" lineSpacing="multiple:1.5"><p>Cursor、Lovable、v0、Replit Agent 等普及，原型大量涌现。</p></content>
+    </shape>
+    <shape type="text" topLeftX="524" topLeftY="158" width="180" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(201,48,44,1)" verticalAlign="top" textAlign="center" wrap="false"><p>2025.05</p></content>
+    </shape>
+    <shape type="ellipse" topLeftX="608" topLeftY="200" width="12" height="12">
+      <fill><fillColor color="rgb(201,48,44)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="519" topLeftY="226" width="190" height="22">
+      <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" textAlign="center" wrap="false"><p>安全警钟</p></content>
+    </shape>
+    <shape type="text" topLeftX="519" topLeftY="252" width="190" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" textAlign="center" lineSpacing="multiple:1.5"><p>Lovable 生成应用被发现高危漏洞 CVE-2025-48757，可致数据泄露。</p></content>
+    </shape>
+    <shape type="text" topLeftX="766" topLeftY="158" width="180" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" textAlign="center" wrap="false"><p>2025.11</p></content>
+    </shape>
+    <shape type="ellipse" topLeftX="850" topLeftY="200" width="12" height="12">
+      <fill><fillColor color="rgb(212,233,44)"/></fill>
+    </shape>
+    <shape type="text" topLeftY="226" topLeftX="761" width="190" height="22">
+      <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" textAlign="center" wrap="false"><p>主流认可</p></content>
+    </shape>
+    <shape type="text" topLeftX="761" topLeftY="252" width="190" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" textAlign="center" lineSpacing="multiple:1.5"><p>vibe coding 当选 Collins 词典 2025 年度词汇。</p></content>
+    </shape>
+    <line startX="64" startY="324" endX="896" endY="324">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="340" width="400" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// 擅长：求快、一次性</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="368" width="400" height="120">
+      <content textType="body" fontSize="13" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.8">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">[+]</span> 原型 / MVP 快速验证想法</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">[+]</span> 黑客松、周末项目、演示 Demo</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">[+]</span> 一次性脚本、内部小工具</p>
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">[+]</span> 非开发者搭建轻量应用</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="496" topLeftY="340" width="400" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(201,48,44,1)" verticalAlign="top" wrap="false"><p>// 边界：生产环境要谨慎</p></content>
+    </shape>
+    <shape type="text" topLeftX="496" topLeftY="368" width="400" height="120">
+      <content textType="body" fontSize="13" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.8">
+        <p><span color="rgba(201,48,44,1)" fontFamily="Roboto Mono">[!]</span> 不读代码，易留可维护性、正确性隐患</p>
+        <p><span color="rgba(201,48,44,1)" fontFamily="Roboto Mono">[!]</span> 默认配置错误可致安全漏洞与数据泄露</p>
+        <p><span color="rgba(201,48,44,1)" fontFamily="Roboto Mono">[!]</span> 复杂系统中技术债会快速累积</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://www.collinsdictionary.com/woty">Collins Dictionary WOTY 2025</a>　|　<a href="https://www.martinfowler.com/bliki/VibeCoding.html">Martin Fowler: VibeCoding（最适合一次性软件）</a>　|　CVE-2025-48757（研究员 Matt Palmer, 2025-05）</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第5页（约40秒）：发展时间线——2025年2月Karpathy造词；春夏Cursor、Lovable等工具爆发；5月安全研究员在Lovable生成的应用里发现高危漏洞CVE-48757，CVSS 8.26，扫描的1600多个应用中170个可被未授权访问用户数据和API密钥；11月它当选Collins词典年度词汇。它擅长原型、Demo、一次性脚本和非开发者做轻应用；但Martin Fowler指出，不读代码会带来可维护性、正确性、安全问题，最适合面向有限受众的"一次性软件"，上生产必须有审查和工程纪律。</p>
+    </content>
+  </note>
+</slide>

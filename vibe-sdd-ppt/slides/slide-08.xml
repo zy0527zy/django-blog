@@ -1,0 +1,154 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>02 / SDD · 核心流程</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>08 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>五段式流水线：先立宪、写规格，再让 agent 按任务实现</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="rect" topLeftX="64" topLeftY="158" width="152" height="186">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="174" width="124" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" wrap="false"><p>01</p></content>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="198" width="124" height="20">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>constitution</p></content>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="224" width="124" height="20">
+      <content textType="body" fontSize="13" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>立宪</p></content>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="252" width="124" height="62">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>定原则与技术栈</p></content>
+    </shape>
+    <line startX="78" startY="320" endX="202" endY="320"><border color="rgb(52,52,60)" width="1"/></line>
+    <shape type="text" topLeftX="78" topLeftY="326" width="124" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false"><p>→ constitution.md</p></content>
+    </shape>
+    <shape type="rect" topLeftX="234" topLeftY="158" width="152" height="186">
+      <fill><fillColor color="rgb(38,42,24)"/></fill>
+      <border color="rgb(212,233,44)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="248" topLeftY="174" width="124" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>02</p></content>
+    </shape>
+    <shape type="text" topLeftX="248" topLeftY="198" width="124" height="20">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>specify</p></content>
+    </shape>
+    <shape type="text" topLeftX="248" topLeftY="224" width="124" height="20">
+      <content textType="body" fontSize="13" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>写规格</p></content>
+    </shape>
+    <shape type="text" topLeftX="248" topLeftY="252" width="124" height="62">
+      <content textType="caption" fontSize="11" color="rgba(200,204,190,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>写清需求与验收标准</p></content>
+    </shape>
+    <line startX="248" startY="320" endX="372" endY="320"><border color="rgb(90,100,50)" width="1"/></line>
+    <shape type="text" topLeftX="248" topLeftY="326" width="124" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(150,154,120,1)" verticalAlign="top" wrap="false"><p>→ spec.md（核心）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="404" topLeftY="158" width="152" height="186">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="418" topLeftY="174" width="124" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" wrap="false"><p>03</p></content>
+    </shape>
+    <shape type="text" topLeftX="418" topLeftY="198" width="124" height="20">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>plan</p></content>
+    </shape>
+    <shape type="text" topLeftX="418" topLeftY="224" width="124" height="20">
+      <content textType="body" fontSize="13" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>做计划</p></content>
+    </shape>
+    <shape type="text" topLeftX="418" topLeftY="252" width="124" height="62">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>设计方案与路径</p></content>
+    </shape>
+    <line startX="418" startY="320" endX="542" endY="320"><border color="rgb(52,52,60)" width="1"/></line>
+    <shape type="text" topLeftX="418" topLeftY="326" width="124" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false"><p>→ plan.md</p></content>
+    </shape>
+    <shape type="rect" topLeftX="574" topLeftY="158" width="152" height="186">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="588" topLeftY="174" width="124" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" wrap="false"><p>04</p></content>
+    </shape>
+    <shape type="text" topLeftX="588" topLeftY="198" width="124" height="20">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>tasks</p></content>
+    </shape>
+    <shape type="text" topLeftX="588" topLeftY="224" width="124" height="20">
+      <content textType="body" fontSize="13" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>拆任务</p></content>
+    </shape>
+    <shape type="text" topLeftX="588" topLeftY="252" width="124" height="62">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>拆解为原子任务</p></content>
+    </shape>
+    <line startX="588" startY="320" endX="712" endY="320"><border color="rgb(52,52,60)" width="1"/></line>
+    <shape type="text" topLeftX="588" topLeftY="326" width="124" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false"><p>→ tasks.md</p></content>
+    </shape>
+    <shape type="rect" topLeftX="744" topLeftY="158" width="152" height="186">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="758" topLeftY="174" width="124" height="18">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" wrap="false"><p>05</p></content>
+    </shape>
+    <shape type="text" topLeftX="758" topLeftY="198" width="124" height="20">
+      <content textType="body" fontSize="13" fontFamily="Roboto Mono" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>implement</p></content>
+    </shape>
+    <shape type="text" topLeftX="758" topLeftY="224" width="124" height="20">
+      <content textType="body" fontSize="13" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>实现</p></content>
+    </shape>
+    <shape type="text" topLeftX="758" topLeftY="252" width="124" height="62">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>编码并对照规格验证</p></content>
+    </shape>
+    <line startX="758" startY="320" endX="882" endY="320"><border color="rgb(52,52,60)" width="1"/></line>
+    <shape type="text" topLeftX="758" topLeftY="326" width="124" height="16">
+      <content textType="caption" fontSize="9" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false"><p>→ working code</p></content>
+    </shape>
+    <line startX="218" startY="250" endX="232" endY="250"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="388" startY="250" endX="402" endY="250"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="558" startY="250" endX="572" endY="250"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="728" startY="250" endX="742" endY="250"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="64" startY="372" endX="896" endY="372">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="388" width="832" height="24">
+      <content textType="body" fontSize="13" verticalAlign="top" wrap="false">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)">// Kiro（AWS）三阶段：　</span><span fontFamily="Roboto Mono" color="rgba(220,222,226,1)">requirements</span><span color="rgba(150,154,160,1)"> 需求 → </span><span fontFamily="Roboto Mono" color="rgba(220,222,226,1)">design</span><span color="rgba(150,154,160,1)"> 设计 → </span><span fontFamily="Roboto Mono" color="rgba(220,222,226,1)">tasks</span><span color="rgba(150,154,160,1)"> 任务，再由 agent 生成代码</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="430" width="832" height="48">
+      <content textType="body" fontSize="13" color="rgba(190,194,200,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">↺ </span><span bold="true" color="rgba(255,255,255,1)">规格持续存活：</span>实现或运行中发现偏差，回到 spec 修改后重新生成，而不是绕开规格直接改代码——这正是它与 Vibe Coding 的根本区别。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 官方文档（constitution / specify / plan / tasks / implement）</a>　|　<a href="https://kiro.dev/docs/specs/">Kiro Docs: Specs（requirements / design / tasks）</a></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第8页（约40秒）：以GitHub开源的Spec Kit为代表，SDD是一条五段式流水线：第一步constitution立宪，定工程原则、技术栈和不可违背的约束；第二步specify写规格，写清需求、场景和验收标准，这是核心；第三步plan做技术计划；第四步tasks拆成原子任务；第五步implement由agent逐项编码并对照规格验证。AWS的Kiro把它精简为requirements、design、tasks三阶段。关键是规格持续存活，发现问题回到spec改完再重新生成，而不是直接改代码。</p>
+    </content>
+  </note>
+</slide>

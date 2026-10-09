@@ -1,0 +1,122 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>08 · 局限与常见误区</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>Scrum 不是万能药：先看清边界，再避开误区</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="142" width="200" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>它的边界</p>
+      </content>
+    </shape>
+    <icon iconType="iconpark/Character/close-one.svg" topLeftX="64" topLeftY="176" width="22" height="22">
+      <fill><fillColor color="rgba(200,68,68,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="174" width="800" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>不适合需求高度确定、强合规的关键系统</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="200" width="800" height="22">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)"><p>航天、医疗等强调完整规格与严格认证的场景变更空间很小，预测型过程往往更合适。</p></content>
+    </shape>
+    <icon iconType="iconpark/Character/close-one.svg" topLeftX="64" topLeftY="236" width="22" height="22">
+      <fill><fillColor color="rgba(200,68,68,1)"/></fill>
+    </icon>
+    <shape type="text" topLeftX="98" topLeftY="234" width="800" height="24">
+      <content textType="body" fontSize="14.5" color="rgba(13,19,38,1)" bold="true"><p>对团队能力与纪律要求高</p></content>
+    </shape>
+    <shape type="text" topLeftX="98" topLeftY="260" width="800" height="22">
+      <content textType="body" fontSize="12.5" color="rgba(90,99,115,1)"><p>自组织不等于无管理；成员能力不足、协作松散时，固定节奏很容易流于形式。</p></content>
+    </shape>
+
+    <line startX="64" startY="298" endX="896" endY="298">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="308" width="600" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>高频误区：把“形式”当成了方法</p>
+      </content>
+    </shape>
+
+    <shape type="rect" topLeftX="64" topLeftY="334" width="832" height="160">
+      <fill><fillColor color="rgb(255,255,255)"/></fill>
+      <border color="rgb(224,228,236)" width="1"/>
+    </shape>
+    <table topLeftX="64" topLeftY="334" width="832" height="160">
+      <colgroup>
+        <col width="300"/>
+        <col width="532"/>
+      </colgroup>
+      <tr height="32">
+        <td>
+          <fill><fillColor color="rgb(13,19,38)"/></fill>
+          <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" textAlign="center" verticalAlign="middle"><p>常见误区</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgb(13,19,38)"/></fill>
+          <content textType="body" fontSize="13" bold="true" color="rgba(255,255,255,1)" textAlign="center" verticalAlign="middle"><p>正确理解</p></content>
+        </td>
+      </tr>
+      <tr height="42">
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(13,19,38,1)" bold="true" textAlign="left" verticalAlign="middle"><p>“Scrum 就是每天开个站会”</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(40,48,64,1)" textAlign="left" verticalAlign="middle"><p>站会只是形式之一；核心是固定冲刺、可交付增量与持续改进。</p></content>
+        </td>
+      </tr>
+      <tr height="42">
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(13,19,38,1)" bold="true" textAlign="left" verticalAlign="middle"><p>“冲刺中可以随时插需求”</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(40,48,64,1)" textAlign="left" verticalAlign="middle"><p>冲刺目标确定后应保持稳定，新需求进入 Backlog，由下一冲刺排期。</p></content>
+        </td>
+      </tr>
+      <tr height="44">
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(13,19,38,1)" bold="true" textAlign="left" verticalAlign="middle"><p>“Scrum Master 就是项目经理”</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgb(255,255,255)"/></fill>
+          <content textType="body" fontSize="12.5" color="rgba(40,48,64,1)" textAlign="left" verticalAlign="middle"><p>他不派活、不控人，而是引导流程、服务团队、为团队排除障碍。</p></content>
+        </td>
+      </tr>
+    </table>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：结合教材 3.2 敏捷方法适用边界与 Scrum 通用实践整理</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>09 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>Scrum不是万能药，要先看清边界。两类情况它并不合适：一是需求高度确定、强合规的关键系统，比如航天、医疗，它们强调前期完整规格和严格认证，变更空间很小，预测型过程更合适；二是它对团队能力和纪律要求高，自组织不等于无管理。实践中还有三个高频误区：第一，以为每天开个站会就是Scrum，其实站会只是形式，核心是固定冲刺加可交付增量；第二，冲刺中途随意插需求，这会打乱节奏，新需求应该进Backlog等下一冲刺；第三，把Scrum Master当成派活的项目经理，他真正的职责是引导流程、服务团队、排除障碍。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,37 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <data>
+    <img src="OKXfbG7XDod23axXBLFcv9q4nFe" topLeftX="0" topLeftY="0" width="960" height="540"/>
+    <shape type="text" topLeftX="64" topLeftY="118" width="480" height="26">
+      <content textType="caption" fontSize="13" color="rgba(96,165,250,1)" letterSpacing="2">
+        <p>软件工程 · 敏捷开发方法（3.2.3）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="152" width="520" height="68">
+      <content textType="title" fontSize="42" color="rgba(255,255,255,1)" bold="true" letterSpacing="1" wrap="false">
+        <p>Scrum 敏捷开发方法</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="236" width="56" height="4">
+      <fill>
+        <fillColor color="rgba(59,130,246,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="256" width="452" height="86">
+      <content textType="body" fontSize="16" color="rgba(203,213,225,1)" lineSpacing="multiple:1.7">
+        <p>以固定节奏的短冲刺，把项目切成可交付的小增量，</p>
+        <p>在透明与持续反馈中拥抱需求变化</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="448" width="480" height="52">
+      <content textType="caption" fontSize="11.5" color="rgba(148,163,184,1)" lineSpacing="multiple:1.7">
+        <p>教材章节：第 3 章 软件过程模型和开发方法 · 3.2.3 Scrum 方法</p>
+        <p>汇报人：　　　　　　班级：　　　　　　日期：　　　　</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>大家好，今天我介绍的是教材3.2.3节的Scrum敏捷开发方法。Scrum这个词来自英式橄榄球运动中的“争球”，它是目前业界应用最广的敏捷项目管理框架之一。接下来五分钟，我会依次讲清楚四个问题：Scrum是什么、它怎样运转、有哪些角色和活动、一个具体例子，以及它适合什么场景、有哪些局限和常见误区。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,1205 @@
+<presentation id="WjrpsYmQtlDPehdT2bec9XI2nkb" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>Scrum敏捷开发方法</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pnn">
+    <style/>
+    <data>
+      <img id="bMK" src="OKXfbG7XDod23axXBLFcv9q4nFe" width="960" height="540" topLeftX="0" topLeftY="0">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="480" height="26" topLeftX="64" topLeftY="118" type="text" id="bMJ">
+        <content textType="caption" fontSize="13" fontFamily="思源黑体" color="rgba(96, 165, 250, 1)" letterSpacing="2">
+          <p>软件工程 · 敏捷开发方法（3.2.3）</p>
+        </content>
+      </shape>
+      <shape width="520" height="68" topLeftX="62" topLeftY="152" type="text" id="bMP">
+        <content textType="title" fontSize="42" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" letterSpacing="1" wrap="false">
+          <p>Scrum 敏捷开发方法</p>
+        </content>
+      </shape>
+      <shape width="56" height="4" topLeftX="64" topLeftY="236" presetHandlers="0" type="rect" id="bMz">
+        <fill>
+          <fillColor color="rgba(59, 130, 246, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="452" height="86" topLeftX="64" topLeftY="256" type="text" id="bMX">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(203, 213, 225, 1)" lineSpacing="multiple:1.7">
+          <p>以固定节奏的短冲刺，把项目切成可交付的小增量，</p>
+          <p>在透明与持续反馈中拥抱需求变化</p>
+        </content>
+      </shape>
+      <shape width="480" height="52" topLeftX="64" topLeftY="448" type="text" id="bMR">
+        <content textType="caption" fontSize="11.5" fontFamily="思源黑体" color="rgba(148, 163, 184, 1)" lineSpacing="multiple:1.7">
+          <p>教材章节：第 3 章 软件过程模型和开发方法 · 3.2.3 Scrum 方法</p>
+          <p>汇报人：　　　　　　班级：　　　　　　日期：　　　　</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMM">
+      <content>
+        <p>大家好，今天我介绍的是教材3.2.3节的Scrum敏捷开发方法。Scrum这个词来自英式橄榄球运动中的“争球”，它是目前业界应用最广的敏捷项目管理框架之一。接下来五分钟，我会依次讲清楚四个问题：Scrum是什么、它怎样运转、有哪些角色和活动、一个具体例子，以及它适合什么场景、有哪些局限和常见误区。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnA">
+    <style>
+      <fill id="fnA">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bMZ">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>01 · 为什么需要 SCRUM</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bMC">
+        <content textType="title" fontSize="27" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>需求总在变，为什么软件项目还是频频失控？</p>
+        </content>
+      </shape>
+      <line id="bzX" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="60" height="42" topLeftX="64" topLeftY="150" type="text" id="bMF">
+        <content textType="headline" fontSize="26" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>01</p>
+        </content>
+      </shape>
+      <shape width="740" height="26" topLeftX="128" topLeftY="150" type="text" id="bMa">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>需求前期定死，交付即跑偏</p>
+        </content>
+      </shape>
+      <shape width="752" height="44" topLeftX="128" topLeftY="178" type="text" id="bMy">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>瀑布式开发要求前期花数月冻结需求、写尽文档，直到末期才交付；此时成果往往与用户真实需要相去甚远。</p>
+        </content>
+      </shape>
+      <line id="bzM" startX="64" startY="232" endX="896.0006009613214" endY="232">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <shape width="60" height="42" topLeftX="64" topLeftY="244" type="text" id="bzJ">
+        <content textType="headline" fontSize="26" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>02</p>
+        </content>
+      </shape>
+      <shape width="740" height="26" topLeftX="128" topLeftY="244" type="text" id="bMb">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>集成拖到最后，风险集中爆发</p>
+        </content>
+      </shape>
+      <shape width="752" height="44" topLeftX="128" topLeftY="272" type="text" id="bMg">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>编码、集成与测试长期分离，对接和缺陷被压到项目末期才暴露，返工代价大，一处延期往往拖垮全局。</p>
+        </content>
+      </shape>
+      <line id="bMp" startX="64" startY="326" endX="896.0006009613214" endY="326">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <shape width="60" height="42" topLeftX="64" topLeftY="338" type="text" id="bzz">
+        <content textType="headline" fontSize="26" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>03</p>
+        </content>
+      </shape>
+      <shape width="740" height="26" topLeftX="128" topLeftY="338" type="text" id="bzR">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>进度长期不可见，失控难以挽回</p>
+        </content>
+      </shape>
+      <shape width="752" height="44" topLeftX="128" topLeftY="366" type="text" id="bMU">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>可运行软件出现之前，真实进度无法度量；等延期和超预算暴露时，项目往往已经没有调整空间。</p>
+        </content>
+      </shape>
+      <shape width="960" height="112" topLeftX="0" topLeftY="428" presetHandlers="0" type="rect" id="bMv">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <icon width="40" height="40" topLeftX="62" topLeftY="456" iconType="iconpark/Others/thinking-problem.svg" id="bMV">
+        <fill>
+          <fillColor color="rgba(96, 165, 250, 1)"/>
+        </fill>
+      </icon>
+      <shape width="780" height="22" topLeftX="120" topLeftY="446" type="text" id="bzK">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(96, 165, 250, 1)" bold="true" letterSpacing="1">
+          <p>关键追问</p>
+        </content>
+      </shape>
+      <shape width="780" height="52" topLeftX="120" topLeftY="470" type="text" id="bzP">
+        <content fontSize="17" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>能不能把大项目切成一段段短周期，每段都交付可运行的软件，并依据反馈随时校准方向？</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMx">
+      <content>
+        <p>在认识Scrum之前，先看一个长期存在的老问题。传统瀑布式开发像接力赛，需求、设计、编码、测试依次进行，前期就要把需求定死。它有三个典型痛点：一是交付即跑偏，几个月后做出来的东西已经不是用户想要的；二是集成和测试全压在末期，风险集中爆发；三是在软件跑起来之前进度无法度量，等问题暴露已经来不及。于是自然产生一个追问：能不能把项目切成小段，每段都交付可用软件、随时校准？这正是Scrum要回答的问题。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnp">
+    <style>
+      <fill id="fnp">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bMY">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>02 · 方法是什么</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bMO">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>Scrum：用固定长度的“冲刺”迭代交付产品增量</p>
+        </content>
+      </shape>
+      <line id="bMS" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="200" height="20" topLeftX="64" topLeftY="148" type="text" id="bMf">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>词源</p>
+        </content>
+      </shape>
+      <shape width="3" height="58" topLeftX="64" topLeftY="178" presetHandlers="0" type="rect" id="bMB">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="452" height="64" topLeftX="80" topLeftY="176" type="text" id="bMw">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.6">
+          <p>Scrum 是英式橄榄球术语“争球”。团队如同橄榄球队：每个人角色明确、分工清晰，目标一致、高效协作地向前推进。</p>
+        </content>
+      </shape>
+      <shape width="200" height="20" topLeftX="64" topLeftY="262" type="text" id="bMs">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>定义</p>
+        </content>
+      </shape>
+      <shape width="3" height="120" topLeftX="64" topLeftY="292" presetHandlers="0" type="rect" id="bMh">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="452" height="132" topLeftX="80" topLeftY="288" type="text" id="bMD">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.65">
+          <p>产生于 20 世纪 90 年代中期的一种敏捷方法，以<strong>增量和迭代</strong>方式管理软件项目：开发被拆成一串固定长度（<strong>1~4 周</strong>）的短迭代——<strong>冲刺（Sprint）</strong>，每个冲刺都交付一个“完成的、可用的”产品增量。</p>
+        </content>
+      </shape>
+      <line id="bMd" startX="568" startY="150" endX="568" endY="478.0015243867016">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="300" height="20" topLeftX="592" topLeftY="148" type="text" id="bME">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>它解决什么问题</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="592" topLeftY="184" iconType="iconpark/Arrows/play-cycle.svg" id="bMe">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="276" height="24" topLeftX="624" topLeftY="182" type="text" id="bMq">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>需求变化快，计划追不上</p>
+        </content>
+      </shape>
+      <shape width="276" height="48" topLeftX="624" topLeftY="208" type="text" id="bMN">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>每个冲刺都是反馈与校准窗口，新变化在下一冲刺即可被接纳。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="592" topLeftY="280" iconType="iconpark/Base/preview-open.svg" id="bMj">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="276" height="24" topLeftX="624" topLeftY="278" type="text" id="bMI">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>进度不透明，风险发现晚</p>
+        </content>
+      </shape>
+      <shape width="276" height="48" topLeftX="624" topLeftY="304" type="text" id="bMo">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>每段都产出可运行软件，进度用“真正完成的功能”来度量。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="592" topLeftY="376" iconType="iconpark/Hands/delivery.svg" id="bMm">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="276" height="24" topLeftX="624" topLeftY="374" type="text" id="bMu">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>价值交付晚，用户等不起</p>
+        </content>
+      </shape>
+      <shape width="276" height="48" topLeftX="624" topLeftY="400" type="text" id="bMc">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>小步快跑，从最早的冲刺起就持续交付可用价值。</p>
+        </content>
+      </shape>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bMt">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：《软件工程》教材 3.2.3 Scrum 方法</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bMn">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>03 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMG">
+      <content>
+        <p>Scrum这个词来自英式橄榄球的“争球”，寓意团队像橄榄球队一样角色明确、目标一致地协同推进。它是20世纪90年代中期出现的一种敏捷方法，核心做法是把开发拆成一串1到4周的短迭代，叫做冲刺，每个冲刺结束都要交出一个真正可用的产品增量。它针对性地解决三个问题：需求变化快，每个冲刺都是一次校准窗口；进度不透明，就用完成的增量来度量；价值交付晚，就从第一个冲刺开始小步交付。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnc">
+    <style>
+      <fill id="fnc">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bMi">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>03 · 核心机制</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bMA">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>运转主线：订单库 → 冲刺开发 → 产品增量，循环往复</p>
+        </content>
+      </shape>
+      <line id="bMk" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="848" height="244" topLeftX="56" topLeftY="144" presetHandlers="0" type="rect" id="bMH">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <img id="bML" src="FkLsbKCgBo9uObxHkc2c5ZSQnvd" width="820" height="216" topLeftX="70" topLeftY="158">
+        <crop leftOffset="0" rightOffset="0" topOffset="0" bottomOffset="0"/>
+      </img>
+      <shape width="200" height="20" topLeftX="64" topLeftY="404" type="text" id="bMT">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>这张图怎么读</p>
+        </content>
+      </shape>
+      <shape width="832" height="66" topLeftX="64" topLeftY="428" type="text" id="bMl">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.65">
+          <p><strong>Backlog</strong> 是按优先级排列的全部需求；团队选出本次冲刺能完成的部分形成 <strong>Sprint Backlog</strong>；经 <strong>1~4 周</strong>冲刺开发交付可运行的产品增量并集成进产品，随后<strong>循环进入下一个冲刺</strong>——Scrum 不是一次性直线，而是一圈圈累加增量的循环。</p>
+        </content>
+      </shape>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bMW">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：《软件工程》教材 图 3.11 Scrum 方法的软件开发流程示意图</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bMQ">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>04 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bMr">
+      <content>
+        <p>这是教材中的图3.11，展示了Scrum的完整运转主线。最左边是产品订单库Backlog，它是按优先级排序的全部需求清单；团队从中挑出本次冲刺能完成的一部分，形成冲刺订单库Sprint Backlog；随后进入1到4周的冲刺开发，期间每天开短会同步进展；冲刺结束交付一块可运行的软件产品，并集成进整体产品；然后循环进入下一个冲刺。请大家特别注意这个环形箭头——Scrum不是一次性的直线过程，而是一圈一圈持续累加产品增量的循环。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnq">
+    <style>
+      <fill id="fnq">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bzF">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>04 · 关键角色</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bza">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>三类角色各司其职：谁定方向、谁护流程、谁做产品</p>
+        </content>
+      </shape>
+      <line id="bzy" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <icon width="36" height="36" topLeftX="64" topLeftY="162" iconType="iconpark/Base/aiming.svg" id="bKX">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="300" height="26" topLeftX="120" topLeftY="152" type="text" id="bzS">
+        <content fontSize="17" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>产品拥有者　<span color="rgba(37, 99, 235, 1)" fontSize="12">Product Owner</span></p>
+        </content>
+      </shape>
+      <shape width="300" height="22" topLeftX="120" topLeftY="182" type="text" id="bzb">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>决定“做什么”，对产品价值负责</p>
+        </content>
+      </shape>
+      <shape width="456" height="62" topLeftX="440" topLeftY="150" type="text" id="bzg">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.55">
+          <p>创建并维护产品订单库 Backlog，描述产品需要提供的功能需求、排出优先级，明确每次迭代发布的版本。</p>
+        </content>
+      </shape>
+      <line id="bzp" startX="64" startY="234" endX="896.0006009613214" endY="234">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <icon width="36" height="36" topLeftX="64" topLeftY="258" iconType="iconpark/Travel/compass-one.svg" id="bKM">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="300" height="26" topLeftX="120" topLeftY="248" type="text" id="bKJ">
+        <content fontSize="17" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>敏捷教练　<span color="rgba(37, 99, 235, 1)" fontSize="12">Scrum Master</span></p>
+        </content>
+      </shape>
+      <shape width="300" height="22" topLeftX="120" topLeftY="278" type="text" id="bzc">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>守护流程、排除障碍的“仆人式引导者”</p>
+        </content>
+      </shape>
+      <shape width="456" height="62" topLeftX="440" topLeftY="246" type="text" id="bzt">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.55">
+          <p>按优先级筛选最应实现的需求形成冲刺订单库 Sprint Backlog，组织每日 Scrum 会议与评审，保障流程运转、为团队扫清障碍。</p>
+        </content>
+      </shape>
+      <line id="bzU" startX="64" startY="330" endX="896.0006009613214" endY="330">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <icon width="36" height="36" topLeftX="64" topLeftY="354" iconType="iconpark/Peoples/peoples.svg" id="bzv">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="320" height="26" topLeftX="120" topLeftY="344" type="text" id="bzV">
+        <content fontSize="17" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>开发团队　<span color="rgba(37, 99, 235, 1)" fontSize="12">Development Team</span></p>
+        </content>
+      </shape>
+      <shape width="300" height="22" topLeftX="120" topLeftY="374" type="text" id="bKz">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>真正做出增量的人，跨职能、自组织</p>
+        </content>
+      </shape>
+      <shape width="456" height="62" topLeftX="440" topLeftY="342" type="text" id="bzN">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" lineSpacing="multiple:1.55">
+          <p>一般 5~9 人，在冲刺内自行完成软件设计、编码实现与测试；每天同步进展与困难，共同对交付成果负责。</p>
+        </content>
+      </shape>
+      <line id="bzj" startX="64" startY="438" endX="896.0006009613214" endY="438">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="200" height="18" topLeftX="64" topLeftY="450" type="text" id="bzx">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>一句话分工</p>
+        </content>
+      </shape>
+      <shape width="832" height="26" topLeftX="64" topLeftY="472" type="text" id="bzZ">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>产品拥有者管“做什么”，开发团队管“怎么做”，敏捷教练管“让团队顺畅地做”。</p>
+        </content>
+      </shape>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bzC">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：《软件工程》教材 3.2.3 Scrum 方法（角色职责）</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bKK">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>05 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bzD">
+      <content>
+        <p>Scrum团队只有三类角色。第一，产品拥有者Product Owner，决定“做什么”，他创建并维护产品订单库Backlog，描述需求、排出优先级。第二，敏捷教练Scrum Master，注意他不是项目经理、不负责派活，而是流程的守护者，是仆人式引导者，组织会议、筛选本次冲刺要实现的需求、帮团队排除障碍。第三，开发团队，一般5到9人，跨职能、自组织，在冲刺里自行完成设计、编码和测试，每天同步进展。一句话分工：产品拥有者管做什么，开发团队管怎么做，敏捷教练管让团队顺畅地做。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pni">
+    <style>
+      <fill id="fni">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bzf">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>05 · 关键实践</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bzG">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>一个冲刺里发生什么：四个活动撑起迭代闭环</p>
+        </content>
+      </shape>
+      <line id="bzY" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <line id="bzh" startX="164" startY="152" endX="164.00000000000003" endY="412.00192306981114">
+        <border color="rgba(191, 201, 219, 1)"/>
+      </line>
+      <shape width="16" height="16" topLeftX="156" topLeftY="154" type="ellipse" id="bzL">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <border color="rgba(242, 244, 248, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="92" height="22" topLeftX="56" topLeftY="150" type="text" id="bzk">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="right">
+          <p>冲刺首日</p>
+        </content>
+      </shape>
+      <icon width="28" height="28" topLeftX="186" topLeftY="147" iconType="iconpark/Edit/list.svg" id="bzW">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="500" height="24" topLeftX="226" topLeftY="145" type="text" id="bzd">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺计划会　<span color="rgba(37, 99, 235, 1)" fontSize="11.5">Sprint Planning</span></p>
+        </content>
+      </shape>
+      <shape width="640" height="34" topLeftX="226" topLeftY="171" type="text" id="bzB">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)" lineSpacing="multiple:1.45">
+          <p>从 Backlog 挑选本次冲刺能完成的需求，形成 Sprint Backlog，定下冲刺目标。</p>
+        </content>
+      </shape>
+      <shape width="16" height="16" topLeftX="156" topLeftY="234" type="ellipse" id="bzw">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <border color="rgba(242, 244, 248, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="92" height="22" topLeftX="56" topLeftY="230" type="text" id="bzs">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="right">
+          <p>每天 15 分钟</p>
+        </content>
+      </shape>
+      <icon width="28" height="28" topLeftX="186" topLeftY="227" iconType="iconpark/Music/voice.svg" id="bzr">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="500" height="24" topLeftX="226" topLeftY="225" type="text" id="bzi">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>每日站会　<span color="rgba(37, 99, 235, 1)" fontSize="11.5">Daily Scrum</span></p>
+        </content>
+      </shape>
+      <shape width="640" height="34" topLeftX="226" topLeftY="251" type="text" id="bzI">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)" lineSpacing="multiple:1.45">
+          <p>每人只讲三件事：昨天完成了什么、今天计划做什么、遇到了什么困难和障碍。</p>
+        </content>
+      </shape>
+      <shape width="16" height="16" topLeftX="156" topLeftY="314" type="ellipse" id="bzE">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <border color="rgba(242, 244, 248, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="92" height="22" topLeftX="56" topLeftY="310" type="text" id="bze">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="right">
+          <p>冲刺末日</p>
+        </content>
+      </shape>
+      <icon width="28" height="28" topLeftX="186" topLeftY="307" iconType="iconpark/Base/preview-open.svg" id="bzq">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="500" height="24" topLeftX="226" topLeftY="305" type="text" id="bzT">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺评审会　<span color="rgba(37, 99, 235, 1)" fontSize="11.5">Sprint Review</span></p>
+        </content>
+      </shape>
+      <shape width="640" height="34" topLeftX="226" topLeftY="331" type="text" id="bzH">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)" lineSpacing="multiple:1.45">
+          <p>演示可运行的产品增量，共同审查是否高质量实现既定功能，并收集反馈。</p>
+        </content>
+      </shape>
+      <shape width="16" height="16" topLeftX="156" topLeftY="394" type="ellipse" id="bzn">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <border color="rgba(242, 244, 248, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="92" height="22" topLeftX="56" topLeftY="390" type="text" id="bzo">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="right">
+          <p>评审之后</p>
+        </content>
+      </shape>
+      <icon width="28" height="28" topLeftX="186" topLeftY="387" iconType="iconpark/Edit/refresh-one.svg" id="bzm">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="500" height="24" topLeftX="226" topLeftY="385" type="text" id="bzu">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺回顾会　<span color="rgba(37, 99, 235, 1)" fontSize="11.5">Retrospective</span></p>
+        </content>
+      </shape>
+      <shape width="640" height="34" topLeftX="226" topLeftY="411" type="text" id="bzO">
+        <content fontSize="13.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)" lineSpacing="multiple:1.45">
+          <p>复盘协作与流程：哪些做得好、哪些要改进，形成下一个冲刺的改进项。</p>
+        </content>
+      </shape>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bzA">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：《软件工程》教材 3.2.3（每日 Scrum 会议、Scrum 评审与反思）</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bzl">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>06 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bzQ">
+      <content>
+        <p>一个冲刺内部有四个标准活动，撑起整个迭代闭环。第一，冲刺首日开计划会，从产品订单库挑出本次能完成的需求，形成冲刺订单库，定下冲刺目标。第二，冲刺期间每天开15分钟站会，每人只讲三句：昨天完成了什么、今天计划做什么、遇到什么障碍。第三，冲刺最后一天开评审会，向产品拥有者演示真正可运行的增量，共同审查功能是否达成、收集反馈。第四，评审之后开回顾会，复盘协作流程、定下改进项。随后进入下一个冲刺，团队就这样一圈一圈持续改进。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnk">
+    <style>
+      <fill id="fnk">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bKd">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>06 · 具体例子</p>
+        </content>
+      </shape>
+      <shape width="216" height="18" topLeftX="680" topLeftY="42" type="text" id="bKu">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>示例场景（教学虚构）</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bKS">
+        <content textType="title" fontSize="25" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>走一遍：校园二手交易 App 的三个冲刺</p>
+        </content>
+      </shape>
+      <line id="bKA" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="240" height="20" topLeftX="64" topLeftY="146" type="text" id="bKI">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>产品订单库 BACKLOG（按优先级）</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="188" presetHandlers="0" type="rect" id="bKY">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="22" topLeftX="82" topLeftY="180" type="text" id="bKD">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)">
+          <p>1. 注册登录</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="222" presetHandlers="0" type="rect" id="bKj">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="22" topLeftX="82" topLeftY="214" type="text" id="bKR">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)">
+          <p>2. 商品发布</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="256" presetHandlers="0" type="rect" id="bKl">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="22" topLeftX="82" topLeftY="248" type="text" id="bKo">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)">
+          <p>3. 商品浏览与搜索</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="290" presetHandlers="0" type="rect" id="bKs">
+        <fill>
+          <fillColor color="rgba(191, 201, 219, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="22" topLeftX="82" topLeftY="282" type="text" id="bKk">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(120, 128, 142, 1)">
+          <p>4. 下单与交易</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="324" presetHandlers="0" type="rect" id="bKf">
+        <fill>
+          <fillColor color="rgba(191, 201, 219, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="22" topLeftX="82" topLeftY="316" type="text" id="bKq">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(120, 128, 142, 1)">
+          <p>5. 在线聊天</p>
+        </content>
+      </shape>
+      <shape width="8" height="8" topLeftX="64" topLeftY="358" presetHandlers="0" type="rect" id="bKt">
+        <fill>
+          <fillColor color="rgba(191, 201, 219, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="22" topLeftX="82" topLeftY="350" type="text" id="bKO">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(120, 128, 142, 1)">
+          <p>6. 评价系统</p>
+        </content>
+      </shape>
+      <shape width="232" height="48" topLeftX="64" topLeftY="394" type="text" id="bKb">
+        <content textType="caption" fontSize="11.5" fontFamily="思源黑体" color="rgba(120, 128, 142, 1)">
+          <p>Backlog 持续增删；每个冲刺初，团队按容量从顶部选取。</p>
+        </content>
+      </shape>
+      <line id="bKr" startX="318" startY="148" endX="318.00000000000006" endY="440.0017123237465">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="40" height="40" topLeftX="346" topLeftY="156" type="ellipse" id="bKW">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="26" topLeftX="346" topLeftY="163" type="text" id="bKB">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>S1</p>
+        </content>
+      </shape>
+      <shape width="490" height="24" topLeftX="402" topLeftY="156" type="text" id="bKm">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺 1 · 第 1~2 周</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="182" type="text" id="bKh">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>纳入：注册登录、商品发布、商品浏览与搜索</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="206" type="text" id="bKF">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>交付：能发布、能浏览搜索的可运行版本</p>
+        </content>
+      </shape>
+      <line id="bKP" startX="346" startY="246" endX="896.0009090901578" endY="246">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <shape width="40" height="40" topLeftX="346" topLeftY="260" type="ellipse" id="bKH">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="26" topLeftX="346" topLeftY="267" type="text" id="bKE">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>S2</p>
+        </content>
+      </shape>
+      <shape width="490" height="24" topLeftX="402" topLeftY="260" type="text" id="bKG">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺 2 · 第 3~4 周</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="286" type="text" id="bKx">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>纳入：下单与交易、订单管理</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="310" type="text" id="bKL">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>交付：跑通完整交易闭环的新版本</p>
+        </content>
+      </shape>
+      <line id="bKn" startX="346" startY="350" endX="896.0009090901578" endY="350">
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+      </line>
+      <shape width="40" height="40" topLeftX="346" topLeftY="364" type="ellipse" id="bKw">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="40" height="26" topLeftX="346" topLeftY="371" type="text" id="bKN">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>S3</p>
+        </content>
+      </shape>
+      <shape width="490" height="24" topLeftX="402" topLeftY="364" type="text" id="bKU">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>冲刺 3 · 第 5~6 周</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="390" type="text" id="bKi">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>纳入：在线聊天、评价系统</p>
+        </content>
+      </shape>
+      <shape width="490" height="22" topLeftX="402" topLeftY="414" type="text" id="bKQ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>交付：功能完整的校园二手交易产品</p>
+        </content>
+      </shape>
+      <shape width="832" height="36" topLeftX="64" topLeftY="456" type="text" id="bKe">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(120, 128, 142, 1)">
+          <p>每个冲刺结束，增量都集成进产品；若用户反馈变化，未做的需求只需在 Backlog 中重排优先级，由下一冲刺响应。</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bKc">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>07 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bKT">
+      <content>
+        <p>我们用一个教学虚构的例子走一遍。假设要做一个校园二手交易App，产品拥有者先把需求按价值排出Backlog：注册登录、商品发布、浏览搜索、下单交易、聊天、评价。团队两周一个冲刺。冲刺一，从清单顶部挑走进注册登录、发布和浏览，两周后交出一个能发布、能浏览的可运行版本，评审会上收集反馈。冲刺二做下单交易，跑通交易闭环。冲刺三做聊天和评价，产品完整。关键有两点：每个冲刺交付的都是可运行的增量；如果中途用户想法变化，没做的需求只需在Backlog里重排优先级，下一个冲刺再响应，不需要推翻整个计划。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnI">
+    <style>
+      <fill id="fnI">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bXo">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>07 · 适用场景与优势</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bKp">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>什么时候用 Scrum？它到底好在哪里？</p>
+        </content>
+      </shape>
+      <line id="bXK" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="200" height="20" topLeftX="64" topLeftY="146" type="text" id="bXA">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>适用场景</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="184" iconType="iconpark/Travel/flag.svg" id="bXI">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="340" height="24" topLeftX="98" topLeftY="182" type="text" id="bKv">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>需求不确定、容易变化</p>
+        </content>
+      </shape>
+      <shape width="336" height="36" topLeftX="98" topLeftY="208" type="text" id="bXX">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>互联网产品、新业务探索等方向尚不明朗的项目。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="256" iconType="iconpark/Peoples/peoples.svg" id="bXT">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="340" height="24" topLeftX="98" topLeftY="254" type="text" id="bXd">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>跨职能、可自组织的小团队</p>
+        </content>
+      </shape>
+      <shape width="336" height="36" topLeftX="98" topLeftY="280" type="text" id="bKZ">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>约 5~9 人，开发、测试等能力齐备，能独立交付增量。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="328" iconType="iconpark/Hands/delivery.svg" id="bXM">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="340" height="24" topLeftX="98" topLeftY="326" type="text" id="bXi">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>软件可拆分、可分批验收</p>
+        </content>
+      </shape>
+      <shape width="336" height="36" topLeftX="98" topLeftY="352" type="text" id="bXQ">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>系统能切成一块块增量，用户可逐批试用和确认。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="400" iconType="iconpark/Communicate/topic.svg" id="bXG">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="340" height="24" topLeftX="98" topLeftY="398" type="text" id="bKa">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>用户愿意持续参与反馈</p>
+        </content>
+      </shape>
+      <shape width="336" height="36" topLeftX="98" topLeftY="424" type="text" id="bXz">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>客户或用户代表能全程参与，频繁提供业务反馈。</p>
+        </content>
+      </shape>
+      <line id="bXP" startX="469.99999999999994" startY="150" endX="470" endY="472.00155279128705">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="200" height="20" topLeftX="494" topLeftY="146" type="text" id="bXL">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>优势</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="494" topLeftY="184" iconType="iconpark/Character/check-one.svg" id="bXn">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="360" height="24" topLeftX="528" topLeftY="182" type="text" id="bKg">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>尽早交付价值，满意度更高</p>
+        </content>
+      </shape>
+      <shape width="356" height="36" topLeftX="528" topLeftY="208" type="text" id="bXr">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>每个冲刺都产出可用软件，最有价值的功能最先上线。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="494" topLeftY="256" iconType="iconpark/Character/check-one.svg" id="bXH">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="360" height="24" topLeftX="528" topLeftY="254" type="text" id="bXE">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>进度透明，风险早暴露</p>
+        </content>
+      </shape>
+      <shape width="356" height="36" topLeftX="528" topLeftY="280" type="text" id="bKV">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>以“完成的增量”度量进度，问题在短周期内即被发现。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="494" topLeftY="328" iconType="iconpark/Character/check-one.svg" id="bXJ">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="360" height="24" topLeftX="528" topLeftY="326" type="text" id="bXW">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>从容拥抱变化</p>
+        </content>
+      </shape>
+      <shape width="356" height="36" topLeftX="528" topLeftY="352" type="text" id="bXB">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>每个冲刺都是校准方向的机会，不必推翻整个项目计划。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="494" topLeftY="400" iconType="iconpark/Character/check-one.svg" id="bKC">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+      </icon>
+      <shape width="360" height="24" topLeftX="528" topLeftY="398" type="text" id="bXR">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>团队高效、责任感强</p>
+        </content>
+      </shape>
+      <shape width="356" height="36" topLeftX="528" topLeftY="424" type="text" id="bXk">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>自组织加每日同步，减少等待与推诿，团队士气更高。</p>
+        </content>
+      </shape>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bXf">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：《软件工程》教材 3.2 敏捷方法特点与应用，并结合 Scrum 通用实践整理</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bKy">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>08 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXl">
+      <content>
+        <p>那什么时候该用Scrum？主要有四类场景：需求不确定、容易变化的项目；5到9人、跨职能、能够自组织的团队；软件可以拆成增量、用户能分批验收；以及客户愿意持续参与和反馈。它的优势也由此而来：第一，尽早交付可用软件，最有价值的功能最先上线，客户满意度高；第二，进度透明，用完成的增量说话，风险在每个短周期就暴露；第三，拥抱变化，每个冲刺都能校准方向，不必推翻全局；第四，自组织加上每日站会，团队协作更高效、责任感和士气更高。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pnR">
+    <style>
+      <fill id="fnR">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="40" type="text" id="bXZ">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="2">
+          <p>08 · 局限与常见误区</p>
+        </content>
+      </shape>
+      <shape width="840" height="44" topLeftX="62" topLeftY="68" type="text" id="bXC">
+        <content textType="title" fontSize="26" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" wrap="false">
+          <p>Scrum 不是万能药：先看清边界，再避开误区</p>
+        </content>
+      </shape>
+      <line id="bJK" startX="64" startY="126" endX="896.0006009613214" endY="126">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="200" height="20" topLeftX="64" topLeftY="142" type="text" id="bJP">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>它的边界</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="176" iconType="iconpark/Character/close-one.svg" id="bXj">
+        <fill>
+          <fillColor color="rgba(200, 68, 68, 1)"/>
+        </fill>
+      </icon>
+      <shape width="800" height="24" topLeftX="98" topLeftY="174" type="text" id="bXa">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>不适合需求高度确定、强合规的关键系统</p>
+        </content>
+      </shape>
+      <shape width="800" height="22" topLeftX="98" topLeftY="200" type="text" id="bXy">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>航天、医疗等强调完整规格与严格认证的场景变更空间很小，预测型过程往往更合适。</p>
+        </content>
+      </shape>
+      <icon width="22" height="22" topLeftX="64" topLeftY="236" iconType="iconpark/Character/close-one.svg" id="bJX">
+        <fill>
+          <fillColor color="rgba(200, 68, 68, 1)"/>
+        </fill>
+      </icon>
+      <shape width="800" height="24" topLeftX="98" topLeftY="234" type="text" id="bJr">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>对团队能力与纪律要求高</p>
+        </content>
+      </shape>
+      <shape width="800" height="22" topLeftX="98" topLeftY="260" type="text" id="bJi">
+        <content fontSize="12.5" fontFamily="思源黑体" color="rgba(90, 99, 115, 1)">
+          <p>自组织不等于无管理；成员能力不足、协作松散时，固定节奏很容易流于形式。</p>
+        </content>
+      </shape>
+      <line id="bXF" startX="64" startY="298" endX="896.0006009613214" endY="298">
+        <border color="rgba(214, 220, 230, 1)" width="1"/>
+      </line>
+      <shape width="600" height="20" topLeftX="64" topLeftY="308" type="text" id="bXg">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" letterSpacing="1">
+          <p>高频误区：把“形式”当成了方法</p>
+        </content>
+      </shape>
+      <shape width="832" height="160" topLeftX="64" topLeftY="334" presetHandlers="0" type="rect" id="bXp">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(224, 228, 236, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <table id="bJM" width="832" height="160" topLeftX="64" topLeftY="334">
+        <colgroup>
+          <col span="1" width="300"/>
+          <col span="1" width="532"/>
+        </colgroup>
+        <tr height="32">
+          <td id="bJL">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>常见误区</p>
+            </content>
+          </td>
+          <td id="bXb">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>正确理解</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="42">
+          <td id="bXU">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="left">
+              <p>“Scrum 就是每天开个站会”</p>
+            </content>
+          </td>
+          <td id="bXv">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" textAlign="left">
+              <p>站会只是形式之一；核心是固定冲刺、可交付增量与持续改进。</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="42">
+          <td id="bXV">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="left">
+              <p>“冲刺中可以随时插需求”</p>
+            </content>
+          </td>
+          <td id="bJz">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" textAlign="left">
+              <p>冲刺目标确定后应保持稳定，新需求进入 Backlog，由下一冲刺排期。</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="44">
+          <td id="bJA">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="left">
+              <p>“Scrum Master 就是项目经理”</p>
+            </content>
+          </td>
+          <td id="bXt">
+            <fill>
+              <fillColor/>
+            </fill>
+            <content fontSize="12.5" fontFamily="思源黑体" color="rgba(40, 48, 64, 1)" textAlign="left">
+              <p>他不派活、不控人，而是引导流程、服务团队、为团队排除障碍。</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="600" height="18" topLeftX="64" topLeftY="510" type="text" id="bJJ">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)">
+          <p>来源：结合教材 3.2 敏捷方法适用边界与 Scrum 通用实践整理</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="510" type="text" id="bJR">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(150, 158, 170, 1)" textAlign="right">
+          <p>09 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXx">
+      <content>
+        <p>Scrum不是万能药，要先看清边界。两类情况它并不合适：一是需求高度确定、强合规的关键系统，比如航天、医疗，它们强调前期完整规格和严格认证，变更空间很小，预测型过程更合适；二是它对团队能力和纪律要求高，自组织不等于无管理。实践中还有三个高频误区：第一，以为每天开个站会就是Scrum，其实站会只是形式，核心是固定冲刺加可交付增量；第二，冲刺中途随意插需求，这会打乱节奏，新需求应该进Backlog等下一冲刺；第三，把Scrum Master当成派活的项目经理，他真正的职责是引导流程、服务团队、排除障碍。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pno">
+    <style>
+      <fill id="fno">
+        <fillColor color="rgba(13, 19, 38, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="500" height="22" topLeftX="64" topLeftY="46" type="text" id="bXq">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(96, 165, 250, 1)" bold="true" letterSpacing="2">
+          <p>小结 · 回到开头的问题</p>
+        </content>
+      </shape>
+      <shape width="840" height="28" topLeftX="62" topLeftY="78" type="text" id="bXh">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(203, 213, 225, 1)">
+          <p>能不能把大项目切成短周期，每段都交付可用软件并随时校准方向？</p>
+        </content>
+      </shape>
+      <shape width="836" height="72" topLeftX="62" topLeftY="116" type="text" id="bXc">
+        <content textType="title" fontSize="23" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>Scrum 用固定节奏的冲刺把大项目拆成可交付的小增量，</p>
+          <p>以透明与持续反馈驾驭需求变化。</p>
+        </content>
+      </shape>
+      <line id="bXD" startX="64" startY="210" endX="896.0006009613214" endY="210">
+        <border color="rgba(255, 255, 255, 0.14)" width="1"/>
+      </line>
+      <shape width="836" height="32" topLeftX="64" topLeftY="232" type="text" id="bXe">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(96, 165, 250, 1)">一条主线　</span></strong>Backlog → Sprint Backlog → 1~4 周冲刺 → 产品增量，循环往复</p>
+        </content>
+      </shape>
+      <shape width="836" height="32" topLeftX="64" topLeftY="272" type="text" id="bXw">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(96, 165, 250, 1)">三个角色　</span></strong>产品拥有者定方向、敏捷教练护流程、开发团队做产品</p>
+        </content>
+      </shape>
+      <shape width="836" height="32" topLeftX="64" topLeftY="312" type="text" id="bXu">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(96, 165, 250, 1)">四个活动　</span></strong>计划会、每日站会、评审会、回顾会，撑起迭代闭环</p>
+        </content>
+      </shape>
+      <shape width="836" height="32" topLeftX="64" topLeftY="352" type="text" id="bXs">
+        <content fontSize="14.5" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(96, 165, 250, 1)">一条边界　</span></strong>需求越不确定，Scrum 越有价值；只学形式、不变文化则必然失效</p>
+        </content>
+      </shape>
+      <line id="bXO" startX="64" startY="416" endX="896.0006009613214" endY="416">
+        <border color="rgba(255, 255, 255, 0.14)" width="1"/>
+      </line>
+      <shape width="500" height="34" topLeftX="64" topLeftY="436" type="text" id="bXN">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>谢谢聆听，欢迎提问</p>
+        </content>
+      </shape>
+      <shape width="700" height="20" topLeftX="64" topLeftY="484" type="text" id="bXS">
+        <content textType="caption" fontSize="11" fontFamily="思源黑体" color="rgba(148, 163, 184, 1)">
+          <p>参考资料：《软件工程》教材 3.2.3 Scrum 方法；Scrum Guide（scrumguides.org）</p>
+        </content>
+      </shape>
+      <shape width="60" height="18" topLeftX="836" topLeftY="486" type="text" id="bXm">
+        <content textType="caption" fontSize="10.5" fontFamily="思源黑体" color="rgba(148, 163, 184, 1)" textAlign="right">
+          <p>10 / 10</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXY">
+      <content>
+        <p>最后回到开头的问题：能不能把大项目切成短周期、每段交付可用软件并随时校准？Scrum的回答是肯定的——它用固定节奏的冲刺，把大项目拆成可交付的小增量，靠透明和反馈驾驭变化。记住四组关键词就记住了Scrum：一条主线，从订单库到冲刺再到产品增量；三个角色，产品拥有者、敏捷教练、开发团队；四个活动，计划会、每日站会、评审会、回顾会；还有一条边界，需求越不确定Scrum越有价值，只学形式、不变文化则必然失效。我的介绍到此结束，谢谢大家，欢迎提问。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

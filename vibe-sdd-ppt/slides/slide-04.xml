@@ -1,0 +1,117 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>01 / VIBE CODING · 工作方式</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>04 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>工作循环：描述 → 生成 → 运行 → 微调，一圈圈逼近预期</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="rect" topLeftX="64" topLeftY="158" width="180" height="140">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="172" width="152" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>01 · describe</p></content>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="198" width="152" height="22">
+      <content textType="body" fontSize="15" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>描述意图</p></content>
+    </shape>
+    <shape type="text" topLeftX="78" topLeftY="228" width="152" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>用自然语言、语音或截图说清「想要什么」，不规定怎么实现。</p></content>
+    </shape>
+    <shape type="rect" topLeftX="264" topLeftY="158" width="180" height="140">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="278" topLeftY="172" width="152" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>02 · generate</p></content>
+    </shape>
+    <shape type="text" topLeftX="278" topLeftY="198" width="152" height="22">
+      <content textType="body" fontSize="15" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>AI 生成</p></content>
+    </shape>
+    <shape type="text" topLeftX="278" topLeftY="228" width="152" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>大模型直接产出代码与文件，人通常不逐行阅读。</p></content>
+    </shape>
+    <shape type="rect" topLeftX="464" topLeftY="158" width="180" height="140">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="478" topLeftY="172" width="152" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>03 · run</p></content>
+    </shape>
+    <shape type="text" topLeftX="478" topLeftY="198" width="152" height="22">
+      <content textType="body" fontSize="15" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>运行看效果</p></content>
+    </shape>
+    <shape type="text" topLeftX="478" topLeftY="228" width="152" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>运行应用、试用功能，凭结果和「感觉」判断对不对。</p></content>
+    </shape>
+    <shape type="rect" topLeftX="664" topLeftY="158" width="180" height="140">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(52,52,60)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="678" topLeftY="172" width="152" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>04 · nudge</p></content>
+    </shape>
+    <shape type="text" topLeftX="678" topLeftY="198" width="152" height="22">
+      <content textType="body" fontSize="15" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false"><p>反馈微调</p></content>
+    </shape>
+    <shape type="text" topLeftX="678" topLeftY="228" width="152" height="56">
+      <content textType="caption" fontSize="11" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5"><p>把报错或不满原样贴回，让 AI 再改，直到能跑通。</p></content>
+    </shape>
+    <line startX="244" startY="228" endX="262" endY="228"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="444" startY="228" endX="462" endY="228"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="644" startY="228" endX="662" endY="228"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <line startX="844" startY="316" endX="72" endY="316"><border color="rgb(122,139,44)" width="1" dashArray="dash"/><endArrow type="arrow"/></line>
+    <shape type="text" topLeftX="600" topLeftY="322" width="296" height="20">
+      <content textType="caption" fontSize="10" fontFamily="Roboto Mono" color="rgba(122,139,44,1)" verticalAlign="top" textAlign="right" wrap="false"><p>loop until it feels right</p></content>
+    </shape>
+    <line startX="64" startY="356" endX="896" endY="356">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="372" width="480" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// 分水岭：你还读不读代码？</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="400" width="480" height="72">
+      <content textType="body" fontSize="13" color="rgba(200,204,210,1)" verticalAlign="top" lineSpacing="multiple:1.7">
+        <p><span color="rgba(212,233,44,1)" fontFamily="Roboto Mono">·</span> 不审查、一路 Accept All —— 严格意义上的 vibe coding</p>
+        <p><span color="rgba(138,143,148,1)" fontFamily="Roboto Mono">·</span> <span color="rgba(150,154,160,1)">逐行审查后再合并 —— 其实回到了「AI 辅助编程」</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="568" topLeftY="372" width="328" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// 代表性工具</p></content>
+    </shape>
+    <shape type="text" topLeftX="568" topLeftY="402" width="328" height="64">
+      <content textType="body" fontSize="12" fontFamily="Roboto Mono" color="rgba(190,194,200,1)" verticalAlign="top" lineSpacing="multiple:1.8">
+        <p>Cursor · Claude Code · Windsurf</p>
+        <p>Replit Agent · Lovable · bolt.new · v0</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://scrimba.com/articles/what-is-vibe-coding/">Scrimba: What Is Vibe Coding（describe→generate→run→nudge 循环与「审查即分界」）</a>　|　各工具官网</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第4页（约35秒）：它的工作方式是一个四步循环——先用自然语言描述意图，AI生成代码，运行看效果，不满意就把报错贴回去让它改，循环往复直到感觉对了。关键分水岭是"你还读不读代码"：完全不审查、一路Accept All才是严格意义的vibe coding；只要逐行审查，就回到了普通的AI辅助编程。代表工具包括Cursor、Claude Code、Windsurf、Replit Agent、Lovable、bolt.new等。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,121 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>04 · 关键角色</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>三类角色各司其职：谁定方向、谁护流程、谁做产品</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <icon iconType="iconpark/Base/aiming.svg" topLeftX="64" topLeftY="162" width="36" height="36">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="120" topLeftY="152" width="300" height="26">
+      <content textType="body" fontSize="17" color="rgba(13,19,38,1)" bold="true">
+        <p>产品拥有者　<span color="rgba(37,99,235,1)" fontSize="12">Product Owner</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="182" width="300" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)">
+        <p>决定“做什么”，对产品价值负责</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="440" topLeftY="150" width="456" height="62">
+      <content textType="body" fontSize="13.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.55">
+        <p>创建并维护产品订单库 Backlog，描述产品需要提供的功能需求、排出优先级，明确每次迭代发布的版本。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="234" endX="896" endY="234">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <icon iconType="iconpark/Travel/compass-one.svg" topLeftX="64" topLeftY="258" width="36" height="36">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="120" topLeftY="248" width="300" height="26">
+      <content textType="body" fontSize="17" color="rgba(13,19,38,1)" bold="true">
+        <p>敏捷教练　<span color="rgba(37,99,235,1)" fontSize="12">Scrum Master</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="278" width="300" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)">
+        <p>守护流程、排除障碍的“仆人式引导者”</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="440" topLeftY="246" width="456" height="62">
+      <content textType="body" fontSize="13.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.55">
+        <p>按优先级筛选最应实现的需求形成冲刺订单库 Sprint Backlog，组织每日 Scrum 会议与评审，保障流程运转、为团队扫清障碍。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="330" endX="896" endY="330">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <icon iconType="iconpark/Peoples/peoples.svg" topLeftX="64" topLeftY="354" width="36" height="36">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="120" topLeftY="344" width="320" height="26">
+      <content textType="body" fontSize="17" color="rgba(13,19,38,1)" bold="true">
+        <p>开发团队　<span color="rgba(37,99,235,1)" fontSize="12">Development Team</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="374" width="300" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)">
+        <p>真正做出增量的人，跨职能、自组织</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="440" topLeftY="342" width="456" height="62">
+      <content textType="body" fontSize="13.5" color="rgba(40,48,64,1)" lineSpacing="multiple:1.55">
+        <p>一般 5~9 人，在冲刺内自行完成软件设计、编码实现与测试；每天同步进展与困难，共同对交付成果负责。</p>
+      </content>
+    </shape>
+
+    <line startX="64" startY="438" endX="896" endY="438">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="450" width="200" height="18">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>一句话分工</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="472" width="832" height="26">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true">
+        <p>产品拥有者管“做什么”，开发团队管“怎么做”，敏捷教练管“让团队顺畅地做”。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：《软件工程》教材 3.2.3 Scrum 方法（角色职责）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>05 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>Scrum团队只有三类角色。第一，产品拥有者Product Owner，决定“做什么”，他创建并维护产品订单库Backlog，描述需求、排出优先级。第二，敏捷教练Scrum Master，注意他不是项目经理、不负责派活，而是流程的守护者，是仆人式引导者，组织会议、筛选本次冲刺要实现的需求、帮团队排除障碍。第三，开发团队，一般5到9人，跨职能、自组织，在冲刺里自行完成设计、编码和测试，每天同步进展。一句话分工：产品拥有者管做什么，开发团队管怎么做，敏捷教练管让团队顺畅地做。</p>
+    </content>
+  </note>
+</slide>

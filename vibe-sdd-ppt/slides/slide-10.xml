@@ -1,0 +1,148 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>03 / 对比与结论</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>10 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="76" width="840" height="38">
+      <content textType="title" fontSize="24" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>不是谁取代谁：原型靠 Vibe 求快，生产靠 SDD 求稳</p>
+      </content>
+    </shape>
+    <table topLeftX="64" topLeftY="128" width="832" height="236">
+      <colgroup>
+        <col width="146"/>
+        <col width="343"/>
+        <col width="343"/>
+      </colgroup>
+      <tr height="30">
+        <td>
+          <fill><fillColor color="rgba(44,44,52,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(212,233,44,1)" textAlign="left"><p>　维度</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(44,44,52,1)"/></fill>
+          <content textType="body" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" textAlign="left"><p>　VIBE CODING（方式）</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(44,44,52,1)"/></fill>
+          <content textType="body" fontSize="12" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" textAlign="left"><p>　SDD（过程）</p></content>
+        </td>
+      </tr>
+      <tr height="34">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　主要产物</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(200,204,210,1)" textAlign="left"><p>　能跑的应用、对不对的「感觉」</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　结构化规格 spec</p></content>
+        </td>
+      </tr>
+      <tr height="34">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　真相源</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(200,204,210,1)" textAlign="left"><p>　代码与运行结果</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　规格；代码只是生成产物</p></content>
+        </td>
+      </tr>
+      <tr height="34">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　人的角色</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(200,204,210,1)" textAlign="left"><p>　描述意图、验收效果，少读代码</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　写规格、做评审、按标准验收</p></content>
+        </td>
+      </tr>
+      <tr height="34">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　工作流程</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(200,204,210,1)" textAlign="left"><p>　描述→生成→运行→微调，松散</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　立宪→规格→计划→任务→实现</p></content>
+        </td>
+      </tr>
+      <tr height="34">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　最适合</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(200,204,210,1)" textAlign="left"><p>　原型、Demo、一次性工具</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　生产系统、团队协作、长期维护</p></content>
+        </td>
+      </tr>
+      <tr height="36">
+        <td>
+          <fill><fillColor color="rgba(34,34,41,1)"/></fill>
+          <content textType="caption" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="left"><p>　主要风险</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(32,32,38,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(220,150,148,1)" textAlign="left"><p>　可维护性、安全、技术债</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(36,39,26,1)"/></fill>
+          <content textType="caption" fontSize="11" color="rgba(214,220,200,1)" textAlign="left"><p>　前期投入大，规格需持续维护</p></content>
+        </td>
+      </tr>
+    </table>
+    <shape type="text" topLeftX="64" topLeftY="382" width="832" height="28">
+      <content textType="body" fontSize="14" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>结论：从 「forget the code」 到 「write the spec」，二者是同一光谱的两端，按项目阶段与风险取舍。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="424" endX="896" endY="424">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="436" width="832" height="64">
+      <content textType="caption" fontSize="10" color="rgba(120,124,132,1)" verticalAlign="top" lineSpacing="multiple:1.6">
+        <p>资料来源：Karpathy 原帖（X, 2025-02-02）；<a href="https://www.collinsdictionary.com/woty">Collins Dictionary WOTY 2025</a>；<a href="https://survey.stackoverflow.co/2025/">Stack Overflow Developer Survey 2025</a>；<a href="https://www.martinfowler.com/bliki/VibeCoding.html">Martin Fowler: VibeCoding</a>；CVE-2025-48757</p>
+        <p><a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog: Spec-driven development（2025-09-02）</a>；<a href="https://github.github.com/spec-kit/">GitHub Spec Kit 项目页</a>；<a href="https://kiro.dev/docs/specs/">Kiro 官方文档与博客</a>；Google Cloud / Cloudflare 释义页</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第10页（约35秒，收尾）：对比二者——Vibe Coding的主要产物是能跑的应用、真相源是代码、人少读代码、流程松散，最适合原型和一次性工具，风险在质量、安全和技术债；SDD的主要产物是规格、规格是真相源、人负责写规格和评审、走五阶段流程，适合生产系统和长期维护，代价是前期投入。它们不是谁取代谁，而是同一光谱的两端：早期探索用Vibe快速试错，进入生产用SDD求稳，按项目阶段和风险取舍。我的介绍到此结束，欢迎提问。</p>
+    </content>
+  </note>
+</slide>

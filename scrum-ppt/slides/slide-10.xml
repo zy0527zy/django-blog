@@ -1,0 +1,74 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(13,19,38)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="46" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(96,165,250,1)" bold="true" letterSpacing="2">
+        <p>小结 · 回到开头的问题</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="28">
+      <content textType="body" fontSize="16" color="rgba(203,213,225,1)">
+        <p>能不能把大项目切成短周期，每段都交付可用软件并随时校准方向？</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="116" width="836" height="72">
+      <content textType="title" fontSize="23" color="rgba(255,255,255,1)" bold="true" lineSpacing="multiple:1.5">
+        <p>Scrum 用固定节奏的冲刺把大项目拆成可交付的小增量，</p>
+        <p>以透明与持续反馈驾驭需求变化。</p>
+      </content>
+    </shape>
+
+    <line startX="64" startY="210" endX="896" endY="210">
+      <border color="rgba(255,255,255,0.14)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="232" width="836" height="32">
+      <content textType="body" fontSize="14.5" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <p><span color="rgba(96,165,250,1)" bold="true">一条主线　</span>Backlog → Sprint Backlog → 1~4 周冲刺 → 产品增量，循环往复</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="272" width="836" height="32">
+      <content textType="body" fontSize="14.5" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <p><span color="rgba(96,165,250,1)" bold="true">三个角色　</span>产品拥有者定方向、敏捷教练护流程、开发团队做产品</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="312" width="836" height="32">
+      <content textType="body" fontSize="14.5" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <p><span color="rgba(96,165,250,1)" bold="true">四个活动　</span>计划会、每日站会、评审会、回顾会，撑起迭代闭环</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="352" width="836" height="32">
+      <content textType="body" fontSize="14.5" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <p><span color="rgba(96,165,250,1)" bold="true">一条边界　</span>需求越不确定，Scrum 越有价值；只学形式、不变文化则必然失效</p>
+      </content>
+    </shape>
+
+    <line startX="64" startY="416" endX="896" endY="416">
+      <border color="rgba(255,255,255,0.14)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="436" width="500" height="34">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>谢谢聆听，欢迎提问</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="484" width="700" height="20">
+      <content textType="caption" fontSize="11" color="rgba(148,163,184,1)">
+        <p>参考资料：《软件工程》教材 3.2.3 Scrum 方法；Scrum Guide（scrumguides.org）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="486" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(148,163,184,1)" textAlign="right">
+        <p>10 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>最后回到开头的问题：能不能把大项目切成短周期、每段交付可用软件并随时校准？Scrum的回答是肯定的——它用固定节奏的冲刺，把大项目拆成可交付的小增量，靠透明和反馈驾驭变化。记住四组关键词就记住了Scrum：一条主线，从订单库到冲刺再到产品增量；三个角色，产品拥有者、敏捷教练、开发团队；四个活动，计划会、每日站会、评审会、回顾会；还有一条边界，需求越不确定Scrum越有价值，只学形式、不变文化则必然失效。我的介绍到此结束，谢谢大家，欢迎提问。</p>
+    </content>
+  </note>
+</slide>

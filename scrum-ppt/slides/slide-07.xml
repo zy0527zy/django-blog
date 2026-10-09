@@ -1,0 +1,148 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>06 · 具体例子</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="680" topLeftY="42" width="216" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>示例场景（教学虚构）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="25" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>走一遍：校园二手交易 App 的三个冲刺</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="text" topLeftX="64" topLeftY="146" width="240" height="20">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="1">
+        <p>产品订单库 BACKLOG（按优先级）</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="188" width="8" height="8">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="180" width="200" height="22">
+      <content textType="body" fontSize="14" color="rgba(40,48,64,1)"><p>1. 注册登录</p></content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="222" width="8" height="8">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="214" width="200" height="22">
+      <content textType="body" fontSize="14" color="rgba(40,48,64,1)"><p>2. 商品发布</p></content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="256" width="8" height="8">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="248" width="220" height="22">
+      <content textType="body" fontSize="14" color="rgba(40,48,64,1)"><p>3. 商品浏览与搜索</p></content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="290" width="8" height="8">
+      <fill><fillColor color="rgba(191,201,219,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="282" width="200" height="22">
+      <content textType="body" fontSize="14" color="rgba(120,128,142,1)"><p>4. 下单与交易</p></content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="324" width="8" height="8">
+      <fill><fillColor color="rgba(191,201,219,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="316" width="200" height="22">
+      <content textType="body" fontSize="14" color="rgba(120,128,142,1)"><p>5. 在线聊天</p></content>
+    </shape>
+    <shape type="rect" topLeftX="64" topLeftY="358" width="8" height="8">
+      <fill><fillColor color="rgba(191,201,219,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="82" topLeftY="350" width="200" height="22">
+      <content textType="body" fontSize="14" color="rgba(120,128,142,1)"><p>6. 评价系统</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="394" width="232" height="48">
+      <content textType="caption" fontSize="11.5" color="rgba(120,128,142,1)" lineSpacing="multiple:1.5">
+        <p>Backlog 持续增删；每个冲刺初，团队按容量从顶部选取。</p>
+      </content>
+    </shape>
+
+    <line startX="318" startY="148" endX="318" endY="440">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <shape type="ellipse" topLeftX="346" topLeftY="156" width="40" height="40">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="346" topLeftY="163" width="40" height="26">
+      <content textType="body" fontSize="15" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>S1</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="156" width="490" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>冲刺 1 · 第 1~2 周</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="182" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)"><p>纳入：注册登录、商品发布、商品浏览与搜索</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="206" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(37,99,235,1)" bold="true"><p>交付：能发布、能浏览搜索的可运行版本</p></content>
+    </shape>
+    <line startX="346" startY="246" endX="896" endY="246">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <shape type="ellipse" topLeftX="346" topLeftY="260" width="40" height="40">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="346" topLeftY="267" width="40" height="26">
+      <content textType="body" fontSize="15" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>S2</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="260" width="490" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>冲刺 2 · 第 3~4 周</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="286" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)"><p>纳入：下单与交易、订单管理</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="310" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(37,99,235,1)" bold="true"><p>交付：跑通完整交易闭环的新版本</p></content>
+    </shape>
+    <line startX="346" startY="350" endX="896" endY="350">
+      <border color="rgb(224,228,236)" width="1"/>
+    </line>
+
+    <shape type="ellipse" topLeftX="346" topLeftY="364" width="40" height="40">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="346" topLeftY="371" width="40" height="26">
+      <content textType="body" fontSize="15" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>S3</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="364" width="490" height="24">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>冲刺 3 · 第 5~6 周</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="390" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(90,99,115,1)"><p>纳入：在线聊天、评价系统</p></content>
+    </shape>
+    <shape type="text" topLeftX="402" topLeftY="414" width="490" height="22">
+      <content textType="body" fontSize="13" color="rgba(37,99,235,1)" bold="true"><p>交付：功能完整的校园二手交易产品</p></content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="456" width="832" height="36">
+      <content textType="caption" fontSize="12" color="rgba(120,128,142,1)" lineSpacing="multiple:1.5">
+        <p>每个冲刺结束，增量都集成进产品；若用户反馈变化，未做的需求只需在 Backlog 中重排优先级，由下一冲刺响应。</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>07 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>我们用一个教学虚构的例子走一遍。假设要做一个校园二手交易App，产品拥有者先把需求按价值排出Backlog：注册登录、商品发布、浏览搜索、下单交易、聊天、评价。团队两周一个冲刺。冲刺一，从清单顶部挑走进注册登录、发布和浏览，两周后交出一个能发布、能浏览的可运行版本，评审会上收集反馈。冲刺二做下单交易，跑通交易闭环。冲刺三做聊天和评价，产品完整。关键有两点：每个冲刺交付的都是可运行的增量；如果中途用户想法变化，没做的需求只需在Backlog里重排优先级，下一个冲刺再响应，不需要推翻整个计划。</p>
+    </content>
+  </note>
+</slide>

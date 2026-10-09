@@ -1,0 +1,150 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(242,244,248)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" letterSpacing="2">
+        <p>05 · 关键实践</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="68" width="840" height="44">
+      <content textType="title" fontSize="26" color="rgba(13,19,38,1)" bold="true" wrap="false">
+        <p>一个冲刺里发生什么：四个活动撑起迭代闭环</p>
+      </content>
+    </shape>
+    <line startX="64" startY="126" endX="896" endY="126">
+      <border color="rgb(214,220,230)" width="1"/>
+    </line>
+
+    <line startX="164" startY="152" endX="164" endY="412">
+      <border color="rgb(191,201,219)" width="2"/>
+    </line>
+
+    <shape type="ellipse" topLeftX="156" topLeftY="154" width="16" height="16">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+      <border color="rgb(242,244,248)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="56" topLeftY="150" width="92" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" textAlign="right">
+        <p>冲刺首日</p>
+      </content>
+    </shape>
+    <icon iconType="iconpark/Edit/list.svg" topLeftX="186" topLeftY="147" width="28" height="28">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="226" topLeftY="145" width="500" height="24">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>冲刺计划会　<span color="rgba(37,99,235,1)" fontSize="11.5">Sprint Planning</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="226" topLeftY="171" width="640" height="34">
+      <content textType="body" fontSize="13.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.45">
+        <p>从 Backlog 挑选本次冲刺能完成的需求，形成 Sprint Backlog，定下冲刺目标。</p>
+      </content>
+    </shape>
+
+    <shape type="ellipse" topLeftX="156" topLeftY="234" width="16" height="16">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+      <border color="rgb(242,244,248)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="56" topLeftY="230" width="92" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" textAlign="right">
+        <p>每天 15 分钟</p>
+      </content>
+    </shape>
+    <icon iconType="iconpark/Music/voice.svg" topLeftX="186" topLeftY="227" width="28" height="28">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="226" topLeftY="225" width="500" height="24">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>每日站会　<span color="rgba(37,99,235,1)" fontSize="11.5">Daily Scrum</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="226" topLeftY="251" width="640" height="34">
+      <content textType="body" fontSize="13.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.45">
+        <p>每人只讲三件事：昨天完成了什么、今天计划做什么、遇到了什么困难和障碍。</p>
+      </content>
+    </shape>
+
+    <shape type="ellipse" topLeftX="156" topLeftY="314" width="16" height="16">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+      <border color="rgb(242,244,248)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="56" topLeftY="310" width="92" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" textAlign="right">
+        <p>冲刺末日</p>
+      </content>
+    </shape>
+    <icon iconType="iconpark/Base/preview-open.svg" topLeftX="186" topLeftY="307" width="28" height="28">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="226" topLeftY="305" width="500" height="24">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>冲刺评审会　<span color="rgba(37,99,235,1)" fontSize="11.5">Sprint Review</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="226" topLeftY="331" width="640" height="34">
+      <content textType="body" fontSize="13.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.45">
+        <p>演示可运行的产品增量，共同审查是否高质量实现既定功能，并收集反馈。</p>
+      </content>
+    </shape>
+
+    <shape type="ellipse" topLeftX="156" topLeftY="394" width="16" height="16">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+      <border color="rgb(242,244,248)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="56" topLeftY="390" width="92" height="22">
+      <content textType="caption" fontSize="12" color="rgba(37,99,235,1)" bold="true" textAlign="right">
+        <p>评审之后</p>
+      </content>
+    </shape>
+    <icon iconType="iconpark/Edit/refresh-one.svg" topLeftX="186" topLeftY="387" width="28" height="28">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </icon>
+    <shape type="text" topLeftX="226" topLeftY="385" width="500" height="24">
+      <content textType="body" fontSize="16" color="rgba(13,19,38,1)" bold="true">
+        <p>冲刺回顾会　<span color="rgba(37,99,235,1)" fontSize="11.5">Retrospective</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="226" topLeftY="411" width="640" height="34">
+      <content textType="body" fontSize="13.5" color="rgba(90,99,115,1)" lineSpacing="multiple:1.45">
+        <p>复盘协作与流程：哪些做得好、哪些要改进，形成下一个冲刺的改进项。</p>
+      </content>
+    </shape>
+
+    <shape type="text" topLeftX="64" topLeftY="510" width="600" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)">
+        <p>来源：《软件工程》教材 3.2.3（每日 Scrum 会议、Scrum 评审与反思）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="836" topLeftY="510" width="60" height="18">
+      <content textType="caption" fontSize="10.5" color="rgba(150,158,170,1)" textAlign="right">
+        <p>06 / 10</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>一个冲刺内部有四个标准活动，撑起整个迭代闭环。第一，冲刺首日开计划会，从产品订单库挑出本次能完成的需求，形成冲刺订单库，定下冲刺目标。第二，冲刺期间每天开15分钟站会，每人只讲三句：昨天完成了什么、今天计划做什么、遇到什么障碍。第三，冲刺最后一天开评审会，向产品拥有者演示真正可运行的增量，共同审查功能是否达成、收集反馈。第四，评审之后开回顾会，复盘协作流程、定下改进项。随后进入下一个冲刺，团队就这样一圈一圈持续改进。</p>
+    </content>
+  </note>
+</slide>

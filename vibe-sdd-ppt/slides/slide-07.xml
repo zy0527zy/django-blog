@@ -1,0 +1,140 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>02 / SDD · 内涵</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>07 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="78" width="840" height="40">
+      <content textType="title" fontSize="25" bold="true" color="rgba(255,255,255,1)" verticalAlign="top">
+        <p>SDD：规格而非代码是主要产物，代码只是规格的生成结果</p>
+      </content>
+    </shape>
+    <line startX="64" startY="134" endX="896" endY="134">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="152" width="430" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// DEFINITION</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="180" width="430" height="130">
+      <content textType="body" fontSize="13" color="rgba(205,208,213,1)" verticalAlign="top" lineSpacing="multiple:1.75">
+        <p>面向 AI 编码 agent 的一种开发方法：结构化的规格说明——需求、场景、约束——而不是代码，才是项目的主要产物与<span color="rgba(212,233,44,1)">唯一事实来源</span>。</p>
+        <p> </p>
+        <p>先写规格，再由规格依次驱动计划、任务与实现；代码是规格的生成与验证产物。需求变化时，先改规格、再重新生成代码。</p>
+      </content>
+    </shape>
+    <line startX="516" startY="152" endX="516" endY="306">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="536" topLeftY="152" width="360" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// 三个核心主张</p></content>
+    </shape>
+    <shape type="text" topLeftX="536" topLeftY="182" width="360" height="40">
+      <content textType="body" fontSize="13" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)" bold="true">01　</span><span color="rgba(255,255,255,1)" bold="true">规格先行　</span><span color="rgba(150,154,160,1)">动手前写清「做什么」与验收标准</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="536" topLeftY="228" width="360" height="40">
+      <content textType="body" fontSize="13" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)" bold="true">02　</span><span color="rgba(255,255,255,1)" bold="true">单一真相源　</span><span color="rgba(150,154,160,1)">需求、计划、任务、代码对齐同一 spec</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="536" topLeftY="274" width="360" height="40">
+      <content textType="body" fontSize="13" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p><span fontFamily="Roboto Mono" color="rgba(212,233,44,1)" bold="true">03　</span><span color="rgba(255,255,255,1)" bold="true">持续可演进　</span><span color="rgba(150,154,160,1)">规格纳入版本管理，变更可审计</span></p>
+      </content>
+    </shape>
+    <line startX="64" startY="330" endX="896" endY="330">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="344" width="400" height="20">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false"><p>// 工作流被反转</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="376" width="52" height="24">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(138,143,148,1)" verticalAlign="middle" wrap="false"><p>VIBE</p></content>
+    </shape>
+    <shape type="rect" topLeftX="120" topLeftY="372" width="110" height="32">
+      <fill><fillColor color="rgb(34,34,40)"/></fill>
+      <border color="rgb(70,70,78)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="372" width="110" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170,174,180,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>松散 prompt</p></content>
+    </shape>
+    <line startX="234" startY="388" endX="248" endY="388"><border color="rgb(107,114,128)" width="1"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="252" topLeftY="372" width="118" height="32">
+      <fill><fillColor color="rgb(34,34,40)"/></fill>
+      <border color="rgb(70,70,78)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="252" topLeftY="372" width="118" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170,174,180,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>AI 生成</p></content>
+    </shape>
+    <line startX="374" startY="388" endX="388" endY="388"><border color="rgb(107,114,128)" width="1"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="392" topLeftY="372" width="150" height="32">
+      <fill><fillColor color="rgb(40,38,34)"/></fill>
+      <border color="rgb(122,139,44)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="392" topLeftY="372" width="150" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>代码 = 真相</p></content>
+    </shape>
+    <shape type="text" topLeftX="556" topLeftY="376" width="340" height="24">
+      <content textType="caption" fontSize="11" color="rgba(138,143,148,1)" verticalAlign="middle" wrap="false"><p>规格缺失，意图在来回对话中丢失</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="428" width="52" height="24">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="middle" wrap="false"><p>SDD</p></content>
+    </shape>
+    <shape type="rect" topLeftX="120" topLeftY="424" width="86" height="32">
+      <fill><fillColor color="rgb(38,42,24)"/></fill>
+      <border color="rgb(122,139,44)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="424" width="86" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>spec</p></content>
+    </shape>
+    <line startX="210" startY="440" endX="224" endY="440"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="228" topLeftY="424" width="82" height="32">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(70,70,78)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="228" topLeftY="424" width="82" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(200,204,210,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>plan</p></content>
+    </shape>
+    <line startX="314" startY="440" endX="328" endY="440"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="332" topLeftY="424" width="82" height="32">
+      <fill><fillColor color="rgb(32,32,38)"/></fill>
+      <border color="rgb(70,70,78)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="332" topLeftY="424" width="82" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(200,204,210,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>tasks</p></content>
+    </shape>
+    <line startX="418" startY="440" endX="432" endY="440"><border color="rgb(122,139,44)" width="1"/><endArrow type="arrow"/></line>
+    <shape type="rect" topLeftX="436" topLeftY="424" width="130" height="32">
+      <fill><fillColor color="rgb(34,34,40)"/></fill>
+      <border color="rgb(70,70,78)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="436" topLeftY="424" width="130" height="32">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(170,174,180,1)" verticalAlign="middle" textAlign="center" wrap="false"><p>代码 = 产物</p></content>
+    </shape>
+    <shape type="text" topLeftX="580" topLeftY="428" width="316" height="24">
+      <content textType="caption" fontSize="11" color="rgba(212,233,44,1)" verticalAlign="middle" wrap="false"><p>规格是真相源，代码可随时重新生成</p></content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://github.blog/ai-and-ml/generative-ai/spec-driven-development-with-ai-get-started-with-a-new-open-source-toolkit/">GitHub Blog: Spec-driven development with AI（2025-09-02）</a>　|　<a href="https://dev.to/bobbyblaine/spec-driven-development-write-the-spec-not-the-code-2p5o">DEV: Write the Spec, Not the Code</a></p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第7页（约40秒）：SDD即规格驱动开发，是面向AI编码agent的方法。它最核心的反转是：规格而不是代码才是主要产物和唯一事实来源。先写结构化规格——需求、场景、约束，再由规格依次驱动计划、任务、实现，代码只是规格的生成产物；需求变了先改规格再重新生成代码。对比看：Vibe是从松散prompt直接到代码、代码成了真相、规格缺失；SDD是spec到plan到tasks再到代码，规格始终是真相源。</p>
+    </content>
+  </note>
+</slide>

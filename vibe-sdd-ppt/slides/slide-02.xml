@@ -1,0 +1,101 @@
+<slide xmlns="https://www.larkoffice.com/sml/2.0">
+  <style>
+    <fill>
+      <fillColor color="rgb(26,26,30)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="text" topLeftX="64" topLeftY="40" width="500" height="22">
+      <content textType="caption" fontSize="12" fontFamily="Roboto Mono" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>00 / BACKGROUND</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="40" width="96" height="22">
+      <content textType="caption" fontSize="11" fontFamily="Roboto Mono" color="rgba(107,114,128,1)" verticalAlign="top" textAlign="right" wrap="false">
+        <p>02 / 10</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="62" topLeftY="82" width="840" height="44">
+      <content textType="title" fontSize="26" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>AI 已经在写大量代码，两种代表性新范式随之出现</p>
+      </content>
+    </shape>
+    <line startX="64" startY="146" endX="896" endY="146">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="178" width="262" height="66">
+      <content textType="headline" fontSize="52" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>84%</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="252" width="262" height="24">
+      <content textType="body" fontSize="14" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>开发者已用上 AI 编码工具</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="282" width="256" height="64">
+      <content textType="caption" fontSize="12" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p>全球 84% 的开发者已使用或计划使用 AI 编码工具；美国这一比例约 92%。</p>
+      </content>
+    </shape>
+    <line startX="336" startY="182" endX="336" endY="350">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="356" topLeftY="178" width="262" height="66">
+      <content textType="headline" fontSize="52" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>25%+</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="356" topLeftY="252" width="262" height="24">
+      <content textType="body" fontSize="14" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>大厂新代码由 AI 生成</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="356" topLeftY="282" width="256" height="64">
+      <content textType="caption" fontSize="12" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p>Google 披露超过 25% 的新代码由 AI 生成，再经工程师审查、接受。</p>
+      </content>
+    </shape>
+    <line startX="628" startY="182" endX="628" endY="350">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="648" topLeftY="178" width="262" height="66">
+      <content textType="headline" fontSize="52" fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)" verticalAlign="top" wrap="false">
+        <p>1/4</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="648" topLeftY="252" width="262" height="24">
+      <content textType="body" fontSize="14" bold="true" color="rgba(255,255,255,1)" verticalAlign="top" wrap="false">
+        <p>初创代码库几乎全由 AI 写</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="648" topLeftY="282" width="248" height="64">
+      <content textType="caption" fontSize="12" color="rgba(150,154,160,1)" verticalAlign="top" lineSpacing="multiple:1.5">
+        <p>YC 2025 冬季批次约四分之一初创，代码库 95% 由 AI 生成。</p>
+      </content>
+    </shape>
+    <line startX="64" startY="372" endX="896" endY="372">
+      <border color="rgb(46,46,54)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="64" topLeftY="392" width="832" height="28">
+      <content textType="body" fontSize="14" verticalAlign="top" wrap="false">
+        <p><span fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)">▸ VIBE CODING　</span><span color="rgba(220,222,226,1)">一种开发「方式」：用自然语言描述意图，AI 写代码，人来引导</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="428" width="832" height="28">
+      <content textType="body" fontSize="14" verticalAlign="top" wrap="false">
+        <p><span fontFamily="Roboto Mono" bold="true" color="rgba(212,233,44,1)">▸ SDD　　　　　</span><span color="rgba(220,222,226,1)">一种开发「过程」：规格（Spec）作为唯一真相源，驱动 AI 规划与实现</span></p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="64" topLeftY="500" width="832" height="22">
+      <content textType="caption" fontSize="10" color="rgba(107,114,128,1)" verticalAlign="top" wrap="false">
+        <p>来源：<a href="https://survey.stackoverflow.co/2025/">Stack Overflow Developer Survey 2025</a>　|　Google CEO Sundar Pichai 2025 年公开表态　|　Y Combinator（Jared Friedman, 2025）</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第2页（约30秒）：先看三组数据——Stack Overflow 2025调查显示全球84%开发者已用或计划用AI编码工具；Google称超25%新代码由AI生成再由人审查；YC冬季批次四分之一初创代码库95%是AI写的。当AI写代码成为常态，催生两种代表性新范式：Vibe Coding是一种开发方式，SDD是一种开发过程。</p>
+    </content>
+  </note>
+</slide>
