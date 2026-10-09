@@ -1,3 +1,8 @@
+"""
+djangoblog blog_signals.py 文件
+功能：定义并处理全站信号（Signal）
+监听邮件发送、OAuth 登录、模型保存、用户登录/登出等事件，触发邮件发送、缓存清理、搜索引擎推送等副作用
+"""
 import _thread
 import logging
 
@@ -18,13 +23,16 @@ from oauth.models import OAuthUser
 
 logger = logging.getLogger(__name__)
 
+# 自定义信号：OAuth 用户登录（携带 oauth 用户 id）
 oauth_user_login_signal = django.dispatch.Signal(['id'])
+# 自定义信号：发送邮件（携带收件人、标题、内容）
 send_email_signal = django.dispatch.Signal(
     ['emailto', 'title', 'content'])
 
 
 @receiver(send_email_signal)
 def send_email_signal_handler(sender, **kwargs):
+    """邮件发送信号处理器：实际发送邮件，并把发送结果写入 EmailSendLog 日志"""
     emailto = kwargs['emailto']
     title = kwargs['title']
     content = kwargs['content']
@@ -53,6 +61,7 @@ def send_email_signal_handler(sender, **kwargs):
 
 @receiver(oauth_user_login_signal)
 def oauth_user_login_signal_handler(sender, **kwargs):
+    """OAuth 登录信号处理器：拉取第三方头像到本地并清理侧边栏缓存"""
     id = kwargs['id']
     oauthuser = OAuthUser.objects.get(id=id)
     site = get_current_site().domain
@@ -73,6 +82,7 @@ def model_post_save_callback(
         using,
         update_fields,
         **kwargs):
+    """模型保存信号处理器：按模型类型清理相关缓存，并向搜索引擎推送更新"""
     if isinstance(instance, LogEntry):
         return
 
@@ -172,6 +182,7 @@ def model_post_save_callback(
 @receiver(user_logged_in)
 @receiver(user_logged_out)
 def user_auth_callback(sender, request, user, **kwargs):
+    """用户登录/登出信号处理器：记录日志并清理侧边栏缓存"""
     if user and user.username:
         logger.info(user)
         delete_sidebar_cache()
