@@ -74,18 +74,18 @@
 （同格式逐个填，重点写清 OAuthUser→BlogUser 的可选绑定 0..1）
 
 #### 3.2.5 servermanager —— 朱亮宇
-表：servermanager_commands（Commands）、servermanager_emailsendlog（EmailSendLog）
-##### servermanager_commands（model: Commands）
+表：servermanager_commands（commands）、servermanager_emailsendlog（EmailSendLog）
+##### servermanager_commands（model: commands）
 | 字段 | 类型 | 主键 | 外键 | 说明 |
 | ---- | ---- | ---- | ---- | ---- |
 | id | bigint | ✅ |  | 主键ID，自增 |
-| title | varchar(300) |  |  | 命令名称 |
+| title | varchar(300) |  |  | 命令标题，与代码 verbose_name='命令标题'保持一致 |
 | command | varchar(2000) |  |  | 执行命令内容 |
 | describe | varchar(300) |  |  | 命令描述 |
-| creation_time | datetime(6) |  |  | 创建时间 |
-| last_modify_time | datetime(6) |  |  | 最后修改时间 |
+| creation_time | datetime(6) |  |  | 创建时间，Django auto_now_add：新增记录自动写入时间 |
+| last_modify_time | datetime(6) |  |  | 最后修改时间，Django auto_now：记录更新自动刷新时间 |
 
-**model 对应**：Commands — 数据：系统可执行命令；职责：存储后台可调用的指令信息
+**model 对应**: commands — 数据：系统可执行命令；职责：存储后台可调用的指令信息；无外键，与其它实体无关联、无关系重数。
 
 ##### servermanager_emailsendlog（model: EmailSendLog）
 | 字段 | 类型 | 主键 | 外键 | 说明 |
@@ -94,11 +94,10 @@
 | emailto | varchar(300) |  |  | 收件人邮箱 |
 | title | varchar(2000) |  |  | 邮件标题 |
 | content | longtext |  |  | 邮件正文内容 |
-| send_result | tinyint(1) |  |  | 发送结果 |
-| creation_time | datetime(6) |  |  | 创建时间 |
+| send_result | tinyint(1) |  |  | 发送结果，Django BooleanField，布尔0/1，默认False |
+| creation_time | datetime(6) |  |  | 创建时间，Django auto_now_add：新增记录自动写入时间 |
 
-**model 对应**：EmailSendLog — 数据：邮件发送日志；职责：记录系统所有邮件发送记录，仅可读，不允许新增
-
+**model 对应**: EmailSendLog — 数据：邮件发送日志；职责：记录系统所有邮件发送记录，后台只读、禁止手动新增（admin.py has_add_permission=False），由系统邮件发送流程自动写入；无外键，与其它实体无关联、无关系重数。
 
 ### 3.3 实体与 model 的对应关系汇总
 > 【全员提供 + 张月汇总】一张总表。
