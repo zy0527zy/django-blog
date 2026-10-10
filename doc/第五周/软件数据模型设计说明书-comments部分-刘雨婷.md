@@ -4,7 +4,7 @@
 > 编写：刘雨婷（计划经理，分支 lyt_branch）
 > 负责章节：§3.2.3 comments —— 表 comments_comment、comments_commentreaction
 > 依据：`doc/第四周/数据模型类图分析.md` §2.4 + `src/comments/models.py`
-> ⚠️ 字段类型以朱亮宇《数据库表结构导出.md》为准，待导出后核对微调。
+> ✅ 字段类型已根据《数据库表结构导出（最终版）》核对完毕。
 
 ---
 
@@ -22,7 +22,7 @@ comments 应用负责博客的**评论功能**，包含 2 张实体表：
 | creation_time | datetime | — | — | 创建时间（默认当前时间） |
 | last_modify_time | datetime | — | — | 最后修改时间 |
 | author_id | bigint | — | ✅ → accounts_bloguser.id | 评论作者（一个用户可发多条评论，N:1） |
-| article_id | bigint | — | ✅ → blog_article.id | 评论所属文章（一篇文章可有多条评论，N:1） |
+| article_id | int | — | ✅ → blog_article.id | 评论所属文章（一篇文章可有多条评论，N:1） |
 | parent_comment_id | bigint（可空） | — | ✅ → comments_comment.id（自关联） | 父评论：为空=顶层评论；有值=楼中楼回复（0..N:1） |
 | is_enable | tinyint(1) | — | — | 是否展示：False=隐藏（未过审/违规） |
 
