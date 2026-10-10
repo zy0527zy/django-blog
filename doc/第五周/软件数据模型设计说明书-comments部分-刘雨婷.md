@@ -18,13 +18,13 @@ comments 应用负责博客的**评论功能**，包含 2 张实体表：
 | 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
 | id | bigint（自增） | ✅ | — | 评论主键 |
-| body | longtext（上限300字） | — | — | 评论正文内容 |
+| body | longtext（数据库层无长度限制；应用层 max_length=300 字校验） | — | — | 评论正文内容 |
 | creation_time | datetime | — | — | 创建时间（默认当前时间） |
 | last_modify_time | datetime | — | — | 最后修改时间 |
 | author_id | bigint | — | ✅ → accounts_bloguser.id | 评论作者（一个用户可发多条评论，N:1） |
 | article_id | int | — | ✅ → blog_article.id | 评论所属文章（一篇文章可有多条评论，N:1） |
 | parent_comment_id | bigint（可空） | — | ✅ → comments_comment.id（自关联） | 父评论：为空=顶层评论；有值=楼中楼回复（0..N:1） |
-| is_enable | tinyint(1) | — | — | 是否展示：False=隐藏（未过审/违规） |
+| is_enable | tinyint(1) | — | — | 是否展示：默认 False=隐藏（待审核），审核通过置 True 后对外展示 |
 
 **索引**：
 - `idx_art_parent_enable`：article + parent_comment + is_enable 组合索引，优化评论列表查询；
@@ -71,6 +71,7 @@ comments 应用负责博客的**评论功能**，包含 2 张实体表：
 
 ### 与整体系统的关系（供 E-R 图使用）
 
-- comments 两张表通过 `article`、`author`、`parent_comment` 三个外键与 `blog_article`、`accounts_bloguser`、`comments_comment` 自身相连；
-- 跨 app 外键共 3 条：comment→article（N:1）、comment→author（N:1）、reaction→comment（N:1）；
+- comments 两张表通过 `article`、`author`、`parent_comment`、`comment`、`user` 等外键与 `blog_article`、`accounts_bloguser`、`comments_comment` 自身相连；
+- 其中 reaction 表的 `comment_id` 是 comments 内部关联（reaction→comment），`user_id` 是跨 app 外键；
+- **跨 app 外键共 3 条**：comment→article（N:1）、comment→author（N:1）、reaction→user（N:1）；
 - 楼中楼自关联是本模块区别于其他 app 的特征结构。
