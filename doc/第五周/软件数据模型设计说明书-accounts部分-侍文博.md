@@ -64,39 +64,39 @@
 ##### accounts_bloguser（model：BlogUser，继承 AbstractUser）
 | 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | BigAutoField | 是 | — | 用户记录的自增主键 |
-| password | CharField(128) | — | — | Django 哈希后的密码 |
-| last_login | DateTimeField，可空 | — | — | 最近登录时间 |
-| is_superuser | BooleanField | — | — | 是否拥有全部权限 |
-| username | CharField(150)，唯一 | — | — | 用户名，不能重复 |
-| first_name | CharField(150) | — | — | 名，可留空 |
-| last_name | CharField(150) | — | — | 姓，可留空 |
-| email | EmailField(254) | — | — | 邮箱；当前未设置唯一约束 |
-| is_staff | BooleanField | — | — | 是否允许登录 Django 管理后台 |
-| is_active | BooleanField | — | — | 账号是否启用 |
-| date_joined | DateTimeField | — | — | 用户加入时间 |
-| nickname | CharField(100) | — | — | 博客显示昵称，可留空 |
-| creation_time | DateTimeField | — | — | 用户记录创建时间，默认当前时间 |
-| last_modify_time | DateTimeField | — | — | 用户记录最后修改时间，默认当前时间 |
-| source | CharField(100) | — | — | 用户创建来源，可留空 |
+| id | bigint | 是 | — | 用户记录的自增主键 |
+| password | varchar(128) | — | — | Django 哈希后的密码 |
+| last_login | datetime(6)，可空 | — | — | 最近登录时间 |
+| is_superuser | tinyint(1) | — | — | 是否拥有全部权限 |
+| username | varchar(150)，唯一 | — | — | 用户名，不能重复 |
+| first_name | varchar(150) | — | — | 名，可留空 |
+| last_name | varchar(150) | — | — | 姓，可留空 |
+| email | varchar(254) | — | — | 邮箱；当前未设置唯一约束 |
+| is_staff | tinyint(1) | — | — | 是否允许登录 Django 管理后台 |
+| is_active | tinyint(1) | — | — | 账号是否启用 |
+| date_joined | datetime(6) | — | — | 用户加入时间 |
+| nickname | varchar(100) | — | — | 博客显示昵称，可留空 |
+| creation_time | datetime(6) | — | — | 用户记录创建时间，默认当前时间 |
+| last_modify_time | datetime(6) | — | — | 用户记录最后修改时间，默认当前时间 |
+| source | varchar(100) | — | — | 用户创建来源，可留空 |
 
 **model 对应**：BlogUser —— 数据：站点用户及其账号、权限标记和博客资料；职责：基于 Django AbstractUser 扩展用户资料，并通过关联表连接用户组和权限。`groups`、`user_permissions` 是多对多关系，不作为本表字段存储。
 
 ##### accounts_bloguser_groups（BlogUser.groups 自动生成的关联表）
 | 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | BigAutoField | 是 | — | 关联记录的自增主键 |
-| bloguser_id | ForeignKey（数据库列为 BigInt） | — | 是，→ accounts_bloguser.id | 关联的用户 |
-| group_id | ForeignKey（数据库列类型随 auth_group.id） | — | 是，→ auth_group.id | 关联的 Django 用户组 |
+| id | bigint | 是 | — | 关联记录的自增主键 |
+| bloguser_id | bigint | — | 是，→ accounts_bloguser.id | 关联的用户 |
+| group_id | int | — | 是，→ auth_group.id | 关联的 Django 用户组 |
 
 **约束说明**：`bloguser_id` 与 `group_id` 组合唯一，避免同一用户重复加入同一用户组；外键删除规则为级联删除。
 
 ##### accounts_bloguser_user_permissions（BlogUser.user_permissions 自动生成的关联表）
 | 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | BigAutoField | 是 | — | 关联记录的自增主键 |
-| bloguser_id | ForeignKey（数据库列为 BigInt） | — | 是，→ accounts_bloguser.id | 关联的用户 |
-| permission_id | ForeignKey（数据库列类型随 auth_permission.id） | — | 是，→ auth_permission.id | 关联的 Django 权限 |
+| id | bigint | 是 | — | 关联记录的自增主键 |
+| bloguser_id | bigint | — | 是，→ accounts_bloguser.id | 关联的用户 |
+| permission_id | int | — | 是，→ auth_permission.id | 关联的 Django 权限 |
 
 **约束说明**：`bloguser_id` 与 `permission_id` 组合唯一，避免为同一用户重复分配同一权限；外键删除规则为级联删除。具体数据库原生列类型由所用数据库后端决定。
 
