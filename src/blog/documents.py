@@ -128,10 +128,12 @@ class ElapsedTimeDocument(Document):
 # 页面性能日志管理器，负责性能索引的创建、删除和写入
 class ElaspedTimeDocumentManager:
     @staticmethod
+    # 检查 performance 性能索引，不存在时才初始化创建。
     def build_index():
         from elasticsearch import Elasticsearch
         # 使用已配置好的连接参数
         client = Elasticsearch(**es_params)
+        # 先查询索引是否存在，避免重复初始化。
         res = client.indices.exists(index="performance")
         if not res:
             ElapsedTimeDocument.init()
@@ -141,13 +143,17 @@ class ElaspedTimeDocumentManager:
         from elasticsearch import Elasticsearch
         es = Elasticsearch(**es_params)
         try:
+            # 删除性能索引；如果不存在，则由下方异常处理忽略。
             es.indices.delete(index='performance')
         except elasticsearch.exceptions.NotFoundError:
             pass
 
     @staticmethod
+    # 整理访问设备信息，并向 performance 索引写入性能日志。
     def create(url, time_taken, log_datetime, useragent, ip):
+        # 写入前确保性能索引已经存在。
         ElaspedTimeDocumentManager.build_index()
+        # 将浏览器、操作系统、设备等信息整理为嵌套文档。
         ua = UserAgent()
         ua.browser = UserAgentBrowser()
         ua.browser.Family = useragent.browser.family
@@ -164,6 +170,7 @@ class ElaspedTimeDocumentManager:
         ua.string = useragent.ua_string
         ua.is_bot = useragent.is_bot
 
+        # 构造性能日志，使用当前毫秒时间戳作为文档 ID。
         doc = ElapsedTimeDocument(
             meta={
                 'id': int(
@@ -175,6 +182,7 @@ class ElaspedTimeDocumentManager:
             time_taken=time_taken,
             log_datetime=log_datetime,
             useragent=ua, ip=ip)
+        # 保存日志，并通过 geoip 管道尝试补充 IP 地理信息。
         doc.save(pipeline="geoip")
 
 
@@ -213,9 +221,11 @@ class ArticleDocument(Document):
 # 文章搜索文档管理器，负责文章索引的创建、转换、重建和更新
 class ArticleDocumentManager():
 
+    # 创建文章索引管理器时，初始化 blog 搜索索引。
     def __init__(self):
         self.create_index()
 
+    # 根据 ArticleDocument 的字段映射初始化文章搜索索引。
     def create_index(self):
         ArticleDocument.init()
 
@@ -223,6 +233,7 @@ class ArticleDocumentManager():
         from elasticsearch import Elasticsearch
         es = Elasticsearch(**es_params)
         try:
+            # 删除 blog 搜索索引；不存在时忽略对应异常。
             es.indices.delete(index='blog')
         except elasticsearch.exceptions.NotFoundError:
             pass
@@ -255,11 +266,13 @@ class ArticleDocumentManager():
     # 根据文章数据重新建立 Elasticsearch 搜索索引
     def rebuild(self, articles=None):
         ArticleDocument.init()
+        # 未提供文章集合或传入空集合时，默认获取数据库中的全部文章。
         articles = articles if articles else Article.objects.all()
         docs = self.convert_to_doc(articles)
         for doc in docs:
             doc.save()
 
+    # 将传入的文章搜索文档逐个保存到 Elasticsearch。
     def update_docs(self, docs):
         for doc in docs:
             doc.save()

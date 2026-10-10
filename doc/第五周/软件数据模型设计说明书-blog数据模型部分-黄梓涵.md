@@ -9,26 +9,26 @@
 
 blog 模块负责管理博客文章、分类、标签、友情链接、侧边栏和网站配置等数据。该模块包含六个主要 Model，并通过 Django 自动生成的多对多关联表保存文章与标签之间的关系，共涉及七张数据库表。
 
-### 一、blog_article（Article）
+##### blog_article（Article）
 
 Article 是博客系统的核心模型，用于保存文章的内容、发布时间、发布状态、浏览量，以及文章与作者、分类、标签之间的关联关系。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | int | 是 | 否 | 文章唯一标识，继承 BaseModel |
-| title | varchar(200) | 否 | 否 | 文章标题，唯一 |
-| body | longtext | 否 | 否 | Markdown 文章正文 |
-| pub_time | datetime(6) | 否 | 否 | 发布时间 |
-| status | varchar(1) | 否 | 否 | 文章状态：草稿或已发布 |
-| comment_status | varchar(1) | 否 | 否 | 是否允许评论 |
-| type | varchar(1) | 否 | 否 | 普通文章或独立页面 |
-| views | int unsigned | 否 | 否 | 浏览次数 |
-| article_order | int | 否 | 否 | 文章排序权重 |
-| show_toc | tinyint(1) | 否 | 否 | 是否显示文章目录 |
-| author_id | bigint | 否 | 是 | 指向用户 BlogUser；关联 accounts_bloguser |
-| category_id | int | 否 | 是 | 指向文章分类 Category；关联 blog_category |
-| creation_time | datetime(6) | 否 | 否 | 创建时间 |
-| last_modify_time | datetime(6) | 否 | 否 | 修改时间 |
+| id | int | ✅ |  | 文章唯一标识，继承 BaseModel |
+| title | varchar(200) |  |  | 文章标题，唯一 |
+| body | longtext |  |  | Markdown 文章正文 |
+| pub_time | datetime(6) |  |  | 发布时间 |
+| status | varchar(1) |  |  | 文章状态：草稿或已发布 |
+| comment_status | varchar(1) |  |  | 是否允许评论 |
+| type | varchar(1) |  |  | 普通文章或独立页面 |
+| views | int unsigned |  |  | 浏览次数 |
+| article_order | int |  |  | 文章排序权重 |
+| show_toc | tinyint(1) |  |  | 是否显示文章目录 |
+| author_id | bigint |  | ✅ | 指向用户 BlogUser；关联 accounts_bloguser |
+| category_id | int |  | ✅ | 指向文章分类 Category；关联 blog_category |
+| creation_time | datetime(6) |  |  | 创建时间 |
+| last_modify_time | datetime(6) |  |  | 修改时间 |
 
 **Model 对应：** Article，定义在 blog/models.py 中，继承 BaseModel。
 
@@ -40,19 +40,19 @@ Article 是博客系统的核心模型，用于保存文章的内容、发布时
 
 其中 tags 在 Django 中定义为 ManyToManyField，不作为普通字段直接存储在 blog_article 表中，而是通过 blog_article_tags 中间表实现关联。
 
-### 二、blog_category（Category）
+##### blog_category（Category）
 
 Category 用于管理文章分类，并支持父子分类形成树形结构。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | int | 是 | 否 | 分类唯一标识，继承 BaseModel |
-| name | varchar(30) | 否 | 否 | 分类名称，唯一 |
-| slug | varchar(60) | 否 | 否 | 用于生成分类 URL 的标识 |
-| index | int | 否 | 否 | 分类排序值 |
-| parent_category_id | int | 否 | 是 | 指向同表父分类，可以为空；关联 blog_category；允许 NULL |
-| creation_time | datetime(6) | 否 | 否 | 创建时间 |
-| last_modify_time | datetime(6) | 否 | 否 | 修改时间 |
+| id | int | ✅ |  | 分类唯一标识，继承 BaseModel |
+| name | varchar(30) |  |  | 分类名称，唯一 |
+| slug | varchar(60) |  |  | 用于生成分类 URL 的标识 |
+| index | int |  |  | 分类排序值 |
+| parent_category_id | int |  | ✅ | 指向同表父分类，可以为空；关联 blog_category；允许 NULL |
+| creation_time | datetime(6) |  |  | 创建时间 |
+| last_modify_time | datetime(6) |  |  | 修改时间 |
 
 **Model 对应：** Category，定义在 blog/models.py 中，继承 BaseModel。
 
@@ -62,17 +62,17 @@ Category 用于管理文章分类，并支持父子分类形成树形结构。
 - Category 与 Category：自关联，一个分类最多对应一个父分类，一个父分类可以有多个子分类。
 - parent_category_id 为空时，该分类可以作为顶级分类。
 
-### 三、blog_tag（Tag）
+##### blog_tag（Tag）
 
 Tag 用于保存文章标签，实现文章的多主题标记和按标签检索。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | int | 是 | 否 | 标签唯一标识，继承 BaseModel |
-| name | varchar(30) | 否 | 否 | 标签名称，唯一 |
-| slug | varchar(60) | 否 | 否 | 用于生成标签 URL 的标识 |
-| creation_time | datetime(6) | 否 | 否 | 创建时间 |
-| last_modify_time | datetime(6) | 否 | 否 | 修改时间 |
+| id | int | ✅ |  | 标签唯一标识，继承 BaseModel |
+| name | varchar(30) |  |  | 标签名称，唯一 |
+| slug | varchar(60) |  |  | 用于生成标签 URL 的标识 |
+| creation_time | datetime(6) |  |  | 创建时间 |
+| last_modify_time | datetime(6) |  |  | 修改时间 |
 
 **Model 对应：** Tag，定义在 blog/models.py 中，继承 BaseModel。
 
@@ -80,15 +80,15 @@ Tag 用于保存文章标签，实现文章的多主题标记和按标签检索�
 
 Tag 与 Article 为 N:M 关系，通过 blog_article_tags 关联表实现。
 
-### 四、blog_article_tags（文章标签关联表）
+##### blog_article_tags（文章标签关联表）
 
 该表由 Django 根据 Article.tags 的 ManyToManyField 自动生成，不对应业务代码中独立定义的 Model 类。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | bigint | 是 | 否 | 关联记录标识 |
-| article_id | int | 否 | 是 | 指向 blog_article；关联 blog_article |
-| tag_id | int | 否 | 是 | 指向 blog_tag；关联 blog_tag |
+| id | bigint | ✅ |  | 关联记录标识 |
+| article_id | int |  | ✅ | 指向 blog_article；关联 blog_article |
+| tag_id | int |  | ✅ | 指向 blog_tag；关联 blog_tag |
 
 **Model 对应：** Article.tags 的自动生成中间模型。
 
@@ -99,20 +99,20 @@ Tag 与 Article 为 N:M 关系，通过 blog_article_tags 关联表实现。
 
 这两个一对多关系共同实现 Article 与 Tag 之间的多对多关系。数据库已设置 (article_id, tag_id) 联合唯一约束。
 
-### 五、blog_links（Links）
+##### blog_links（Links）
 
 Links 保存友情链接的基本信息及其展示控制参数。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | bigint | 是 | 否 | 链接唯一标识 |
-| name | varchar(30) | 否 | 否 | 链接名称，唯一 |
-| link | varchar(200) | 否 | 否 | 链接地址 |
-| sequence | int | 否 | 否 | 显示顺序，唯一 |
-| is_enable | tinyint(1) | 否 | 否 | 是否启用 |
-| show_type | varchar(1) | 否 | 否 | 展示位置类型 |
-| last_mod_time | datetime(6) | 否 | 否 | 修改时间 |
-| creation_time | datetime(6) | 否 | 否 | 创建时间 |
+| id | bigint | ✅ |  | 链接唯一标识 |
+| name | varchar(30) |  |  | 链接名称，唯一 |
+| link | varchar(200) |  |  | 链接地址 |
+| sequence | int |  |  | 显示顺序，唯一 |
+| is_enable | tinyint(1) |  |  | 是否启用 |
+| show_type | varchar(1) |  |  | 展示位置类型 |
+| last_mod_time | datetime(6) |  |  | 修改时间 |
+| creation_time | datetime(6) |  |  | 创建时间 |
 
 **Model 对应：** Links。
 
@@ -120,19 +120,19 @@ Links 保存友情链接的基本信息及其展示控制参数。
 
 **关系说明：** 当前 Model 中没有直接声明指向其他业务实体的外键。
 
-### 六、blog_sidebar（SideBar）
+##### blog_sidebar（SideBar）
 
 SideBar 保存博客侧边栏中可以自定义展示的内容。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | bigint | 是 | 否 | 侧边栏记录标识 |
-| name | varchar(100) | 否 | 否 | 侧边栏名称 |
-| content | longtext | 否 | 否 | 自定义内容 |
-| sequence | int | 否 | 否 | 展示顺序，唯一 |
-| is_enable | tinyint(1) | 否 | 否 | 是否启用 |
-| last_mod_time | datetime(6) | 否 | 否 | 修改时间 |
-| creation_time | datetime(6) | 否 | 否 | 创建时间 |
+| id | bigint | ✅ |  | 侧边栏记录标识 |
+| name | varchar(100) |  |  | 侧边栏名称 |
+| content | longtext |  |  | 自定义内容 |
+| sequence | int |  |  | 展示顺序，唯一 |
+| is_enable | tinyint(1) |  |  | 是否启用 |
+| last_mod_time | datetime(6) |  |  | 修改时间 |
+| creation_time | datetime(6) |  |  | 创建时间 |
 
 **Model 对应：** SideBar。
 
@@ -140,32 +140,32 @@ SideBar 保存博客侧边栏中可以自定义展示的内容。
 
 **关系说明：** 当前 Model 中没有直接声明指向其他业务实体的外键。
 
-### 七、blog_blogsettings（BlogSettings）
+##### blog_blogsettings（BlogSettings）
 
 BlogSettings 用于保存博客网站的全局设置。模型通过 clean() 提供单实例校验，管理后台限制重复添加，但数据库没有强制单记录唯一约束。
 
-| 字段 | MySQL 类型 | 主键 | 外键 | 说明 |
+| 字段 | 类型 | 主键 | 外键 | 说明 |
 |---|---|---|---|---|
-| id | bigint | 是 | 否 | 配置记录标识 |
-| site_name | varchar(200) | 否 | 否 | 网站名称 |
-| site_description | longtext | 否 | 否 | 网站介绍 |
-| site_seo_description | longtext | 否 | 否 | SEO 描述 |
-| site_keywords | longtext | 否 | 否 | 网站关键词 |
-| article_sub_length | int | 否 | 否 | 文章摘要长度 |
-| sidebar_article_count | int | 否 | 否 | 侧边栏文章显示数量 |
-| sidebar_comment_count | int | 否 | 否 | 侧边栏评论显示数量 |
-| article_comment_count | int | 否 | 否 | 文章评论显示数量 |
-| show_google_adsense | tinyint(1) | 否 | 否 | 是否显示广告 |
-| google_adsense_codes | longtext | 否 | 否 | 广告代码；允许 NULL |
-| open_site_comment | tinyint(1) | 否 | 否 | 是否允许全站评论 |
-| beian_code | varchar(2000) | 否 | 否 | 网站备案号；允许 NULL |
-| analytics_code | longtext | 否 | 否 | 网站统计代码 |
-| show_gongan_code | tinyint(1) | 否 | 否 | 是否显示公安备案 |
-| gongan_beiancode | longtext | 否 | 否 | 公安备案号；允许 NULL |
-| global_footer | longtext | 否 | 否 | 全局底部内容；允许 NULL |
-| global_header | longtext | 否 | 否 | 全局头部内容；允许 NULL |
-| comment_need_review | tinyint(1) | 否 | 否 | 评论是否需要审核 |
-| color_scheme | varchar(20) | 否 | 否 | 主题配色 |
+| id | bigint | ✅ |  | 配置记录标识 |
+| site_name | varchar(200) |  |  | 网站名称 |
+| site_description | longtext |  |  | 网站介绍 |
+| site_seo_description | longtext |  |  | SEO 描述 |
+| site_keywords | longtext |  |  | 网站关键词 |
+| article_sub_length | int |  |  | 文章摘要长度 |
+| sidebar_article_count | int |  |  | 侧边栏文章显示数量 |
+| sidebar_comment_count | int |  |  | 侧边栏评论显示数量 |
+| article_comment_count | int |  |  | 文章评论显示数量 |
+| show_google_adsense | tinyint(1) |  |  | 是否显示广告 |
+| google_adsense_codes | longtext |  |  | 广告代码；允许 NULL |
+| open_site_comment | tinyint(1) |  |  | 是否允许全站评论 |
+| beian_code | varchar(2000) |  |  | 网站备案号；允许 NULL |
+| analytics_code | longtext |  |  | 网站统计代码 |
+| show_gongan_code | tinyint(1) |  |  | 是否显示公安备案 |
+| gongan_beiancode | longtext |  |  | 公安备案号；允许 NULL |
+| global_footer | longtext |  |  | 全局底部内容；允许 NULL |
+| global_header | longtext |  |  | 全局头部内容；允许 NULL |
+| comment_need_review | tinyint(1) |  |  | 评论是否需要审核 |
+| color_scheme | varchar(20) |  |  | 主题配色 |
 
 **Model 对应：** BlogSettings。
 
@@ -173,7 +173,7 @@ BlogSettings 用于保存博客网站的全局设置。模型通过 clean() 提�
 
 **关系说明：** 当前 Model 中没有直接声明指向其他业务实体的外键。
 
-### 八、blog 模块实体关系汇总
+##### blog 模块实体关系汇总
 
 | 实体 A | 实体 B | 关系重数 | 关系名称 |
 |---|---|---|---|
@@ -186,7 +186,7 @@ BlogSettings 用于保存博客网站的全局设置。模型通过 clean() 提�
 
 以上重数描述关系类型，实际数据允许为零的情况应结合外键可空性与业务约束分析。
 
-### 九、数据库结构核对结论
+##### 数据库结构核对结论
 
 本节已依据《数据库表结构导出（最终版）》完成 blog 七张表的 MySQL 字段类型、主键、外键和可空性核对，并结合 `src/blog/models.py` 说明 Model 对应关系及业务职责。
 
