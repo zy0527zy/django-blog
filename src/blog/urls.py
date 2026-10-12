@@ -4,6 +4,7 @@ from django.views.decorators.cache import cache_page
 from . import views
 
 app_name = "blog"
+# blog 应用的 URL 路由表，将访问地址分发给对应的视图
 urlpatterns = [
     path(
         r'',

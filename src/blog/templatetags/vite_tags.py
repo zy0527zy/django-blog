@@ -16,6 +16,7 @@ from django.utils.safestring import mark_safe
 from django.templatetags.static import static
 import logging
 
+# 注册 Django 自定义模板标签，使 Vite 资源加载函数可以在模板中调用
 register = template.Library()
 logger = logging.getLogger(__name__)
 

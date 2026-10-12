@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import Article, Category, Tag, Links, SideBar, BlogSettings
 
 
+# 文章后台编辑表单，使用 Article 模型的全部字段
 class ArticleForm(forms.ModelForm):
     # body = forms.CharField(widget=AdminPagedownWidget())
 
@@ -17,18 +18,22 @@ class ArticleForm(forms.ModelForm):
         fields = '__all__'
 
 
+# 将后台批量选中的文章状态修改为已发布
 def makr_article_publish(modeladmin, request, queryset):
     queryset.update(status='p')
 
 
+# 将后台批量选中的文章状态修改为草稿
 def draft_article(modeladmin, request, queryset):
     queryset.update(status='d')
 
 
+# 批量关闭选中文章的评论功能
 def close_article_commentstatus(modeladmin, request, queryset):
     queryset.update(comment_status='c')
 
 
+# 批量开启选中文章的评论功能
 def open_article_commentstatus(modeladmin, request, queryset):
     queryset.update(comment_status='o')
 
@@ -39,6 +44,7 @@ close_article_commentstatus.short_description = _('Close article comments')
 open_article_commentstatus.short_description = _('Open article comments')
 
 
+# 文章后台管理配置，控制文章列表展示、筛选、搜索和批量操作
 class ArticlelAdmin(admin.ModelAdmin):
     list_per_page = 20
     search_fields = ('body', 'title')
@@ -66,6 +72,7 @@ class ArticlelAdmin(admin.ModelAdmin):
         open_article_commentstatus]
     raw_id_fields = ('author', 'category',)
 
+    # 将分类名称显示为可点击链接，方便进入对应分类的后台编辑页
     def link_to_category(self, obj):
         info = (obj.category._meta.app_label, obj.category._meta.model_name)
         link = reverse('admin:%s_%s_change' % info, args=(obj.category.id,))
@@ -73,6 +80,7 @@ class ArticlelAdmin(admin.ModelAdmin):
 
     link_to_category.short_description = _('category')
 
+    # 编辑文章时只允许从超级用户中选择作者
     def get_form(self, request, obj=None, **kwargs):
         form = super(ArticlelAdmin, self).get_form(request, obj, **kwargs)
         form.base_fields['author'].queryset = get_user_model(
@@ -92,19 +100,23 @@ class ArticlelAdmin(admin.ModelAdmin):
             return site
 
 
+# 标签后台管理配置
 class TagAdmin(admin.ModelAdmin):
     exclude = ('slug', 'last_mod_time', 'creation_time')
 
 
+# 分类后台管理配置，显示父分类和排序信息
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'parent_category', 'index')
     exclude = ('slug', 'last_mod_time', 'creation_time')
 
 
+# 友情链接后台管理配置
 class LinksAdmin(admin.ModelAdmin):
     exclude = ('last_mod_time', 'creation_time')
 
 
+# 侧边栏后台管理配置
 class SideBarAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'is_enable', 'sequence')
     exclude = ('last_mod_time', 'creation_time')
