@@ -62,8 +62,8 @@ class OAuthConfig(models.Model):
         ('facebook', 'FaceBook'),
         ('qq', 'QQ'),
     )
-    # 平台类型，默认为 'a'（注意：此默认值不在 TYPE 枚举中，建议根据实际需求修改）
-    type = models.CharField(_('type'), max_length=10, choices=TYPE, default='a')
+    # 平台类型，默认 github（可选：weibo / google / github / facebook / qq）
+    type = models.CharField(_('type'), max_length=10, choices=TYPE, default='github')
     # 平台申请的 AppKey
     appkey = models.CharField(max_length=200, verbose_name='AppKey')
     # 平台申请的 AppSecret
