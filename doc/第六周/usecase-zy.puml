@@ -1,0 +1,60 @@
+@startuml 系统整体用例图
+' 软工3班8组 第六周实践任务 —— 系统整体用例图（系统级/后台用例）
+' 依据：src/djangoblog/admin_site.py 注册的 14 个后台模型（按功能归类）+ 各 app 实际功能
+' 生成工具：PlantUML
+
+left to right direction
+skinparam defaultFontName "Microsoft YaHei"
+skinparam ArrowColor #2c3e50
+skinparam backgroundColor #ffffff
+skinparam usecase {
+  BackgroundColor #f4f6f8
+  BorderColor #34495e
+  FontSize 12
+}
+
+actor 访客 as Guest
+actor 注册用户 as User
+actor 管理员 as Admin
+
+User --|> Guest
+
+rectangle "前台功能" {
+  usecase "浏览文章" as UC_BROWSE
+  usecase "搜索文章" as UC_SEARCH
+  usecase "注册账号" as UC_REGISTER
+  usecase "登录（用户名/邮箱）" as UC_LOGIN
+  usecase "发表评论" as UC_COMMENT
+  usecase "第三方登录" as UC_OAUTH
+  usecase "管理个人资料" as UC_PROFILE
+}
+
+rectangle "后台管理" {
+  usecase "登录后台" as UC_ADMIN_LOGIN
+  usecase "管理文章" as UC_M_ARTICLE
+  usecase "管理分类/标签" as UC_M_CATTAG
+  usecase "管理评论" as UC_M_COMMENT
+  usecase "管理用户" as UC_M_USER
+  usecase "第三方登录管理" as UC_M_OAUTH
+  usecase "站点与全局配置" as UC_M_SITE
+  usecase "运维与日志" as UC_M_OPS
+}
+
+Guest --> UC_BROWSE
+Guest --> UC_SEARCH
+Guest --> UC_REGISTER
+Guest --> UC_LOGIN
+
+User --> UC_COMMENT
+User --> UC_OAUTH
+User --> UC_PROFILE
+
+Admin --> UC_ADMIN_LOGIN
+Admin --> UC_M_ARTICLE
+Admin --> UC_M_CATTAG
+Admin --> UC_M_COMMENT
+Admin --> UC_M_USER
+Admin --> UC_M_OAUTH
+Admin --> UC_M_SITE
+Admin --> UC_M_OPS
+@enduml
