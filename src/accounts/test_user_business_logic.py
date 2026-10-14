@@ -10,7 +10,7 @@ from accounts.models import BlogUser
 
 
 class UserRegistrationTest(TestCase):
-    """测试用户注册业务逻辑"""
+    """测试用户创建、字段保存、默认状态以及密码安全存储。"""
 
     def test_user_can_be_created(self):
         """测试用户可以被创建"""
@@ -111,10 +111,10 @@ class UserRegistrationTest(TestCase):
 
 
 class UserAuthenticationTest(TestCase):
-    """测试用户认证业务逻辑"""
+    """测试凭据正确性和用户激活状态对认证结果的影响。"""
 
     def setUp(self):
-        """设置测试环境"""
+        """为认证相关测试创建一名使用统一凭据的用户。"""
         self.username = 'testuser'
         self.email = 'test@example.com'
         self.password = 'testpassword123'
@@ -163,7 +163,7 @@ class UserAuthenticationTest(TestCase):
 
 
 class UserPasswordManagementTest(TestCase):
-    """测试用户密码管理业务逻辑"""
+    """测试密码修改、持久化要求和不可用密码的处理。"""
 
     def setUp(self):
         """设置测试环境"""
@@ -214,7 +214,7 @@ class UserPasswordManagementTest(TestCase):
 
 
 class UserPermissionTest(TestCase):
-    """测试用户权限业务逻辑"""
+    """测试普通用户、员工和超级用户的权限标记及权限变更。"""
 
     def setUp(self):
         """设置测试环境"""
@@ -301,7 +301,7 @@ class UserPermissionTest(TestCase):
 
 
 class UserActivationTest(TestCase):
-    """测试用户激活业务逻辑"""
+    """测试用户账号激活与停用状态的保存和读取。"""
 
     def test_user_can_be_deactivated(self):
         """测试用户可以被停用"""
@@ -340,7 +340,7 @@ class UserActivationTest(TestCase):
 
 
 class UserProfileTest(TestCase):
-    """测试用户资料业务逻辑"""
+    """测试用户名、邮箱、邮箱更新及用户字符串表示。"""
 
     def test_user_has_username(self):
         """测试用户有用户名"""
@@ -392,11 +392,10 @@ class UserProfileTest(TestCase):
 
 
 class UserQueryTest(TestCase):
-    """测试用户查询业务逻辑"""
+    """测试按用户名、邮箱及账号状态查询用户。"""
 
     def setUp(self):
-        """设置测试环境"""
-        # 创建多个用户
+        """创建一组基础用户，供各类查询测试复用。"""
         self.users = []
         for i in range(5):
             user = BlogUser.objects.create_user(
@@ -455,7 +454,7 @@ class UserQueryTest(TestCase):
 
 
 class UserDeletionTest(TestCase):
-    """测试用户删除业务逻辑"""
+    """测试删除用户及其关联文章的级联处理。"""
 
     def test_user_can_be_deleted(self):
         """测试用户可以被删除"""
@@ -504,7 +503,6 @@ class UserDeletionTest(TestCase):
         # 删除用户
         user.delete()
 
-        # 验证文章的处理（取决于外键的on_delete设置）
-        # 如果是CASCADE，文章应该被删除
+        # 当前文章作者外键采用级联删除，因此删除用户后文章也应不存在。
         with self.assertRaises(Article.DoesNotExist):
             Article.objects.get(id=article_id)
