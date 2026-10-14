@@ -7,13 +7,14 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     # 本迁移依赖初始迁移，确保 BlogUser 已经创建。
+    
     dependencies = [
         ('accounts', '0001_initial'),
     ]
 
     # 更新模型选项和字段名称，确保数据库结构与当前模型定义一致。
     operations = [
-        # 更新用户模型在界面中的名称及排序选项。
+        # 更新用户模型在界面中的名称及排序选项
         migrations.AlterModelOptions(
             name='bloguser',
             options={'get_latest_by': 'id', 'ordering': ['-id'], 'verbose_name': 'user', 'verbose_name_plural': 'user'},

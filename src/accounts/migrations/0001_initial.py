@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
         ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
-    # 创建自定义用户模型 BlogUser，包含认证字段和项目扩展字段。
+    # 创建自定义用户模型 BlogUser，包含认证字段和项目扩展字段
     operations = [
         migrations.CreateModel(
             name='BlogUser',
