@@ -8,16 +8,20 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
+    # 标记这是 accounts 应用的初始迁移。
     initial = True
 
+    # 创建用户模型前，先应用 Django auth 应用所需的迁移。
     dependencies = [
         ('auth', '0012_alter_user_first_name_max_length'),
     ]
 
+    # 创建自定义用户模型 BlogUser，包含认证字段和项目扩展字段。
     operations = [
         migrations.CreateModel(
             name='BlogUser',
             fields=[
+                # Django 认证系统提供的基础用户字段。
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('password', models.CharField(max_length=128, verbose_name='password')),
                 ('last_login', models.DateTimeField(blank=True, null=True, verbose_name='last login')),
@@ -33,15 +37,18 @@ class Migration(migrations.Migration):
                 ('created_time', models.DateTimeField(default=django.utils.timezone.now, verbose_name='创建时间')),
                 ('last_mod_time', models.DateTimeField(default=django.utils.timezone.now, verbose_name='修改时间')),
                 ('source', models.CharField(blank=True, max_length=100, verbose_name='创建来源')),
+                # 用户与 Django 用户组、权限之间的关联字段。
                 ('groups', models.ManyToManyField(blank=True, help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.', related_name='user_set', related_query_name='user', to='auth.group', verbose_name='groups')),
                 ('user_permissions', models.ManyToManyField(blank=True, help_text='Specific permissions for this user.', related_name='user_set', related_query_name='user', to='auth.permission', verbose_name='user permissions')),
             ],
+            # 模型显示名称、默认排序及获取最新记录时使用的字段。
             options={
                 'verbose_name': '用户',
                 'verbose_name_plural': '用户',
                 'ordering': ['-id'],
                 'get_latest_by': 'id',
             },
+            # 使用 Django 内置 UserManager 管理用户。
             managers=[
                 ('objects', django.contrib.auth.models.UserManager()),
             ],
