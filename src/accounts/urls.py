@@ -1,3 +1,4 @@
+"""账号相关页面的 URL 路由配置。"""
 from django.urls import path
 from django.urls import re_path
 
@@ -6,6 +7,7 @@ from .forms import LoginForm
 
 app_name = "accounts"
 
+# 登录、注册和退出登录。
 urlpatterns = [re_path(r'^login/$',
                        views.LoginView.as_view(success_url='/'),
                        name='login',
@@ -16,6 +18,7 @@ urlpatterns = [re_path(r'^login/$',
                re_path(r'^logout/$',
                        views.LogoutView.as_view(),
                        name='logout'),
+               # 账号操作结果页面及密码找回流程。
                path(r'account/result.html',
                     views.account_result,
                     name='result'),
