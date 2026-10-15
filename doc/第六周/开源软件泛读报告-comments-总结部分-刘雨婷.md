@@ -62,7 +62,7 @@ comments 模块共有三类参与者：
 | 前置条件 | 用户已登录；被回复的父评论存在 |
 | 后置条件 | 新评论的 `parent_comment` 指向被回复评论，形成嵌套层级 |
 | 基本流程 | 1. 用户点击某条评论的「回复」；2. 表单隐藏字段自动填入 `parent_comment_id`；3. 提交后视图判断该字段非空；4. 查出父评论并设置 `comment.parent_comment`；5. 保存入库；6. 前端用 `parse_commenttree` 递归展示该评论下的所有子回复 |
-| 扩展流程 | 1a. 父评论 id 不存在 → 查询失败返回 404；2a. 不填父评论 id → 视为顶层评论 |
+| 扩展流程 | 1a. 父评论 id 不存在 → 抛出 DoesNotExist（当前路径未显式转 404）；2a. 不填父评论 id → 视为顶层评论 |
 | 顺序图 | 见「图 2：楼中楼回复顺序图」 |
 
 #### 用例 4：Emoji 表情反应
@@ -124,7 +124,7 @@ comments 模块共有三类参与者：
 1. 用户点击某条评论「回复」→ 表单隐藏字段写入 `parent_comment_id = 父评论 id`；
 2. 表单 → CommentPostView：POST 提交（正文 + parent_comment_id）；
 3. CommentPostView → Comment（父）：`Comment.objects.get(pk=parent_comment_id)`；
-   - 分支：父评论不存在 → 404；
+   - 分支：父评论不存在 → 抛出 DoesNotExist（当前路径未显式转 404）；
 4. CommentPostView → Comment（子）：新建评论并 `parent_comment = 父评论`；
 5. Comment（子）→ 数据库：INSERT；
 6. 页面渲染时 → parse_commenttree：从父评论递归 `filter(parent_comment=c, is_enable=True)` 取全部子回复；
