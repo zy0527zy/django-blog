@@ -33,9 +33,6 @@ class BaseModel(models.Model):
     last_modify_time = models.DateTimeField(_('modify time'), default=now)
 
     def save(self, *args, **kwargs):
-        # 第六周架构标注（黄梓涵）：只有 Article 且 update_fields 恰为 ['views']
-        # 才走下方 QuerySet.update() 快路径；其余保存走父类 ORM 保存并可能触发信号。
-        # 普通保存还会从 title/name 生成 slug；本方法没有主动刷新 last_modify_time。
         is_update_views = isinstance(
             self,
             Article) and 'update_fields' in kwargs and kwargs['update_fields'] == ['views']
@@ -140,8 +137,6 @@ class Article(BaseModel):
         ]
 
     def get_absolute_url(self):
-        # 第六周架构标注（黄梓涵）：反向解析 blog:detailbyid，使模型、路由与模板
-        # 保持关联；URL 中的年月日来自 creation_time，而不是 pub_time。
         return reverse('blog:detailbyid', kwargs={
             'article_id': self.id,
             'year': self.creation_time.year,
