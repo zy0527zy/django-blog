@@ -126,6 +126,51 @@
         <message xmi:type="uml:Message" xmi:id="checkSignature" name="校验签名" messageSort="synchCall"/>
         <message xmi:type="uml:Message" xmi:id="activateAccount" name="设置 is_active=True" messageSort="synchCall"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="loginInteraction" name="登录">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginBrowser" name="用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginViewLine" name="LoginView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginFormLine" name="AuthenticationForm / LoginForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginBackendLine" name="EmailOrUsernameModelBackend"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginUserLine" name="BlogUser"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginSessionLine" name="Django会话与Cookie"/>
+        <message xmi:type="uml:Message" xmi:id="loginSubmit" name="提交用户名或邮箱、密码和 remember/next" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginValidate" name="AuthenticationForm 校验凭据" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginAuthenticate" name="authenticate(username,password)" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginLookupUser" name="按邮箱或用户名查询 BlogUser 并核对密码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginCreateSession" name="auth.login 建立会话并设置有效期" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginSetCookie" name="清侧栏缓存、校验 next、设置 logged_user Cookie 并重定向" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginFailure" name="认证失败时返回登录表单错误" messageSort="reply"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="logoutInteraction" name="退出登录">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutBrowser" name="已登录用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutViewLine" name="LogoutView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutAuthLine" name="Django认证与会话"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutCacheLine" name="侧栏缓存"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutRedirectLine" name="LogoutRedirectView"/>
+        <message xmi:type="uml:Message" xmi:id="logoutRequest" name="GET /logout/" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutClearSession" name="logout(request) 清除认证会话" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutClearCache" name="delete_sidebar_cache()" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutRedirect" name="生成重定向到 /login/ 的响应" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutDeleteCookie" name="删除 logged_user Cookie 并返回 302" messageSort="reply"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="passwordResetInteraction" name="找回密码">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetBrowser" name="用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCodeViewLine" name="ForgetPasswordEmailCode"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCodeFormLine" name="ForgetPasswordCodeForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetMailLine" name="邮件服务"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCacheLine" name="验证码缓存"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetViewLine" name="ForgetPasswordView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetFormLine" name="ForgetPasswordForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetUserLine" name="BlogUser"/>
+        <message xmi:type="uml:Message" xmi:id="resetRequestCode" name="提交邮箱申请验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetValidateCodeEmail" name="校验邮箱格式并生成验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSendCode" name="发送验证码邮件并缓存五分钟" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSubmit" name="提交邮箱、验证码和两次新密码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetValidateFields" name="检查账户、密码一致性和密码策略" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetVerifyCode" name="verify(email, code)，拒绝错误或过期验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSavePassword" name="make_password 后更新 BlogUser 并保存" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetResult" name="成功重定向到 /login/；校验失败返回表单错误" messageSort="reply"/>
+      </packagedElement>
     </packagedElement>
   </uml:Model>
 </xmi:XMI>
