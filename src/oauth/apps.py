@@ -1,4 +1,4 @@
-"""oauth 应用的 AppConfig，负责应用级配置与启动初始化。"""
+"""oauth 应用的 AppConfig，定义 oauth 应用的 Django 配置。"""
 
 from django.apps import AppConfig
 
