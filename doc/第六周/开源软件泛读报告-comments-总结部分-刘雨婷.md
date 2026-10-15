@@ -130,9 +130,10 @@ comments 模块共有三类参与者：
 6. 页面渲染时 → parse_commenttree：从父评论递归 `filter(parent_comment=c, is_enable=True)` 取全部子回复；
 7. 返回层级化的评论树并渲染。
 
-#### 图 3：Emoji 表情反应顺序图（comments-sequence-react-lyt.png）
+#### 图 3：Emoji 表情反应顺序图（comments-sequence-reaction-lyt.png）
 
-![Emoji 表情反应顺序图](imgs/comments-sequence-react-lyt.png)
+![Emoji 表情反应顺序图](imgs/comments-sequence-reaction-lyt.png)
+
 
 参与对象：登录用户、前端表情按钮、CommentReactionView、Comment、CommentReaction、数据库。
 
@@ -149,9 +150,9 @@ comments 模块共有三类参与者：
 9. CommentReactionView → 前端：返回 JSON（action、reactions）；
 10. 前端更新表情计数与高亮。
 
-#### 图 4：后台评论审核顺序图（comments-sequence-moderate-lyt.png）
+#### 图 4：后台评论审核顺序图（comments‑sequence‑audit‑lyt.png）
 
-![后台评论审核顺序图](imgs/comments-sequence-moderate-lyt.png)
+![后台评论审核顺序图](imgs/comments-sequence-audit-lyt.png)
 
 参与对象：管理员、Django Admin、CommentAdmin、Comment、数据库。
 
