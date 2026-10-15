@@ -299,9 +299,9 @@ blog 同时承担前台文章展示和后台内容管理。前台请求经项目
 | 核心路由与应用装载 | `DjangoblogAppConfig`、项目 `urlpatterns` | djangoblog | 路由表是配置，不是类；AppConfig 就绪时调用插件加载。 |
 | 操作日志展示 | `LogEntryAdmin` | djangoblog | 在对应后台界面限制写入和删除。 |
 | 搜索引擎及插件基座 | `ElasticSearchEngine`、`ElasticSearchModelSearchForm`、`BasePlugin`、`load_plugins()`、hooks 函数 | djangoblog | 基座归核心包，具体插件归 plugins。 |
-| 第三方登录 | 待谢承志第六周材料确认 | oauth | 不用旧周源码代替本周正式交付；补交后完成汇总。 |
+| 第三方登录与邮箱绑定 | `oauthlogin()`、`authorize()`、`RequireEmailView`、`RequireEmailForm`、`emailconfirm()`、`OAuthUser`、平台 Manager | oauth | 黄梓涵按调整后的分工完成报告；图与详细对应表见 oauth、数据流图个人报告，代码标注仍由原负责人完成。 |
 
-汇总来源快照：侍文博 `953d0fb` 的 `第六周需提交材料-泛读报告模板.md` 中 accounts 表；刘雨婷 `d1cc6e8` 的 `开源软件泛读报告-comments-总结部分-刘雨婷.md`；朱亮宇 `8b3c288` 的 `开源软件泛读报告-servermanager、plugins部分、数据字典、数据模型分析-朱亮宇.md`；张月 `197393b` 的系统架构报告及核心源码。均通过远程分支对象只读查看，未把这些文件合入个人报告。完整总表待 oauth 材料及各成员修订确认后交组长定稿。
+汇总来源快照：侍文博 `953d0fb` 的 `第六周需提交材料-泛读报告模板.md` 中 accounts 表；刘雨婷 `d1cc6e8` 的 `开源软件泛读报告-comments-总结部分-刘雨婷.md`；朱亮宇 `8b3c288` 的 `开源软件泛读报告-servermanager、plugins部分、数据字典、数据模型分析-朱亮宇.md`；张月 `197393b` 的系统架构报告及核心源码。以上材料通过远程分支对象只读查看，未复制其整篇内容。oauth 项已依据本人接手完成的 [oauth、数据流图报告](开源软件泛读报告-oauth、数据流图部分-黄梓涵.md) 补齐；各成员修订仍应由组长确认后纳入定稿。
 
 ### 5.3 本周标注与验证范围
 

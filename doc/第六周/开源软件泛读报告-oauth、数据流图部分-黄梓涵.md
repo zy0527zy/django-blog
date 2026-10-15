@@ -1,12 +1,12 @@
-# 开源软件泛读报告——oauth、数据流图部分（图及说明）
+# 开源软件泛读报告——oauth、数据流图部分
 
-> 负责板块：谢承志；黄梓涵协助制图及整理说明，按组长安排提交至 hzh_branch。
-> 制图日期：2026-10-15；源码基线：develop `6f875e4` 同步后的源码。
-> 本文件仅含本次协助完成的图及对应说明，不代替谢承志本周代码标注或质量过程评审。依据源码静态分析，未调用真实第三方授权、邮件或机器人服务。
+> 作者：黄梓涵；按组长调整分工，接手 oauth 与系统数据流图板块，提交至 hzh_branch。
+> 日期：2026-10-15；源码复核基线：develop `7312418`，oauth 源码与原制图基线一致。
+> 本文件包含 oauth 功能分析、用例与顺序图、包类说明、功能—类对应关系及系统数据流图；质量/过程评审另见《第六周质量过程评审-黄梓涵.md》。本次不修改 oauth 代码标注。依据源码静态分析，未调用真实第三方授权、邮件或机器人服务。
 
 ## 1. oauth 用例图与说明
 
-![oauth 用例图](imgs/oauth-usecase-xcz.png)
+![oauth 用例图](imgs/oauth-usecase-hzh.png)
 
 参与者包括使用第三方账号登录的访客、第三方身份平台和邮件服务。后台 OAuthConfig 维护属于系统管理范围，未在此重复系统后台用例。当前路由支持以下五个用例；“邮箱齐备的回调登录”与“无邮箱后补填及确认”是两条不同路径。
 
@@ -21,7 +21,7 @@
 | 扩展流程 | 未传 type 或无可用管理器时返回首页；非法 next_url 回退 `/`。 |
 | 实现边界 | 当前图反映源码流程，不声称项目已实现 state 或 PKCE 校验。 |
 
-![发起授权顺序图](imgs/oauth-sequence-login-xcz.png)
+![发起授权顺序图](imgs/oauth-sequence-login-hzh.png)
 
 ### UC-O02 授权回调并登录
 
@@ -34,7 +34,7 @@
 | 扩展流程 | token 异常返回首页或重新授权；无用户资料按代码回退；无邮箱时保存 OAuthUser 并进入补填邮箱页面。 |
 | 实现边界 | 已有记录复用时显式更新的是 picture、metadata、nickname，不保证 token 和邮箱也刷新。`transaction.atomic()` 约束数据库操作，不使第三方 API、Cookie 或发信获得数据库事务语义。 |
 
-![回调登录顺序图](imgs/oauth-sequence-callback-xcz.png)
+![回调登录顺序图](imgs/oauth-sequence-callback-hzh.png)
 
 ### UC-O03 补填邮箱并申请验证
 
@@ -47,7 +47,7 @@
 | 扩展流程 | 对象不存在返回 404；表单不合法回显。 |
 | 实现边界 | 表单隐藏 ID 不等于会话所有权校验；代码采用 cleaned_data 中的 oauthid，本图不虚构额外绑定校验。调用发信不等于实际投递成功。 |
 
-![补填邮箱顺序图](imgs/oauth-sequence-email-xcz.png)
+![补填邮箱顺序图](imgs/oauth-sequence-email-hzh.png)
 
 ### UC-O04 确认邮箱并绑定登录
 
@@ -60,7 +60,7 @@
 | 扩展流程 | 签名错误返回 403，对象不存在返回 404。 |
 | 实现边界 | 签名由 SECRET_KEY、ID 计算，没有包含邮箱、有效期或一次性随机值；不能将“一次性链接、过期验证”写为已实现能力。 |
 
-![邮箱确认顺序图](imgs/oauth-sequence-confirm-xcz.png)
+![邮箱确认顺序图](imgs/oauth-sequence-confirm-hzh.png)
 
 ### UC-O05 查看绑定状态提示
 
@@ -73,11 +73,11 @@
 | 扩展流程 | 对象不存在返回 404。 |
 | 实现边界 | 该页面只展示提示，不执行绑定、登录，也不单独证明绑定已经完成。 |
 
-![状态提示顺序图](imgs/oauth-sequence-result-xcz.png)
+![状态提示顺序图](imgs/oauth-sequence-result-hzh.png)
 
 ## 2. oauth 包类关系图
 
-![oauth 包类职责关系](imgs/oauth-package-class-xcz.png)
+![oauth 包类职责关系](imgs/oauth-package-class-hzh.png)
 
 本图采用 StarUML 类图承载包与主要类的职责依赖摘要；连接标签区分使用与继承语义。系统整体 UML 包图仍以组长材料为准。
 
@@ -89,19 +89,44 @@
 | oauth.models | OAuthConfig | 平台类型、应用配置、回调 URL、启用状态；clean() 校验同类型配置重复。 |
 | oauth.oauthmanager | BaseOauthManager、GitHubOauthManager、GoogleOauthManager、WBOauthManager、QQOauthManager、FaceBookOauthManager | 平台适配、授权 URL、token 获取、用户资料映射；ProxyManagerMixin 为部分管理器提供请求代理适配。 |
 | oauth.oauthmanager | get_oauth_apps、get_manager_by_type | 按启用配置选择平台管理器。 |
+| oauth.admin | OAuthUserAdmin、OAuthConfigAdmin | 授权账号的后台展示、平台配置管理；OAuthUserAdmin 禁止新增并将字段设为只读，不据此断言所有写入途径均被禁止。 |
+| oauth.templatetags.oauth_tags | load_oauth_applications | 将已启用平台及跳转地址提供给第三方登录入口模板。 |
 | accounts / djangoblog | BlogUser、登录信号、哈希与邮件工具 | 本地身份、附加登录处理、确认链接与发信能力；归属外部包。 |
+
+### 2.1 架构及主要数据关系
+
+oauth 采用“路由 → 视图/表单 → 平台管理器/模型 → 模板或重定向”的协作方式。视图编排站点请求，管理器将不同平台的授权、token 获取和资料解析封装为相近接口，模型保存第三方身份与平台配置。`get_oauth_apps()` 按启用配置取得管理器，`get_manager_by_type()` 选择具体平台；缓存、发信、站点域名和登录后附加处理由核心包提供。
+
+`OAuthUser.author` 是可空外键，不是唯一外键：一条第三方记录可未绑定或绑定一个本地用户，一个本地用户可关联多条第三方记录。openid 与 type 用于回调查找，但模型没有在此声明二者的联合唯一约束，不能把视图查询条件当成数据库约束。`OAuthConfig.clean()` 的重复类型检查属于模型校验，不等同数据库唯一索引。
+
+模板入口展示、回调登录、邮箱确认和后台配置分别承担不同职责。`bindsuccess` 仅显示结果文案；真实绑定动作位于回调或邮箱确认处理。`ProxyManagerMixin` 只为部分平台管理器适配请求，不能将其解释为全部平台的统一代理保证。
+
+### 2.2 功能与类的对应关系
+
+| 功能 | 对应类 / 函数 | 所属包 | 说明 |
+|---|---|---|---|
+| 展示第三方登录入口 | `load_oauth_applications()`、`get_oauth_apps()`、`OAuthConfig` | oauth | 模板标签根据已启用配置生成入口；不是登录成功证明。 |
+| 发起授权 | `oauthlogin()`、`get_redirecturl()`、`get_manager_by_type()`、各平台 Manager | oauth | 检查平台及返回地址，生成授权跳转。 |
+| code 换取 token 和读取资料 | `BaseOauthManager` 及平台子类、`OAuthAccessTokenException` | oauth | 平台请求和资料映射；真实可用性依赖配置。 |
+| 回调绑定并登录 | `authorize()`、`OAuthUser`、`BlogUser` | oauth / accounts | 保存关联，调用 Django 登录与站点登录信号。 |
+| 补填邮箱 | `RequireEmailView`、`RequireEmailForm`、`OAuthUser` | oauth | 字段校验、保存邮箱、生成签名链接和发信请求。 |
+| 邮箱确认 | `emailconfirm()`、`OAuthUser`、`BlogUser` | oauth / accounts | 验签、绑定和登录；签名实现边界见用例说明。 |
+| 绑定结果提示 | `bindsuccess()` | oauth | 查询对象并渲染等待或成功文案，不执行绑定。 |
+| 授权记录与平台配置管理 | `OAuthUserAdmin`、`OAuthConfigAdmin`、相应模型 | oauth | 后台展示和配置维护；系统级后台用例由组长整合。 |
+
+源码中 `oauthlogin`、`authorize`、`emailconfirm`、`bindsuccess` 等为函数；本表保留函数标识，不将它们误填为类。共享的 `login()` 属于 Django，哈希、邮件和自定义登录信号属于 djangoblog，均不作为 oauth 自定义模型。
 
 ## 3. 系统数据流图
 
 ### 3.1 系统上下文图（0 层）
 
-![系统上下文数据流图](imgs/system-dataflow-context-xcz.png)
+![系统上下文数据流图](imgs/system-dataflow-context-hzh.png)
 
 P0 表示整个 DjangoBlog 系统。外部实体为读者/注册用户、后台管理员、第三方身份平台、邮件服务和微信平台/用户。箭头说明跨系统边界的数据交换，内部数据库及缓存在一级图展开。认证资料、授权凭据和邮箱等仅表示数据类别，图中没有真实凭据。
 
 ### 3.2 一级数据流图
 
-![系统一级数据流图](imgs/system-dataflow-level1-xcz.png)
+![系统一级数据流图](imgs/system-dataflow-level1-hzh.png)
 
 | 标记 | 内容及源码依据 |
 |---|---|
@@ -114,8 +139,8 @@ P0 表示整个 DjangoBlog 系统。外部实体为读者/注册用户、后台�
 | D2 缓存与会话 | 文章查询缓存、验证码及配置的会话/机器人存储；并不保证所有存储使用同一个后端。 |
 | D3 搜索索引 | 配置的 Haystack 后端及相关索引；索引构建维护另有命令/同步路径。 |
 
-图中 E、P、D 分别表示外部实体、数据加工和数据存储。使用 StarUML 可编辑类节点及有向连接表达逻辑 DFD，箭头含义是数据流，不是类继承或执行时序。一级图是核心业务概览，不穷举每个内部函数；插件在内容加工中调用 hooks，属于内部扩展。图中不保证保存或删除业务数据后索引立即一致，也不将配置服务的可用性表述为运行验证成功。
+图中 E、P、D 分别表示外部实体、数据加工和数据存储。使用 StarUML 可编辑类节点及有向连接表达逻辑 DFD，箭头含义是数据流，不是类继承或执行时序。为减少连线交叉，一级图重复绘制同一个 E1、D1，重复节点不是新的系统或数据库；D2 的列表缓存、账户会话/验证码和机器人会话读写在图下注记中说明。一级图是核心业务概览，不穷举每个内部函数；插件在内容加工中调用 hooks，属于内部扩展。图中不保证保存或删除业务数据后索引立即一致，也不将配置服务的可用性表述为运行验证成功。
 
 ## 4. 源文件与交付范围
 
-9 张 PNG 位于 `imgs/`，9 个对应的同名 `.uml` 位于 [StarUML工程-谢承志](StarUML工程-谢承志/)。文件名均使用英文并带 xcz 后缀。各源文件保留对应的一张图，供打开、修改及再次导出。此文件作为协助制图材料供组长整合；谢承志其他个人任务由其继续完成。
+9 张 PNG 位于 `imgs/`，9 个对应的同名 `.uml` 位于 [StarUML工程-黄梓涵](StarUML工程-黄梓涵/)。文件名均使用英文并带 hzh 后缀。各源文件保留对应的一张图，供打开、修改及再次导出。报告与质量/过程评审由黄梓涵按调整后的分工完成；oauth 第六周代码标注仍由谢承志负责。
