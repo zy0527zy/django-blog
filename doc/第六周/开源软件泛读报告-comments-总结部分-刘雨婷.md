@@ -247,5 +247,6 @@ comments 是一个相对独立的 Django 业务应用（app），采用 MVT 分�
 > - `comments-usecase-lyt.png`（comments 用例图）
 > - `comments-sequence-post-lyt.png`（发表评论顺序图）
 > - `comments-sequence-reply-lyt.png`（楼中楼回复顺序图）
-> - `comments-sequence-react-lyt.png`（Emoji 表情反应顺序图）
-> - `comments-sequence-moderate-lyt.png`（后台评论审核顺序图）
+> - `comments-sequence-reaction-lyt.png`（Emoji 表情反应顺序图）
+> - `comments-sequence-audit-lyt.png`（后台评论审核顺序图）
+
