@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.5.1"
+  xmlns:xmi="http://www.omg.org/spec/XMI/20131001"
+  xmlns:uml="http://www.omg.org/spec/UML/20131001">
+  <uml:Model xmi:id="accountsModel" name="accounts（侍文博）">
+    <packagedElement xmi:type="uml:Package" xmi:id="useCases" name="账户用例">
+      <packagedElement xmi:type="uml:Actor" xmi:id="visitor" name="访客"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="loggedUser" name="已登录用户"/>
+      <packagedElement xmi:type="uml:Actor" xmi:id="mailService" name="邮件服务"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="register" name="注册账户"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="activate" name="邮箱验证与账户激活"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="login" name="登录"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="logout" name="退出登录"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="requestCode" name="申请找回验证码"/>
+      <packagedElement xmi:type="uml:UseCase" xmi:id="resetPassword" name="验证验证码并重置密码"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="visitorRegister" memberEnd="visitorRegisterActor visitorRegisterCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorRegisterActor" type="visitor"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorRegisterCase" type="register"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="visitorLogin" memberEnd="visitorLoginActor visitorLoginCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorLoginActor" type="visitor"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorLoginCase" type="login"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="userLogout" memberEnd="userLogoutActor userLogoutCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="userLogoutActor" type="loggedUser"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="userLogoutCase" type="logout"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="visitorRequestCode" memberEnd="visitorRequestCodeActor visitorRequestCodeCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorRequestCodeActor" type="visitor"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorRequestCodeCase" type="requestCode"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="visitorResetPassword" memberEnd="visitorResetPasswordActor visitorResetPasswordCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorResetPasswordActor" type="visitor"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="visitorResetPasswordCase" type="resetPassword"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="mailActivation" memberEnd="mailActivationActor mailActivationCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="mailActivationActor" type="mailService"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="mailActivationCase" type="activate"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="mailCode" memberEnd="mailCodeActor mailCodeCase">
+        <ownedEnd xmi:type="uml:Property" xmi:id="mailCodeActor" type="mailService"/>
+        <ownedEnd xmi:type="uml:Property" xmi:id="mailCodeCase" type="requestCode"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Include" xmi:id="registrationActivates" includingCase="register" addition="activate"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Package" xmi:id="accountsClasses" name="accounts主要类">
+      <packagedElement xmi:type="uml:Class" xmi:id="AbstractUser" name="AbstractUser" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="BlogUser" name="BlogUser">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="nickname" name="nickname" type="String"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="creationTime" name="creation_time" type="DateTime"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="lastModifyTime" name="last_modify_time" type="DateTime"/>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="source" name="source" type="String"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="getAbsoluteUrl" name="get_absolute_url"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="getFullUrl" name="get_full_url"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="blogUserExtendsAbstractUser" general="AbstractUser"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="AuthenticationForm" name="AuthenticationForm"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="UserCreationForm" name="UserCreationForm"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="DjangoForm" name="Form"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="LoginForm" name="LoginForm">
+        <generalization xmi:type="uml:Generalization" xmi:id="loginFormExtendsAuth" general="AuthenticationForm"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="RegisterForm" name="RegisterForm">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cleanEmail" name="clean_email"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="registerFormExtendsCreation" general="UserCreationForm"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="ForgetPasswordForm" name="ForgetPasswordForm">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cleanNewPassword" name="clean_new_password2"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cleanForgetEmail" name="clean_email"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="cleanCode" name="clean_code"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="forgetFormExtendsForm" general="DjangoForm"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="ForgetPasswordCodeForm" name="ForgetPasswordCodeForm">
+        <generalization xmi:type="uml:Generalization" xmi:id="codeFormExtendsForm" general="DjangoForm"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="SecureFormView" name="SecureFormView" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="LoginFormView" name="LoginFormView" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="LogoutRedirectView" name="LogoutRedirectView" isAbstract="true"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="RegisterView" name="RegisterView">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="registerFormValid" name="form_valid"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="registerViewExtendsSecure" general="SecureFormView"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="LoginView" name="LoginView">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="loginFormValid" name="form_valid"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="getSuccessUrl" name="get_success_url"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="loginViewExtendsLoginForm" general="LoginFormView"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="LogoutView" name="LogoutView">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="logoutGet" name="get"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="logoutViewExtendsRedirect" general="LogoutRedirectView"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="ForgetPasswordView" name="ForgetPasswordView">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="forgetFormValid" name="form_valid"/>
+        <generalization xmi:type="uml:Generalization" xmi:id="forgetViewExtendsSecure" general="SecureFormView"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="ForgetPasswordEmailCode" name="ForgetPasswordEmailCode">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="postCode" name="post"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="EmailOrUsernameModelBackend" name="EmailOrUsernameModelBackend">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="authenticate" name="authenticate"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="getUser" name="get_user"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="AccountsUtils" name="accounts.utils">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="setCode" name="set_code"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="verifyCode" name="verify"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="sendVerifyEmail" name="send_verify_email"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="accountResult" name="account_result"/>
+    </packagedElement>
+
+    <packagedElement xmi:type="uml:Package" xmi:id="accountsInteractions" name="注册邮箱验证顺序">
+      <packagedElement xmi:type="uml:Interaction" xmi:id="registrationInteraction" name="注册并验证邮箱">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="browserLine" name="访客浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="formLine" name="RegisterForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="viewLine" name="RegisterView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="userLine" name="BlogUser"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="mailLine" name="邮件服务"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resultLine" name="account_result"/>
+        <message xmi:type="uml:Message" xmi:id="submitRegistration" name="提交用户名邮箱和密码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="validateRegistration" name="校验字段并检查邮箱唯一" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="saveInactiveUser" name="保存未激活账户 source=Register" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="sendActivationLink" name="发送带签名的验证链接" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="openActivationLink" name="打开验证链接 id 与 sign" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="findAccount" name="按 id 查询账户" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="checkSignature" name="校验签名" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="activateAccount" name="设置 is_active=True" messageSort="synchCall"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="loginInteraction" name="登录">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginBrowser" name="用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginViewLine" name="LoginView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginFormLine" name="AuthenticationForm / LoginForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginBackendLine" name="EmailOrUsernameModelBackend"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginUserLine" name="BlogUser"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="loginSessionLine" name="Django会话与Cookie"/>
+        <message xmi:type="uml:Message" xmi:id="loginSubmit" name="提交用户名或邮箱、密码和 remember/next" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginValidate" name="AuthenticationForm 校验凭据" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginAuthenticate" name="authenticate(username,password)" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginLookupUser" name="按邮箱或用户名查询 BlogUser 并核对密码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginCreateSession" name="auth.login 建立会话并设置有效期" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginSetCookie" name="清侧栏缓存、校验 next、设置 logged_user Cookie 并重定向" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="loginFailure" name="认证失败时返回登录表单错误" messageSort="reply"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="logoutInteraction" name="退出登录">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutBrowser" name="已登录用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutViewLine" name="LogoutView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutAuthLine" name="Django认证与会话"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutCacheLine" name="侧栏缓存"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="logoutRedirectLine" name="LogoutRedirectView"/>
+        <message xmi:type="uml:Message" xmi:id="logoutRequest" name="GET /logout/" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutClearSession" name="logout(request) 清除认证会话" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutClearCache" name="delete_sidebar_cache()" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutRedirect" name="生成重定向到 /login/ 的响应" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="logoutDeleteCookie" name="删除 logged_user Cookie 并返回 302" messageSort="reply"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interaction" xmi:id="passwordResetInteraction" name="找回密码">
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetBrowser" name="用户浏览器"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCodeViewLine" name="ForgetPasswordEmailCode"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCodeFormLine" name="ForgetPasswordCodeForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetMailLine" name="邮件服务"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetCacheLine" name="验证码缓存"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetViewLine" name="ForgetPasswordView"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetFormLine" name="ForgetPasswordForm"/>
+        <lifeline xmi:type="uml:Lifeline" xmi:id="resetUserLine" name="BlogUser"/>
+        <message xmi:type="uml:Message" xmi:id="resetRequestCode" name="提交邮箱申请验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetValidateCodeEmail" name="校验邮箱格式并生成验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSendCode" name="发送验证码邮件并缓存五分钟" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSubmit" name="提交邮箱、验证码和两次新密码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetValidateFields" name="检查账户、密码一致性和密码策略" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetVerifyCode" name="verify(email, code)，拒绝错误或过期验证码" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetSavePassword" name="make_password 后更新 BlogUser 并保存" messageSort="synchCall"/>
+        <message xmi:type="uml:Message" xmi:id="resetResult" name="成功重定向到 /login/；校验失败返回表单错误" messageSort="reply"/>
+      </packagedElement>
+    </packagedElement>
+  </uml:Model>
+</xmi:XMI>
