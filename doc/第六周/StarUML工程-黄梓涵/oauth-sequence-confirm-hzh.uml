@@ -8,8 +8,8 @@
 </XPD:HEADER>
 <XPD:BODY>
 <XPD:OBJ name="DocumentElement" type="UMLProject" guid="sUQpRiChDkqHdFL8ebKu7AAA">
-<XPD:ATTR name="Title" type="string">oauth-sequence-confirm-hzh</XPD:ATTR>
-<XPD:ATTR name="Author" type="string">黄梓涵</XPD:ATTR>
+<XPD:ATTR name="Title" type="string">oauth-sequence-confirm-xcz</XPD:ATTR>
+<XPD:ATTR name="Author" type="string">谢承志（黄梓涵协助制图）</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="L6FuwXakkUGpxiAYXIX6bgAA">
 <XPD:ATTR name="Name" type="string">oauth</XPD:ATTR>
@@ -31,7 +31,7 @@
 <XPD:REF name="Context">sVkfOjdIWkG/77axYpS9/AAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="SGv6egUF+06WHFkXJtYi0QAA">
-<XPD:ATTR name="Name" type="string">oauth-sequence-confirm-hzh</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">oauth-sequence-confirm-xcz</XPD:ATTR>
 <XPD:REF name="DiagramOwner">kPtJ1aHOfkSed5FLRLZ3+QAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="MqZxnuec80OdBMHuKPlcywAA">
 <XPD:REF name="Diagram">SGv6egUF+06WHFkXJtYi0QAA</XPD:REF>
@@ -400,7 +400,7 @@
 <XPD:ATTR name="Top" type="integer">15</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">920</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">55</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">确认邮箱并绑定登录 · 顺序图 · 黄梓涵
+<XPD:ATTR name="Text" type="string">确认邮箱并绑定登录 · 顺序图 · 谢承志
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="jqeEfJAZo0uOfABxg6NspgAA">

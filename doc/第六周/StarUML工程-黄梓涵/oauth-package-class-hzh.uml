@@ -8,15 +8,15 @@
 </XPD:HEADER>
 <XPD:BODY>
 <XPD:OBJ name="DocumentElement" type="UMLProject" guid="sUQpRiChDkqHdFL8ebKu7AAA">
-<XPD:ATTR name="Title" type="string">oauth-package-class-hzh</XPD:ATTR>
-<XPD:ATTR name="Author" type="string">黄梓涵</XPD:ATTR>
+<XPD:ATTR name="Title" type="string">oauth-package-class-xcz</XPD:ATTR>
+<XPD:ATTR name="Author" type="string">谢承志（黄梓涵协助制图）</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="ZcDfQk6ihkyhhchTU8tj5wAA">
-<XPD:ATTR name="Name" type="string">oauth-package-class-hzh</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">oauth-package-class-xcz</XPD:ATTR>
 <XPD:REF name="Namespace">sUQpRiChDkqHdFL8ebKu7AAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="y40mZYLqm0CK4qpx1G7PHAAA">
-<XPD:ATTR name="Name" type="string">oauth-package-class-hzh</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">oauth-package-class-xcz</XPD:ATTR>
 <XPD:REF name="DiagramOwner">ZcDfQk6ihkyhhchTU8tj5wAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="/1GMUqLQIE24mqohOkdgLQAA">
 <XPD:REF name="Diagram">y40mZYLqm0CK4qpx1G7PHAAA</XPD:REF>
@@ -492,7 +492,7 @@
 <XPD:ATTR name="Top" type="integer">15</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">1450</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">60</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">oauth 包与主要类职责关系 · 黄梓涵（hzh）
+<XPD:ATTR name="Text" type="string">oauth 包与主要类职责关系 · 谢承志（xcz）
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[17]" type="UMLNoteView" guid="TQgNFM54KUmBuDRhttnTKAAA">

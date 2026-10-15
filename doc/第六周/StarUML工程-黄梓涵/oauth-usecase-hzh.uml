@@ -8,15 +8,15 @@
 </XPD:HEADER>
 <XPD:BODY>
 <XPD:OBJ name="DocumentElement" type="UMLProject" guid="sUQpRiChDkqHdFL8ebKu7AAA">
-<XPD:ATTR name="Title" type="string">oauth-usecase-hzh</XPD:ATTR>
-<XPD:ATTR name="Author" type="string">黄梓涵</XPD:ATTR>
+<XPD:ATTR name="Title" type="string">oauth-usecase-xcz</XPD:ATTR>
+<XPD:ATTR name="Author" type="string">谢承志（黄梓涵协助制图）</XPD:ATTR>
 <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="L6FuwXakkUGpxiAYXIX6bgAA">
 <XPD:ATTR name="Name" type="string">oauth</XPD:ATTR>
 <XPD:REF name="Namespace">sUQpRiChDkqHdFL8ebKu7AAA</XPD:REF>
 <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
 <XPD:OBJ name="OwnedDiagrams[0]" type="UMLUseCaseDiagram" guid="UU+KfjU9IUKrdF2JAqJIywAA">
-<XPD:ATTR name="Name" type="string">oauth-usecase-hzh</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">oauth-usecase-xcz</XPD:ATTR>
 <XPD:REF name="DiagramOwner">L6FuwXakkUGpxiAYXIX6bgAA</XPD:REF>
 <XPD:OBJ name="DiagramView" type="UMLUseCaseDiagramView" guid="y0AmuqCZtU2+IaCyzjSO/gAA">
 <XPD:REF name="Diagram">UU+KfjU9IUKrdF2JAqJIywAA</XPD:REF>
@@ -1027,7 +1027,7 @@
 <XPD:ATTR name="Top" type="integer">20</XPD:ATTR>
 <XPD:ATTR name="Width" type="integer">470</XPD:ATTR>
 <XPD:ATTR name="Height" type="integer">55</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">oauth 用例图 · 黄梓涵（hzh）
+<XPD:ATTR name="Text" type="string">oauth 用例图 · 谢承志（xcz）
 </XPD:ATTR>
 </XPD:OBJ>
 <XPD:OBJ name="OwnedViews[18]" type="UMLNoteView" guid="cKQNx40uWESzf/JnkoetKgAA">
