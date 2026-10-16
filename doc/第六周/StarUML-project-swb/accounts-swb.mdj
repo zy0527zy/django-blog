@@ -1,0 +1,1335 @@
+{
+  "_type": "Project",
+  "_id": "Dl+hsJFjrx+DuoT5",
+  "name": "accounts-swb",
+  "ownedElements": [
+    {
+      "_type": "UMLModel",
+      "_id": "SqsZv+E8+GO6fc74",
+      "_parent": {
+        "$ref": "Dl+hsJFjrx+DuoT5"
+      },
+      "name": "accounts（侍文博）",
+      "ownedElements": [
+        {
+          "_type": "UMLPackage",
+          "_id": "R5qG6dHo7Nq+8K55",
+          "_parent": {
+            "$ref": "SqsZv+E8+GO6fc74"
+          },
+          "name": "账户用例",
+          "ownedElements": [
+            {
+              "_type": "UMLActor",
+              "_id": "jmF7OGLf7Bm2I0/W",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "访客"
+            },
+            {
+              "_type": "UMLActor",
+              "_id": "Q4t4vGZIvVuOWmpV",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "已登录用户"
+            },
+            {
+              "_type": "UMLActor",
+              "_id": "p6juPNZ8AmvhvfFn",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "邮件服务"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "U5ilqiAchzdOcZGz",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "注册账户"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "RGYdK4JFwkEN6AOw",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "邮箱验证与账户激活"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "emiGIo5yC3VX32Zy",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "登录"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "n+HF4GPwCtlLFQEe",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "退出登录"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "FW30LtOGvcvTIF+L",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "申请找回验证码"
+            },
+            {
+              "_type": "UMLUseCase",
+              "_id": "hvwTkgIeYvcmVY8j",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "name": "验证验证码并重置密码"
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "NAsC3HuhokRxn2bf",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "SA3yq3VTQ0iMnHhx",
+                "_parent": {
+                  "$ref": "NAsC3HuhokRxn2bf"
+                },
+                "reference": {
+                  "$ref": "jmF7OGLf7Bm2I0/W"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "WvUZZZtZWCt7WoO8",
+                "_parent": {
+                  "$ref": "NAsC3HuhokRxn2bf"
+                },
+                "reference": {
+                  "$ref": "U5ilqiAchzdOcZGz"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "9IXtrhbKuUitFmJc",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "L7rgH0RY2HevN94m",
+                "_parent": {
+                  "$ref": "9IXtrhbKuUitFmJc"
+                },
+                "reference": {
+                  "$ref": "jmF7OGLf7Bm2I0/W"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "g6Pc6L2sIRuHAEbj",
+                "_parent": {
+                  "$ref": "9IXtrhbKuUitFmJc"
+                },
+                "reference": {
+                  "$ref": "emiGIo5yC3VX32Zy"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "8N21reYydpC4piAf",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "taCaQtU19MGaaM69",
+                "_parent": {
+                  "$ref": "8N21reYydpC4piAf"
+                },
+                "reference": {
+                  "$ref": "Q4t4vGZIvVuOWmpV"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "SqISZ4Li064XrjxZ",
+                "_parent": {
+                  "$ref": "8N21reYydpC4piAf"
+                },
+                "reference": {
+                  "$ref": "n+HF4GPwCtlLFQEe"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "+zpAPNdwVIicOpoU",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "ETXBbfhqH4Z0UBgb",
+                "_parent": {
+                  "$ref": "+zpAPNdwVIicOpoU"
+                },
+                "reference": {
+                  "$ref": "jmF7OGLf7Bm2I0/W"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "7wO7/HyqmmauDNUe",
+                "_parent": {
+                  "$ref": "+zpAPNdwVIicOpoU"
+                },
+                "reference": {
+                  "$ref": "FW30LtOGvcvTIF+L"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "jGWK+BtT3xaPubLr",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "0ul4Ncoo+7/gZltv",
+                "_parent": {
+                  "$ref": "jGWK+BtT3xaPubLr"
+                },
+                "reference": {
+                  "$ref": "jmF7OGLf7Bm2I0/W"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "brFhTC4k8obwSrG8",
+                "_parent": {
+                  "$ref": "jGWK+BtT3xaPubLr"
+                },
+                "reference": {
+                  "$ref": "hvwTkgIeYvcmVY8j"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "RGVpG8gQUvDBvnd4",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "7z/fcM7s7iYaZ4NJ",
+                "_parent": {
+                  "$ref": "RGVpG8gQUvDBvnd4"
+                },
+                "reference": {
+                  "$ref": "p6juPNZ8AmvhvfFn"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "+f2wmVUdxFixy41J",
+                "_parent": {
+                  "$ref": "RGVpG8gQUvDBvnd4"
+                },
+                "reference": {
+                  "$ref": "RGYdK4JFwkEN6AOw"
+                }
+              }
+            },
+            {
+              "_type": "UMLAssociation",
+              "_id": "NyxdEccm3Zsr9Qj6",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "end1": {
+                "_type": "UMLAssociationEnd",
+                "_id": "4nyHPV0FLsL1kQyA",
+                "_parent": {
+                  "$ref": "NyxdEccm3Zsr9Qj6"
+                },
+                "reference": {
+                  "$ref": "p6juPNZ8AmvhvfFn"
+                }
+              },
+              "end2": {
+                "_type": "UMLAssociationEnd",
+                "_id": "wwj+XR4675EzVmwn",
+                "_parent": {
+                  "$ref": "NyxdEccm3Zsr9Qj6"
+                },
+                "reference": {
+                  "$ref": "FW30LtOGvcvTIF+L"
+                }
+              }
+            },
+            {
+              "_type": "UMLInclude",
+              "_id": "ZysIRrYKvbhuUECQ",
+              "_parent": {
+                "$ref": "R5qG6dHo7Nq+8K55"
+              },
+              "includingCase": {
+                "$ref": "U5ilqiAchzdOcZGz"
+              },
+              "addition": {
+                "$ref": "RGYdK4JFwkEN6AOw"
+              }
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackage",
+          "_id": "CHznua7BMu8WPGjn",
+          "_parent": {
+            "$ref": "SqsZv+E8+GO6fc74"
+          },
+          "name": "accounts主要类",
+          "ownedElements": [
+            {
+              "_type": "UMLClass",
+              "_id": "FpLa4cL/jr10c0E2",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "AbstractUser",
+              "isAbstract": true,
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "eEnaMv73dJUh2tQ6",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "BlogUser",
+              "ownedAttributes": [
+                {
+                  "_type": "UMLAttribute",
+                  "_id": "9kYyvg58NeRphgjn",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "nickname",
+                  "type": "String"
+                },
+                {
+                  "_type": "UMLAttribute",
+                  "_id": "PSu37VsrSgdTcQLr",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "creation_time",
+                  "type": "DateTime"
+                },
+                {
+                  "_type": "UMLAttribute",
+                  "_id": "F9XPWb/vRhhyQXX4",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "last_modify_time",
+                  "type": "DateTime"
+                },
+                {
+                  "_type": "UMLAttribute",
+                  "_id": "7HLRiP4QeaVQCb4i",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "source",
+                  "type": "String"
+                }
+              ],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "Mt8Oxqu6i6EjTyA9",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "get_absolute_url"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "GT2bkhiCjdMgYiis",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "name": "get_full_url"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "TAJ0OKitcJp6GoC4",
+                  "_parent": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "source": {
+                    "$ref": "eEnaMv73dJUh2tQ6"
+                  },
+                  "target": {
+                    "$ref": "FpLa4cL/jr10c0E2"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "F7ZDn+Dwt6syzP2C",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "AuthenticationForm",
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "v3/Z0LxlgMVBpY9Z",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "UserCreationForm",
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "XXUkTOErodfrs4a3",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "Form",
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "Av9LP9JiXGYxKHso",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "LoginForm",
+              "ownedAttributes": [],
+              "ownedOperations": [],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "4cc8Mi1QQKVqcJZo",
+                  "_parent": {
+                    "$ref": "Av9LP9JiXGYxKHso"
+                  },
+                  "source": {
+                    "$ref": "Av9LP9JiXGYxKHso"
+                  },
+                  "target": {
+                    "$ref": "F7ZDn+Dwt6syzP2C"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "XLh9G37j/RWIH2EC",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "RegisterForm",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "soPSF3ySUVVbs4op",
+                  "_parent": {
+                    "$ref": "XLh9G37j/RWIH2EC"
+                  },
+                  "name": "clean_email"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "4FHyECHsb/tpzg3N",
+                  "_parent": {
+                    "$ref": "XLh9G37j/RWIH2EC"
+                  },
+                  "source": {
+                    "$ref": "XLh9G37j/RWIH2EC"
+                  },
+                  "target": {
+                    "$ref": "v3/Z0LxlgMVBpY9Z"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "wAEcx1RquVxX9pZn",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "ForgetPasswordForm",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "xLJgTYr63mtGB0mn",
+                  "_parent": {
+                    "$ref": "wAEcx1RquVxX9pZn"
+                  },
+                  "name": "clean_new_password2"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "c7GZGGXGLkrJDrf1",
+                  "_parent": {
+                    "$ref": "wAEcx1RquVxX9pZn"
+                  },
+                  "name": "clean_email"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "U5Zc5xn50NtBP0My",
+                  "_parent": {
+                    "$ref": "wAEcx1RquVxX9pZn"
+                  },
+                  "name": "clean_code"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "5z0R8XqmiqDiP+B2",
+                  "_parent": {
+                    "$ref": "wAEcx1RquVxX9pZn"
+                  },
+                  "source": {
+                    "$ref": "wAEcx1RquVxX9pZn"
+                  },
+                  "target": {
+                    "$ref": "XXUkTOErodfrs4a3"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "UfMys3Uad0KD/W0F",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "ForgetPasswordCodeForm",
+              "ownedAttributes": [],
+              "ownedOperations": [],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "OuL/n1pcGu8qupY2",
+                  "_parent": {
+                    "$ref": "UfMys3Uad0KD/W0F"
+                  },
+                  "source": {
+                    "$ref": "UfMys3Uad0KD/W0F"
+                  },
+                  "target": {
+                    "$ref": "XXUkTOErodfrs4a3"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "9dUupkNK9giljxmR",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "SecureFormView",
+              "isAbstract": true,
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "uXsven1IfhpnFkF6",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "LoginFormView",
+              "isAbstract": true,
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "89U2rFzT5qP5q9VS",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "LogoutRedirectView",
+              "isAbstract": true,
+              "ownedAttributes": [],
+              "ownedOperations": []
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "HtFJHRLdAu8I+BQl",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "RegisterView",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "xF5I48maRdpsLULy",
+                  "_parent": {
+                    "$ref": "HtFJHRLdAu8I+BQl"
+                  },
+                  "name": "form_valid"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "2k3iRSU4ThvJ92v3",
+                  "_parent": {
+                    "$ref": "HtFJHRLdAu8I+BQl"
+                  },
+                  "source": {
+                    "$ref": "HtFJHRLdAu8I+BQl"
+                  },
+                  "target": {
+                    "$ref": "9dUupkNK9giljxmR"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "7DNyFUmaJ+yY+vah",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "LoginView",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "xx15ekCiBWRhDOOb",
+                  "_parent": {
+                    "$ref": "7DNyFUmaJ+yY+vah"
+                  },
+                  "name": "form_valid"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "nm9bgSpOYA/BbDN7",
+                  "_parent": {
+                    "$ref": "7DNyFUmaJ+yY+vah"
+                  },
+                  "name": "get_success_url"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "T+jBcucB/1huwIsQ",
+                  "_parent": {
+                    "$ref": "7DNyFUmaJ+yY+vah"
+                  },
+                  "source": {
+                    "$ref": "7DNyFUmaJ+yY+vah"
+                  },
+                  "target": {
+                    "$ref": "uXsven1IfhpnFkF6"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "JCAdzd5Ku7f+CT0k",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "LogoutView",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "t35zMaoa0L5SXhZd",
+                  "_parent": {
+                    "$ref": "JCAdzd5Ku7f+CT0k"
+                  },
+                  "name": "get"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "tq8EyQsTh5rxiFJb",
+                  "_parent": {
+                    "$ref": "JCAdzd5Ku7f+CT0k"
+                  },
+                  "source": {
+                    "$ref": "JCAdzd5Ku7f+CT0k"
+                  },
+                  "target": {
+                    "$ref": "89U2rFzT5qP5q9VS"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "2iqSw612bQdfFmML",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "ForgetPasswordView",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "FDQUm0VmWlU6geyl",
+                  "_parent": {
+                    "$ref": "2iqSw612bQdfFmML"
+                  },
+                  "name": "form_valid"
+                }
+              ],
+              "ownedElements": [
+                {
+                  "_type": "UMLGeneralization",
+                  "_id": "hF9AxsYUpJgtzDb1",
+                  "_parent": {
+                    "$ref": "2iqSw612bQdfFmML"
+                  },
+                  "source": {
+                    "$ref": "2iqSw612bQdfFmML"
+                  },
+                  "target": {
+                    "$ref": "9dUupkNK9giljxmR"
+                  }
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "lyF4siN6qXyDJgYG",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "ForgetPasswordEmailCode",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "i1IsROPT0YxNFIcT",
+                  "_parent": {
+                    "$ref": "lyF4siN6qXyDJgYG"
+                  },
+                  "name": "post"
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "roEFcLJ11dxG4l7R",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "EmailOrUsernameModelBackend",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "hmb+iJRvquj/txBD",
+                  "_parent": {
+                    "$ref": "roEFcLJ11dxG4l7R"
+                  },
+                  "name": "authenticate"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "9cXcA/PMnZn0fCrr",
+                  "_parent": {
+                    "$ref": "roEFcLJ11dxG4l7R"
+                  },
+                  "name": "get_user"
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "GCgCmM223TMtO2+v",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "accounts.utils",
+              "ownedAttributes": [],
+              "ownedOperations": [
+                {
+                  "_type": "UMLOperation",
+                  "_id": "buqI6ApuitkbPcKn",
+                  "_parent": {
+                    "$ref": "GCgCmM223TMtO2+v"
+                  },
+                  "name": "set_code"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "Q+8uhnptKAaRAFmB",
+                  "_parent": {
+                    "$ref": "GCgCmM223TMtO2+v"
+                  },
+                  "name": "verify"
+                },
+                {
+                  "_type": "UMLOperation",
+                  "_id": "dt6TNVlzt6K0DXgx",
+                  "_parent": {
+                    "$ref": "GCgCmM223TMtO2+v"
+                  },
+                  "name": "send_verify_email"
+                }
+              ]
+            },
+            {
+              "_type": "UMLClass",
+              "_id": "3zI5X0XMjdCjArn5",
+              "_parent": {
+                "$ref": "CHznua7BMu8WPGjn"
+              },
+              "name": "account_result",
+              "ownedAttributes": [],
+              "ownedOperations": []
+            }
+          ]
+        },
+        {
+          "_type": "UMLPackage",
+          "_id": "EgdOhvt11YLjgGhj",
+          "_parent": {
+            "$ref": "SqsZv+E8+GO6fc74"
+          },
+          "name": "注册邮箱验证顺序",
+          "ownedElements": [
+            {
+              "_type": "UMLInteraction",
+              "_id": "jB7hl4oYPdWsdKfY",
+              "_parent": {
+                "$ref": "EgdOhvt11YLjgGhj"
+              },
+              "name": "注册并验证邮箱",
+              "ownedElements": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "grrQ+gLso21Li9xs",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "访客浏览器"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "f6kc75lE7htSfS1T",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "RegisterForm"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "xSqX0NnGuparEVY6",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "RegisterView"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "qbt97ehzmbkIvxJB",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "BlogUser"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "vJKUvGJwUvsXjQsS",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "邮件服务"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "bsseWjhNhSBzUvAM",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "account_result"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "CJZmOUEqEw+rRv5m",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "提交用户名邮箱和密码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "D4WoM15U0pb64qkO",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "校验字段并检查邮箱唯一",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "3VuH/PN5ajG0qO9J",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "保存未激活账户 source=Register",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "yHIm9ZQdIqvZD3OA",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "发送带签名的验证链接",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "j1ZK9ny4Xoy/HHoE",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "打开验证链接 id 与 sign",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "vvEzlV61pWmnt/NK",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "按 id 查询账户",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "e0f/xKe17fDkjUnr",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "校验签名",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "D6wWJfccruHR7irA",
+                  "_parent": {
+                    "$ref": "jB7hl4oYPdWsdKfY"
+                  },
+                  "name": "设置 is_active=True",
+                  "messageSort": "synchCall"
+                }
+              ]
+            },
+            {
+              "_type": "UMLInteraction",
+              "_id": "78qmL4Rqaounu8Wv",
+              "_parent": {
+                "$ref": "EgdOhvt11YLjgGhj"
+              },
+              "name": "登录",
+              "ownedElements": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "KjGRbi2lWEXXZuVx",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "用户浏览器"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "8jyybiykxD2ww+HY",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "LoginView"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "g1rJ3GVZYlJOJUmg",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "AuthenticationForm / LoginForm"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "+ETjtrwQEllUDgu6",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "EmailOrUsernameModelBackend"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "yvqQ14O8r3tedLe9",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "BlogUser"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "nAQetYIb4PH5QLVd",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "Django会话与Cookie"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "/PRv4B006yGwh+oN",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "提交用户名或邮箱、密码和 remember/next",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "VaRwP+PT5W0EvSie",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "AuthenticationForm 校验凭据",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "yzW9vtploTF2C1a2",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "authenticate(username,password)",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "Jysgn0oda1xmjSyJ",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "按邮箱或用户名查询 BlogUser 并核对密码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "xxAw4yl8tDcGFT1x",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "auth.login 建立会话并设置有效期",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "HvsI7Cbt1zh+PuAN",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "清侧栏缓存、校验 next、设置 logged_user Cookie 并重定向",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "0Q1uvWrA2VnU9wUV",
+                  "_parent": {
+                    "$ref": "78qmL4Rqaounu8Wv"
+                  },
+                  "name": "认证失败时返回登录表单错误",
+                  "messageSort": "reply"
+                }
+              ]
+            },
+            {
+              "_type": "UMLInteraction",
+              "_id": "T0er3fL6mR8uCUPK",
+              "_parent": {
+                "$ref": "EgdOhvt11YLjgGhj"
+              },
+              "name": "退出登录",
+              "ownedElements": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "0MCaG8ktn8x29/vF",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "已登录用户浏览器"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "L6/ABMdQ7SYbag8o",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "LogoutView"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "QpGeBBmu29S0rd/w",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "Django认证与会话"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ZK7U7LWu7NFK6NNN",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "侧栏缓存"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "ogv/J72q9FsF6T+J",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "LogoutRedirectView"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "Dxss3f7tuHiOfsbP",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "GET /logout/",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "RCa4MK3QTiRuxutk",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "logout(request) 清除认证会话",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "u8zJhzVVMenZJFj4",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "delete_sidebar_cache()",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "HcMpd+LXsiPcxin5",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "生成重定向到 /login/ 的响应",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "EkqCOGOWGT3ueUUs",
+                  "_parent": {
+                    "$ref": "T0er3fL6mR8uCUPK"
+                  },
+                  "name": "删除 logged_user Cookie 并返回 302",
+                  "messageSort": "reply"
+                }
+              ]
+            },
+            {
+              "_type": "UMLInteraction",
+              "_id": "6U6bDBvC+cz7MgqK",
+              "_parent": {
+                "$ref": "EgdOhvt11YLjgGhj"
+              },
+              "name": "找回密码",
+              "ownedElements": [
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "fk1pK2MLRMF5bEli",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "用户浏览器"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "WmXI2la26a2pPwyM",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "ForgetPasswordEmailCode"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "TIJ3R46PL0btY8Xi",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "ForgetPasswordCodeForm"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "QEbh7LnjQe1jo8Re",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "邮件服务"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "5RVJO79UvW41QvXZ",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "验证码缓存"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "SlV2Cd9do6nSaIWh",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "ForgetPasswordView"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "LZkaO5/Z5nnyJFFI",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "ForgetPasswordForm"
+                },
+                {
+                  "_type": "UMLLifeline",
+                  "_id": "HcBp+ymCAxsfRX/e",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "BlogUser"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "Qfw/cBq3Q4CrnKwL",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "提交邮箱申请验证码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "SvA4wHngCtbu0oOa",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "校验邮箱格式并生成验证码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "+xgguORj8lDiRLsl",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "发送验证码邮件并缓存五分钟",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "b8TCBkTyNzD68vli",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "提交邮箱、验证码和两次新密码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "o6VSdau3Dun4tgoc",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "检查账户、密码一致性和密码策略",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "/xQNRE0ICwiTjEVT",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "verify(email, code)，拒绝错误或过期验证码",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "jhxWSxCx/O9TMNGT",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "make_password 后更新 BlogUser 并保存",
+                  "messageSort": "synchCall"
+                },
+                {
+                  "_type": "UMLMessage",
+                  "_id": "0cRer5o65bo2rFZf",
+                  "_parent": {
+                    "$ref": "6U6bDBvC+cz7MgqK"
+                  },
+                  "name": "成功重定向到 /login/；校验失败返回表单错误",
+                  "messageSort": "reply"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
