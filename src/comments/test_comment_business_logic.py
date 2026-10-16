@@ -1,3 +1,14 @@
+# =============================================================================
+# comments 应用 · 评论业务逻辑测试（test_comment_business_logic.py）
+# -----------------------------------------------------------------------------
+# 本文件针对 Comment 模型的纯业务逻辑编写测试，不依赖 HTTP 请求，覆盖：
+#   - CommentCreationTest      评论创建（必需字段/作者/文章关系）
+#   - CommentModerationTest    评论审核工作流（is_enable 开关）
+#   - CommentReplyTest         楼中楼回复（parent_comment 自关联/嵌套层级）
+#   - CommentArticleStatusTest 评论与文章开放/关闭状态的关系
+#   - CommentQueryTest         评论查询（按文章/作者/根评论/排序）
+#   - CommentDeletionTest      评论删除（含父评论与回复的级联行为）
+# =============================================================================
 """
 Test cases for comment business logic
 包括评论审核工作流、嵌套回复、权限控制等核心业务逻辑

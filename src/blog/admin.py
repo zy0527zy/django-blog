@@ -20,6 +20,9 @@ class ArticleForm(forms.ModelForm):
 
 # 将后台批量选中的文章状态修改为已发布
 def makr_article_publish(modeladmin, request, queryset):
+    # 第六周架构标注（黄梓涵）：后台 action 直接批量更新状态，与逐个调用
+    # Article.save() 的流程不同；QuerySet.update() 不触发模型 save()/post_save。
+    # 因而不能仅凭保存信号认定本 action 已完成缓存失效或搜索索引同步。
     queryset.update(status='p')
 
 
@@ -46,6 +49,9 @@ open_article_commentstatus.short_description = _('Open article comments')
 
 # 文章后台管理配置，控制文章列表展示、筛选、搜索和批量操作
 class ArticlelAdmin(admin.ModelAdmin):
+    # 第六周架构标注（黄梓涵）：文章新增、编辑、删除由 Django ModelAdmin
+    # 提供标准页面和权限检查；本类配置表单、筛选及 action，未定义前台 CRUD 视图。
+    # get_form() 限制可选作者为超级用户，不等同于限制所有后台操作者必须是超级用户。
     list_per_page = 20
     search_fields = ('body', 'title')
     form = ArticleForm
@@ -88,6 +94,8 @@ class ArticlelAdmin(admin.ModelAdmin):
         return form
 
     def save_model(self, request, obj, form, change):
+        # 第六周架构标注（黄梓涵）：委托父类保存模型；多对多 tags 的保存
+        # 属于后台后续 save_related() 阶段，不能把全部表单关系都归到本方法。
         super(ArticlelAdmin, self).save_model(request, obj, form, change)
 
     def get_view_on_site_url(self, obj=None):

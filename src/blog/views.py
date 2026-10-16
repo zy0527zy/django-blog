@@ -71,6 +71,9 @@ class IndexView(OptimizedArticleQueryMixin, ArticleListView):
 
     def get_queryset_data(self):
         # 使用 Mixin 提供的优化查询方法
+        # 第六周架构标注（黄梓涵）：URL 先进入 IndexView，列表查询由
+        # CachedListViewMixin.get_queryset() 调用本方法；仅缓存未命中时构造查询。
+        # type='a' 排除独立页面，status='p' 排除草稿，关联预加载由查询 Mixin 提供。
         return self.get_optimized_article_queryset().filter(
             type='a', status='p'
         )
@@ -99,6 +102,9 @@ class ArticleDetailView(DetailView):
     context_object_name = "article"
 
     def get_context_data(self, **kwargs):
+        # 第六周架构标注（黄梓涵）：DetailView 根据 pk_url_kwarg='article_id'
+        # 获取 self.object 后进入上下文组装。此类未重写 get_queryset()，不能据此
+        # 宣称详情访问已校验 status='p'；下方仅准备评论显示，评论提交归 comments。
         # 创建评论表单，供用户在文章详情页发表评论
         comment_form = CommentForm()
 
@@ -196,6 +202,9 @@ class CategoryDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleLis
     def get_queryset_data(self):
         # 使用 Mixin 缓存的对象，只查询一次
         category = self.get_slug_object()
+        # 第六周架构标注（黄梓涵）：路由参数虽名为 category_name，SlugCachedMixin
+        # 实际按 Category.slug 查找对象；再展开当前分类及后代，以分类名称筛选文章。
+        # 这里仅限定已发布状态，没有像首页、标签页那样额外限定 type='a'。
         # 同时取得当前分类及其所有子分类名称，保证子分类文章也能被查询出来
         categorynames = [c.name for c in category.get_sub_categorys()]
 
@@ -334,6 +343,9 @@ class LinkListView(ListView):
 
 # 站内搜索视图，并为搜索结果启用关键词高亮
 class EsSearchView(SearchView):
+    # 第六周架构标注（黄梓涵）：搜索入口位于 djangoblog.urls 的 search_view_factory，
+    # 实际传入 ElasticSearchModelSearchForm；不能把 blog.forms.BlogSearchForm
+    # 当成当前路由使用的表单。此视图负责高亮和分页上下文，检索交给 Haystack 后端。
     def build_form(self, form_kwargs=None):
         """Override to enable highlighting"""
         if form_kwargs is None:
