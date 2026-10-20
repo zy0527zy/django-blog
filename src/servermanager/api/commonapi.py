@@ -1,3 +1,4 @@
+#zly: 模块说明：公共能力接口封装，包含 OpenAI 对话接口与系统命令执行处理器。
 """
 servermanager/api/commonapi.py 文件
 功能：公共能力接口封装，包含ChatGPT对话接口、系统命令执行处理器
@@ -8,15 +9,19 @@ import os
 import openai
 from servermanager.models import commands
 
+#zly: 模块日志实例。
 # 日志实例
 logger = logging.getLogger(__name__)
+#zly: 从环境变量读取 OpenAI 密钥。
 # 读取环境变量中的OpenAI密钥
 openai.api_key = os.environ.get('OPENAI_API_KEY')
+#zly: 如配置了 HTTP 代理，则设置 openai 代理。
 # 如果配置了HTTP代理，则设置openai代理
 if os.environ.get('HTTP_PROXY'):
     openai.proxy = os.environ.get('HTTP_PROXY')
 
 
+#zly: ChatGPT：调用 OpenAI 接口完成文本对话的静态工具类。
 """ChatGPT对话静态工具类，调用OpenAI接口完成文本对话"""
 class ChatGPT:
     """
@@ -24,25 +29,31 @@ class ChatGPT:
     :param prompt: 用户输入的对话文本
     :return: AI返回内容，异常时返回错误提示
     """
+    #zly: 发送一条用户消息并返回模型回复；异常统一捕获并返回友好提示。
     @staticmethod
     def chat(prompt):
         try:
+            #zly: 调用 openai 聊天接口，传入用户消息。
             # 调用openai聊天接口，传入用户消息
             completion = openai.ChatCompletion.create(model="gpt-3.5-turbo",
                                                       messages=[{"role": "user", "content": prompt}])
             return completion.choices[0].message.content
         except Exception as e:
+            #zly: 捕获接口调用异常，记录错误日志并返回友好提示。
             # 捕获接口调用异常，记录错误日志，返回友好提示
             logger.error(e)
             return "服务器出错了"
 
 
+#zly: CommandHandler：加载数据库中的预定义命令，提供查找、执行与帮助信息。
 """系统命令处理类，加载数据库预定义命令，提供命令查找、执行、帮助信息查询"""
 class CommandHandler:
     """构造方法：读取数据库中全部预定义命令并缓存"""
+    #zly: 初始化时取出全部命令（QuerySet 惰性求值）。
     def __init__(self):
         self.commands = commands.objects.all()
 
+    #zly: 根据命令标题查找并执行对应的系统命令。
     """
     根据命令标题查找并执行对应的系统命令
     :param title: 命令标题名称
@@ -54,6 +65,7 @@ class CommandHandler:
         :param title: 命令
         :return: 返回命令执行结果
         """
+        #zly: 过滤匹配标题（忽略大小写）。
         # 过滤匹配标题（忽略大小写）
         cmd = list(
             filter(
@@ -64,6 +76,7 @@ class CommandHandler:
         else:
             return "未找到相关命令，请输入hepme获得帮助。"
 
+    #zly: 私有方法：执行系统 shell 命令并读取输出。
     """
     私有方法：执行系统shell命令并读取输出
     :param cmd: 待执行的shell命令字符串
@@ -71,12 +84,14 @@ class CommandHandler:
     """
     def __run_command__(self, cmd):
         try:
+            #zly: os.popen 执行 shell 命令，读取命令输出内容。
             # os.popen执行shell命令，读取命令输出内容
             res = os.popen(cmd).read()
             return res
         except BaseException:
             return '命令执行出错!'
 
+    #zly: 拼接所有预定义命令的标题与描述，返回帮助文本。
     """拼接所有预定义命令的标题与描述，返回帮助文本信息"""
     def get_help(self):
         rsp = ''
@@ -85,6 +100,7 @@ class CommandHandler:
         return rsp
 
 
+#zly: 模块单独运行时的测试入口，测试 ChatGPT 对话功能。
 # 模块单独运行时的测试入口，测试ChatGPT对话功能
 if __name__ == '__main__':
     chatbot = ChatGPT()
