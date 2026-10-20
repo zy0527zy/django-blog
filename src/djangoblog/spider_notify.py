@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 #zy: 模块精读：向百度等搜索引擎主动推送新文章 URL，加快收录。notify() 是对 baidu_notify() 的薄封装。
 # 搜索引擎通知工具类：封装主动推送接口
-class SpiderNotify():
+class SpiderNotify:
     @staticmethod
     def baidu_notify(urls):
         """向百度主动推送 URL：把多个 URL 用换行拼接后 POST 到百度推送接口"""

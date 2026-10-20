@@ -24,9 +24,7 @@ class ElasticSearchBackend(BaseSearchBackend):
 
     def __init__(self, connection_alias, **connection_options):
         """构造方法：初始化文章文档管理器（ArticleDocumentManager）"""
-        super(
-            ElasticSearchBackend,
-            self).__init__(
+        super().__init__(
             connection_alias,
             **connection_options)
         self.manager = ArticleDocumentManager()
@@ -208,7 +206,7 @@ class ElasticSearchQuery(BaseSearchQuery):
         return self._spelling_suggestion
 
     def build_params(self, spelling_query=None):
-        kwargs = super(ElasticSearchQuery, self).build_params(spelling_query=spelling_query)
+        kwargs = super().build_params(spelling_query=spelling_query)
         return kwargs
 
 

@@ -48,7 +48,7 @@ class DjangoBlogFeed(Feed):
     def feed_copyright(self):
         """返回订阅源的版权信息（含当前年份）"""
         now = timezone.now()
-        return "Copyright© {year} 且听风吟".format(year=now.year)
+        return f"Copyright© {now.year} 且听风吟"
 
     def item_link(self, item):
         """返回单条订阅条目的跳转链接"""

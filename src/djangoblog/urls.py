@@ -18,15 +18,15 @@ Including another URLconf
 #zy: ① 所有业务路由用 i18n_patterns 包裹做国际化，prefix_default_language=False 使默认语言（中文）不带前缀；
 #zy: ② 各 app 通过 include(namespace='xxx') 挂载，便于在模板/视图中用 'xxx:name' 反向解析 URL；
 #zy: ③ 静态文件 /static/ 由 static() 伺服，/media/ 仅在 DEBUG 下额外伺服。
+import time
+
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path, include
-from django.urls import re_path
-from haystack.views import search_view_factory
 from django.http import JsonResponse
-import time
+from django.urls import include, path, re_path
+from haystack.views import search_view_factory
 
 from blog.views import EsSearchView
 from djangoblog.admin_site import admin_site
