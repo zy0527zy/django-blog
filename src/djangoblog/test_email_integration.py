@@ -3,6 +3,8 @@ Email Integration Tests
 邮件集成测试 - 测试完整的邮件发送流程
 包括：注册验证、密码重置、评论通知等
 """
+
+#zy: 模块精读：邮件流程集成测试。用 @override_settings 把 EMAIL_BACKEND 换成 locmem（内存邮箱），避免真实发信，从 mail.outbox 断言邮件内容。
 import re
 from django.test import TestCase, Client, override_settings
 from django.core import mail

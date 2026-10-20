@@ -3,6 +3,10 @@ djangoblog sitemap.py 文件
 功能：定义站点地图（Sitemap）各数据源
 把首页、文章、分类、标签、用户等页面映射为 sitemap.xml，利于搜索引擎收录
 """
+
+#zy: 模块精读：为 sitemap.xml 提供各数据源。两个质量点：
+#zy: ① changefreq 大小写不统一（"monthly"/"Weekly"/"daily"），站点地图协议要求小写，建议统一；
+#zy: ② UserSiteMap.items() 用 list(set(map(...))) 求作者去重，会把全部文章加载进内存且触发 N 次查询，建议数据库层 distinct。
 from django.contrib.sitemaps import Sitemap
 from django.urls import reverse
 
@@ -72,6 +76,8 @@ class UserSiteMap(Sitemap):
 
     def items(self):
         """返回所有文章的去重作者列表"""
+        #zy: 【质量】list(set(map(...))) 先取全部文章再在 Python 里求作者集合，内存开销大且触发 N+1 查询；
+        #zy: 建议改为 Article.objects.values_list('author', flat=True).distinct() 在数据库层去重。
         return list(set(map(lambda x: x.author, Article.objects.all())))
 
     def lastmod(self, obj):

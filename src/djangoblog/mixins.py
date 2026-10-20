@@ -6,6 +6,9 @@ Django Blog 混入类 (Mixins)
 提供可复用的功能模块，减少代码重复
 """
 
+#zy: 模块精读：通过多个职责单一的 Mixin 组合复用能力（时间戳/缓存/查询优化/分页），
+#zy: 是"组合优于继承、高内聚低耦合"的典型：TimeStampedModel 统一时间戳，OptimizedArticleQueryMixin 用 select_related/prefetch_related 避免 N+1。
+
 import logging
 from django.db import models
 from django.shortcuts import get_object_or_404
@@ -209,6 +212,7 @@ class CachedListViewMixin:
         from djangoblog.utils import cache
 
         value = cache.get(cache_key)
+        #zy: 【质量】用 if value: 判断缓存命中，空结果（空列表/None/0）会被误判为未命中而重复查询；建议改为 if value is not None:。
         if value:
             logger.info(f'Cache HIT: {cache_key}')
             return value

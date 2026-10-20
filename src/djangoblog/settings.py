@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
+
+#zy: 模块精读：项目全局配置（settings）。三大职责：INSTALLED_APPS 注册应用、MIDDLEWARE 请求处理管道、ROOT_URLCONF 全局路由入口。
+#zy: 另含数据库、缓存（默认 LocMem、可选 Redis）、搜索（Whoosh/Elasticsearch 二选一）、邮件、静态压缩（compressor）、插件（ACTIVE_PLUGINS）等配置。
 import os
 import sys
 from pathlib import Path

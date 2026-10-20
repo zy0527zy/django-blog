@@ -6,6 +6,9 @@ Django Blog 基础视图类
 提供带有常用装饰器的视图基类，减少重复的 dispatch 方法定义
 """
 
+#zy: 模块精读：用"基类 + dispatch 装饰器"复用安全逻辑（CSRF/登录/敏感参数/禁缓存），
+#zy: 子类继承即自动获得对应防护，避免每个视图重复写装饰器，是"高内聚、DRY"的典型做法。
+
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import never_cache

@@ -13,6 +13,11 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+
+#zy: 模块精读：全局路由表（ROOT_URLCONF）。核心三点：
+#zy: ① 所有业务路由用 i18n_patterns 包裹做国际化，prefix_default_language=False 使默认语言（中文）不带前缀；
+#zy: ② 各 app 通过 include(namespace='xxx') 挂载，便于在模板/视图中用 'xxx:name' 反向解析 URL；
+#zy: ③ 静态文件 /static/ 由 static() 伺服，/media/ 仅在 DEBUG 下额外伺服。
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
@@ -43,6 +48,8 @@ sitemaps = {
 handler404 = 'blog.views.page_not_found_view'
 handler500 = 'blog.views.server_error_view'
 handle403 = 'blog.views.permission_denied_view'
+#zy: 【质量】此处 handle403 疑似拼写错误：Django 约定的 403 处理器变量名应为 handler403（与 handler404/handler500 一致），
+#zy: 写成 handle403 会导致自定义 403 页不生效、回落到 Django 默认错误页。
 
 
 def health_check(request):

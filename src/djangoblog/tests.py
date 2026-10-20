@@ -1,3 +1,4 @@
+#zy: 模块精读：djangoblog 基础单元测试（TestCase）。对 utils 的 get_sha256 / CommonMarkdown / parse_dict_to_url 做冒烟测试，只断言非 None，属轻量验证。
 from django.test import TestCase
 
 from djangoblog.utils import *
