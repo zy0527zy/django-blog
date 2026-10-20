@@ -1,0 +1,32 @@
+name: Code Quality
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install linters
+        run: |
+          python -m pip install --upgrade pip
+          pip install ruff flake8
+
+      - name: Ruff check
+        # --output-format=github 会把问题直接标注到 Actions 页面对应代码行
+        run: ruff check . --output-format=github
+        continue-on-error: true
+
+      - name: Flake8 check
+        run: flake8 . --statistics
+        continue-on-error: true

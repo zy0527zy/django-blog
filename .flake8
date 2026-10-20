@@ -1,0 +1,5 @@
+[flake8]
+max-line-length = 120
+max-complexity = 10
+extend-ignore = E203,W503
+exclude = .git,.venv,venv,node_modules,src/frontend,src/locale,src/logs,migrations
