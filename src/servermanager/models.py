@@ -1,10 +1,11 @@
-from django.db import models
-
+#zly: 模块说明：定义 servermanager 的 Django ORM 数据模型。
 """
 src/servermanager/models.py
 该模块定义Django ORM数据模型，映射数据库表。
 包含命令存储模型、邮件发送日志模型。
 """
+from django.db import models
+
 
 #zly: 模型定义入口（原注释：Create your models here.）。
 class commands(models.Model):
