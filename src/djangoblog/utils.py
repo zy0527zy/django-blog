@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# encoding: utf-8
 
 """
 djangoblog utils.py 文件
@@ -7,13 +6,16 @@ djangoblog utils.py 文件
 包含缓存装饰器、Markdown 转换、邮件发送、头像保存、HTML 安全过滤（防 XSS）等通用能力
 """
 
+#zy: 模块精读：全局工具集。亮点：① sanitize_html 用 bleach 白名单过滤防 XSS（标签/属性/协议三级白名单，高水平安全实践）；
+#zy: ② cache_decorator 用函数工厂给任意函数加缓存；③ CommonMarkdown 统一封装 markdown 扩展（代码高亮/目录/表格）。
+
+import hashlib
+import hmac
 import logging
 import os
 import random
 import string
 import uuid
-import hashlib
-import hmac
 
 import bleach
 import markdown
@@ -47,6 +49,7 @@ def cache_decorator(expiration=3 * 60):
             try:
                 view = args[0]
                 key = view.get_cache_key()
+            #zy: 【质量】裸 except 会吞掉所有异常（含 KeyboardInterrupt 等），应缩小为 except (AttributeError, Exception)。
             except:
                 key = None
             if not key:
@@ -95,7 +98,7 @@ def expire_view_cache(path, servername, serverport, key_prefix=None):
 
     key = get_cache_key(request, key_prefix=key_prefix, cache=cache)
     if key:
-        logger.info('expire_view_cache:get key:{path}'.format(path=path))
+        logger.info(f'expire_view_cache:get key:{path}')
         if cache.get(key):
             cache.delete(key)
         return True
@@ -205,6 +208,7 @@ def save_user_avatar(url):
             if not os.path.exists(basedir):
                 os.makedirs(basedir)
 
+            #zy: 【质量】'jpeg' 少了个点（应为 '.jpeg'），导致 .jpeg 结尾的 URL 被判为非图片、扩展名回落到 .jpg。
             image_extensions = ['.jpg', '.png', 'jpeg', '.gif']
             isimage = len([i for i in image_extensions if url.endswith(i)]) > 0
             ext = os.path.splitext(url)[1] if isimage else '.jpg'
@@ -274,7 +278,7 @@ def class_filter(tag, name, value):
 # 安全的属性白名单
 ALLOWED_ATTRIBUTES = {
     'a': ['href', 'title', 'rel'],  # rel="nofollow" 用于外部链接
-    'abbr': ['title'], 
+    'abbr': ['title'],
     'acronym': ['title'],
     'img': ['src', 'alt', 'title', 'width', 'height'],  # 图片属性
     'table': ['border', 'cellpadding', 'cellspacing'],
@@ -295,16 +299,16 @@ def sanitize_html(html):
     使用bleach库进行白名单过滤，防止XSS攻击
     """
     cleaned = bleach.clean(
-        html, 
-        tags=ALLOWED_TAGS, 
+        html,
+        tags=ALLOWED_TAGS,
         attributes=ALLOWED_ATTRIBUTES,
         protocols=ALLOWED_PROTOCOLS,  # 限制允许的协议
         strip=True,  # 移除不允许的标签而不是转义
         strip_comments=True  # 移除HTML注释
     )
-    
+
     # 移除空的 style 属性（bleach 有时会保留 style=""）
     import re
     cleaned = re.sub(r'\s*style\s*=\s*["\'][\s]*["\']', '', cleaned)
-    
+
     return cleaned

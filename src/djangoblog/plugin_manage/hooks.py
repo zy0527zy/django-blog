@@ -1,3 +1,5 @@
+#zy: 模块精读：轻量钩子（Hook）机制——Action Hook（run_action）与 Filter Hook（apply_filters），
+#zy: 用模块级 _hooks 字典做注册表，回调按注册顺序执行，异常被捕获记录而不中断其它回调（健壮性设计）。
 import logging
 
 logger = logging.getLogger(__name__)

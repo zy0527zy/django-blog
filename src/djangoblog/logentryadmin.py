@@ -5,10 +5,13 @@ Django 后台「操作日志」管理界面定制
 - 把"被操作对象"和"操作用户"渲染成可点击的链接，方便跳转定位；
 - 将日志设为只读（不允许新增、删除，修改也只允许只读查看），保证操作记录可追溯、不可篡改。
 """
+
+#zy: 模块精读：本文件是"高水平编程技能"的代表：① 日志只读化（禁增删、POST 禁止）保证可追溯不可篡改；
+#zy: ② object_link/user_link 用 mark_safe 生成可点击链接、NoReverseMatch 降级为纯文本；③ get_queryset prefetch_related 避免 N+1；④ 移除批量删除动作。
 from django.contrib import admin
 from django.contrib.admin.models import DELETION
 from django.contrib.contenttypes.models import ContentType
-from django.urls import reverse, NoReverseMatch
+from django.urls import NoReverseMatch, reverse
 from django.utils.encoding import force_str
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
@@ -68,11 +71,10 @@ class LogEntryAdmin(admin.ModelAdmin):
             # 非"删除"操作且能拿到对象类型时，尝试生成可点击链接
             try:
                 url = reverse(
-                    'admin:{}_{}_change'.format(content_type.app_label,
-                                                content_type.model),
+                    f'admin:{content_type.app_label}_{content_type.model}_change',
                     args=[obj.object_id]
                 )
-                object_link = '<a href="{}">{}</a>'.format(url, object_link)
+                object_link = f'<a href="{url}">{object_link}</a>'
             except NoReverseMatch:
                 # 该模型没有对应的后台编辑页，降级为纯文本
                 pass
@@ -89,11 +91,10 @@ class LogEntryAdmin(admin.ModelAdmin):
         try:
             # 尝试生成指向用户编辑页的链接
             url = reverse(
-                'admin:{}_{}_change'.format(content_type.app_label,
-                                            content_type.model),
+                f'admin:{content_type.app_label}_{content_type.model}_change',
                 args=[obj.user.pk]
             )
-            user_link = '<a href="{}">{}</a>'.format(url, user_link)
+            user_link = f'<a href="{url}">{user_link}</a>'
         except NoReverseMatch:
             pass
         return mark_safe(user_link)
@@ -103,12 +104,12 @@ class LogEntryAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         """预加载 content_type 关联，避免列表页 N+1 查询"""
-        queryset = super(LogEntryAdmin, self).get_queryset(request)
+        queryset = super().get_queryset(request)
         return queryset.prefetch_related('content_type')
 
     def get_actions(self, request):
         """移除"批量删除"动作，防止通过后台批量删掉操作日志"""
-        actions = super(LogEntryAdmin, self).get_actions(request)
+        actions = super().get_actions(request)
         if 'delete_selected' in actions:
             del actions['delete_selected']
         return actions

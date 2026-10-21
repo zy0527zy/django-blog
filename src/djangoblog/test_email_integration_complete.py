@@ -2,15 +2,18 @@
 Complete Email Integration Tests - End to End
 完整的邮件集成测试 - 端到端测试完整业务流程
 """
+
+#zy: 模块精读：注册流程端到端测试，覆盖 注册→验证码→激活→登录 的完整链路，用 locmem 邮箱 + authenticate 断言登录。
 import re
-from django.test import TestCase, Client, override_settings
-from django.core import mail
-from django.urls import reverse
+
 from django.contrib.auth import authenticate
+from django.core import mail
+from django.test import Client, TestCase, override_settings
+from django.urls import reverse
 
 from accounts.models import BlogUser
-from accounts.utils import get_code, verify
-from blog.models import Article, Category, BlogSettings
+from accounts.utils import verify
+from blog.models import Article, BlogSettings, Category
 from comments.models import Comment
 
 

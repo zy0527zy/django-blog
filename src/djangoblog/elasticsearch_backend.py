@@ -3,6 +3,9 @@ djangoblog elasticsearch_backend.py 文件
 功能：Haystack 的 Elasticsearch 搜索后端
 封装 Elasticsearch 索引的增删改查、搜索、高亮与推荐词（suggest）能力，供全文搜索使用
 """
+
+#zy: 模块精读：自定义 Haystack 的 ES 后端。亮点：① 搜索时用 suggest 做推荐词、布尔 should 匹配 title/body、minimum_should_match=1；
+#zy: ② 高亮片段（<mark>）；③ 兼容 ES 8.x 的 total 由数字变对象（isinstance 判断），属跨版本健壮写法。
 from django.utils.encoding import force_str
 from elasticsearch_dsl import Q
 from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, log_query
@@ -21,9 +24,7 @@ class ElasticSearchBackend(BaseSearchBackend):
 
     def __init__(self, connection_alias, **connection_options):
         """构造方法：初始化文章文档管理器（ArticleDocumentManager）"""
-        super(
-            ElasticSearchBackend,
-            self).__init__(
+        super().__init__(
             connection_alias,
             **connection_options)
         self.manager = ArticleDocumentManager()
@@ -120,6 +121,7 @@ class ElasticSearchBackend(BaseSearchBackend):
 
         results = search.execute()
         # ES 8.x: total 现在是对象 {'value': 123, 'relation': 'eq'}
+        #zy: 兼容性处理：ES 7.x total 是数字、8.x 变为 {'value':..,'relation':..}，用 isinstance 判断两者都兼容，属跨版本健壮写法。
         hits_total = results['hits']['total']
         hits = hits_total['value'] if isinstance(hits_total, dict) else hits_total
         raw_results = []
@@ -204,7 +206,7 @@ class ElasticSearchQuery(BaseSearchQuery):
         return self._spelling_suggestion
 
     def build_params(self, spelling_query=None):
-        kwargs = super(ElasticSearchQuery, self).build_params(spelling_query=spelling_query)
+        kwargs = super().build_params(spelling_query=spelling_query)
         return kwargs
 
 

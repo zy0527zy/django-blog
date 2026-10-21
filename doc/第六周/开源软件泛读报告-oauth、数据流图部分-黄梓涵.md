@@ -6,7 +6,7 @@
 
 ## 1. oauth 用例图与说明
 
-![oauth 用例图](imgs/oauth-usecase-xcz.png)
+![oauth 用例图](imgs/oauth-usecase-hzh.png)
 
 参与者包括使用第三方账号登录的访客、第三方身份平台和邮件服务。后台 OAuthConfig 维护属于系统管理范围，未在此重复系统后台用例。当前路由支持以下五个用例；“邮箱齐备的回调登录”与“无邮箱后补填及确认”是两条不同路径。
 
@@ -21,7 +21,7 @@
 | 扩展流程 | 未传 type 或无可用管理器时返回首页；非法 next_url 回退 `/`。 |
 | 实现边界 | 当前图反映源码流程，不声称项目已实现 state 或 PKCE 校验。 |
 
-![发起授权顺序图](imgs/oauth-sequence-login-xcz.png)
+![发起授权顺序图](imgs/oauth-sequence-login-hzh.png)
 
 ### UC-O02 授权回调并登录
 
@@ -34,7 +34,7 @@
 | 扩展流程 | token 异常返回首页或重新授权；无用户资料按代码回退；无邮箱时保存 OAuthUser 并进入补填邮箱页面。 |
 | 实现边界 | 已有记录复用时显式更新的是 picture、metadata、nickname，不保证 token 和邮箱也刷新。`transaction.atomic()` 约束数据库操作，不使第三方 API、Cookie 或发信获得数据库事务语义。 |
 
-![回调登录顺序图](imgs/oauth-sequence-callback-xcz.png)
+![回调登录顺序图](imgs/oauth-sequence-callback-hzh.png)
 
 ### UC-O03 补填邮箱并申请验证
 
@@ -47,7 +47,7 @@
 | 扩展流程 | 对象不存在返回 404；表单不合法回显。 |
 | 实现边界 | 表单隐藏 ID 不等于会话所有权校验；代码采用 cleaned_data 中的 oauthid，本图不虚构额外绑定校验。调用发信不等于实际投递成功。 |
 
-![补填邮箱顺序图](imgs/oauth-sequence-email-xcz.png)
+![补填邮箱顺序图](imgs/oauth-sequence-email-hzh.png)
 
 ### UC-O04 确认邮箱并绑定登录
 
@@ -60,7 +60,7 @@
 | 扩展流程 | 签名错误返回 403，对象不存在返回 404。 |
 | 实现边界 | 签名由 SECRET_KEY、ID 计算，没有包含邮箱、有效期或一次性随机值；不能将“一次性链接、过期验证”写为已实现能力。 |
 
-![邮箱确认顺序图](imgs/oauth-sequence-confirm-xcz.png)
+![邮箱确认顺序图](imgs/oauth-sequence-confirm-hzh.png)
 
 ### UC-O05 查看绑定状态提示
 
@@ -73,11 +73,11 @@
 | 扩展流程 | 对象不存在返回 404。 |
 | 实现边界 | 该页面只展示提示，不执行绑定、登录，也不单独证明绑定已经完成。 |
 
-![状态提示顺序图](imgs/oauth-sequence-result-xcz.png)
+![状态提示顺序图](imgs/oauth-sequence-result-hzh.png)
 
 ## 2. oauth 包类关系图
 
-![oauth 包类职责关系](imgs/oauth-package-class-xcz.png)
+![oauth 包类职责关系](imgs/oauth-package-class-hzh.png)
 
 本图采用 StarUML 类图承载包与主要类的职责依赖摘要；连接标签区分使用与继承语义。系统整体 UML 包图仍以组长材料为准。
 
@@ -95,13 +95,13 @@
 
 ### 3.1 系统上下文图（0 层）
 
-![系统上下文数据流图](imgs/system-dataflow-context-xcz.png)
+![系统上下文数据流图](imgs/system-dataflow-context-hzh.png)
 
 P0 表示整个 DjangoBlog 系统。外部实体为读者/注册用户、后台管理员、第三方身份平台、邮件服务和微信平台/用户。箭头说明跨系统边界的数据交换，内部数据库及缓存在一级图展开。认证资料、授权凭据和邮箱等仅表示数据类别，图中没有真实凭据。
 
 ### 3.2 一级数据流图
 
-![系统一级数据流图](imgs/system-dataflow-level1-xcz.png)
+![系统一级数据流图](imgs/system-dataflow-level1-hzh.png)
 
 | 标记 | 内容及源码依据 |
 |---|---|
@@ -118,4 +118,4 @@ P0 表示整个 DjangoBlog 系统。外部实体为读者/注册用户、后台�
 
 ## 4. 源文件与交付范围
 
-9 张 PNG 位于 `imgs/`，9 个对应的同名 `.uml` 位于 [StarUML工程-谢承志](StarUML工程-谢承志/)。文件名均使用英文并带 xcz 后缀。各源文件保留对应的一张图，供打开、修改及再次导出。此文件作为协助制图材料供组长整合；谢承志其他个人任务由其继续完成。
+9 张 PNG 位于 `imgs/`，9 个对应的同名 `.uml` 位于 [StarUML工程-黄梓涵](StarUML工程-黄梓涵/)。文件名均使用英文并带 hzh 后缀。各源文件保留对应的一张图，供打开、修改及再次导出。此文件作为协助制图材料供组长整合；谢承志其他个人任务由其继续完成。
