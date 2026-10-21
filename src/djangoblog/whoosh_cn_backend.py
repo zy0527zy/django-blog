@@ -5,6 +5,9 @@ djangoblog whoosh_cn_backend.py 文件
 在官方 Whoosh 后端基础上，把分词器替换为结巴分词（ChineseAnalyzer），并自定义搜索结果高亮，
 实现支持中文的全文搜索
 """
+
+#zy: 模块精读：本文件是 haystack 官方 whoosh 后端的"改造版"（约 900 行，大部分为 vendored 代码）。
+#zy: 核心改动：① 用 jieba 的 ChineseAnalyzer 替换默认分词器，让中文可被正确切词索引；② 自定义 WhooshHtmlFormatter 统一高亮格式（与 ES 后端一致）。
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import json

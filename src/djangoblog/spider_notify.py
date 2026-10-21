@@ -11,6 +11,7 @@ from django.conf import settings
 logger = logging.getLogger(__name__)
 
 
+#zy: 模块精读：向百度等搜索引擎主动推送新文章 URL，加快收录。notify() 是对 baidu_notify() 的薄封装。
 # 搜索引擎通知工具类：封装主动推送接口
 class SpiderNotify():
     @staticmethod
@@ -26,4 +27,6 @@ class SpiderNotify():
     @staticmethod
     def notify(url):
         """通知入口：默认调用百度推送"""
+        #zy: 【质量】这里把单个 url 直接传给 baidu_notify(urls)，而 baidu_notify 内 '\n'.join(urls) 会把字符串逐字符用换行拆开，
+        #zy: 实际应传 [url]（列表）；调用方若传单个字符串会导致推送给百度的数据错乱。
         SpiderNotify.baidu_notify(url)

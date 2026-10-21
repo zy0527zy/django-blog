@@ -2,6 +2,8 @@
 可复用的测试基类和工具
 提供通用的测试数据创建和断言方法
 """
+
+#zy: 模块精读：测试基建。BaseTestCase 在 setUp 里集中创建用户/管理员/分类/标签/文章/博客配置等公共数据，供各测试类复用，避免重复造数据。
 from django.contrib.auth.models import Permission
 from django.test import TestCase, Client, RequestFactory
 from django.utils import timezone

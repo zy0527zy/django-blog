@@ -6,38 +6,48 @@ import django.utils.timezone
 
 class Migration(migrations.Migration):
 
+    # 本迁移依赖初始迁移，确保 BlogUser 已经创建。
+    
     dependencies = [
         ('accounts', '0001_initial'),
     ]
 
+    # 更新模型选项和字段名称，确保数据库结构与当前模型定义一致。
     operations = [
+        # 更新用户模型在界面中的名称及排序选项
         migrations.AlterModelOptions(
             name='bloguser',
             options={'get_latest_by': 'id', 'ordering': ['-id'], 'verbose_name': 'user', 'verbose_name_plural': 'user'},
         ),
+        # 移除旧的创建时间字段。
         migrations.RemoveField(
             model_name='bloguser',
             name='created_time',
         ),
+        # 移除旧的最后修改时间字段。
         migrations.RemoveField(
             model_name='bloguser',
             name='last_mod_time',
         ),
+        # 添加新的创建时间字段，默认值为当前时间。
         migrations.AddField(
             model_name='bloguser',
             name='creation_time',
             field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='creation time'),
         ),
+        # 添加新的最后修改时间字段，默认值为当前时间。
         migrations.AddField(
             model_name='bloguser',
             name='last_modify_time',
             field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='last modify time'),
         ),
+        # 更新昵称字段的界面显示名称。
         migrations.AlterField(
             model_name='bloguser',
             name='nickname',
             field=models.CharField(blank=True, max_length=100, verbose_name='nick name'),
         ),
+        # 更新账号来源字段的界面显示名称。
         migrations.AlterField(
             model_name='bloguser',
             name='source',

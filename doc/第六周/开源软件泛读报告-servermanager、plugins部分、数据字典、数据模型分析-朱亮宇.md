@@ -318,9 +318,9 @@
 
 | 源 | 目标 | 关联字段 | 多重性 | 语义 |
 |----|------|----------|--------|------|
-| Article | Category | category | 1..* — 1 | 一个分类下有多篇文章，每篇文章必属一个分类 |
-| Article | BlogUser | author | 1..* — 1 | 一个作者可写多篇文章 |
-| Article | Tag | tags（M2M）| 1..* — 0..* | 文章与标签多对多 |
+| Article | Category | category | 0..* — 1 | 一个分类下可有零篇或多篇文章，每篇文章必属一个分类 |
+| Article | BlogUser | author | 0..* — 1 | 一个作者可写零篇或多篇文章 |
+| Article | Tag | tags（M2M）| 0..* — 0..* | 文章与标签多对多（两侧均允许 0..*）|
 | Comment | Article | article | 0..* — 1 | 一篇文章可有多条评论 |
 | Comment | BlogUser | author | 0..* — 1 | 一个用户可发多条评论 |
 | CommentReaction | Comment | comment | 0..* — 1 | 一条评论可有多个表情反应 |

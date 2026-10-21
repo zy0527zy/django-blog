@@ -5,6 +5,9 @@ Django 后台「操作日志」管理界面定制
 - 把"被操作对象"和"操作用户"渲染成可点击的链接，方便跳转定位；
 - 将日志设为只读（不允许新增、删除，修改也只允许只读查看），保证操作记录可追溯、不可篡改。
 """
+
+#zy: 模块精读：本文件是"高水平编程技能"的代表：① 日志只读化（禁增删、POST 禁止）保证可追溯不可篡改；
+#zy: ② object_link/user_link 用 mark_safe 生成可点击链接、NoReverseMatch 降级为纯文本；③ get_queryset prefetch_related 避免 N+1；④ 移除批量删除动作。
 from django.contrib import admin
 from django.contrib.admin.models import DELETION
 from django.contrib.contenttypes.models import ContentType

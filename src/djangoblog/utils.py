@@ -7,6 +7,9 @@ djangoblog utils.py 文件
 包含缓存装饰器、Markdown 转换、邮件发送、头像保存、HTML 安全过滤（防 XSS）等通用能力
 """
 
+#zy: 模块精读：全局工具集。亮点：① sanitize_html 用 bleach 白名单过滤防 XSS（标签/属性/协议三级白名单，高水平安全实践）；
+#zy: ② cache_decorator 用函数工厂给任意函数加缓存；③ CommonMarkdown 统一封装 markdown 扩展（代码高亮/目录/表格）。
+
 import logging
 import os
 import random
@@ -47,6 +50,7 @@ def cache_decorator(expiration=3 * 60):
             try:
                 view = args[0]
                 key = view.get_cache_key()
+            #zy: 【质量】裸 except 会吞掉所有异常（含 KeyboardInterrupt 等），应缩小为 except (AttributeError, Exception)。
             except:
                 key = None
             if not key:
@@ -205,6 +209,7 @@ def save_user_avatar(url):
             if not os.path.exists(basedir):
                 os.makedirs(basedir)
 
+            #zy: 【质量】'jpeg' 少了个点（应为 '.jpeg'），导致 .jpeg 结尾的 URL 被判为非图片、扩展名回落到 .jpg。
             image_extensions = ['.jpg', '.png', 'jpeg', '.gif']
             isimage = len([i for i in image_extensions if url.endswith(i)]) > 0
             ext = os.path.splitext(url)[1] if isimage else '.jpg'

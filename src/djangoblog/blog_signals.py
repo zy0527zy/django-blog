@@ -3,6 +3,9 @@ djangoblog blog_signals.py 文件
 功能：定义并处理全站信号（Signal）
 监听邮件发送、OAuth 登录、模型保存、用户登录/登出等事件，触发邮件发送、缓存清理、搜索引擎推送等副作用
 """
+
+#zy: 模块精读：用"信号 + 副作用"解耦：业务代码只发信号，缓存清理/邮件/推送等副作用集中在各 handler，降低耦合。
+#zy: 重点：model_post_save_callback 是全局 post_save 接收器（不限定 sender），靠 isinstance 区分模型类型做差异化缓存清理。
 import _thread
 import logging
 
@@ -92,6 +95,7 @@ def model_post_save_callback(
         return  # 浏览量更新不需要清理缓存
 
     # 搜索引擎通知
+    #zy: 【质量】用 'get_full_url' in dir(instance) 判断方法是否存在：dir() 会构造完整属性列表、开销偏大；建议改为 hasattr(instance, 'get_full_url')。
     if 'get_full_url' in dir(instance):
         if not settings.TESTING:
             try:

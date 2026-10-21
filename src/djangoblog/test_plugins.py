@@ -2,6 +2,8 @@
 插件系统测试
 测试插件加载、钩子注册和执行
 """
+
+#zy: 模块精读：插件系统测试。重点测 hooks 的 register/run_action/apply_filters 及 loader.load_plugins；setUp 里重置 hooks._hooks 保证用例隔离。
 import os
 from unittest.mock import Mock, patch
 
