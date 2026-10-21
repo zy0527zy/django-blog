@@ -10,13 +10,12 @@ from oauth.oauthmanager import get_manager_by_type
 class Command(BaseCommand):
     help = 'sync user avatar'
 
-    #hzh: 头像地址通过限时网络请求探测，当前裸 except 会掩盖具体失败原因。
+    #hzh: 仅捕获网络请求异常；HTTP 200表示头像可访问，其他情况返回False。
     def test_picture(self, url):
         try:
-            if requests.get(url, timeout=2).status_code == 200:
-                return True
-        except:
-            pass
+            return requests.get(url, timeout=2).status_code == 200
+        except requests.exceptions.RequestException:
+            return False
 
     def handle(self, *args, **options):
         static_url = static("../")

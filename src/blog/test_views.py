@@ -2,7 +2,7 @@
 Blog Views 测试
 测试视图层的错误处理、权限验证和边界条件
 """
-from django.urls import reverse
+from django.urls import NoReverseMatch, reverse
 
 from blog.models import Article
 from djangoblog.test_base import BaseTestCase, ViewTestMixin
@@ -38,30 +38,28 @@ class ArticleViewTest(BaseTestCase, ViewTestMixin):
         url = reverse('blog:archives')
         response = self.assert_view_success(url)
 
-    #hzh: 当前 archives 路由不接受 year 参数，原测试的裸 except 会隐藏路由解析失败。
+    #hzh: 归档年份路由未实现时应明确跳过测试，不能用裸 except 掩盖异常或断言失败。
     def test_article_archive_by_year(self):
-        """测试按年归档"""
+        """测试按年归档，未实现路由时明确跳过"""
         year = self.article.pub_time.year
         try:
             url = reverse('blog:archives', kwargs={'year': year})
-            response = self.client.get(url)
-            # 归档页可能有不同的实现
-            self.assertIn(response.status_code, [200, 404])
-        except:
-            # 如果路由不存在，跳过测试
-            pass
+        except NoReverseMatch:
+            self.skipTest('当前尚未提供按年份归档的独立路由')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
 
-    #hzh: 当前未定义按年月参数访问 archives 的路由，应检查此测试是否具有实际验证效果。
+    #hzh: 按年月归档尚无对应路由，捕获 NoReverseMatch 后明确标记为跳过。
     def test_article_archive_by_year_month(self):
-        """测试按年月归档"""
+        """测试按年月归档，未实现路由时明确跳过"""
         year = self.article.pub_time.year
         month = self.article.pub_time.month
         try:
             url = reverse('blog:archives', kwargs={'year': year, 'month': month})
-            response = self.client.get(url)
-            self.assertIn(response.status_code, [200, 404])
-        except:
-            pass
+        except NoReverseMatch:
+            self.skipTest('当前尚未提供按年月归档的独立路由')
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
 
     def test_index_view(self):
         """测试首页"""
@@ -114,16 +112,12 @@ class ArticleViewTest(BaseTestCase, ViewTestMixin):
 class SearchViewTest(BaseTestCase, ViewTestMixin):
     """测试搜索功能"""
 
+    #hzh: 搜索入口属于全局路由 search，而不是 blog:search；响应断言不能被异常吞掉。
     def test_search_view_accessible(self):
         """测试搜索页面可访问"""
-        try:
-            url = reverse('blog:search')
-            response = self.client.get(url, {'q': '测试'})
-            # 搜索可能返回 200 或其他状态码
-            self.assertIn(response.status_code, [200, 302])
-        except:
-            # 如果搜索路由不存在，跳过
-            pass
+        url = reverse('search')
+        response = self.client.get(url, {'q': '测试'})
+        self.assertEqual(response.status_code, 200)
 
 
 class ArticlePermissionTest(BaseTestCase, ViewTestMixin):
@@ -161,16 +155,18 @@ class ErrorHandlingTest(BaseTestCase, ViewTestMixin):
         response = self.client.get('/nonexistent-page/')
         self.assertEqual(response.status_code, 404)
 
-    #hzh: 当前测试使用 blog:detail，但实际文章路由名为 detailbyid，裸 except 可能造成假通过。
+    #hzh: 使用真实 detailbyid 路由和完整日期参数验证不存在文章时的404响应。
     def test_article_404(self):
         """测试不存在的文章"""
-        try:
-            url = reverse('blog:detail', kwargs={'article_id': 99999})
-            response = self.client.get(url)
-            self.assertEqual(response.status_code, 404)
-        except:
-            # 如果路由不存在，跳过
-            pass
+        created = self.article.creation_time
+        url = reverse('blog:detailbyid', kwargs={
+            'year': created.year,
+            'month': created.month,
+            'day': created.day,
+            'article_id': self.article.pk + 99999,
+        })
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 404)
 
     def test_invalid_page_number(self):
         """测试无效页码"""
