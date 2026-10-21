@@ -8,5 +8,6 @@ from django.apps import AppConfig
 
 
 class CommentsConfig(AppConfig):
+    #lyt: Django 用此配置识别 comments 应用并加载其模型与迁移。  # noqa: E265
     # 应用名称，必须与 comments 目录名保持一致
     name = 'comments'
