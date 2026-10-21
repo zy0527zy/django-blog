@@ -2,11 +2,13 @@
 模板标签测试
 测试各种模板标签和过滤器的功能
 """
+#hzh: 本模块验证博客模板标签、Markdown渲染及相关工具函数。
 from django.core.paginator import Paginator
 from django.template import Context, Template
 from django.test import RequestFactory
 
 from blog.models import Article
+#hzh: 当前星号导入使静态检查无法明确符号来源，后续可考虑改成显式导入。
 from blog.templatetags.blog_tags import *
 from djangoblog.test_base import BaseTestCase
 

@@ -38,6 +38,7 @@ class ArticleViewTest(BaseTestCase, ViewTestMixin):
         url = reverse('blog:archives')
         response = self.assert_view_success(url)
 
+    #hzh: 当前 archives 路由不接受 year 参数，原测试的裸 except 会隐藏路由解析失败。
     def test_article_archive_by_year(self):
         """测试按年归档"""
         year = self.article.pub_time.year
@@ -50,6 +51,7 @@ class ArticleViewTest(BaseTestCase, ViewTestMixin):
             # 如果路由不存在，跳过测试
             pass
 
+    #hzh: 当前未定义按年月参数访问 archives 的路由，应检查此测试是否具有实际验证效果。
     def test_article_archive_by_year_month(self):
         """测试按年月归档"""
         year = self.article.pub_time.year
@@ -159,6 +161,7 @@ class ErrorHandlingTest(BaseTestCase, ViewTestMixin):
         response = self.client.get('/nonexistent-page/')
         self.assertEqual(response.status_code, 404)
 
+    #hzh: 当前测试使用 blog:detail，但实际文章路由名为 detailbyid，裸 except 可能造成假通过。
     def test_article_404(self):
         """测试不存在的文章"""
         try:
