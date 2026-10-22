@@ -66,7 +66,7 @@ class OauthLoginTest(TestCase):
     def test_weibo_login(self, mock_do_get, mock_do_post):
         weibo_app = self.get_app_by_type('weibo')
         assert weibo_app
-        url = weibo_app.get_authorization_url()
+            # url = weibo_app.get_authorization_url()  #xcz: F841，删除未使用局部变量
         mock_do_post.return_value = json.dumps({"access_token": "access_token",
                                                 "uid": "uid"
                                                 })
@@ -85,7 +85,7 @@ class OauthLoginTest(TestCase):
     def test_google_login(self, mock_do_get, mock_do_post):
         google_app = self.get_app_by_type('google')
         assert google_app
-        url = google_app.get_authorization_url()
+            # url = google_app.get_authorization_url()  #xcz: F841，删除未使用局部变量
         mock_do_post.return_value = json.dumps({
             "access_token": "access_token",
             "id_token": "id_token",
@@ -116,7 +116,7 @@ class OauthLoginTest(TestCase):
             "id": "id",
             "email": "email",
         })
-        token = github_app.get_access_token_by_code('code')
+            # token = github_app.get_access_token_by_code('code')  #xcz: F841，删除未使用局部变量
         userinfo = github_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'gho_16C7e42F292c6912E7710c838347Ae178B4a')
         self.assertEqual(userinfo.openid, 'id')
@@ -134,9 +134,9 @@ class OauthLoginTest(TestCase):
         self.assertTrue("client_id" in url)
         # Check that the scope parameter includes user:email (URL-encoded form)
         self.assertIn("user:email", unquote(url))
-        
+
         mock_do_post.return_value = "access_token=gho_test_token&scope=user:email&token_type=bearer"
-        
+
         # First call returns user info without email (private email)
         # Second call returns emails from /user/emails endpoint
         mock_do_get.side_effect = [
@@ -155,7 +155,7 @@ class OauthLoginTest(TestCase):
                 }
             ])
         ]
-        
+
         token = github_app.get_access_token_by_code('code')
         userinfo = github_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'gho_test_token')
