@@ -1,5 +1,8 @@
-import os
+#zy: 模块精读：插件加载器。load_plugins() 遍历 settings.ACTIVE_PLUGINS，用 __import__ 动态导入各插件的 plugin 模块并收集实例；
+#zy: 在 apps.py 的 ready() 里被调用（Django 应用就绪后），是"运行时动态加载插件"而非标准 app 注册的核心。
 import logging
+import os
+
 from django.conf import settings
 
 logger = logging.getLogger(__name__)
@@ -63,4 +66,4 @@ def get_plugins_info():
 
 def get_plugins_by_position(position):
     """获取支持指定位置的插件"""
-    return [plugin for plugin in _loaded_plugins if position in plugin.SUPPORTED_POSITIONS] 
+    return [plugin for plugin in _loaded_plugins if position in plugin.SUPPORTED_POSITIONS]

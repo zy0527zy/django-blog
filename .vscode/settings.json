@@ -1,5 +1,17 @@
 {
   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
   "python.envFile": "${workspaceFolder}/.env",
-  "python.terminal.activateEnvironment": true
+  "python.terminal.activateEnvironment": true,
+
+  "ruff.enable": true,
+  "ruff.lint.enable": true,
+  "ruff.organizeImports": false,
+
+  "pylint.enabled": true,
+  "pylint.args": ["--max-line-length=120"],
+
+  "flake8.enabled": false,
+  "flake8.args": ["--max-line-length=120", "--extend-ignore=E203,W503"],
+
+  "editor.rulers": [120]
 }

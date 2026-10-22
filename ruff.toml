@@ -1,0 +1,26 @@
+# 项目级 Ruff 配置（全组统一口径）
+# 用法：在项目根目录执行 `ruff check .`
+line-length = 120
+target-version = "py312"
+
+exclude = [
+    ".git",
+    ".venv",
+    "venv",
+    "node_modules",
+    "src/frontend",
+    "src/locale",
+    "src/logs",
+    "**/migrations",
+]
+
+[lint]
+# E/W: PEP8 风格；F: 逻辑错误/未使用变量；I: import 排序；
+# N: 命名规范；UP: 现代化写法；B: bugbear 常见缺陷；
+# C4: 推导式简化；SIM: 可简化代码
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM"]
+ignore = ["E203"]
+
+[lint.per-file-ignores]
+# 包初始化文件允许只做 re-export
+"__init__.py" = ["F401"]
