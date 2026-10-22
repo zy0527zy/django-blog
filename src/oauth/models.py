@@ -1,3 +1,4 @@
+#xcz: 保存第三方授权用户资料及各 OAuth 平台的连接配置。
 # Create your models here.
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -6,6 +7,7 @@ from django.utils.timezone import now
 from django.utils.translation import gettext_lazy as _
 
 
+#xcz: 保存第三方用户资料，并可选关联到本地账户。
 class OAuthUser(models.Model):
     """
     第三方授权用户表
@@ -18,7 +20,7 @@ class OAuthUser(models.Model):
         blank=True,
         null=True,
         on_delete=models.CASCADE)
-    
+
     # 第三方平台的唯一标识（如微信的 openid）
     openid = models.CharField(max_length=50)
     # 第三方平台的昵称
@@ -38,10 +40,12 @@ class OAuthUser(models.Model):
     # 最后修改时间，默认当前时间
     last_modify_time = models.DateTimeField(_('last modify time'), default=now)
 
+    #xcz: 返回模型或对象在后台中的可读标识。
     def __str__(self):
         # 对象的字符串表示，返回第三方昵称
         return self.nickname
 
+    #xcz: 设置 OAuth 用户记录在后台中的名称和默认排序方式。
     class Meta:
         verbose_name = _('oauth user')
         verbose_name_plural = verbose_name
@@ -49,6 +53,7 @@ class OAuthUser(models.Model):
         ordering = ['-creation_time']
 
 
+#xcz: 保存第三方登录平台的密钥、回调地址和启用状态。
 class OAuthConfig(models.Model):
     """
     第三方登录配置表
@@ -82,16 +87,20 @@ class OAuthConfig(models.Model):
     # 最后修改时间，默认当前时间
     last_modify_time = models.DateTimeField(_('last modify time'), default=now)
 
+    #xcz: 校验平台类型配置的唯一性。
     def clean(self):
         # 校验：确保同一类型的平台配置只能存在一个（排除自身）
+        #xcz: 保存配置前排除当前记录并检查平台类型唯一性。
         if OAuthConfig.objects.filter(
                 type=self.type).exclude(id=self.id).count():
             raise ValidationError(_(self.type + _('already exists')))
 
+    #xcz: 返回模型或对象在后台中的可读标识。
     def __str__(self):
         # 对象的字符串表示，返回平台类型
         return self.type
 
+    #xcz: 设置平台配置记录在后台中的名称和默认排序方式。
     class Meta:
         verbose_name = 'oauth配置'
         verbose_name_plural = verbose_name

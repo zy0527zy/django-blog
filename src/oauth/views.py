@@ -1,32 +1,31 @@
+#xcz: 处理第三方登录、授权回调、本地账户绑定和邮箱确认请求。
 import logging
-# Create your views here.
-from urllib.parse import urlparse
+from contextlib import suppress
 
+# Create your views here.
 from django.conf import settings
-from django.contrib.auth import get_user_model
-from django.contrib.auth import login
+from django.contrib.auth import get_user_model, login
 from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
-from django.http import HttpResponseForbidden
-from django.http import HttpResponseRedirect
-from django.shortcuts import get_object_or_404
-from django.shortcuts import render
+from django.http import HttpResponseForbidden, HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.http import url_has_allowed_host_and_scheme
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import FormView
-from django.utils.http import url_has_allowed_host_and_scheme
 
 from djangoblog.blog_signals import oauth_user_login_signal
-from djangoblog.utils import get_current_site
-from djangoblog.utils import send_email, get_sha256
+from djangoblog.utils import get_current_site, get_sha256, send_email
 from oauth.forms import RequireEmailForm
+
 from .models import OAuthUser
-from .oauthmanager import get_manager_by_type, OAuthAccessTokenException
+from .oauthmanager import OAuthAccessTokenError, get_manager_by_type
 
 logger = logging.getLogger(__name__)
 
 
+#xcz: 验证登录后的跳转目标，只返回当前站点允许的地址。
 def get_redirecturl(request):
     """
     获取安全的登录后重定向 URL。
@@ -54,6 +53,7 @@ def get_redirecturl(request):
     return '/'
 
 
+#xcz: 读取平台类型并跳转到对应的第三方授权页面。
 def oauthlogin(request):
     """
     发起 OAuth 登录请求。
@@ -73,6 +73,68 @@ def oauthlogin(request):
     return HttpResponseRedirect(authorizeurl)
 
 
+#xcz: 补全第三方用户资料并同步已有 OAuth 记录。
+def _prepare_oauth_user(type, user):
+    if not user.nickname or not user.nickname.strip():
+        user.nickname = "djangoblog" + timezone.now().strftime('%y%m%d%I%M%S')
+
+    try:
+        existing_user = OAuthUser.objects.get(type=type, openid=user.openid)
+        existing_user.picture = user.picture
+        existing_user.metadata = user.metadata
+        existing_user.nickname = user.nickname
+        user = existing_user
+    except ObjectDoesNotExist:
+        pass
+
+    if type == 'facebook':
+        user.token = ''
+    return user
+
+
+#xcz: 根据 OAuth 用户的已绑定关系或邮箱获取本地账户。
+def _get_or_create_author(user):
+    author = None
+    with suppress(ObjectDoesNotExist):
+        author = get_user_model().objects.get(id=user.author_id)
+    if author:
+        return author
+
+    author, created = get_user_model().objects.get_or_create(email=user.email)
+    if created:
+        try:
+            get_user_model().objects.get(username=user.nickname)
+        except ObjectDoesNotExist:
+            author.username = user.nickname
+        else:
+            author.username = "djangoblog" + timezone.now().strftime('%y%m%d%I%M%S')
+        author.source = 'authorize'
+        author.save()
+    return author
+
+
+#xcz: 在同一数据库事务中绑定 OAuth 用户并建立本地登录会话。
+def _login_authorized_user(request, user, nexturl):
+    with transaction.atomic():
+        author = _get_or_create_author(user)
+        user.author = author
+        user.save()
+        oauth_user_login_signal.send(sender=authorize.__class__, id=user.id)
+        login(request, author)
+        request.session.set_expiry(settings.SESSION_COOKIE_AGE)
+
+        response = HttpResponseRedirect(nexturl)
+        response.set_cookie(
+            'logged_user',
+            'true',
+            max_age=settings.SESSION_COOKIE_AGE,
+            httponly=False,
+            samesite='Lax',
+        )
+        return response
+
+
+#xcz: 处理授权回调、同步第三方资料并绑定或创建本地账户。
 def authorize(request):
     """
     OAuth 回调处理视图（核心逻辑）。
@@ -91,9 +153,9 @@ def authorize(request):
     try:
         # 使用 code 换取 access_token
         rsp = manager.get_access_token_by_code(code)
-    except OAuthAccessTokenException as e:
+    except OAuthAccessTokenError as e:
         # 换取 token 失败，记录警告并重定向首页
-        logger.warning("OAuthAccessTokenException:" + str(e))
+        logger.warning("OAuthAccessTokenError: %s", e)
         return HttpResponseRedirect('/')
     except Exception as e:
         logger.error(e)
@@ -102,77 +164,18 @@ def authorize(request):
     if not rsp:
         # 如果换取失败，重新尝试跳转授权页
         return HttpResponseRedirect(manager.get_authorization_url(nexturl))
-    
+
     # 获取第三方用户信息
     user = manager.get_oauth_userinfo()
     if user:
-        # 防止第三方昵称为空
-        if not user.nickname or not user.nickname.strip():
-            user.nickname = "djangoblog" + timezone.now().strftime('%y%m%d%I%M%S')
-        
-        # 检查本地数据库中是否已存在该第三方用户
-        try:
-            temp = OAuthUser.objects.get(type=type, openid=user.openid)
-            # 更新第三方用户信息
-            temp.picture = user.picture
-            temp.metadata = user.metadata
-            temp.nickname = user.nickname
-            user = temp
-        except ObjectDoesNotExist:
-            # 不存在则保持为新建状态
-            pass
-            
-        # facebook的token过长，进行特殊处理
-        if type == 'facebook':
-            user.token = ''
-            
+        user = _prepare_oauth_user(type, user)
+
         # 如果第三方返回了邮箱，则直接进行账号绑定/登录
+        #xcz: 第三方资料包含邮箱时，可以直接匹配或创建本地账户。
         if user.email:
-            with transaction.atomic(): # 数据库事务，保证用户创建和登录的一致性
-                author = None
-                try:
-                    # 尝试获取已绑定的本地用户
-                    author = get_user_model().objects.get(id=user.author_id)
-                except ObjectDoesNotExist:
-                    pass
-                if not author:
-                    # 根据邮箱在本地创建或获取用户
-                    result = get_user_model().objects.get_or_create(email=user.email)
-                    author = result[0]
-                    if result[1]: # 如果是新创建的用户
-                        try:
-                            # 检查昵称是否已被占用
-                            get_user_model().objects.get(username=user.nickname)
-                        except ObjectDoesNotExist:
-                            author.username = user.nickname
-                        else:
-                            # 昵称冲突则随机生成
-                            author.username = "djangoblog" + timezone.now().strftime('%y%m%d%I%M%S')
-                        author.source = 'authorize'
-                        author.save()
-
-                # 绑定本地用户并保存 OAuthUser
-                user.author = author
-                user.save()
-
-                # 发送登录信号
-                oauth_user_login_signal.send(
-                    sender=authorize.__class__, id=user.id)
-                # 执行 Django 登录
-                login(request, author)
-                # 设置session过期时间为2周（默认）
-                request.session.set_expiry(settings.SESSION_COOKIE_AGE)
-                # 设置登录标记 cookie
-                response = HttpResponseRedirect(nexturl)
-                response.set_cookie(
-                    'logged_user',
-                    'true',
-                    max_age=settings.SESSION_COOKIE_AGE,
-                    httponly=False,  # 允许 JavaScript 访问
-                    samesite='Lax'
-                )
-                return response
+            return _login_authorized_user(request, user, nexturl)
         else:
+            #xcz: 没有邮箱时暂不创建本地账户，转入补充邮箱和确认流程。
             # 如果没有获取到邮箱，保存 OAuthUser 并引导用户去绑定邮箱页面
             user.save()
             url = reverse('oauth:require_email', kwargs={
@@ -184,6 +187,7 @@ def authorize(request):
         return HttpResponseRedirect(nexturl)
 
 
+#xcz: 验证签名并完成邮箱绑定、用户登录和通知邮件发送。
 def emailconfirm(request, id, sign):
     """
     邮箱确认视图。
@@ -192,13 +196,11 @@ def emailconfirm(request, id, sign):
     if not sign:
         return HttpResponseForbidden()
     # 验证签名：SECRET_KEY + id + SECRET_KEY 的哈希值必须一致，防止伪造链接
-    if not get_sha256(settings.SECRET_KEY +
-                      str(id) +
-                      settings.SECRET_KEY).upper() == sign.upper():
+    if get_sha256(settings.SECRET_KEY + str(id) + settings.SECRET_KEY).upper() != sign.upper():
         return HttpResponseForbidden()
-    
+
     oauthuser = get_object_or_404(OAuthUser, pk=id)
-    with transaction.atomic(): # 数据库事务
+    with transaction.atomic():  # 数据库事务
         if oauthuser.author:
             # 如果已经绑定过本地用户，直接获取
             author = get_user_model().objects.get(pk=oauthuser.author_id)
@@ -211,11 +213,11 @@ def emailconfirm(request, id, sign):
                 author.username = oauthuser.nickname.strip() if oauthuser.nickname.strip(
                 ) else "djangoblog" + timezone.now().strftime('%y%m%d%I%M%S')
                 author.save()
-        
+
         # 完成 OAuthUser 与本地用户的绑定
         oauthuser.author = author
         oauthuser.save()
-        
+
     # 发送登录信号并登录
     oauth_user_login_signal.send(
         sender=emailconfirm.__class__,
@@ -255,6 +257,7 @@ def emailconfirm(request, id, sign):
     return response
 
 
+#xcz: 引导第三方用户补充邮箱，并发送邮箱绑定确认链接。
 class RequireEmailView(FormView):
     """
     绑定邮箱的表单视图。
@@ -263,6 +266,7 @@ class RequireEmailView(FormView):
     form_class = RequireEmailForm
     template_name = 'oauth/require_email.html'
 
+    #xcz: 加载待绑定 OAuth 用户并初始化邮箱绑定表单。
     def get(self, request, *args, **kwargs):
         # 获取 OAuthUser，若不存在则返回 404
         oauthid = self.kwargs['oauthid']
@@ -272,8 +276,9 @@ class RequireEmailView(FormView):
             # 如果已经有邮箱，理论上可以直接登录，但此处保留逻辑待优化
             # return HttpResponseRedirect('/')
 
-        return super(RequireEmailView, self).get(request, *args, **kwargs)
+        return super().get(request, *args, **kwargs)
 
+    #xcz: 为邮箱绑定表单预填待绑定的 OAuth 用户编号。
     def get_initial(self):
         # 初始化表单，将 oauthid 传入表单
         oauthid = self.kwargs['oauthid']
@@ -282,14 +287,16 @@ class RequireEmailView(FormView):
             'oauthid': oauthid
         }
 
+    #xcz: 向模板提供第三方头像等展示信息。
     def get_context_data(self, **kwargs):
         # 获取上下文数据，并传递第三方头像到模板
         oauthid = self.kwargs['oauthid']
         oauthuser = get_object_or_404(OAuthUser, pk=oauthid)
         if oauthuser.picture:
             kwargs['picture'] = oauthuser.picture
-        return super(RequireEmailView, self).get_context_data(**kwargs)
+        return super().get_context_data(**kwargs)
 
+    #xcz: 保存补充邮箱并发送签名确认链接。
     def form_valid(self, form):
         # 表单验证通过后的逻辑：保存邮箱并发送验证邮件
         email = form.cleaned_data['email']
@@ -297,20 +304,20 @@ class RequireEmailView(FormView):
         oauthuser = get_object_or_404(OAuthUser, pk=oauthid)
         oauthuser.email = email
         oauthuser.save()
-        
+
         # 生成签名，用于邮件链接的安全校验
         sign = get_sha256(settings.SECRET_KEY +
                           str(oauthuser.id) + settings.SECRET_KEY)
         site = get_current_site().domain
         if settings.DEBUG:
             site = '127.0.0.1:8000'
-        
+
         # 生成邮件确认链接
         path = reverse('oauth:email_confirm', kwargs={
             'id': oauthid,
             'sign': sign
         })
-        url = "http://{site}{path}".format(site=site, path=path)
+        url = f"http://{site}{path}"
 
         # 构造邮件内容
         content = _("""
@@ -326,7 +333,7 @@ class RequireEmailView(FormView):
                 """) % {'url': url}
         # 发送验证邮件
         send_email(emailto=[email, ], title=_('Bind your email'), content=content)
-        
+
         # 跳转到绑定成功提示页
         url = reverse('oauth:bindsuccess', kwargs={
             'oauthid': oauthid
@@ -335,6 +342,7 @@ class RequireEmailView(FormView):
         return HttpResponseRedirect(url)
 
 
+#xcz: 根据流程状态渲染邮箱确认或绑定成功提示页。
 def bindsuccess(request, oauthid):
     """
     绑定成功/等待验证提示页。
@@ -349,11 +357,12 @@ def bindsuccess(request, oauthid):
             'Please log in to your email to check the email to complete the binding. Thank you.')
     else:
         title = _('Binding successful')
-        content = _(
+        message = _(
             "Congratulations, you have successfully bound your email address. You can use %(oauthuser_type)s"
-            " to directly log in to this website without a password. You are welcome to continue to follow this site." % {
-                'oauthuser_type': oauthuser.type})
-    
+            " to directly log in to this website without a password. You are welcome to continue to follow this site."
+        )
+        content = message % {'oauthuser_type': oauthuser.type}  # noqa: UP031
+
     # 渲染绑定成功页面
     return render(request, 'oauth/bindsuccess.html', {
         'title': title,
