@@ -1,3 +1,11 @@
+"""
+djangoblog blog_signals.py 文件
+功能：定义并处理全站信号（Signal）
+监听邮件发送、OAuth 登录、模型保存、用户登录/登出等事件，触发邮件发送、缓存清理、搜索引擎推送等副作用
+"""
+
+#zy: 模块精读：用"信号 + 副作用"解耦：业务代码只发信号，缓存清理/邮件/推送等副作用集中在各 handler，降低耦合。
+#zy: 重点：model_post_save_callback 是全局 post_save 接收器（不限定 sender），靠 isinstance 区分模型类型做差异化缓存清理。
 import _thread
 import logging
 
@@ -12,19 +20,21 @@ from django.dispatch import receiver
 from comments.models import Comment
 from comments.utils import send_comment_email
 from djangoblog.spider_notify import SpiderNotify
-from djangoblog.utils import cache, expire_view_cache, delete_sidebar_cache, delete_view_cache
-from djangoblog.utils import get_current_site
+from djangoblog.utils import cache, delete_sidebar_cache, delete_view_cache, expire_view_cache, get_current_site
 from oauth.models import OAuthUser
 
 logger = logging.getLogger(__name__)
 
+# 自定义信号：OAuth 用户登录（携带 oauth 用户 id）
 oauth_user_login_signal = django.dispatch.Signal(['id'])
+# 自定义信号：发送邮件（携带收件人、标题、内容）
 send_email_signal = django.dispatch.Signal(
     ['emailto', 'title', 'content'])
 
 
 @receiver(send_email_signal)
 def send_email_signal_handler(sender, **kwargs):
+    """邮件发送信号处理器：实际发送邮件，并把发送结果写入 EmailSendLog 日志"""
     emailto = kwargs['emailto']
     title = kwargs['title']
     content = kwargs['content']
@@ -53,6 +63,7 @@ def send_email_signal_handler(sender, **kwargs):
 
 @receiver(oauth_user_login_signal)
 def oauth_user_login_signal_handler(sender, **kwargs):
+    """OAuth 登录信号处理器：拉取第三方头像到本地并清理侧边栏缓存"""
     id = kwargs['id']
     oauthuser = OAuthUser.objects.get(id=id)
     site = get_current_site().domain
@@ -73,6 +84,7 @@ def model_post_save_callback(
         using,
         update_fields,
         **kwargs):
+    """模型保存信号处理器：按模型类型清理相关缓存，并向搜索引擎推送更新"""
     if isinstance(instance, LogEntry):
         return
 
@@ -82,6 +94,7 @@ def model_post_save_callback(
         return  # 浏览量更新不需要清理缓存
 
     # 搜索引擎通知
+    #zy: 【质量】用 'get_full_url' in dir(instance) 判断方法是否存在：dir() 会构造完整属性列表、开销偏大；建议改为 hasattr(instance, 'get_full_url')。
     if 'get_full_url' in dir(instance):
         if not settings.TESTING:
             try:
@@ -105,8 +118,7 @@ def model_post_save_callback(
                 key_prefix='blogdetail')
 
             # 清理评论相关缓存
-            comment_cache_key = 'article_comments_{id}'.format(
-                id=instance.article.id)
+            comment_cache_key = f'article_comments_{instance.article.id}'
             cache.delete(comment_cache_key)
             delete_view_cache('article_comments', [str(instance.article.pk)])
             delete_sidebar_cache()
@@ -172,6 +184,7 @@ def model_post_save_callback(
 @receiver(user_logged_in)
 @receiver(user_logged_out)
 def user_auth_callback(sender, request, user, **kwargs):
+    """用户登录/登出信号处理器：记录日志并清理侧边栏缓存"""
     if user and user.username:
         logger.info(user)
         delete_sidebar_cache()

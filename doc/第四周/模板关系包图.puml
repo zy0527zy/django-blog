@@ -1,0 +1,125 @@
+@startuml 模板继承包含关系包图
+' 软工3班8组 第四周实践任务 —— 模板继承/包含关系 UML 包图
+' 生成工具：PlantUML（https://plantuml.com/zh/guide）
+
+skinparam packageStyle rectangle
+skinparam ArrowColor #2c3e50
+skinparam package {
+  BackgroundColor #f4f6f8
+  BorderColor #34495e
+}
+skinparam stereotypeFontColor #7f8c8d
+skinparam nodesep 25
+skinparam ranksep 40
+
+top to bottom direction
+
+package "share_layout（共享布局包）" as SL {
+  [base.html] as base
+  [base_account.html] as baseAccount
+  [nav.html] as nav
+  [nav_node.html] as navNode
+  [nav_node_mobile.html] as navNodeMobile
+  [footer.html] as footer
+  [adsense.html] as adsense
+}
+
+package "templatetags（自定义模板标签库）" as TAGS {
+  [blog_tags.py] as blogTags
+  [comments_tags.py] as commentTags
+  [oauth_tags.py] as oauthTags
+  [vite_tags.py] as viteTags
+}
+
+package "blog（博客页面包）" as BLOG {
+  [article_index.html] as index
+  [article_detail.html] as detail
+  [article_archives.html] as archives
+  [links_list.html] as links
+  [error_page.html] as errpage
+}
+
+package "account（账号页面包）" as ACCOUNT {
+  [login.html] as login
+  [registration_form.html] as reg
+  [forget_password.html] as forget
+  [result.html] as result
+}
+
+package "oauth（第三方登录包）" as OAUTH {
+  [bindsuccess.html] as bind
+  [require_email.html] as reqEmail
+  [oauth_applications.html] as oauthApp
+}
+
+package "search（搜索包）" as SEARCH {
+  [search.html] as search
+}
+
+package "blog/tags（博客片段模板）" as BLOGTAGS {
+  [article_info.html] as artInfo
+  [article_info_highlight.html] as artInfoHi
+  [article_meta_info.html] as artMeta
+  [article_pagination.html] as artPage
+  [article_tag_list.html] as artTagList
+  [breadcrumb.html] as breadcrumb
+  [sidebar.html] as sidebar
+}
+
+package "comments（评论片段包）" as COMMENTS {
+  [comment_list.html] as cList
+  [comment_list_modern.html] as cListM
+  [comment_item_tree.html] as cItemTree
+  [post_comment_modern.html] as postCM
+}
+
+package "plugins（插件片段包）" as PLUGINS {
+  [css_includes.html] as cssInc
+  [js_includes.html] as jsInc
+}
+
+' ===== 继承关系（extends）=====
+index ..|> base   : <<extends>>
+detail ..|> base   : <<extends>>
+archives ..|> base   : <<extends>>
+links ..|> base   : <<extends>>
+errpage ..|> base   : <<extends>>
+result ..|> base   : <<extends>>
+bind ..|> base   : <<extends>>
+search ..|> base   : <<extends>>
+login ..|> baseAccount   : <<extends>>
+reg ..|> baseAccount   : <<extends>>
+forget ..|> baseAccount   : <<extends>>
+reqEmail ..|> baseAccount   : <<extends>>
+
+' ===== 包含关系（include）=====
+base ..> nav   : <<include>>
+base ..> footer   : <<include>>
+nav ..> navNode   : <<include>>
+nav ..> navNodeMobile   : <<include>>
+detail ..> cListM   : <<include>>
+detail ..> postCM   : <<include>>
+
+' ===== 标签渲染关系（inclusion_tag → 片段模板）=====
+blogTags ..> breadcrumb   : <<render>>
+blogTags ..> artTagList   : <<render>>
+blogTags ..> sidebar   : <<render>>
+blogTags ..> artMeta   : <<render>>
+blogTags ..> artPage   : <<render>>
+blogTags ..> artInfo   : <<render>>
+blogTags ..> artInfoHi   : <<render>>
+blogTags ..> cssInc   : <<render>>
+blogTags ..> jsInc   : <<render>>
+commentTags ..> cList   : <<render>>
+commentTags ..> cListM   : <<render>>
+oauthTags ..> oauthApp   : <<render>>
+
+' ===== 模板 → 标签库的加载关系（load）=====
+detail ..> blogTags   : <<load>>
+index ..> blogTags   : <<load>>
+archives ..> blogTags   : <<load>>
+detail ..> commentTags   : <<load>>
+oauthApp ..> oauthTags   : <<load>>
+base ..> viteTags   : <<load>>
+
+@enduml

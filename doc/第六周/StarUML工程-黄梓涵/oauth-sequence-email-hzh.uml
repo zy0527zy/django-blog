@@ -1,0 +1,573 @@
+<?xml version='1.0' encoding='utf-8'?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="sUQpRiChDkqHdFL8ebKu7AAA">
+<XPD:ATTR name="Title" type="string">oauth-sequence-email-xcz</XPD:ATTR>
+<XPD:ATTR name="Author" type="string">谢承志（黄梓涵协助制图）</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="L6FuwXakkUGpxiAYXIX6bgAA">
+<XPD:ATTR name="Name" type="string">oauth</XPD:ATTR>
+<XPD:REF name="Namespace">sUQpRiChDkqHdFL8ebKu7AAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">0</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLUseCase" guid="PcH/kZGOaECKdnax6bA3rAAA">
+<XPD:ATTR name="Name" type="string">补填邮箱并申请验证</XPD:ATTR>
+<XPD:REF name="Namespace">L6FuwXakkUGpxiAYXIX6bgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">0</XPD:ATTR>
+<XPD:ATTR name="#Associations" type="integer">0</XPD:ATTR>
+<XPD:ATTR name="#OwnedCollaborationInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedCollaborationInstanceSets[0]" type="UMLCollaborationInstanceSet" guid="Zht8yRQobUmaTSospIhQPQAA">
+<XPD:ATTR name="Name" type="string">email流程</XPD:ATTR>
+<XPD:REF name="RepresentedClassifier">PcH/kZGOaECKdnax6bA3rAAA</XPD:REF>
+<XPD:ATTR name="#InteractionInstanceSets" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="InteractionInstanceSets[0]" type="UMLInteractionInstanceSet" guid="poagWPW7v0GSbejrZlmEVgAA">
+<XPD:ATTR name="Name" type="string">主成功流程</XPD:ATTR>
+<XPD:REF name="Context">Zht8yRQobUmaTSospIhQPQAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLSequenceDiagram" guid="ryoxyTbV+UmgKbNSIsmYtgAA">
+<XPD:ATTR name="Name" type="string">oauth-sequence-email-xcz</XPD:ATTR>
+<XPD:REF name="DiagramOwner">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLSequenceDiagramView" guid="orOJ399njUO8rkKaTZwoPAAA">
+<XPD:REF name="Diagram">ryoxyTbV+UmgKbNSIsmYtgAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">13</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLSeqObjectView" guid="WX/9pRUPxUi7NZI39/6S9gAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">35</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">560</XPD:ATTR>
+<XPD:REF name="Model">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="WgKXN915YEqD7b2VoheP2AAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="P4Gg5WLI8EipDLrXRnExWwAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">用户浏览器</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="U6+f4XqILUuL2Eo65HnAngAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="zMQLiq8LQUiDDWaOpwHJrQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="y4Qn3r6ms02WIAZAjsbU3QAA">
+<XPD:REF name="Model">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLSeqObjectView" guid="9rqmIv2Od0ysS4hNc/dMuwAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">275</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">560</XPD:ATTR>
+<XPD:REF name="Model">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="mfdfa1YeLUeRTTcRQx9+IwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="YIpW+GGkkkO9Gt4xOMZekQAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">RequireEmailView / Form</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="kKvn9SaXykisVXuA7cp1XwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="tPQwwWwwuUOQwH2TNcH5GwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="oBlk6yeAIEi2zeE6b6isQAAA">
+<XPD:REF name="Model">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLSeqObjectView" guid="92ssFZ4FNE+lvWogyZe1wgAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">515</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">420</XPD:ATTR>
+<XPD:REF name="Model">CRG168fG9Uq5l1xYw5uF5QAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="j9BQcGplck+e9O70zuznRAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="oXxW+SDNg0Cky5RUHGaDjAAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">OAuthUser ORM</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="px7VCpH+e0OAJ5BtIVH7wAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="3nkru8kFEkmL6MO9hrsVQAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="H4ZpPWiRPk+A68p3kLqObgAA">
+<XPD:REF name="Model">CRG168fG9Uq5l1xYw5uF5QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLSeqObjectView" guid="NLDDMFBcy06EPTlHyWZ6MAAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">755</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">200</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">490</XPD:ATTR>
+<XPD:REF name="Model">z68XDBWG/ESCnUsJ8gNAGAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="CgDgfoV0D0mbmr2lJS+riQAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="4zH6NG5EmEiYFd0dwk5RrQAA">
+<XPD:ATTR name="FontStyle" type="integer">4</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">邮件服务</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="Tj4TcFdJNUaFTGF1xAixogAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="NtxxDN1BzEiBHV0ZQJuhawAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="LifeLine" type="UMLLifeLineView" guid="eFROaMbHBkGc8f+/b97ZAgAA">
+<XPD:REF name="Model">z68XDBWG/ESCnUsJ8gNAGAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLSeqStimulusView" guid="Cqi61iioD0O+6tZOOb8fnwAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">135,195;368,195</XPD:ATTR>
+<XPD:REF name="Model">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="Head">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:REF name="Tail">y4Qn3r6ms02WIAZAjsbU3QAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="is+TAlVK6ki1hDsG2uHGZgAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">1 : GET requireemail/&lt;oauthid&gt;.html()</XPD:ATTR>
+<XPD:REF name="Model">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="HostEdge">Cqi61iioD0O+6tZOOb8fnwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="UZBRcmj6Kka4wMM2d/w82AAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="HostEdge">Cqi61iioD0O+6tZOOb8fnwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="aiIftbkWT0qi0gsnHFHu2gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="HostEdge">Cqi61iioD0O+6tZOOb8fnwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="W9DNTnrudkmE/uVDuRhdtAAA">
+<XPD:ATTR name="Left" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">195</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLSeqStimulusView" guid="b51rXGkEvUm7D7yXLDoENAAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">375,265;608,265</XPD:ATTR>
+<XPD:REF name="Model">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="Head">H4ZpPWiRPk+A68p3kLqObgAA</XPD:REF>
+<XPD:REF name="Tail">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="AuWzLPzZ/kSlW4PvSUHjqAAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">2 : 按 ID 读取用户、准备表单头像()</XPD:ATTR>
+<XPD:REF name="Model">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="HostEdge">b51rXGkEvUm7D7yXLDoENAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="p64EMQcqUkG3uWNI37WMagAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="HostEdge">b51rXGkEvUm7D7yXLDoENAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="5idIGxyhyUuUcldM/XGL4gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="HostEdge">b51rXGkEvUm7D7yXLDoENAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="+qyPp293cEeGBCXEvPDbXAAA">
+<XPD:ATTR name="Left" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">265</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLSeqStimulusView" guid="B6Sav9gL7EuK2X3mV7yukAAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">375,335;135,335</XPD:ATTR>
+<XPD:REF name="Model">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="Head">y4Qn3r6ms02WIAZAjsbU3QAA</XPD:REF>
+<XPD:REF name="Tail">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="V4SAPym910a0bQte8xwwCQAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">3 : require_email.html</XPD:ATTR>
+<XPD:REF name="Model">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="HostEdge">B6Sav9gL7EuK2X3mV7yukAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="TA1J0UK+7UC/e3n/4C6pbgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="HostEdge">B6Sav9gL7EuK2X3mV7yukAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="o8/XJmtsd0Gto8S5WZlnDAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="HostEdge">B6Sav9gL7EuK2X3mV7yukAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="2r8+VkqYrUCVT8ifaQjbjQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">135</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">335</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">25</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[7]" type="UMLSeqStimulusView" guid="AXLePNyuXEyEOJopEqKDzwAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">135,405;368,405</XPD:ATTR>
+<XPD:REF name="Model">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+<XPD:REF name="Head">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:REF name="Tail">y4Qn3r6ms02WIAZAjsbU3QAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="d1pkKxNYbEmD7suXd8MB5AAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">4 : POST email 与隐藏 oauthid()</XPD:ATTR>
+<XPD:REF name="Model">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+<XPD:REF name="HostEdge">AXLePNyuXEyEOJopEqKDzwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="Jm4Sfw4eUki7paHj7qoiGwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+<XPD:REF name="HostEdge">AXLePNyuXEyEOJopEqKDzwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="wZIxOZht5kidPvq8JdFcjwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+<XPD:REF name="HostEdge">AXLePNyuXEyEOJopEqKDzwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="RhZOdQHxPUyt42EGkdu0SQAA">
+<XPD:ATTR name="Left" type="integer">368</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">405</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[8]" type="UMLSeqStimulusView" guid="R8BXXYhE10ewLDbOmF9LpAAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">375,475;608,475</XPD:ATTR>
+<XPD:REF name="Model">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+<XPD:REF name="Head">H4ZpPWiRPk+A68p3kLqObgAA</XPD:REF>
+<XPD:REF name="Tail">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="C5d57vQ0O0Oz98IV+6SQkgAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">5 : 校验表单后按 cleaned oauthid 保存邮箱()</XPD:ATTR>
+<XPD:REF name="Model">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+<XPD:REF name="HostEdge">R8BXXYhE10ewLDbOmF9LpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="5aCmubKzqEilwykne3JjbgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+<XPD:REF name="HostEdge">R8BXXYhE10ewLDbOmF9LpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="D0DAa5LfAEKTuQwAvRZHRgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+<XPD:REF name="HostEdge">R8BXXYhE10ewLDbOmF9LpAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="fQcocOyQgEWYroNzFu9pswAA">
+<XPD:ATTR name="Left" type="integer">608</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">475</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[9]" type="UMLSeqStimulusView" guid="oYFNd3ih9kW4XMlBIXdtcwAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">375,545;848,545</XPD:ATTR>
+<XPD:REF name="Model">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+<XPD:REF name="Head">eFROaMbHBkGc8f+/b97ZAgAA</XPD:REF>
+<XPD:REF name="Tail">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="/+YIYI95rUWiBan7d7WLEgAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">6 : 生成签名确认链接并 send_email()()</XPD:ATTR>
+<XPD:REF name="Model">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+<XPD:REF name="HostEdge">oYFNd3ih9kW4XMlBIXdtcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="ykqWssdQR02aJLWd80DfSgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+<XPD:REF name="HostEdge">oYFNd3ih9kW4XMlBIXdtcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="Z5ccnNKcrESS5/AacHmK3wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+<XPD:REF name="HostEdge">oYFNd3ih9kW4XMlBIXdtcwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="iQ6YK0HIJUOk2AbTuTSG5AAA">
+<XPD:ATTR name="Left" type="integer">848</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">545</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">29</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[10]" type="UMLSeqStimulusView" guid="MfPOhd7NJEeZpoHA3LPLxgAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="LineStyle" type="LineStyleKind">lsRectilinear</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">375,615;135,615</XPD:ATTR>
+<XPD:REF name="Model">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+<XPD:REF name="Head">y4Qn3r6ms02WIAZAjsbU3QAA</XPD:REF>
+<XPD:REF name="Tail">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="Rz43MuM6+E+bwldu6183cAAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">7 : 302 bindsuccess?type=email</XPD:ATTR>
+<XPD:REF name="Model">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+<XPD:REF name="HostEdge">MfPOhd7NJEeZpoHA3LPLxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="u9gcOM6rPUuJVi0K91Ex7QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">25</XPD:ATTR>
+<XPD:REF name="Model">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+<XPD:REF name="HostEdge">MfPOhd7NJEeZpoHA3LPLxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="OVL6X9YAP0qaTvsUVU06bwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">10</XPD:ATTR>
+<XPD:REF name="Model">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+<XPD:REF name="HostEdge">MfPOhd7NJEeZpoHA3LPLxgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="Activation" type="UMLActivationView" guid="YxE6ReBFJUOUJvWLgK9a9wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">135</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">615</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">14</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">25</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[11]" type="UMLNoteView" guid="0F0cIQq3mku11cI7rs54CwAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">35</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">15</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">920</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">55</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">补填邮箱并申请验证 · 顺序图 · 谢承志
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[12]" type="UMLNoteView" guid="s0GN8gE13U+P214FDZ1srwAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">35</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">730</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">920</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">100</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">不存在对象返回 404；表单无效回显。发信调用不代表实际投递成功。
+源码采用提交的 oauthid；本图不声称已验证该 ID 与当前会话的所有权。
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#ParticipatingStimuli" type="integer">7</XPD:ATTR>
+<XPD:OBJ name="ParticipatingStimuli[0]" type="UMLStimulus" guid="WzA0Gd7AgUSeqXyBxG7PhAAA">
+<XPD:ATTR name="Name" type="string">GET requireemail/&lt;oauthid&gt;.html</XPD:ATTR>
+<XPD:REF name="Sender">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+<XPD:REF name="Receiver">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLCallAction" guid="I1IvS9oIx0SzDMSR3nHzUgAA">
+<XPD:REF name="Stimulus">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">Cqi61iioD0O+6tZOOb8fnwAA</XPD:REF>
+<XPD:REF name="Views[1]">is+TAlVK6ki1hDsG2uHGZgAA</XPD:REF>
+<XPD:REF name="Views[2]">UZBRcmj6Kka4wMM2d/w82AAA</XPD:REF>
+<XPD:REF name="Views[3]">aiIftbkWT0qi0gsnHFHu2gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[1]" type="UMLStimulus" guid="L6IkoxTqN0uYRuVKydp8ZQAA">
+<XPD:ATTR name="Name" type="string">按 ID 读取用户、准备表单头像</XPD:ATTR>
+<XPD:REF name="Sender">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:REF name="Receiver">CRG168fG9Uq5l1xYw5uF5QAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLCallAction" guid="grEtzs4/0E+wDE0EMv3NqgAA">
+<XPD:REF name="Stimulus">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">b51rXGkEvUm7D7yXLDoENAAA</XPD:REF>
+<XPD:REF name="Views[1]">AuWzLPzZ/kSlW4PvSUHjqAAA</XPD:REF>
+<XPD:REF name="Views[2]">p64EMQcqUkG3uWNI37WMagAA</XPD:REF>
+<XPD:REF name="Views[3]">5idIGxyhyUuUcldM/XGL4gAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[2]" type="UMLStimulus" guid="NqcWZM5X6kaaZUMcI+Ws4QAA">
+<XPD:ATTR name="Name" type="string">require_email.html</XPD:ATTR>
+<XPD:REF name="Sender">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:REF name="Receiver">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLReturnAction" guid="RaXnXi1wFEmOsK66yrwJcQAA">
+<XPD:REF name="Stimulus">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">B6Sav9gL7EuK2X3mV7yukAAA</XPD:REF>
+<XPD:REF name="Views[1]">V4SAPym910a0bQte8xwwCQAA</XPD:REF>
+<XPD:REF name="Views[2]">TA1J0UK+7UC/e3n/4C6pbgAA</XPD:REF>
+<XPD:REF name="Views[3]">o8/XJmtsd0Gto8S5WZlnDAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[3]" type="UMLStimulus" guid="reEK+E4j6UGsEfHn9gIbSgAA">
+<XPD:ATTR name="Name" type="string">POST email 与隐藏 oauthid</XPD:ATTR>
+<XPD:REF name="Sender">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+<XPD:REF name="Receiver">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLCallAction" guid="FN7qpq5sFUCarIDC4ZxLDgAA">
+<XPD:REF name="Stimulus">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">AXLePNyuXEyEOJopEqKDzwAA</XPD:REF>
+<XPD:REF name="Views[1]">d1pkKxNYbEmD7suXd8MB5AAA</XPD:REF>
+<XPD:REF name="Views[2]">Jm4Sfw4eUki7paHj7qoiGwAA</XPD:REF>
+<XPD:REF name="Views[3]">wZIxOZht5kidPvq8JdFcjwAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[4]" type="UMLStimulus" guid="iX3EskMIx0yJqqyfD7sbyQAA">
+<XPD:ATTR name="Name" type="string">校验表单后按 cleaned oauthid 保存邮箱</XPD:ATTR>
+<XPD:REF name="Sender">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:REF name="Receiver">CRG168fG9Uq5l1xYw5uF5QAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLCallAction" guid="waf+vcZIgUaGF1X8xt+IfgAA">
+<XPD:REF name="Stimulus">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">R8BXXYhE10ewLDbOmF9LpAAA</XPD:REF>
+<XPD:REF name="Views[1]">C5d57vQ0O0Oz98IV+6SQkgAA</XPD:REF>
+<XPD:REF name="Views[2]">5aCmubKzqEilwykne3JjbgAA</XPD:REF>
+<XPD:REF name="Views[3]">D0DAa5LfAEKTuQwAvRZHRgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[5]" type="UMLStimulus" guid="Js0rjYKhdUKQASN5TuvMeQAA">
+<XPD:ATTR name="Name" type="string">生成签名确认链接并 send_email()</XPD:ATTR>
+<XPD:REF name="Sender">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:REF name="Receiver">z68XDBWG/ESCnUsJ8gNAGAAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLCallAction" guid="rUPpO8X8XUiP2fjEm+6pLgAA">
+<XPD:REF name="Stimulus">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">oYFNd3ih9kW4XMlBIXdtcwAA</XPD:REF>
+<XPD:REF name="Views[1]">/+YIYI95rUWiBan7d7WLEgAA</XPD:REF>
+<XPD:REF name="Views[2]">ykqWssdQR02aJLWd80DfSgAA</XPD:REF>
+<XPD:REF name="Views[3]">Z5ccnNKcrESS5/AacHmK3wAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingStimuli[6]" type="UMLStimulus" guid="zhgkrqDUNk+iRzLnKm1xHgAA">
+<XPD:ATTR name="Name" type="string">302 bindsuccess?type=email</XPD:ATTR>
+<XPD:REF name="Sender">YwLGBJVo/0y7vrCByhCMNgAA</XPD:REF>
+<XPD:REF name="Receiver">GJ/haRe8YEWEBzl/U3wAagAA</XPD:REF>
+<XPD:OBJ name="Action" type="UMLReturnAction" guid="/5sBA9ns5UeMuz16hHonEQAA">
+<XPD:REF name="Stimulus">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:REF name="InteractionInstanceSet">poagWPW7v0GSbejrZlmEVgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">MfPOhd7NJEeZpoHA3LPLxgAA</XPD:REF>
+<XPD:REF name="Views[1]">Rz43MuM6+E+bwldu6183cAAA</XPD:REF>
+<XPD:REF name="Views[2]">u9gcOM6rPUuJVi0K91Ex7QAA</XPD:REF>
+<XPD:REF name="Views[3]">OVL6X9YAP0qaTvsUVU06bwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#ParticipatingInstances" type="integer">4</XPD:ATTR>
+<XPD:OBJ name="ParticipatingInstances[0]" type="UMLObject" guid="GJ/haRe8YEWEBzl/U3wAagAA">
+<XPD:ATTR name="Name" type="string">用户浏览器</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">Zht8yRQobUmaTSospIhQPQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">WX/9pRUPxUi7NZI39/6S9gAA</XPD:REF>
+<XPD:REF name="Views[1]">y4Qn3r6ms02WIAZAjsbU3QAA</XPD:REF>
+<XPD:ATTR name="#SendingStimuli" type="integer">2</XPD:ATTR>
+<XPD:REF name="SendingStimuli[0]">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="SendingStimuli[1]">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+<XPD:ATTR name="#ReceivingStimuli" type="integer">2</XPD:ATTR>
+<XPD:REF name="ReceivingStimuli[0]">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="ReceivingStimuli[1]">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[1]" type="UMLObject" guid="YwLGBJVo/0y7vrCByhCMNgAA">
+<XPD:ATTR name="Name" type="string">RequireEmailView / Form</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">Zht8yRQobUmaTSospIhQPQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">9rqmIv2Od0ysS4hNc/dMuwAA</XPD:REF>
+<XPD:REF name="Views[1]">oBlk6yeAIEi2zeE6b6isQAAA</XPD:REF>
+<XPD:ATTR name="#SendingStimuli" type="integer">5</XPD:ATTR>
+<XPD:REF name="SendingStimuli[0]">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="SendingStimuli[1]">NqcWZM5X6kaaZUMcI+Ws4QAA</XPD:REF>
+<XPD:REF name="SendingStimuli[2]">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+<XPD:REF name="SendingStimuli[3]">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+<XPD:REF name="SendingStimuli[4]">zhgkrqDUNk+iRzLnKm1xHgAA</XPD:REF>
+<XPD:ATTR name="#ReceivingStimuli" type="integer">2</XPD:ATTR>
+<XPD:REF name="ReceivingStimuli[0]">WzA0Gd7AgUSeqXyBxG7PhAAA</XPD:REF>
+<XPD:REF name="ReceivingStimuli[1]">reEK+E4j6UGsEfHn9gIbSgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[2]" type="UMLObject" guid="CRG168fG9Uq5l1xYw5uF5QAA">
+<XPD:ATTR name="Name" type="string">OAuthUser ORM</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">Zht8yRQobUmaTSospIhQPQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">92ssFZ4FNE+lvWogyZe1wgAA</XPD:REF>
+<XPD:REF name="Views[1]">H4ZpPWiRPk+A68p3kLqObgAA</XPD:REF>
+<XPD:ATTR name="#ReceivingStimuli" type="integer">2</XPD:ATTR>
+<XPD:REF name="ReceivingStimuli[0]">L6IkoxTqN0uYRuVKydp8ZQAA</XPD:REF>
+<XPD:REF name="ReceivingStimuli[1]">iX3EskMIx0yJqqyfD7sbyQAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="ParticipatingInstances[3]" type="UMLObject" guid="z68XDBWG/ESCnUsJ8gNAGAAA">
+<XPD:ATTR name="Name" type="string">邮件服务</XPD:ATTR>
+<XPD:REF name="CollaborationInstanceSet">Zht8yRQobUmaTSospIhQPQAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">2</XPD:ATTR>
+<XPD:REF name="Views[0]">NLDDMFBcy06EPTlHyWZ6MAAA</XPD:REF>
+<XPD:REF name="Views[1]">eFROaMbHBkGc8f+/b97ZAgAA</XPD:REF>
+<XPD:ATTR name="#ReceivingStimuli" type="integer">1</XPD:ATTR>
+<XPD:REF name="ReceivingStimuli[0]">Js0rjYKhdUKQASN5TuvMeQAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

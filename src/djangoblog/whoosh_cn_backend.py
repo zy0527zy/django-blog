@@ -1,6 +1,12 @@
-# encoding: utf-8
+"""
+djangoblog whoosh_cn_backend.py 文件
+功能：Haystack 的 Whoosh 中文搜索后端
+在官方 Whoosh 后端基础上，把分词器替换为结巴分词（ChineseAnalyzer），并自定义搜索结果高亮，
+实现支持中文的全文搜索
+"""
 
-from __future__ import absolute_import, division, print_function, unicode_literals
+#zy: 模块精读：本文件是 haystack 官方 whoosh 后端的"改造版"（约 900 行，大部分为 vendored 代码）。
+#zy: 核心改动：① 用 jieba 的 ChineseAnalyzer 替换默认分词器，让中文可被正确切词索引；② 自定义 WhooshHtmlFormatter 统一高亮格式（与 ES 后端一致）。
 
 import json
 import os
@@ -8,11 +14,11 @@ import re
 import shutil
 import threading
 import warnings
+from datetime import datetime
 
 import six
 from django.conf import settings
 from django.core.exceptions import ImproperlyConfigured
-from datetime import datetime
 from django.utils.encoding import force_str
 from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, EmptyResults, log_query
 from haystack.constants import DJANGO_CT, DJANGO_ID, ID
@@ -24,12 +30,10 @@ from haystack.utils import log as logging
 from haystack.utils.app_loading import haystack_get_model
 from jieba.analyse import ChineseAnalyzer
 from whoosh import index
-from whoosh.analysis import StemmingAnalyzer
-from whoosh.fields import BOOLEAN, DATETIME, IDLIST, KEYWORD, NGRAM, NGRAMWORDS, NUMERIC, Schema, TEXT
+from whoosh.fields import BOOLEAN, DATETIME, IDLIST, KEYWORD, NGRAM, NGRAMWORDS, NUMERIC, TEXT, Schema
 from whoosh.fields import ID as WHOOSH_ID
 from whoosh.filedb.filestore import FileStorage, RamStorage
-from whoosh.highlight import ContextFragmenter, HtmlFormatter
-from whoosh.highlight import highlight as whoosh_highlight
+from whoosh.highlight import HtmlFormatter
 from whoosh.qparser import QueryParser
 from whoosh.searching import ResultsPage
 from whoosh.writing import AsyncWriter
@@ -48,7 +52,7 @@ if not hasattr(whoosh, '__version__') or whoosh.__version__ < (2, 5, 0):
 # Bubble up the correct error.
 
 DATETIME_REGEX = re.compile(
-    '^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})T(?P<hour>\d{2}):(?P<minute>\d{2}):(?P<second>\d{2})(\.\d{3,6}Z?)?$')
+    r'^(?P<year>\d{4})-(?P<month>\d{2})-(?P<day>\d{2})T(?P<hour>\d{2}):(?P<minute>\d{2}):(?P<second>\d{2})(\.\d{3,6}Z?)?$')
 LOCALS = threading.local()
 LOCALS.RAM_STORE = None
 
@@ -63,7 +67,9 @@ class WhooshHtmlFormatter(HtmlFormatter):
 
 
 class WhooshSearchBackend(BaseSearchBackend):
-    # Word reserved by Whoosh for special use.
+    """Whoosh 搜索后端：封装索引的创建/更新/删除与搜索，文本字段使用中文分词器（结巴）"""
+
+    # Whoosh 保留字（用于查询清洗）
     RESERVED_WORDS = (
         'AND',
         'NOT',
@@ -80,9 +86,7 @@ class WhooshSearchBackend(BaseSearchBackend):
     )
 
     def __init__(self, connection_alias, **connection_options):
-        super(
-            WhooshSearchBackend,
-            self).__init__(
+        super().__init__(
             connection_alias,
             **connection_options)
         self.setup_complete = False
@@ -116,7 +120,7 @@ class WhooshSearchBackend(BaseSearchBackend):
             new_index = True
 
         if self.use_file_storage and not os.access(self.path, os.W_OK):
-            raise IOError(
+            raise OSError(
                 "The path to your Whoosh index '%s' is not writable for the current user/group." %
                 self.path)
 
@@ -145,6 +149,7 @@ class WhooshSearchBackend(BaseSearchBackend):
         self.setup_complete = True
 
     def build_schema(self, fields):
+        """根据搜索字段构建 Whoosh Schema（文本字段默认使用中文分词器 ChineseAnalyzer）"""
         schema_fields = {
             ID: WHOOSH_ID(stored=True, unique=True),
             DJANGO_CT: WHOOSH_ID(stored=True),
@@ -210,7 +215,7 @@ class WhooshSearchBackend(BaseSearchBackend):
             try:
                 doc = index.full_prepare(obj)
             except SkipDocument:
-                self.log.debug(u"Indexing for object `%s` skipped", obj)
+                self.log.debug("Indexing for object `%s` skipped", obj)
             else:
                 # Really make sure it's unicode, because Whoosh won't have it any
                 # other way.
@@ -231,7 +236,7 @@ class WhooshSearchBackend(BaseSearchBackend):
                     # to avoid the possibility of that generating encoding errors while
                     # processing the log message:
                     self.log.error(
-                        u"%s while preparing object for update" %
+                        "%s while preparing object for update" %
                         e.__class__.__name__,
                         exc_info=True,
                         extra={
@@ -254,7 +259,7 @@ class WhooshSearchBackend(BaseSearchBackend):
         try:
             self.index.delete_by_query(
                 q=self.parser.parse(
-                    u'%s:"%s"' %
+                    '%s:"%s"' %
                     (ID, whoosh_id)))
         except Exception as e:
             if not self.silently_fail:
@@ -283,12 +288,12 @@ class WhooshSearchBackend(BaseSearchBackend):
 
                 for model in models:
                     models_to_delete.append(
-                        u"%s:%s" %
+                        "%s:%s" %
                         (DJANGO_CT, get_model_ct(model)))
 
                 self.index.delete_by_query(
                     q=self.parser.parse(
-                        u" OR ".join(models_to_delete)))
+                        " OR ".join(models_to_delete)))
         except Exception as e:
             if not self.silently_fail:
                 raise
@@ -345,6 +350,7 @@ class WhooshSearchBackend(BaseSearchBackend):
         page_num += 1
         return page_num, page_length
 
+    # 核心搜索方法：解析查询、按条件检索并分页返回结果（空查询或过短查询直接返回空结果）
     @log_query
     def search(
             self,
@@ -380,7 +386,7 @@ class WhooshSearchBackend(BaseSearchBackend):
 
         # A one-character query (non-wildcard) gets nabbed by a stopwords
         # filter and should yield zero results.
-        if len(query_string) <= 1 and query_string != u'*':
+        if len(query_string) <= 1 and query_string != '*':
             return {
                 'results': [],
                 'hits': 0,
@@ -752,6 +758,7 @@ class WhooshSearchBackend(BaseSearchBackend):
                     # 高亮正文 - 返回markdown片段，让模板处理
                     if 'body' in additional_fields and additional_fields['body']:
                         import re
+
                         from djangoblog.utils import CommonMarkdown
 
                         # 先转换为HTML，便于提取摘要
@@ -860,7 +867,7 @@ class WhooshSearchBackend(BaseSearchBackend):
             else:
                 value = 'false'
         elif isinstance(value, (list, tuple)):
-            value = u','.join([force_str(v) for v in value])
+            value = ','.join([force_str(v) for v in value])
         elif isinstance(value, (six.integer_types, float)):
             # Leave it alone.
             pass
@@ -920,6 +927,8 @@ class WhooshSearchBackend(BaseSearchBackend):
 
 
 class WhooshSearchQuery(BaseSearchQuery):
+    """Whoosh 查询构造器：把 Haystack 查询条件转成 Whoosh 可识别的查询语法"""
+
     def _convert_datetime(self, date):
         if hasattr(date, 'hour'):
             return force_str(date.strftime('%Y%m%d%H%M%S'))
@@ -982,7 +991,7 @@ class WhooshSearchQuery(BaseSearchQuery):
         if field == 'content':
             index_fieldname = ''
         else:
-            index_fieldname = u'%s:' % connections[self._using].get_unified_index(
+            index_fieldname = '%s:' % connections[self._using].get_unified_index(
             ).get_index_fieldname(field)
 
         filter_types = {
@@ -995,7 +1004,7 @@ class WhooshSearchQuery(BaseSearchQuery):
             'gte': "[%s to]",
             'lt': "{to %s}",
             'lte': "[to %s]",
-            'fuzzy': u'%s~',
+            'fuzzy': '%s~',
         }
 
         if value.post_process is False:
@@ -1031,7 +1040,7 @@ class WhooshSearchQuery(BaseSearchQuery):
                     if len(terms) == 1:
                         query_frag = terms[0]
                     else:
-                        query_frag = u"(%s)" % " AND ".join(terms)
+                        query_frag = "(%s)" % " AND ".join(terms)
             elif filter_type == 'in':
                 in_options = []
 
@@ -1062,7 +1071,7 @@ class WhooshSearchQuery(BaseSearchQuery):
                 if hasattr(prepared_value[1], 'strftime'):
                     end = self._convert_datetime(end)
 
-                query_frag = u"[%s to %s]" % (start, end)
+                query_frag = "[%s to %s]" % (start, end)
             elif filter_type == 'exact':
                 if value.input_type_name == 'exact':
                     query_frag = prepared_value
@@ -1079,7 +1088,7 @@ class WhooshSearchQuery(BaseSearchQuery):
             if not query_frag.startswith('(') and not query_frag.endswith(')'):
                 query_frag = "(%s)" % query_frag
 
-        return u"%s%s" % (index_fieldname, query_frag)
+        return "%s%s" % (index_fieldname, query_frag)
 
         # if not filter_type in ('in', 'range'):
         #     # 'in' is a bit of a special case, as we don't want to
@@ -1089,5 +1098,6 @@ class WhooshSearchQuery(BaseSearchQuery):
 
 
 class WhooshEngine(BaseEngine):
+    """搜索引擎入口：把 Whoosh 后端类和查询构造器注册给 Haystack"""
     backend = WhooshSearchBackend
     query = WhooshSearchQuery

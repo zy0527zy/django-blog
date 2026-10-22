@@ -9,6 +9,7 @@ from django.utils.translation import gettext_lazy as _
 from .models import Article, Category, Tag, Links, SideBar, BlogSettings
 
 
+# 文章后台编辑表单，使用 Article 模型的全部字段
 class ArticleForm(forms.ModelForm):
     # body = forms.CharField(widget=AdminPagedownWidget())
 
@@ -17,18 +18,25 @@ class ArticleForm(forms.ModelForm):
         fields = '__all__'
 
 
+# 将后台批量选中的文章状态修改为已发布
 def makr_article_publish(modeladmin, request, queryset):
+    # 第六周架构标注（黄梓涵）：后台 action 直接批量更新状态，与逐个调用
+    # Article.save() 的流程不同；QuerySet.update() 不触发模型 save()/post_save。
+    # 因而不能仅凭保存信号认定本 action 已完成缓存失效或搜索索引同步。
     queryset.update(status='p')
 
 
+# 将后台批量选中的文章状态修改为草稿
 def draft_article(modeladmin, request, queryset):
     queryset.update(status='d')
 
 
+# 批量关闭选中文章的评论功能
 def close_article_commentstatus(modeladmin, request, queryset):
     queryset.update(comment_status='c')
 
 
+# 批量开启选中文章的评论功能
 def open_article_commentstatus(modeladmin, request, queryset):
     queryset.update(comment_status='o')
 
@@ -39,7 +47,11 @@ close_article_commentstatus.short_description = _('Close article comments')
 open_article_commentstatus.short_description = _('Open article comments')
 
 
+# 文章后台管理配置，控制文章列表展示、筛选、搜索和批量操作
 class ArticlelAdmin(admin.ModelAdmin):
+    # 第六周架构标注（黄梓涵）：文章新增、编辑、删除由 Django ModelAdmin
+    # 提供标准页面和权限检查；本类配置表单、筛选及 action，未定义前台 CRUD 视图。
+    # get_form() 限制可选作者为超级用户，不等同于限制所有后台操作者必须是超级用户。
     list_per_page = 20
     search_fields = ('body', 'title')
     form = ArticleForm
@@ -66,6 +78,7 @@ class ArticlelAdmin(admin.ModelAdmin):
         open_article_commentstatus]
     raw_id_fields = ('author', 'category',)
 
+    # 将分类名称显示为可点击链接，方便进入对应分类的后台编辑页
     def link_to_category(self, obj):
         info = (obj.category._meta.app_label, obj.category._meta.model_name)
         link = reverse('admin:%s_%s_change' % info, args=(obj.category.id,))
@@ -73,6 +86,7 @@ class ArticlelAdmin(admin.ModelAdmin):
 
     link_to_category.short_description = _('category')
 
+    # 编辑文章时只允许从超级用户中选择作者
     def get_form(self, request, obj=None, **kwargs):
         form = super(ArticlelAdmin, self).get_form(request, obj, **kwargs)
         form.base_fields['author'].queryset = get_user_model(
@@ -80,6 +94,8 @@ class ArticlelAdmin(admin.ModelAdmin):
         return form
 
     def save_model(self, request, obj, form, change):
+        # 第六周架构标注（黄梓涵）：委托父类保存模型；多对多 tags 的保存
+        # 属于后台后续 save_related() 阶段，不能把全部表单关系都归到本方法。
         super(ArticlelAdmin, self).save_model(request, obj, form, change)
 
     def get_view_on_site_url(self, obj=None):
@@ -92,19 +108,23 @@ class ArticlelAdmin(admin.ModelAdmin):
             return site
 
 
+# 标签后台管理配置
 class TagAdmin(admin.ModelAdmin):
     exclude = ('slug', 'last_mod_time', 'creation_time')
 
 
+# 分类后台管理配置，显示父分类和排序信息
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'parent_category', 'index')
     exclude = ('slug', 'last_mod_time', 'creation_time')
 
 
+# 友情链接后台管理配置
 class LinksAdmin(admin.ModelAdmin):
     exclude = ('last_mod_time', 'creation_time')
 
 
+# 侧边栏后台管理配置
 class SideBarAdmin(admin.ModelAdmin):
     list_display = ('name', 'content', 'is_enable', 'sequence')
     exclude = ('last_mod_time', 'creation_time')

@@ -31,6 +31,7 @@ from djangoblog.mixins import (
 logger = logging.getLogger(__name__)
 
 
+# 文章列表页面的公共基础视图，统一处理模板、分页和上下文等通用逻辑
 class ArticleListView(CachedListViewMixin, PageNumberMixin, ListView):
     """
     文章列表视图基类（重构版）
@@ -58,17 +59,21 @@ class ArticleListView(CachedListViewMixin, PageNumberMixin, ListView):
         return super(ArticleListView, self).get_context_data(**kwargs)
 
 
+# 博客首页视图：查询已经发布的普通文章，并交给文章列表模板显示
 class IndexView(OptimizedArticleQueryMixin, ArticleListView):
     """
     首页视图（重构版）
 
     继承 OptimizedArticleQueryMixin 获得优化的查询方法
     """
-    # 友情链接类型
+    # 首页使用首页类型的友情链接
     link_type = LinkShowType.I
 
     def get_queryset_data(self):
         # 使用 Mixin 提供的优化查询方法
+        # 第六周架构标注（黄梓涵）：URL 先进入 IndexView，列表查询由
+        # CachedListViewMixin.get_queryset() 调用本方法；仅缓存未命中时构造查询。
+        # type='a' 排除独立页面，status='p' 排除草稿，关联预加载由查询 Mixin 提供。
         return self.get_optimized_article_queryset().filter(
             type='a', status='p'
         )
@@ -86,6 +91,7 @@ class IndexView(OptimizedArticleQueryMixin, ArticleListView):
         return context
 
 
+# 文章详情视图：负责显示单篇文章，并准备评论、分页、SEO 和插件所需数据
 class ArticleDetailView(DetailView):
     '''
     文章详情页面
@@ -96,6 +102,10 @@ class ArticleDetailView(DetailView):
     context_object_name = "article"
 
     def get_context_data(self, **kwargs):
+        # 第六周架构标注（黄梓涵）：DetailView 根据 pk_url_kwarg='article_id'
+        # 获取 self.object 后进入上下文组装。此类未重写 get_queryset()，不能据此
+        # 宣称详情访问已校验 status='p'；下方仅准备评论显示，评论提交归 comments。
+        # 创建评论表单，供用户在文章详情页发表评论
         comment_form = CommentForm()
 
         # 优化：直接查询父评论，减少数据库查询
@@ -112,6 +122,7 @@ class ArticleDetailView(DetailView):
         article_comments = self.object.comment_list()
 
         blog_setting = get_blog_setting()
+        # 将顶层评论按照站点设置的每页数量进行分页
         paginator = Paginator(parent_comments, blog_setting.article_comment_count)
         page = self.request.GET.get('comment_page', '1')
         if not page.isnumeric():
@@ -139,6 +150,7 @@ class ArticleDetailView(DetailView):
         kwargs['comment_count'] = len(
             article_comments) if article_comments else 0
 
+        # 将上一篇和下一篇文章加入模板上下文，供详情页生成跳转链接
         kwargs['next_article'] = self.object.next_article
         kwargs['prev_article'] = self.object.prev_article
 
@@ -167,6 +179,7 @@ class ArticleDetailView(DetailView):
         
         # 触发文章详情加载钩子，让插件可以添加额外的上下文数据
         from djangoblog.plugin_manage.hook_constants import ARTICLE_DETAIL_LOAD
+        # 通知插件文章详情已经加载，使插件可以向页面补充额外内容
         hooks.run_action(ARTICLE_DETAIL_LOAD, article=article, context=context, request=self.request)
         
         # Action Hook, 通知插件"文章详情已获取"
@@ -174,6 +187,7 @@ class ArticleDetailView(DetailView):
         return context
 
 
+# 分类页面视图：显示当前分类及其子分类下的已发布文章
 class CategoryDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleListView):
     """
     分类目录列表（重构版）
@@ -188,6 +202,10 @@ class CategoryDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleLis
     def get_queryset_data(self):
         # 使用 Mixin 缓存的对象，只查询一次
         category = self.get_slug_object()
+        # 第六周架构标注（黄梓涵）：路由参数虽名为 category_name，SlugCachedMixin
+        # 实际按 Category.slug 查找对象；再展开当前分类及后代，以分类名称筛选文章。
+        # 这里仅限定已发布状态，没有像首页、标签页那样额外限定 type='a'。
+        # 同时取得当前分类及其所有子分类名称，保证子分类文章也能被查询出来
         categorynames = [c.name for c in category.get_sub_categorys()]
 
         return self.get_optimized_article_queryset().filter(
@@ -221,6 +239,7 @@ class CategoryDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleLis
         return super(CategoryDetailView, self).get_context_data(**kwargs)
 
 
+# 作者文章页面：按照用户名筛选并显示该作者已经发布的文章
 class AuthorDetailView(OptimizedArticleQueryMixin, ArticleListView):
     """
     作者详情页（重构版）
@@ -255,6 +274,7 @@ class AuthorDetailView(OptimizedArticleQueryMixin, ArticleListView):
         return super(AuthorDetailView, self).get_context_data(**kwargs)
 
 
+# 标签页面视图：显示带有指定标签的已发布文章
 class TagDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleListView):
     """
     标签列表页面（重构版）
@@ -293,6 +313,7 @@ class TagDetailView(SlugCachedMixin, OptimizedArticleQueryMixin, ArticleListView
         return super(TagDetailView, self).get_context_data(**kwargs)
 
 
+# 文章归档视图：集中展示已经发布的历史文章
 class ArchivesView(OptimizedArticleQueryMixin, ArticleListView):
     """
     文章归档页面（重构版）
@@ -311,6 +332,7 @@ class ArchivesView(OptimizedArticleQueryMixin, ArticleListView):
         return 'archives'
 
 
+# 友情链接页面，只显示当前处于启用状态的友情链接
 class LinkListView(ListView):
     model = Links
     template_name = 'blog/links_list.html'
@@ -319,7 +341,11 @@ class LinkListView(ListView):
         return Links.objects.filter(is_enable=True)
 
 
+# 站内搜索视图，并为搜索结果启用关键词高亮
 class EsSearchView(SearchView):
+    # 第六周架构标注（黄梓涵）：搜索入口位于 djangoblog.urls 的 search_view_factory，
+    # 实际传入 ElasticSearchModelSearchForm；不能把 blog.forms.BlogSearchForm
+    # 当成当前路由使用的表单。此视图负责高亮和分页上下文，检索交给 Haystack 后端。
     def build_form(self, form_kwargs=None):
         """Override to enable highlighting"""
         if form_kwargs is None:
@@ -352,6 +378,7 @@ class EsSearchView(SearchView):
 
 
 @csrf_exempt
+# 文件上传接口：校验请求后保存上传文件，图片还会进行压缩处理
 def fileupload(request):
     """
     该方法需自己写调用端来上传图片，该方法仅提供图床功能
@@ -403,6 +430,7 @@ from djangoblog.error_views import (
 )
 
 
+# 清除站点缓存，并向调用方返回成功响应
 def clean_cache_view(request):
     cache.clear()
     return HttpResponse('ok')

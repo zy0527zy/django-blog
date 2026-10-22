@@ -1,0 +1,153 @@
+@startuml 数据模型类图
+' 软工3班8组 第四周实践任务 —— 数据库与 Model 数据模型类图
+' 生成工具：PlantUML（https://plantuml.com/zh/guide）
+
+skinparam classAttributeIconSize 0
+skinparam classFontSize 12
+skinparam classAttributeFontSize 11
+skinparam defaultFontName "Microsoft YaHei"
+skinparam packageStyle rectangle
+skinparam ArrowColor #2c3e50
+skinparam package {
+  BackgroundColor #f4f6f8
+  BorderColor #34495e
+}
+
+package "accounts（用户模块）" {
+  class BlogUser {
+    + username : CharField(150)
+    + email : EmailField
+    + password : CharField(128)
+    + nickname : CharField(100)
+    + source : CharField(100)
+    + creation_time : DateTimeField
+    + last_modify_time : DateTimeField
+  }
+  class "AbstractUser (Django内置)" as AbstractUser <<abstract>> {
+    + username
+    + email
+    + password
+    + first_name
+    + last_name
+    + is_staff
+    + is_active
+    + date_joined
+  }
+}
+
+package "blog（博客核心模块）" {
+  abstract class BaseModel {
+    + id : AutoField
+    + creation_time : DateTimeField
+    + last_modify_time : DateTimeField
+  }
+  class Article {
+    + title : CharField(200) <<unique>>
+    + body : MDTextField
+    + pub_time : DateTimeField
+    + status : CharField(1) 「d/p」
+    + comment_status : CharField(1) 「o/c」
+    + type : CharField(1) 「a/p」
+    + views : PositiveIntegerField
+    + article_order : IntegerField
+    + show_toc : BooleanField
+  }
+  class Category {
+    + name : CharField(30) <<unique>>
+    + slug : SlugField(60)
+    + index : IntegerField
+  }
+  class Tag {
+    + name : CharField(30) <<unique>>
+    + slug : SlugField(60)
+  }
+  class Links {
+    + name : CharField(30)
+    + link : URLField
+    + sequence : IntegerField
+    + is_enable : BooleanField
+    + show_type : CharField(1)
+  }
+  class SideBar {
+    + name : CharField(100)
+    + content : TextField
+    + sequence : IntegerField
+    + is_enable : BooleanField
+  }
+  class BlogSettings {
+    + site_name : CharField(200)
+    + site_description : TextField
+    + site_seo_description : TextField
+    + site_keywords : TextField
+    + color_scheme : CharField(20)
+    + open_site_comment : BooleanField
+    + comment_need_review : BooleanField
+  }
+}
+
+package "comments（评论模块）" {
+  class Comment {
+    + body : TextField(300)
+    + is_enable : BooleanField
+    + creation_time : DateTimeField
+  }
+  class CommentReaction {
+    + reaction_type : CharField(10) 「👍/❤️/🚀…」
+    + created_at : DateTimeField
+  }
+}
+
+package "oauth（第三方登录模块）" {
+  class OAuthUser {
+    + openid : CharField(50)
+    + nickname : CharField(50)
+    + token : CharField(150)
+    + picture : CharField(350)
+    + type : CharField(50)
+    + email : CharField(50)
+    + metadata : TextField
+  }
+  class OAuthConfig {
+    + type : CharField(10) 「github/qq/weibo…」
+    + appkey : CharField(200)
+    + appsecret : CharField(200)
+    + callback_url : CharField(200)
+    + is_enable : BooleanField
+  }
+}
+
+package "servermanager（运维模块）" {
+  class "commands" as Commands {
+    + title : CharField(300)
+    + command : CharField(2000)
+    + describe : CharField(300)
+  }
+  class EmailSendLog {
+    + emailto : CharField(300)
+    + title : CharField(2000)
+    + content : TextField
+    + send_result : BooleanField
+  }
+}
+
+' ===== 继承（泛化）关系 =====
+BlogUser --|> AbstractUser
+Article --|> BaseModel
+Category --|> BaseModel
+Tag --|> BaseModel
+
+' ===== 关联关系（含多重性）=====
+Article "1..*" -- "1" Category : category
+Article "1..*" -- "1" BlogUser : author
+Article "1..*" -- "0..*" Tag : tags
+Category "0..1" -- "0..*" Category : parent_category
+
+Comment "0..*" -- "1" Article : article
+Comment "0..*" -- "1" BlogUser : author
+Comment "0..1" -- "0..*" Comment : parent_comment
+CommentReaction "0..*" -- "1" Comment : comment
+CommentReaction "0..*" -- "1" BlogUser : user
+
+OAuthUser "0..*" -- "0..1" BlogUser : author
+
+@enduml

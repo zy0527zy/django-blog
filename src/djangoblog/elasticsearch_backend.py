@@ -1,3 +1,11 @@
+"""
+djangoblog elasticsearch_backend.py 文件
+功能：Haystack 的 Elasticsearch 搜索后端
+封装 Elasticsearch 索引的增删改查、搜索、高亮与推荐词（suggest）能力，供全文搜索使用
+"""
+
+#zy: 模块精读：自定义 Haystack 的 ES 后端。亮点：① 搜索时用 suggest 做推荐词、布尔 should 匹配 title/body、minimum_should_match=1；
+#zy: ② 高亮片段（<mark>）；③ 兼容 ES 8.x 的 total 由数字变对象（isinstance 判断），属跨版本健壮写法。
 from django.utils.encoding import force_str
 from elasticsearch_dsl import Q
 from haystack.backends import BaseEngine, BaseSearchBackend, BaseSearchQuery, log_query
@@ -12,45 +20,52 @@ logger = logging.getLogger(__name__)
 
 
 class ElasticSearchBackend(BaseSearchBackend):
+    """Elasticsearch 搜索后端：封装索引创建/更新/删除与搜索查询逻辑"""
+
     def __init__(self, connection_alias, **connection_options):
-        super(
-            ElasticSearchBackend,
-            self).__init__(
+        """构造方法：初始化文章文档管理器（ArticleDocumentManager）"""
+        super().__init__(
             connection_alias,
             **connection_options)
         self.manager = ArticleDocumentManager()
         self.include_spelling = True
 
     def _get_models(self, iterable):
+        """把查询集/可迭代对象转换为文章文档对象列表"""
         models = iterable if iterable and iterable[0] else Article.objects.all()
         docs = self.manager.convert_to_doc(models)
         return docs
 
     def _create(self, models):
+        """创建索引并重建文档"""
         self.manager.create_index()
         docs = self._get_models(models)
         self.manager.rebuild(docs)
 
     def _delete(self, models):
+        """删除指定模型的文档"""
         for m in models:
             m.delete()
         return True
 
     def _rebuild(self, models):
+        """重建指定模型的索引"""
         models = models if models else Article.objects.all()
         docs = self.manager.convert_to_doc(models)
         self.manager.update_docs(docs)
 
     def update(self, index, iterable, commit=True):
-
+        """更新索引中的文档"""
         models = self._get_models(iterable)
         self.manager.update_docs(models)
 
     def remove(self, obj_or_string):
+        """从索引中移除指定文档"""
         models = self._get_models([obj_or_string])
         self._delete(models)
 
     def clear(self, models=None, commit=True):
+        """清空索引"""
         self.remove(None)
 
     @staticmethod
@@ -106,6 +121,7 @@ class ElasticSearchBackend(BaseSearchBackend):
 
         results = search.execute()
         # ES 8.x: total 现在是对象 {'value': 123, 'relation': 'eq'}
+        #zy: 兼容性处理：ES 7.x total 是数字、8.x 变为 {'value':..,'relation':..}，用 isinstance 判断两者都兼容，属跨版本健壮写法。
         hits_total = results['hits']['total']
         hits = hits_total['value'] if isinstance(hits_total, dict) else hits_total
         raw_results = []
@@ -146,6 +162,8 @@ class ElasticSearchBackend(BaseSearchBackend):
 
 
 class ElasticSearchQuery(BaseSearchQuery):
+    """Elasticsearch 查询构造器：把查询条件转成 ES 可识别的语法"""
+
     def _convert_datetime(self, date):
         if hasattr(date, 'hour'):
             return force_str(date.strftime('%Y%m%d%H%M%S'))
@@ -188,11 +206,12 @@ class ElasticSearchQuery(BaseSearchQuery):
         return self._spelling_suggestion
 
     def build_params(self, spelling_query=None):
-        kwargs = super(ElasticSearchQuery, self).build_params(spelling_query=spelling_query)
+        kwargs = super().build_params(spelling_query=spelling_query)
         return kwargs
 
 
 class ElasticSearchModelSearchForm(ModelSearchForm):
+    """搜索表单：根据用户输入决定是否启用推荐词（is_suggest）"""
 
     def search(self):
         # 是否建议搜索
@@ -202,5 +221,6 @@ class ElasticSearchModelSearchForm(ModelSearchForm):
 
 
 class ElasticSearchEngine(BaseEngine):
+    """搜索引擎入口：把后端类和查询构造器注册给 Haystack"""
     backend = ElasticSearchBackend
     query = ElasticSearchQuery

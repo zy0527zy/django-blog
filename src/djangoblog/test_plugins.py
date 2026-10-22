@@ -2,19 +2,19 @@
 插件系统测试
 测试插件加载、钩子注册和执行
 """
-import os
-from unittest.mock import Mock, patch
+
+#zy: 模块精读：插件系统测试。重点测 hooks 的 register/run_action/apply_filters 及 loader.load_plugins；setUp 里重置 hooks._hooks 保证用例隔离。
+from unittest.mock import patch
 
 from django.test import TestCase
 
+from djangoblog.plugin_manage import hooks
 from djangoblog.plugin_manage.base_plugin import BasePlugin
 from djangoblog.plugin_manage.hook_constants import *
-from djangoblog.plugin_manage import hooks
 from djangoblog.plugin_manage.loader import load_plugins
 from djangoblog.test_base import BaseTestCase, PluginTestMixin
 
 # 导入钩子常量
-from djangoblog.plugin_manage.hook_constants import HEAD_RESOURCES_HOOK, BODY_RESOURCES_HOOK
 
 
 class PluginHooksTest(TestCase, PluginTestMixin):

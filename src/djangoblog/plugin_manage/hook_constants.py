@@ -1,3 +1,4 @@
+#zy: 模块精读：插件钩子常量定义（文章生命周期钩子、位置渲染钩子、资源注入钩子），供插件系统按名称注册/调用。
 ARTICLE_DETAIL_LOAD = 'article_detail_load'
 ARTICLE_CREATE = 'article_create'
 ARTICLE_UPDATE = 'article_update'

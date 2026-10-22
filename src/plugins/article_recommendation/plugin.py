@@ -1,3 +1,8 @@
+"""
+文章推荐插件主文件
+功能：根据文章标签、分类进行相关文章推荐，推荐不足时回退热门文章；
+支持文章底部、侧边栏多位置渲染，提供前端CSS与JS资源。
+"""
 import logging
 from djangoblog.plugin_manage.base_plugin import BasePlugin
 from djangoblog.plugin_manage import hooks
@@ -8,6 +13,7 @@ logger = logging.getLogger(__name__)
 
 
 class ArticleRecommendationPlugin(BasePlugin):
+    """文章推荐插件类，继承基础插件，实现多位置文章推荐展示逻辑"""
     PLUGIN_NAME = '文章推荐'
     PLUGIN_DESCRIPTION = '智能文章推荐系统，支持多位置展示'
     PLUGIN_VERSION = '1.0.0'
@@ -30,17 +36,27 @@ class ArticleRecommendationPlugin(BasePlugin):
     }
     
     def register_hooks(self):
-        """注册钩子"""
+        """注册钩子：绑定文章详情加载事件"""
         hooks.register(ARTICLE_DETAIL_LOAD, self.on_article_detail_load)
     
     def on_article_detail_load(self, article, context, request, *args, **kwargs):
-        """文章详情页加载时的处理"""
+        """
+        文章详情页加载钩子回调
+        :param article: 当前浏览文章对象
+        :param context: 页面上下文
+        :param request: http请求对象
+        """
         # 可以在这里预加载推荐数据到context中
         recommendations = self.get_recommendations(article)
         context['article_recommendations'] = recommendations
     
     def should_display(self, position, context, **kwargs):
-        """条件显示逻辑"""
+        """
+        控制插件在指定位置是否渲染
+        :param position: 渲染位置标识
+        :param context: 页面上下文
+        :return: bool，True展示，False隐藏
+        """
         # 只在文章详情页底部显示
         if position == 'article_bottom':
             article = kwargs.get('article') or context.get('article')
@@ -51,7 +67,11 @@ class ArticleRecommendationPlugin(BasePlugin):
         return False
     
     def render_article_bottom_widget(self, context, **kwargs):
-        """渲染文章底部推荐"""
+        """
+        渲染文章底部推荐组件
+        :param context: 页面上下文
+        :return: 渲染后的html内容，无推荐返回None
+        """
         article = kwargs.get('article') or context.get('article')
         if not article:
             return None
@@ -81,7 +101,11 @@ class ArticleRecommendationPlugin(BasePlugin):
         return self.render_template('bottom_widget.html', template_context)
     
     def render_sidebar_widget(self, context, **kwargs):
-        """渲染侧边栏推荐"""
+        """
+        渲染侧边栏推荐组件
+        :param context: 页面上下文
+        :return: 渲染后的html内容，无推荐返回None
+        """
         article = context.get('article')
         
         # 使用配置的数量，也可以通过kwargs覆盖
@@ -117,7 +141,7 @@ class ArticleRecommendationPlugin(BasePlugin):
         return self.render_template('sidebar_widget.html', template_context)
     
     def get_css_files(self):
-        """返回CSS文件"""
+        """返回插件需要加载的css文件列表"""
         return ['css/recommendation.css']
     
     def get_js_files(self):
@@ -125,7 +149,12 @@ class ArticleRecommendationPlugin(BasePlugin):
         return ['js/recommendation.js']
     
     def get_recommendations(self, article, count=5):
-        """获取推荐文章"""
+        """
+        获取相关推荐文章，策略：标签优先→分类兜底→热门兜底
+        :param article: 当前文章对象
+        :param count: 需要获取的推荐条数
+        :return: 推荐文章列表
+        """
         if not article:
             return []
         
@@ -195,7 +224,11 @@ class ArticleRecommendationPlugin(BasePlugin):
         return valid_recommendations[:count]
     
     def get_popular_articles(self, count=3):
-        """获取热门文章"""
+        """
+        获取全站热门文章，按浏览量降序
+        :param count: 获取条数
+        :return: 热门文章列表
+        """
         return list(Article.objects.filter(
             status='p'
         ).order_by('-views')[:count])

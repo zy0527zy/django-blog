@@ -1,0 +1,63 @@
+@startuml 界面流转关系图
+' 软工3班8组 第四周实践任务 —— 界面结构与流转关系图
+' 生成工具：PlantUML
+
+skinparam defaultFontName "Microsoft YaHei"
+skinparam componentStyle rectangle
+skinparam ArrowColor #2c3e50
+skinparam backgroundColor #ffffff
+
+left to right direction
+
+package "前台展示（访客可见）" {
+  component "首页\n(文章列表+侧栏)" as HOME
+  component "文章详情页\n(正文+评论)" as DETAIL
+  component "分类页" as CATEGORY
+  component "标签页" as TAG
+  component "作者页" as AUTHOR
+  component "归档页" as ARCHIVES
+  component "友链页" as LINKS
+  component "搜索结果页" as SEARCH
+}
+
+package "用户认证" {
+  component "登录页" as LOGIN
+  component "注册页" as REGISTER
+  component "忘记密码页" as FORGET
+}
+
+package "后台管理（/admin/）" {
+  component "后台登录" as ADMINLOGIN
+  component "内容管理\n(文章/评论/分类/标签)" as ADMINCONTENT
+  component "用户与配置管理" as ADMINCONFIG
+}
+
+' ===== 核心流转关系 =====
+HOME --> DETAIL : 点击文章标题\n/ Read more
+HOME --> CATEGORY : 点击分类
+HOME --> TAG : 点击标签
+HOME --> ARCHIVES : 导航/页脚
+HOME --> LINKS : 导航/页脚
+HOME --> LOGIN : 导航栏
+HOME --> SEARCH : 搜索框提交
+
+DETAIL --> CATEGORY : 点击文章分类
+DETAIL --> TAG : 点击文章标签
+DETAIL --> AUTHOR : 点击作者
+DETAIL --> LOGIN : 评论需登录
+
+CATEGORY --> DETAIL : 点击文章
+TAG --> DETAIL : 点击文章
+AUTHOR --> DETAIL : 点击文章
+SEARCH --> DETAIL : 点击结果
+
+LOGIN --> REGISTER : 去注册
+REGISTER --> LOGIN : 去登录
+LOGIN --> FORGET : 忘记密码
+LOGIN --> HOME : 登录成功跳转
+REGISTER --> HOME : 注册成功跳转
+
+ADMINLOGIN --> ADMINCONTENT : 登录后
+ADMINCONTENT --> ADMINCONFIG : 侧栏切换
+
+@enduml
