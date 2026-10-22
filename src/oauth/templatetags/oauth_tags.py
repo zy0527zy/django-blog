@@ -3,10 +3,12 @@ from django.urls import reverse
 
 from oauth.oauthmanager import get_oauth_apps
 
+#xcz: 为模板生成已启用平台的登录图标和跳转链接。
 # 注册本模块为 Django 模板标签库
 register = template.Library()
 
 
+#xcz: 为模板生成已启用平台的登录图标和跳转链接。
 @register.inclusion_tag('oauth/oauth_applications.html')
 def load_oauth_applications(request):
     """
@@ -15,6 +17,7 @@ def load_oauth_applications(request):
     """
     # 获取所有已启用的第三方平台配置
     applications = get_oauth_apps()
+    #xcz: 仅在有启用平台时生成入口，空列表会让模板不显示登录按钮。
     if applications:
         # 反向解析 OAuth 登录入口 URL
         baseurl = reverse('oauth:oauthlogin')
@@ -22,8 +25,10 @@ def load_oauth_applications(request):
         path = request.get_full_path()
 
         # 为每个平台生成 (图标名, 登录链接) 二元组，链接携带 type 与 next_url 参数
-        apps = list(map(lambda x: (x.ICON_NAME, '{baseurl}?type={type}&next_url={next}'.format(
-            baseurl=baseurl, type=x.ICON_NAME, next=path)), applications))
+        apps = [
+            (app.ICON_NAME, f'{baseurl}?type={app.ICON_NAME}&next_url={path}')
+            for app in applications
+        ]
     else:
         # 无启用的平台时返回空列表，模板据此不渲染登录按钮
         apps = []

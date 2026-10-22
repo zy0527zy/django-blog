@@ -66,7 +66,8 @@ class OauthLoginTest(TestCase):
     def test_weibo_login(self, mock_do_get, mock_do_post):
         weibo_app = self.get_app_by_type('weibo')
         assert weibo_app
-            # url = weibo_app.get_authorization_url()  #xcz: F841，删除未使用局部变量
+        url = weibo_app.get_authorization_url()
+        self.assertIn('weibo.com', url)
         mock_do_post.return_value = json.dumps({"access_token": "access_token",
                                                 "uid": "uid"
                                                 })
@@ -85,7 +86,8 @@ class OauthLoginTest(TestCase):
     def test_google_login(self, mock_do_get, mock_do_post):
         google_app = self.get_app_by_type('google')
         assert google_app
-            # url = google_app.get_authorization_url()  #xcz: F841，删除未使用局部变量
+        url = google_app.get_authorization_url()
+        self.assertIn('google.com', url)
         mock_do_post.return_value = json.dumps({
             "access_token": "access_token",
             "id_token": "id_token",
@@ -96,7 +98,7 @@ class OauthLoginTest(TestCase):
             "sub": "sub",
             "email": "email",
         })
-        token = google_app.get_access_token_by_code('code')
+        google_app.get_access_token_by_code('code')
         userinfo = google_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'access_token')
         self.assertEqual(userinfo.openid, 'sub')
@@ -109,18 +111,20 @@ class OauthLoginTest(TestCase):
         url = github_app.get_authorization_url()
         self.assertTrue("github.com" in url)
         self.assertTrue("client_id" in url)
-        mock_do_post.return_value = "access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&scope=repo%2Cgist&token_type=bearer"
+        mock_do_post.return_value = (
+            "access_token=gho_16C7e42F292c6912E7710c838347Ae178B4a&"
+            "scope=repo%2Cgist&token_type=bearer"
+        )
         mock_do_get.return_value = json.dumps({
             "avatar_url": "avatar_url",
             "name": "name",
             "id": "id",
             "email": "email",
         })
-            # token = github_app.get_access_token_by_code('code')  #xcz: F841，删除未使用局部变量
+        github_app.get_access_token_by_code('code')
         userinfo = github_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'gho_16C7e42F292c6912E7710c838347Ae178B4a')
         self.assertEqual(userinfo.openid, 'id')
-
 
     @patch("oauth.oauthmanager.GitHubOauthManager.do_post")
     @patch("oauth.oauthmanager.GitHubOauthManager.do_get")
@@ -156,7 +160,7 @@ class OauthLoginTest(TestCase):
             ])
         ]
 
-        token = github_app.get_access_token_by_code('code')
+        github_app.get_access_token_by_code('code')
         userinfo = github_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'gho_test_token')
         self.assertEqual(userinfo.openid, 'id')
@@ -170,6 +174,7 @@ class OauthLoginTest(TestCase):
         facebook_app = self.get_app_by_type('facebook')
         assert facebook_app
         url = facebook_app.get_authorization_url()
+        self.assertIn('facebook.com', url)
         self.assertTrue("facebook.com" in url)
         mock_do_post.return_value = json.dumps({
             "access_token": "access_token",
@@ -184,7 +189,7 @@ class OauthLoginTest(TestCase):
                 }
             }
         })
-        token = facebook_app.get_access_token_by_code('code')
+        facebook_app.get_access_token_by_code('code')
         userinfo = facebook_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'access_token')
 
@@ -203,7 +208,7 @@ class OauthLoginTest(TestCase):
         assert qq_app
         url = qq_app.get_authorization_url()
         self.assertTrue("qq.com" in url)
-        token = qq_app.get_access_token_by_code('code')
+        qq_app.get_access_token_by_code('code')
         userinfo = qq_app.get_oauth_userinfo()
         self.assertEqual(userinfo.token, 'access_token')
 

@@ -2,6 +2,7 @@
 Test cases for OAuth business logic
 包括OAuth配置、OAuth用户、第三方登录等核心业务逻辑
 """
+from django.core.exceptions import ValidationError
 from django.test import TestCase
 
 from accounts.models import BlogUser
@@ -47,19 +48,14 @@ class OAuthConfigTest(TestCase):
             callback_url='http://example.com/callback1'
         )
 
-        # 尝试创建相同类型的配置可能失败（取决于模型设计）
-        # 如果type字段有unique约束
-        try:
-            OAuthConfig.objects.create(
-                type='google',
-                appkey='key2',
-                appsecret='secret2',
-                callback_url='http://example.com/callback2'
-            )
-            # 如果没有unique约束，应该能创建成功
-        except Exception:
-            # 如果有unique约束，应该抛出异常
-            pass
+        duplicate = OAuthConfig(
+            type='google',
+            appkey='key2',
+            appsecret='secret2',
+            callback_url='http://example.com/callback2'
+        )
+        with self.assertRaises(ValidationError):
+            duplicate.full_clean()
 
     def test_oauth_config_query_by_type(self):
         """测试按类型查询OAuth配置"""
