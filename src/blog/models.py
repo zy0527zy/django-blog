@@ -1,3 +1,4 @@
+#hzh: 本模块定义博客的数据模型，包括文章、分类、标签以及站点配置。
 import logging
 import re
 from abc import abstractmethod
@@ -27,6 +28,7 @@ class LinkShowType(models.TextChoices):
 
 
 # 所有主要博客模型共用的抽象基础类，统一提供主键、创建时间和修改时间等公共字段
+#hzh: 公共模型封装基础字段及保存逻辑，其中浏览量更新使用特殊处理分支。
 class BaseModel(models.Model):
     id = models.AutoField(primary_key=True)
     creation_time = models.DateTimeField(_('creation time'), default=now)
@@ -64,6 +66,7 @@ class BaseModel(models.Model):
 
 
 # 博客的核心文章模型，保存文章正文、发布时间、状态以及作者、分类、标签等信息
+#hzh: Article 通过外键关联作者和分类，通过多对多关系关联文章标签。
 class Article(BaseModel):
     """文章"""
     # 文章状态：d 表示草稿，p 表示已经发布
