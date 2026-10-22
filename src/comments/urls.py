@@ -12,11 +12,13 @@ from . import views
 
 app_name = "comments"
 urlpatterns = [
+    #lyt: 文章编号进入发表评论视图，回复也复用此提交入口。  # noqa: E265
     # 提交评论：POST 表单提交到该地址，携带文章 id，交给 CommentPostView 处理
     path(
         'article/<int:article_id>/postcomment',
         views.CommentPostView.as_view(),
         name='postcomment'),
+    #lyt: 评论编号进入反应接口，GET 查询统计、POST 切换表情。  # noqa: E265
     # 评论反应（点赞/表情）：GET 查数据、POST 切换反应，交给 CommentReactionView 处理
     path(
         'comment/<int:comment_id>/react',

@@ -15,11 +15,13 @@ from .models import Comment, CommentReaction
 
 def disable_commentstatus(modeladmin, request, queryset):
     """后台批量操作：将选中的评论设为不可展示（is_enable=False，隐藏评论）。"""
+    #lyt: 直接更新选中记录的审核状态，避免逐条加载评论对象。  # noqa: E265
     queryset.update(is_enable=False)
 
 
 def enable_commentstatus(modeladmin, request, queryset):
     """后台批量操作：将选中的评论设为可展示（is_enable=True，通过审核）。"""
+    #lyt: 管理员批量通过后，前台查询即可展示这些评论。  # noqa: E265
     queryset.update(is_enable=True)
 
 
