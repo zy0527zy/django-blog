@@ -1,3 +1,4 @@
+#xcz: 将 OAuth 授权、邮箱绑定和结果页面路由到对应视图。
 from django.urls import path
 
 from . import views
