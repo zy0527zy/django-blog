@@ -1,3 +1,4 @@
+#hzh: 本模块将文章和访问性能数据映射为Elasticsearch搜索文档。
 import time
 
 import elasticsearch.client
@@ -126,6 +127,7 @@ class ElapsedTimeDocument(Document):
 
 
 # 页面性能日志管理器，负责性能索引的创建、删除和写入
+#hzh: 管理页面访问耗时索引，提供索引维护和日志写入能力。
 class ElaspedTimeDocumentManager:
     @staticmethod
     # 检查 performance 性能索引，不存在时才初始化创建。
@@ -219,6 +221,7 @@ class ArticleDocument(Document):
 
 
 # 文章搜索文档管理器，负责文章索引的创建、转换、重建和更新
+#hzh: 管理文章搜索索引的创建、删除、重建和文档更新。
 class ArticleDocumentManager():
 
     # 创建文章索引管理器时，初始化 blog 搜索索引。

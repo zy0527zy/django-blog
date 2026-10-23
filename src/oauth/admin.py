@@ -78,3 +78,5 @@ class OAuthConfigAdmin(admin.ModelAdmin):
     list_display = ('type', 'appkey', 'appsecret', 'is_enable')
     # 可按平台类型筛选
     list_filter = ('type',)
+
+#xcz:【修复W292】此处保留了一个空白行，满足 PEP 8 要求文件末尾必须以换行符结束的规范。

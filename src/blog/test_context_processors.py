@@ -1,6 +1,7 @@
 """
 Test cases for blog context processors
 """
+#hzh: 本模块测试SEO上下文处理器生成模板变量和使用缓存的行为。
 from unittest.mock import patch, Mock
 
 from django.test import TestCase, RequestFactory
@@ -12,6 +13,7 @@ from blog.models import Category, Article
 from djangoblog.utils import cache
 
 
+#hzh: 使用模拟HTTP请求及测试数据库数据验证站点导航和SEO上下文。
 class SeoProcessorTest(TestCase):
     """测试SEO上下文处理器"""
 
@@ -81,6 +83,7 @@ class SeoProcessorTest(TestCase):
         for key in required_keys:
             self.assertIn(key, result)
 
+    #hzh: 检查公共模板上下文的缓存复用行为，防止每次请求都重复查询。
     def test_processor_caching(self):
         """测试上下文处理器的缓存机制"""
         request = self.factory.get('/')

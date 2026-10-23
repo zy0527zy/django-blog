@@ -1,3 +1,4 @@
+#hzh: 本模块统一向页面模板提供站点设置、SEO数据及动态上下文。
 import logging
 
 from django.utils import timezone
@@ -9,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 
 # 全局模板上下文处理器，为页面提供站点配置、导航和 SEO 数据
+#hzh: 优先复用缓存中的公共设置，再更新请求地址和当前年份等动态数据。
 def seo_processor(requests):
     key = 'seo_processor'
     value = cache.get(key)

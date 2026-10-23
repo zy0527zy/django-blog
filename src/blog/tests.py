@@ -1,3 +1,4 @@
+#hzh: 本模块保留博客文章、分页、上传及搜索高亮等功能测试。
 import os
 
 from django.conf import settings
@@ -19,11 +20,13 @@ from oauth.models import OAuthUser, OAuthConfig
 
 # Create your tests here.
 
+#hzh: 通过测试数据库和HTTP请求检查文章相关功能及页面行为。
 class ArticleTest(TestCase):
     def setUp(self):
         self.client = Client()
         self.factory = RequestFactory()
 
+    #hzh: 构造测试文章及关联数据，检查文章功能涉及的基础业务行为。
     def test_validate_article(self):
         site = get_current_site().domain
         user = BlogUser.objects.get_or_create(
@@ -232,6 +235,7 @@ class ArticleTest(TestCase):
         call_command("build_search_words")
 
 
+#hzh: 检查搜索关键词在标题、正文等内容中的高亮处理。
 class SearchHighlightTest(TestCase):
     """测试搜索高亮功能"""
 

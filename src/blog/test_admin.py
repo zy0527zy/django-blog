@@ -2,6 +2,7 @@
 Blog Admin 测试
 测试文章、分类、标签等后台管理功能
 """
+#hzh: 本模块通过Django测试客户端检查博客后台的列表、搜索和编辑功能。
 from django.contrib.admin.sites import AdminSite
 from django.test import RequestFactory
 from django.urls import reverse
@@ -11,6 +12,7 @@ from blog.models import Article, Category, Tag
 from djangoblog.test_base import BaseTestCase, AdminTestMixin
 
 
+#hzh: 文章后台测试覆盖列表展示、搜索、筛选和管理表单等功能。
 class ArticleAdminTest(BaseTestCase, AdminTestMixin):
     """测试 Article Admin"""
 
@@ -93,6 +95,7 @@ class ArticleAdminTest(BaseTestCase, AdminTestMixin):
         self.assertIsNotNone(formfield)
 
 
+#hzh: 分类后台测试检查分类管理页面的访问、搜索和修改。
 class CategoryAdminTest(BaseTestCase, AdminTestMixin):
     """测试 Category Admin"""
 
@@ -118,6 +121,7 @@ class CategoryAdminTest(BaseTestCase, AdminTestMixin):
         self.assertEqual(response.status_code, 200)
 
 
+#hzh: 标签后台测试检查标签管理页面的访问、搜索和修改。
 class TagAdminTest(BaseTestCase, AdminTestMixin):
     """测试 Tag Admin"""
 

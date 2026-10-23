@@ -1,6 +1,7 @@
 """
 Test cases for blog middleware
 """
+#hzh: 本模块使用模拟请求和依赖替换验证页面耗时统计中间件。
 import time
 from unittest.mock import Mock, patch, MagicMock
 
@@ -11,6 +12,7 @@ from django.utils import timezone
 from blog.middleware import OnlineMiddleware
 
 
+#hzh: 中间件测试覆盖正常响应、耗时记录、流式响应和异常处理。
 class OnlineMiddlewareTest(TestCase):
     """测试OnlineMiddleware中间件"""
 
@@ -62,6 +64,7 @@ class OnlineMiddlewareTest(TestCase):
         # 验证响应内容被替换
         self.assertNotIn(b'<!!LOAD_TIMES!!>', response.content)
 
+    #hzh: 验证流式响应不会进入普通响应的内容替换流程。
     def test_middleware_handles_streaming_response(self):
         """测试中间件处理流式响应"""
         def streaming_get_response(request):
@@ -157,6 +160,7 @@ class OnlineMiddlewareTest(TestCase):
 
     @patch('blog.middleware.ELASTICSEARCH_ENABLED', True)
     @patch('blog.middleware.ElaspedTimeDocumentManager.create')
+    #hzh: 模拟Elasticsearch写入失败，检查统计异常是否影响请求处理。
     def test_middleware_handles_elasticsearch_exception(self, mock_create):
         """测试中间件处理Elasticsearch异常"""
         # 模拟Elasticsearch抛出异常

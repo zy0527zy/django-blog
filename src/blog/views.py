@@ -32,6 +32,7 @@ logger = logging.getLogger(__name__)
 
 
 # 文章列表页面的公共基础视图，统一处理模板、分页和上下文等通用逻辑
+#hzh: 文章列表基类组合缓存与分页能力，供首页、分类、标签等视图复用。
 class ArticleListView(CachedListViewMixin, PageNumberMixin, ListView):
     """
     文章列表视图基类（重构版）
@@ -92,6 +93,7 @@ class IndexView(OptimizedArticleQueryMixin, ArticleListView):
 
 
 # 文章详情视图：负责显示单篇文章，并准备评论、分页、SEO 和插件所需数据
+#hzh: 详情视图根据 URL 中的文章 ID 获取对象，并为模板准备文章和评论上下文。
 class ArticleDetailView(DetailView):
     '''
     文章详情页面
@@ -379,6 +381,7 @@ class EsSearchView(SearchView):
 
 @csrf_exempt
 # 文件上传接口：校验请求后保存上传文件，图片还会进行压缩处理
+#hzh: 上传入口先验证请求方法及签名，再保存文件并对识别为图片的文件执行压缩。
 def fileupload(request):
     """
     该方法需自己写调用端来上传图片，该方法仅提供图床功能
