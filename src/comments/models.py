@@ -23,6 +23,7 @@ class Comment(models.Model):
     一条评论必须属于一篇文章、有一个作者；若为"回复某条评论"，
     则通过 parent_comment 指向被回复的评论（自关联），从而形成楼中楼结构。
     """
+    #lyt: 作者、文章和父评论三个外键共同描述评论归属与楼中楼层级。  # noqa: E265
 
     # 评论正文，限制 300 字
     body = models.TextField('正文', max_length=300)
@@ -53,6 +54,7 @@ class Comment(models.Model):
         null=True,
         on_delete=models.CASCADE)
 
+    #lyt: 新评论默认待审核，是否立即展示由站点的审核设置决定。  # noqa: E265
     # 是否启用（是否通过审核、对外展示）：默认 False，需审核后才置为 True
     is_enable = models.BooleanField(_('enable'),
                                     default=False, blank=False, null=False)
@@ -91,6 +93,7 @@ class Comment(models.Model):
         """
         from django.db.models import Count
 
+        #lyt: 先按表情分组计数，再补充用户列表和当前用户的表态状态。  # noqa: E265
         # 按表情类型分组，统计该评论每种 Emoji 的数量
         reactions = CommentReaction.objects.filter(
             comment=self
@@ -132,6 +135,7 @@ class CommentReaction(models.Model):
 
     记录"哪个用户对哪条评论点了哪种表情"。
     """
+    #lyt: 每条记录表示一个用户对一条评论选择了一种表情。  # noqa: E265
 
     # 系统支持的 8 种 Emoji：第一项为实际存入的表情，第二项为英文标识
     REACTION_CHOICES = [
@@ -170,6 +174,7 @@ class CommentReaction(models.Model):
     class Meta:
         verbose_name = _('comment reaction')
         verbose_name_plural = _('comment reactions')
+        #lyt: 联合唯一约束让同一用户的同一表情可通过再次点击取消。  # noqa: E265
         # 联合唯一：每个用户对同一评论的同一种 emoji 只能点一次（防止重复点赞）
         unique_together = ['comment', 'user', 'reaction_type']
         indexes = [

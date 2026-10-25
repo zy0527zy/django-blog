@@ -1,3 +1,4 @@
+#hzh: 本模块配置Django后台的文章、分类、标签及站点设置管理界面。
 from django import forms
 from django.contrib import admin
 from django.contrib.auth import get_user_model
@@ -19,6 +20,7 @@ class ArticleForm(forms.ModelForm):
 
 
 # 将后台批量选中的文章状态修改为已发布
+#hzh: 批量发布直接更新数据库字段，不会逐个调用文章模型的save方法。
 def makr_article_publish(modeladmin, request, queryset):
     # 第六周架构标注（黄梓涵）：后台 action 直接批量更新状态，与逐个调用
     # Article.save() 的流程不同；QuerySet.update() 不触发模型 save()/post_save。
@@ -48,6 +50,7 @@ open_article_commentstatus.short_description = _('Open article comments')
 
 
 # 文章后台管理配置，控制文章列表展示、筛选、搜索和批量操作
+#hzh: 文章后台管理类集中配置列表字段、筛选条件、编辑表单和批量操作。
 class ArticlelAdmin(admin.ModelAdmin):
     # 第六周架构标注（黄梓涵）：文章新增、编辑、删除由 Django ModelAdmin
     # 提供标准页面和权限检查；本类配置表单、筛选及 action，未定义前台 CRUD 视图。
