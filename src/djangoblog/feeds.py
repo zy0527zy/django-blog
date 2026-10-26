@@ -3,6 +3,8 @@ djangoblog feeds.py 文件
 功能：定义博客的 RSS 订阅源（Feed）
 把最新发布的文章以 RSS 2.0 格式输出，供阅读器订阅
 """
+
+#zy: 模块精读：RSS 订阅源，items() 取最新 5 篇已发布普通文章（type='a' 且 status='p'），正文经 CommonMarkdown 把 Markdown 转 HTML。
 from django.contrib.auth import get_user_model
 from django.contrib.syndication.views import Feed
 from django.utils import timezone
@@ -24,6 +26,7 @@ class DjangoBlogFeed(Feed):
 
     def author_name(self):
         """返回订阅源作者昵称（取第一个用户的昵称）"""
+        #zy: 【质量】.first() 在无用户时会返回 None，再取 .nickname 会抛 AttributeError；建议加判空或默认值。
         return get_user_model().objects.first().nickname
 
     def author_link(self):
@@ -45,7 +48,7 @@ class DjangoBlogFeed(Feed):
     def feed_copyright(self):
         """返回订阅源的版权信息（含当前年份）"""
         now = timezone.now()
-        return "Copyright© {year} 且听风吟".format(year=now.year)
+        return f"Copyright© {now.year} 且听风吟"
 
     def item_link(self, item):
         """返回单条订阅条目的跳转链接"""
@@ -53,4 +56,5 @@ class DjangoBlogFeed(Feed):
 
     def item_guid(self, item):
         """返回单条订阅条目的全局唯一标识（此处未实现，Django 会回退用链接作为 guid）"""
+        #zy: 【质量】guid 未显式实现，靠 Django 回退用链接当唯一标识；建议显式返回 item.get_absolute_url()。
         return

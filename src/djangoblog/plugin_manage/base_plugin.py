@@ -1,3 +1,5 @@
+#zy: 模块精读：插件基类，定义插件生命周期（元数据校验→初始化→注册钩子）与统一渲染接口（按位置渲染 widget、模板、静态资源）。
+#zy: 注意：这里的 register_hooks() 是空方法留给子类重写，与同目录 hooks.py 的全局 register() 是两套机制，命名相近易混。
 import logging
 from pathlib import Path
 

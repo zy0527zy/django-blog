@@ -13,6 +13,7 @@ from .models import Comment
 
 
 class CommentForm(ModelForm):
+    #lyt: 普通评论留空此字段，回复时由页面填入被回复评论的主键。  # noqa: E265
     # 隐藏字段：父评论 id。普通评论为空；回复某条评论时前端自动填上被回复评论的 id
     # required=False 表示允许为空（顶层评论没有父评论）
     parent_comment_id = forms.IntegerField(
@@ -22,4 +23,5 @@ class CommentForm(ModelForm):
         # 表单对应的模型：Comment
         model = Comment
         # 只开放「正文」字段给用户填写，其他字段（作者/文章/父评论）由视图逻辑处理
+        #lyt: 只接收正文；作者、文章和父评论由视图校验并关联。  # noqa: E265
         fields = ['body']

@@ -3,6 +3,10 @@ djangoblog admin_site.py 文件
 功能：自定义 Django 后台管理站点（AdminSite）
 统一把全站各 app 的模型注册到后台，集中控制后台标题、访问权限与各模型入口
 """
+
+#zy: 模块精读：自定义后台站点。关键点：
+#zy: ① 用单一 DjangoBlogAdminSite 实例统一注册全站各 app 的模型，避免入口分散；
+#zy: ② has_permission 重写为仅 is_superuser 可进后台（比 Django 默认 is_staff 更严，属安全收紧）。
 from django.contrib.admin import AdminSite
 from django.contrib.admin.models import LogEntry
 from django.contrib.sites.admin import SiteAdmin

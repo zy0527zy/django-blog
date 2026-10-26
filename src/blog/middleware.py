@@ -1,3 +1,4 @@
+#hzh: 本模块在HTTP请求处理过程中采集页面耗时及客户端信息。
 import logging
 import time
 
@@ -17,6 +18,7 @@ class OnlineMiddleware(object):
         super().__init__()
 
     # 处理每次请求，统计页面处理时间并记录性能数据
+    #hzh: 调用后续处理流程取得响应，再对非流式响应执行耗时统计和内容替换。
     def __call__(self, request):
         ''' page render time '''
         # 记录请求开始时间，用于计算页面处理耗时。

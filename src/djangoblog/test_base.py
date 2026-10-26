@@ -2,12 +2,13 @@
 可复用的测试基类和工具
 提供通用的测试数据创建和断言方法
 """
-from django.contrib.auth.models import Permission
-from django.test import TestCase, Client, RequestFactory
+
+#zy: 模块精读：测试基建。BaseTestCase 在 setUp 里集中创建用户/管理员/分类/标签/文章/博客配置等公共数据，供各测试类复用，避免重复造数据。
+from django.test import Client, RequestFactory, TestCase
 from django.utils import timezone
 
 from accounts.models import BlogUser
-from blog.models import Article, Category, Tag, BlogSettings
+from blog.models import Article, BlogSettings, Category, Tag
 from comments.models import Comment
 
 
@@ -226,7 +227,7 @@ class PluginTestMixin:
 
         context = {
             'request': request,
-            'article': kwargs.get('article', None),
+            'article': kwargs.get('article'),
             'content': kwargs.get('content', ''),
         }
         return context

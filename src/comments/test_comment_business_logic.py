@@ -13,7 +13,7 @@
 Test cases for comment business logic
 包括评论审核工作流、嵌套回复、权限控制等核心业务逻辑
 """
-from django.test import TestCase, Client
+from django.test import TestCase
 from django.utils import timezone
 
 from accounts.models import BlogUser
@@ -676,7 +676,7 @@ class CommentDeletionTest(TestCase):
             is_enable=True
         )
 
-        reply = Comment.objects.create(
+        Comment.objects.create(
             body='Reply',
             author=self.commenter,
             article=self.article,
@@ -685,8 +685,6 @@ class CommentDeletionTest(TestCase):
         )
 
         parent_id = parent.id
-        reply_id = reply.id
-
         # 删除父评论
         parent.delete()
 

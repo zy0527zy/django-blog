@@ -1,12 +1,15 @@
 #!/usr/bin/env python
-# encoding: utf-8
 
 """
 Django Blog 统一错误处理视图
 提供统一的错误页面渲染，减少重复代码
 """
 
+#zy: 模块精读：把 404/500/403/400 错误统一收敛到 render_error_page 一个函数，统一日志记录与页面渲染，避免重复写渲染逻辑（DRY）。
+#zy: 注意：各处理器虽保留 template_name 形参（兼容 Django 签名），但实际模板在 render_error_page 里硬编码为 blog/error_page.html，形参未被使用。
+
 import logging
+
 from django.shortcuts import render
 from django.utils.translation import gettext_lazy as _
 
