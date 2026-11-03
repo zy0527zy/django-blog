@@ -94,7 +94,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'blog.middleware.OnlineMiddleware'
+    'blog.middleware.OnlineMiddleware',
+    'blog.middleware.MaintenanceModeMiddleware'
 ]
 
 # 全局路由入口：请求进来后先交给 djangoblog/urls.py，由它把 URL 分发给各 app 的 urls.py

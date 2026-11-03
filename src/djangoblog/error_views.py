@@ -73,7 +73,7 @@ def page_not_found_view(request, exception, template_name='blog/error_page.html'
     return render_error_page(
         request,
         404,
-        _('Sorry, the page you requested is not found, please click the home page to see other?'),
+        _('抱歉，您访问的页面不存在或已被删除，请返回首页或搜索相关内容。'),
         exception
     )
 
@@ -94,7 +94,7 @@ def server_error_view(request, template_name='blog/error_page.html'):
     return render_error_page(
         request,
         500,
-        _('Sorry, the server is busy, please click the home page to see other?')
+        _('抱歉，服务器暂时开小差了，请稍后重试或返回首页。')
     )
 
 
@@ -115,7 +115,7 @@ def permission_denied_view(request, exception, template_name='blog/error_page.ht
     return render_error_page(
         request,
         403,
-        _('Sorry, you do not have permission to access this page?'),
+        _('抱歉，您没有权限访问该页面。'),
         exception
     )
 
@@ -137,6 +137,6 @@ def bad_request_view(request, exception, template_name='blog/error_page.html'):
     return render_error_page(
         request,
         400,
-        _('Sorry, the request was invalid?'),
+        _('抱歉，您的请求无效。'),
         exception
     )
