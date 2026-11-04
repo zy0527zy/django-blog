@@ -7,7 +7,9 @@ import urllib
 
 from django import template
 from django.conf import settings
-from django.db.models import Q
+from datetime import datetime, timedelta
+from django.db.models import F, Q
+from django.utils import timezone
 from django.shortcuts import get_object_or_404
 from django.template.defaultfilters import stringfilter
 from django.templatetags.static import static
@@ -254,6 +256,50 @@ def load_articletags(article):
     }
 
 
+
+#hzh: 按站点时区统计周一至周日的真实阅读量。
+def get_weekly_hot_articles():
+    today = datetime.now(timezone.get_current_timezone()).date()
+    week_start = today - timedelta(days=today.weekday())
+
+    from djangoblog.utils import get_blog_setting
+    limit = get_blog_setting().sidebar_article_count
+
+    return list(
+        Article.objects.filter(
+            status='p',
+            type='a',
+            weekly_view_records__week_start=week_start,
+            weekly_view_records__views__gt=0
+        ).select_related(
+            'author', 'category'
+        ).annotate(
+            weekly_views=F('weekly_view_records__views')
+        ).order_by(
+            '-weekly_views', '-id'
+        )[:limit]
+    )
+
+
+
+#hzh: 按累计阅读量查询已发布的普通文章。
+def get_most_read_articles():
+    from djangoblog.utils import get_blog_setting
+
+    limit = get_blog_setting().sidebar_article_count
+
+    return list(
+        Article.objects.filter(
+            status='p',
+            type='a'
+        ).select_related(
+            'author', 'category'
+        ).order_by(
+            '-views', '-id'
+        )[:limit]
+    )
+
+
 #hzh: 侧边栏标签组合文章、分类等数据，并利用缓存减少重复查询。
 @register.inclusion_tag('blog/tags/sidebar.html')
 # 准备侧边栏需要的最新文章、热门文章、分类、评论、标签和友情链接等数据
@@ -265,6 +311,8 @@ def load_sidebar(user, linktype):
     value = cache.get("sidebar" + linktype)
     if value:
         value['user'] = user
+        value['most_read_articles'] = get_most_read_articles()
+        value['weekly_hot_articles'] = get_weekly_hot_articles()
         return value
     else:
         logger.info('load sidebar')
@@ -284,11 +332,7 @@ def load_sidebar(user, linktype):
         ).order_by('sequence')
 
         # 按浏览量倒序查询热门文章
-        most_read_articles = Article.objects.filter(
-            status='p'
-        ).select_related('author', 'category').order_by(
-            '-views'
-        )[:blogsetting.sidebar_article_count]
+        most_read_articles = get_most_read_articles()
 
         dates = Article.objects.datetimes('creation_time', 'month', order='DESC')
 
@@ -330,6 +374,7 @@ def load_sidebar(user, linktype):
         cache.set("sidebar" + linktype, value, 60 * 60 * 60 * 3)
         logger.info('set sidebar cache.key:{key}'.format(key="sidebar" + linktype))
         value['user'] = user
+        value['weekly_hot_articles'] = get_weekly_hot_articles()
         return value
 
 
