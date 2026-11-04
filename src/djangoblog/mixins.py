@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-# encoding: utf-8
 
 """
 Django Blog 混入类 (Mixins)
@@ -10,6 +9,7 @@ Django Blog 混入类 (Mixins)
 #zy: 是"组合优于继承、高内聚低耦合"的典型：TimeStampedModel 统一时间戳，OptimizedArticleQueryMixin 用 select_related/prefetch_related 避免 N+1。
 
 import logging
+
 from django.db import models
 from django.shortcuts import get_object_or_404
 from django.utils.timezone import now

@@ -174,6 +174,20 @@
       data-authenticated="{% if user.is_authenticated %}true{% else %}false{% endif %}"
       x-data="{ searchOpen: false }">
 <div id="page" class="hfeed site flex min-h-screen flex-col">
+    {% if ANNOUNCEMENT %}
+    <div id="site-announcement" class="bg-amber-500 text-white text-sm">
+        <div class="mx-auto max-w-6xl px-4 py-2 flex items-center justify-between gap-3">
+            <div class="flex items-center gap-2 min-w-0">
+                <span aria-hidden="true">📢</span>
+                <span class="truncate">{{ ANNOUNCEMENT|safe }}</span>
+            </div>
+            <button type="button"
+                    onclick="document.getElementById('site-announcement').style.display='none'"
+                    class="text-white/80 hover:text-white text-lg leading-none shrink-0"
+                    aria-label="关闭公告">&times;</button>
+        </div>
+    </div>
+    {% endif %}
     {% load i18n %}
     {% include 'share_layout/nav.html' %}
     <div id="main" role="main" class="flex-1" hx-boost="true" hx-target="#main" hx-select="#main" hx-swap="innerHTML" hx-push-url="true">

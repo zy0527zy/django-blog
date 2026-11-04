@@ -1,3 +1,4 @@
+#hzh: 本模块提供向百度搜索服务提交站点内容URL的管理命令。
 from django.core.management.base import BaseCommand
 
 from djangoblog.spider_notify import SpiderNotify
@@ -25,6 +26,7 @@ class Command(BaseCommand):
         url = "https://{site}{path}".format(site=site, path=path)
         return url
 
+    #hzh: 按输入类型选择文章、标签或分类URL，再交由通知组件处理。
     def handle(self, *args, **options):
         type = options['data_type']
         self.stdout.write('start get %s' % type)

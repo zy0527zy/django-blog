@@ -12,6 +12,7 @@ class BlogConfig(AppConfig):
         # 检查并创建搜索索引（如果需要）
         self.check_search_index()
 
+    #hzh: 初始化时检查 Elasticsearch 和 Whoosh 索引，异常被记录为警告而非直接中断启动。
     def check_search_index(self):
         """检查搜索索引是否存在，不存在则创建空索引"""
         from django.conf import settings

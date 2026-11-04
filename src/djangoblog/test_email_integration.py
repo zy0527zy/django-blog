@@ -6,13 +6,14 @@ Email Integration Tests
 
 #zy: 模块精读：邮件流程集成测试。用 @override_settings 把 EMAIL_BACKEND 换成 locmem（内存邮箱），避免真实发信，从 mail.outbox 断言邮件内容。
 import re
-from django.test import TestCase, Client, override_settings
+
 from django.core import mail
+from django.test import Client, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
 from accounts.models import BlogUser
-from blog.models import Article, Category, BlogSettings
+from blog.models import Article, BlogSettings, Category
 from comments.models import Comment
 
 

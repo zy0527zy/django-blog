@@ -18,15 +18,15 @@ Including another URLconf
 #zy: ① 所有业务路由用 i18n_patterns 包裹做国际化，prefix_default_language=False 使默认语言（中文）不带前缀；
 #zy: ② 各 app 通过 include(namespace='xxx') 挂载，便于在模板/视图中用 'xxx:name' 反向解析 URL；
 #zy: ③ 静态文件 /static/ 由 static() 伺服，/media/ 仅在 DEBUG 下额外伺服。
+import time
+
 from django.conf import settings
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
-from django.urls import path, include
-from django.urls import re_path
-from haystack.views import search_view_factory
 from django.http import JsonResponse
-import time
+from django.urls import include, path, re_path
+from haystack.views import search_view_factory
 
 from blog.views import EsSearchView
 from djangoblog.admin_site import admin_site
@@ -47,9 +47,10 @@ sitemaps = {
 # 自定义错误页视图：404 页面不存在 / 500 服务器错误 / 403 无权限
 handler404 = 'blog.views.page_not_found_view'
 handler500 = 'blog.views.server_error_view'
-handle403 = 'blog.views.permission_denied_view'
-#zy: 【质量】此处 handle403 疑似拼写错误：Django 约定的 403 处理器变量名应为 handler403（与 handler404/handler500 一致），
-#zy: 写成 handle403 会导致自定义 403 页不生效、回落到 Django 默认错误页。
+handler403 = 'blog.views.permission_denied_view'
+handler400 = 'blog.views.bad_request_view'
+#zy: 【第九十周功能修改】修正 handle403 拼写错误为 handler403，并补充 handler400 处理器，
+#zy: 使自定义 403/400 错误页生效（此前 handle403 拼写错误导致 403 页回落到 Django 默认错误页）。
 
 
 def health_check(request):

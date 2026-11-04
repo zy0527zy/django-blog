@@ -18,7 +18,6 @@ from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
 
-
 # ==================== 项目全局配置总览 ====================
 # 本文件是 DjangoBlog 的"总配置文件"，负责三件全局大事：
 # 1) INSTALLED_APPS —— 注册应用：把 Django 内置库、三方库、本项目各业务 app 登记进来，
@@ -95,7 +94,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.http.ConditionalGetMiddleware',
-    'blog.middleware.OnlineMiddleware'
+    'blog.middleware.OnlineMiddleware',
+    'blog.middleware.MaintenanceModeMiddleware'
 ]
 
 # 全局路由入口：请求进来后先交给 djangoblog/urls.py，由它把 URL 分发给各 app 的 urls.py

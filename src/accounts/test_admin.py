@@ -3,12 +3,10 @@ Accounts Admin 测试
 测试用户管理后台的各项功能
 """
 from django.contrib.admin.sites import AdminSite
-from django.test import TestCase, RequestFactory
-from django.urls import reverse
 
 from accounts.admin import BlogUserAdmin
 from accounts.models import BlogUser
-from djangoblog.test_base import BaseTestCase, AdminTestMixin
+from djangoblog.test_base import AdminTestMixin, BaseTestCase
 
 
 class BlogUserAdminTest(BaseTestCase, AdminTestMixin):

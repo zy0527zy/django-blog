@@ -2,9 +2,9 @@
 Test cases for user authentication business logic
 包括用户注册、登录、密码管理、权限等核心业务逻辑
 """
-from django.test import TestCase, Client
 from django.contrib.auth import authenticate
-from django.utils import timezone
+from django.db import IntegrityError
+from django.test import TestCase
 
 from accounts.models import BlogUser
 
@@ -61,7 +61,7 @@ class UserRegistrationTest(TestCase):
         )
 
         # 尝试创建相同用户名的用户应该失败
-        with self.assertRaises(Exception):
+        with self.assertRaises(IntegrityError):
             BlogUser.objects.create_user(
                 username='testuser',
                 email='test2@example.com',

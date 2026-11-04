@@ -8,6 +8,7 @@ Vite资源加载Django模板标签
     {% vite_css 'src/styles/main.css' %}
 """
 
+#hzh: 本模块为Django模板提供Vite前端资源的加载和路径解析功能。
 import json
 import os
 from django import template
@@ -24,6 +25,7 @@ logger = logging.getLogger(__name__)
 _manifest_cache = None
 
 
+#hzh: 读取前端构建清单并复用缓存，减少重复解析资源映射文件。
 def load_manifest():
     """
     加载Vite生成的manifest.json文件

@@ -15,7 +15,7 @@ from django.test import TransactionTestCase
 from django.urls import reverse
 
 from comments.models import Comment
-from djangoblog.test_base import BaseTestCase, ViewTestMixin
+from djangoblog.test_base import ViewTestMixin
 
 
 class CommentViewTest(TransactionTestCase, ViewTestMixin):
@@ -131,7 +131,7 @@ class CommentViewTest(TransactionTestCase, ViewTestMixin):
 
     def test_comment_display_on_article(self):
         """测试评论在文章页显示"""
-        comment = Comment.objects.create(
+        Comment.objects.create(
             body='测试显示评论',
             author=self.user,
             article=self.article,
@@ -143,7 +143,7 @@ class CommentViewTest(TransactionTestCase, ViewTestMixin):
 
     def test_disabled_comment_not_display(self):
         """测试未启用的评论不显示"""
-        comment = Comment.objects.create(
+        Comment.objects.create(
             body='未启用的评论',
             author=self.user,
             article=self.article,

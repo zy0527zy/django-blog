@@ -1,3 +1,4 @@
+#hzh: 本模块集中实现文章渲染、分页、侧边栏及插件组件等自定义模板标签。
 import hashlib
 import json
 import logging
@@ -253,6 +254,7 @@ def load_articletags(article):
     }
 
 
+#hzh: 侧边栏标签组合文章、分类等数据，并利用缓存减少重复查询。
 @register.inclusion_tag('blog/tags/sidebar.html')
 # 准备侧边栏需要的最新文章、热门文章、分类、评论、标签和友情链接等数据
 def load_sidebar(user, linktype):

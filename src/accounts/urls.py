@@ -1,6 +1,6 @@
 """账号相关页面的 URL 路由配置。"""
-from django.urls import path
-from django.urls import re_path
+#swb: 将账户 URL 映射到登录、注册和密码找回视图。
+from django.urls import path, re_path
 
 from . import views
 from .forms import LoginForm

@@ -1,3 +1,4 @@
+#hzh: 本模块在HTTP请求处理过程中采集页面耗时及客户端信息。
 import logging
 import time
 
@@ -17,6 +18,7 @@ class OnlineMiddleware(object):
         super().__init__()
 
     # 处理每次请求，统计页面处理时间并记录性能数据
+    #hzh: 调用后续处理流程取得响应，再对非流式响应执行耗时统计和内容替换。
     def __call__(self, request):
         ''' page render time '''
         # 记录请求开始时间，用于计算页面处理耗时。
@@ -53,3 +55,29 @@ class OnlineMiddleware(object):
 
         # 将处理完成的响应返回给 Django。
         return response
+
+
+#zy: 【第九十周功能新增】维护模式中间件：BlogSettings.is_maintenance 开启时，前台仅管理员可访问，普通访客统一看到维护提示页（503）。
+class MaintenanceModeMiddleware(object):
+    """维护模式中间件：开启后拦截前台请求，展示维护提示页。"""
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+        super().__init__()
+
+    def __call__(self, request):
+        # 后台管理、静态/媒体资源、健康检查始终放行，避免维护时把自己锁在门外
+        path = request.path
+        if path.startswith(('/admin', '/static', '/media', '/health')):
+            return self.get_response(request)
+        try:
+            # 懒加载导入，避免模块加载阶段的循环依赖
+            from djangoblog.utils import get_blog_setting
+            is_maintenance = bool(getattr(get_blog_setting(), 'is_maintenance', False))
+        except Exception:
+            # 配置读取失败（如数据库尚未迁移）时按「未开启维护」处理，保证站点可用
+            is_maintenance = False
+        if is_maintenance and not getattr(request.user, 'is_staff', False):
+            from django.shortcuts import render
+            return render(request, 'blog/maintenance.html', status=503)
+        return self.get_response(request)

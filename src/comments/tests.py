@@ -13,7 +13,7 @@ from django.urls import reverse
 from accounts.models import BlogUser
 from blog.models import Category, Article
 from comments.models import Comment
-from comments.templatetags.comments_tags import *
+from comments.templatetags.comments_tags import parse_commenttree, show_comment_item
 from djangoblog.utils import get_max_articleid_commentid
 
 

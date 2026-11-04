@@ -2,6 +2,7 @@
 Test cases for article business logic
 包括文章状态转换、权限控制、评论控制等核心业务逻辑
 """
+#hzh: 本测试模块覆盖文章状态、访问、权限、评论和时间字段等业务规则。
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.utils import timezone
@@ -10,6 +11,7 @@ from accounts.models import BlogUser
 from blog.models import Article, Category
 
 
+#hzh: 通过创建和修改文章检验草稿、发布及浏览量等生命周期行为。
 class ArticleLifecycleTest(TestCase):
     """测试文章完整生命周期"""
 

@@ -1,11 +1,12 @@
+from django.conf import settings
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils import timezone
-from django.utils.translation import gettext_lazy as _
 
 from accounts.models import BlogUser
 from blog.models import Article, Category
-from djangoblog.utils import *
+from djangoblog.utils import delete_sidebar_cache, generate_code, get_sha256
+
 from . import utils
 
 
@@ -25,13 +26,10 @@ class AccountTest(TestCase):
 
     def test_validate_account(self):
         """验证超级用户登录后可访问管理后台及文章管理页面。"""
-        site = get_current_site().domain
         user = BlogUser.objects.create_superuser(
             email="liangliangyy1@gmail.com",
             username="liangliangyy1",
             password="qwer!@#$ggg")
-        testuser = BlogUser.objects.get(username='liangliangyy1')
-
         loginresult = self.client.login(
             username='liangliangyy1',
             password='qwer!@#$ggg')
@@ -60,7 +58,7 @@ class AccountTest(TestCase):
     def test_validate_register(self):
         """覆盖注册、邮箱验证、后台访问及退出后的访问状态。"""
         # 确认提交注册前数据库中还没有该邮箱对应的账号。
-        self.assertEquals(
+        self.assertEqual(
             0, len(
                 BlogUser.objects.filter(
                     email='user123@user.com')))
@@ -71,15 +69,14 @@ class AccountTest(TestCase):
             'password2': 'password123!q@wE#R$T',
         })
         # 注册请求应创建账号，并生成用于邮箱验证的签名链接。
-        self.assertEquals(
+        self.assertEqual(
             1, len(
                 BlogUser.objects.filter(
                     email='user123@user.com')))
         user = BlogUser.objects.filter(email='user123@user.com')[0]
         sign = get_sha256(get_sha256(settings.SECRET_KEY + str(user.id)))
         path = reverse('accounts:result')
-        url = '{path}?type=validation&id={id}&sign={sign}'.format(
-            path=path, id=user.id, sign=sign)
+        url = f'{path}?type=validation&id={user.id}&sign={sign}'
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
 
@@ -141,7 +138,7 @@ class AccountTest(TestCase):
         """提交有效邮箱，检查找回密码验证码请求成功。"""
         resp = self.client.post(
             path=reverse("account:forget_password_code"),
-            data=dict(email="admin@admin.com")
+            data={"email": "admin@admin.com"}
         )
 
         self.assertEqual(resp.status_code, 200)
@@ -151,13 +148,13 @@ class AccountTest(TestCase):
         """缺少邮箱或邮箱格式错误时，应返回邮箱错误提示。"""
         resp = self.client.post(
             path=reverse("account:forget_password_code"),
-            data=dict()
+            data={}
         )
         self.assertEqual(resp.content.decode("utf-8"), "错误的邮箱")
 
         resp = self.client.post(
             path=reverse("account:forget_password_code"),
-            data=dict(email="admin@com")
+            data={"email": "admin@com"}
         )
         self.assertEqual(resp.content.decode("utf-8"), "错误的邮箱")
 
@@ -165,12 +162,12 @@ class AccountTest(TestCase):
         """提交正确验证码和新密码后，确认账号密码已更新。"""
         code = generate_code()
         utils.set_code(self.blog_user.email, code)
-        data = dict(
-            new_password1=self.new_test,
-            new_password2=self.new_test,
-            email=self.blog_user.email,
-            code=code,
-        )
+        data = {
+            "new_password1": self.new_test,
+            "new_password2": self.new_test,
+            "email": self.blog_user.email,
+            "code": code,
+        }
         resp = self.client.post(
             path=reverse("account:forget_password"),
             data=data
@@ -186,34 +183,32 @@ class AccountTest(TestCase):
 
     def test_forget_password_email_not_user(self):
         """尝试为不存在的邮箱重置密码时，请求应由视图正常处理。"""
-        data = dict(
-            new_password1=self.new_test,
-            new_password2=self.new_test,
-            email="123@123.com",
-            code="123456",
-        )
+        data = {
+            "new_password1": self.new_test,
+            "new_password2": self.new_test,
+            "email": "123@123.com",
+            "code": "123456",
+        }
         resp = self.client.post(
             path=reverse("account:forget_password"),
             data=data
         )
 
         self.assertEqual(resp.status_code, 200)
-
 
     def test_forget_password_email_code_error(self):
         """验证码不匹配时，不应完成密码重置。"""
         code = generate_code()
         utils.set_code(self.blog_user.email, code)
-        data = dict(
-            new_password1=self.new_test,
-            new_password2=self.new_test,
-            email=self.blog_user.email,
-            code="111111",
-        )
+        data = {
+            "new_password1": self.new_test,
+            "new_password2": self.new_test,
+            "email": self.blog_user.email,
+            "code": "111111",
+        }
         resp = self.client.post(
             path=reverse("account:forget_password"),
             data=data
         )
 
         self.assertEqual(resp.status_code, 200)
-

@@ -5,6 +5,7 @@ from . import views
 
 app_name = "blog"
 # blog 应用的 URL 路由表，将访问地址分发给对应的视图
+#hzh: 路由名称必须与 reverse() 调用一致，特别注意 detailbyid 和 archives。
 urlpatterns = [
     path(
         r'',

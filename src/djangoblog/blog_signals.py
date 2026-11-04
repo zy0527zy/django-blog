@@ -20,8 +20,7 @@ from django.dispatch import receiver
 from comments.models import Comment
 from comments.utils import send_comment_email
 from djangoblog.spider_notify import SpiderNotify
-from djangoblog.utils import cache, expire_view_cache, delete_sidebar_cache, delete_view_cache
-from djangoblog.utils import get_current_site
+from djangoblog.utils import cache, delete_sidebar_cache, delete_view_cache, expire_view_cache, get_current_site
 from oauth.models import OAuthUser
 
 logger = logging.getLogger(__name__)
@@ -119,8 +118,7 @@ def model_post_save_callback(
                 key_prefix='blogdetail')
 
             # 清理评论相关缓存
-            comment_cache_key = 'article_comments_{id}'.format(
-                id=instance.article.id)
+            comment_cache_key = f'article_comments_{instance.article.id}'
             cache.delete(comment_cache_key)
             delete_view_cache('article_comments', [str(instance.article.pk)])
             delete_sidebar_cache()
