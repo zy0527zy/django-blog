@@ -1,5 +1,7 @@
 [flake8]
 max-line-length = 120
 max-complexity = 10
-extend-ignore = E203,W503
+# E261/E262/E265：团队约定注释以 #姓名缩写: 开头（如 #zly:），
+# 与 PEP8 的"# 后加空格"冲突，属规则冲突而非代码缺陷，项目级豁免。
+extend-ignore = E203,W503,E261,E262,E265
 exclude = .git,.venv,venv,node_modules,src/frontend,src/locale,src/logs,migrations

@@ -52,6 +52,7 @@ class CommentPostView(AuthenticatedFormView):
     def form_valid(self, form):
         """表单数据验证合法后的核心逻辑：组装并保存一条评论。"""
         user = self.request.user
+        #lyt: 作者来自当前已登录会话，不采用表单传来的作者字段。  # noqa: E265
         # 以当前登录用户作为评论作者（取出 BlogUser 实例）
         author = BlogUser.objects.get(pk=user.pk)
         article_id = self.kwargs['article_id']
@@ -68,6 +69,7 @@ class CommentPostView(AuthenticatedFormView):
         # 读取站点设置，判断评论是否需要审核
         from djangoblog.utils import get_blog_setting
         settings = get_blog_setting()
+        #lyt: 是否公开展示由站点审核开关决定，待审评论仍会保存。  # noqa: E265
         if not settings.comment_need_review:
             # 不需要审核时直接置为可展示
             comment.is_enable = True
@@ -75,6 +77,7 @@ class CommentPostView(AuthenticatedFormView):
 
         # 若表单带了父评论 id，说明这是一条回复——关联父评论，形成楼中楼
         if form.cleaned_data['parent_comment_id']:
+            #lyt: 将隐藏字段中的父评论主键解析为对象，建立 Comment 自关联。  # noqa: E265
             parent_comment = Comment.objects.get(
                 pk=form.cleaned_data['parent_comment_id'])
             comment.parent_comment = parent_comment
@@ -130,6 +133,7 @@ class CommentReactionView(View):
                 'error': 'Invalid reaction type'
             }, status=400)
 
+        #lyt: 已有记录会被删除作为取消；没有记录则新建作为表态。  # noqa: E265
         # 切换 reaction：get_or_create 查找已有记录，查不到则新建
         # （模型层 unique_together 已保证同一用户、同一评论、同一表情唯一）
         reaction, created = CommentReaction.objects.get_or_create(

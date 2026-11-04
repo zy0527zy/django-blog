@@ -28,6 +28,7 @@ def send_comment_email(comment):
     # 文章绝对地址：https://域名 + 文章的 URL
     article_url = f"https://{site}{comment.article.get_absolute_url()}"
 
+    #lyt: 先向评论作者发送确认邮件；回复通知在下方按父评论条件发送。  # noqa: E265
     # 第一封邮件：感谢评论者本人（内容为 HTML，附文章链接）
     html_content = _("""<p>Thank you very much for your comments on this site</p>
                     You can visit <a href="%(article_url)s" rel="bookmark">%(article_title)s</a>
@@ -42,6 +43,7 @@ def send_comment_email(comment):
     # 第二封邮件：如果这条评论是回复（存在父评论），通知被回复的原评论作者
     try:
         if comment.parent_comment:
+            #lyt: 回复邮件引用父评论正文，让收件人知道自己哪条评论收到了回复。  # noqa: E265
             html_content = _("""Your comment on <a href="%(article_url)s" rel="bookmark">%(article_title)s</a><br/> has 
                    received a reply. <br/> %(comment_body)s
                     <br/>   

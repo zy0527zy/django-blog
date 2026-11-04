@@ -51,6 +51,7 @@ def seo_processor(requests):
             "GLOBAL_FOOTER": setting.global_footer,
             "COMMENT_NEED_REVIEW": setting.comment_need_review,
             "COLOR_SCHEME": setting.color_scheme,
+            "ANNOUNCEMENT": getattr(setting, 'announcement', ''),
         }
         cache.set(key, value, 60 * 60 * 10)
         return value

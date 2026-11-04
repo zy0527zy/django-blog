@@ -22,6 +22,7 @@ def parse_commenttree(commentlist, comment):
     datas = []
 
     def parse(c):
+        #lyt: 深度优先遍历已启用的子评论，并把结果追加到同一列表。  # noqa: E265
         # 找出 c 的直接子评论（parent_comment=c 且已启用展示）
         childs = commentlist.filter(parent_comment=c, is_enable=True)
         for child in childs:
@@ -36,6 +37,7 @@ def parse_commenttree(commentlist, comment):
 @register.inclusion_tag('comments/tags/comment_item.html')
 def show_comment_item(comment, ischild):
     """评论"""
+    #lyt: inclusion_tag 把评论对象和层级参数交给对应的 HTML 片段。  # noqa: E265
     # 渲染单条评论片段：ischild 表示是否为子评论（决定缩进层级）
     depth = 1 if ischild else 2
     return {

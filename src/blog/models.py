@@ -416,6 +416,21 @@ class BlogSettings(models.Model):
         default='')
     comment_need_review = models.BooleanField(
         '评论是否需要审核', default=False, null=False)
+    #zy: 【第九十周功能新增】站点维护模式开关：开启后前台仅显示维护提示页，后台管理与已登录管理员不受影响。
+    is_maintenance = models.BooleanField(
+        '维护模式',
+        default=False,
+        null=False,
+        blank=False,
+        help_text='开启后前台仅显示维护提示页，后台管理不受影响')
+    #zy: 【第九十周功能新增】全局公告栏：填写后将在页面顶部显示公告，留空则不显示。
+    announcement = models.TextField(
+        '全局公告',
+        max_length=1000,
+        null=True,
+        blank=True,
+        default='',
+        help_text='填写后将在页面顶部显示公告栏，留空则不显示')
 
     class Meta:
         verbose_name = _('Website configuration')

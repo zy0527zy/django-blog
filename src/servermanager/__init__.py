@@ -1,3 +1,1 @@
-# servermanager/__init__.py
-# Django应用包标识文件
-# 作用：标记servermanager文件夹为Python包，Django可识别该目录为App应用
+#zly: 模块说明：servermanager 应用包标识文件，Django 通过它把本目录识别为 Python 包并加载应用内模块。
