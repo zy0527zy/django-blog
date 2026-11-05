@@ -16,6 +16,10 @@ class BlogUser(AbstractUser):
 
     # 用户在博客页面展示的昵称；允许留空，未填写时可使用用户名。
     nickname = models.CharField(_('nick name'), max_length=100, blank=True)
+    #swb: 保存用户自行上传的头像文件，文件按用户 ID 分目录存储。
+    avatar = models.ImageField(_('avatar'), upload_to='accounts/avatars/', blank=True)
+    #swb: 保存用户公开展示的个人简介。
+    bio = models.TextField(_('bio'), max_length=500, blank=True)
     # 用户记录的创建时间和最后修改时间，默认取当前时间。
     creation_time = models.DateTimeField(_('creation time'), default=now)
     last_modify_time = models.DateTimeField(_('last modify time'), default=now)

@@ -2,6 +2,7 @@ from django.conf import settings
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils import timezone
+from django.core.files.uploadedfile import SimpleUploadedFile
 
 from accounts.models import BlogUser
 from blog.models import Article, Category
@@ -212,3 +213,44 @@ class AccountTest(TestCase):
         )
 
         self.assertEqual(resp.status_code, 200)
+
+    #swb: 验证资料编辑页只允许登录用户访问并更新当前用户资料。
+    def test_profile_update_and_login_required(self):
+        response = self.client.get(reverse('account:profile'))
+        self.assertEqual(response.status_code, 302)
+
+        self.client.force_login(self.blog_user)
+        avatar = SimpleUploadedFile('avatar.png', b'fake-image-data', content_type='image/png')
+        response = self.client.post(reverse('account:profile'), {
+            'nickname': '文博',
+            'bio': '热爱写作',
+            'avatar': avatar,
+        })
+        self.assertEqual(response.status_code, 302)
+        self.blog_user.refresh_from_db()
+        self.assertEqual(self.blog_user.nickname, '文博')
+        self.assertEqual(self.blog_user.bio, '热爱写作')
+        self.assertTrue(self.blog_user.avatar.name.startswith('accounts/avatars/'))
+        self.blog_user.avatar.delete(save=False)
+
+    #swb: 验证改密需要正确旧密码，保存后新密码生效且会话保持登录。
+    def test_change_password_checks_old_password_and_keeps_session(self):
+        self.client.force_login(self.blog_user)
+        response = self.client.post(reverse('account:change_password'), {
+            'old_password': 'wrong-password',
+            'new_password1': 'New-safe-pass-983!',
+            'new_password2': 'New-safe-pass-983!',
+        })
+        self.assertEqual(response.status_code, 200)
+        self.blog_user.refresh_from_db()
+        self.assertTrue(self.blog_user.check_password('12345678'))
+
+        response = self.client.post(reverse('account:change_password'), {
+            'old_password': '12345678',
+            'new_password1': 'New-safe-pass-983!',
+            'new_password2': 'New-safe-pass-983!',
+        })
+        self.assertEqual(response.status_code, 302)
+        self.blog_user.refresh_from_db()
+        self.assertTrue(self.blog_user.check_password('New-safe-pass-983!'))
+        self.assertTrue(self.client.get(reverse('account:profile')).wsgi_request.user.is_authenticated)
