@@ -59,6 +59,9 @@ class Comment(models.Model):
     is_enable = models.BooleanField(_('enable'),
                                     default=False, blank=False, null=False)
 
+    #lyt: 记录置顶状态；仅允许顶层评论置顶的规则由视图校验。
+    is_top = models.BooleanField('置顶', default=False)
+
     class Meta:
         # 默认按 id 倒序，即新评论排在前面
         ordering = ['-id']
