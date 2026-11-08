@@ -429,7 +429,8 @@ def fileupload(request):
 from djangoblog.error_views import (
     page_not_found_view,
     server_error_view,
-    permission_denied_view
+    permission_denied_view,
+    bad_request_view
 )
 
 

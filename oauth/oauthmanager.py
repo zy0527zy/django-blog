@@ -344,7 +344,7 @@ class GitHubOauthManager(ProxyManagerMixin, BaseOauthManager):
         params = {
             'client_id': self.client_id,
             'response_type': 'code',
-            'redirect_uri': f'{self.callback_url}&next_url={next_url}',
+           'redirect_uri': self.callback_url, #xcz: 修复原有拼接 next_url 导致的回调地址非法 Bug，确保与后台配置严格一致
             'scope': 'user:email'
         }
         url = self.AUTH_URL + "?" + urllib.parse.urlencode(params)
@@ -427,6 +427,93 @@ class GitHubOauthManager(ProxyManagerMixin, BaseOauthManager):
         """从 GitHub 返回的原始数据中提取头像地址。"""
         datas = json.loads(metadata)
         return datas['avatar_url']
+
+
+#xcz: 实现 Gitee 平台的授权码交换和用户资料读取。
+class GiteeOauthManager(BaseOauthManager):
+    """
+    Gitee OAuth 管理器：对接 Gitee 开放平台。
+    """
+    # Gitee 各接口地址与平台标识
+    AUTH_URL = 'https://gitee.com/oauth/authorize'
+    TOKEN_URL = 'https://gitee.com/oauth/token'
+    API_URL = 'https://gitee.com/api/v5/user'
+    ICON_NAME = 'gitee'
+
+    #xcz: 读取Gitee平台配置并初始化客户端凭据和令牌状态。
+    def __init__(self, access_token=None, openid=None):
+        # 从数据库读取 Gitee 平台配置，填充 client_id / client_secret / callback_url
+        config = self.get_config()
+        self.client_id = config.appkey if config else ''
+        self.client_secret = config.appsecret if config else ''
+        self.callback_url = config.callback_url if config else ''
+        super().__init__(
+            access_token=access_token,
+            openid=openid)
+
+    #xcz: 按Gitee平台协议构造并编码授权请求地址。
+    def get_authorization_url(self, next_url='/'):
+        """拼装 Gitee 授权页地址"""
+        params = {
+            'client_id': self.client_id,
+            'response_type': 'code',
+            'redirect_uri': self.callback_url,  #xcz: 直接使用配置的回调地址，避免 Gitee 校验失败
+            'scope': 'user_info'
+        }
+        url = self.AUTH_URL + "?" + urllib.parse.urlencode(params)
+        return url
+
+    #xcz: 使用授权码向Gitee换取访问令牌，并处理平台响应格式。
+    def get_access_token_by_code(self, code):
+        """用授权码向 Gitee 换取 access_token"""
+        params = {
+            'grant_type': 'authorization_code',
+            'code': code,
+            'client_id': self.client_id,
+            'redirect_uri': self.callback_url,
+            'client_secret': self.client_secret
+        }
+        # do_post 底层是 requests.post，默认会以表单格式发送，符合 Gitee 要求
+        rsp = self.do_post(self.TOKEN_URL, params)
+        obj = json.loads(rsp)
+        if 'access_token' in obj:
+            self.access_token = str(obj['access_token'])
+            return self.access_token
+        else:
+            raise OAuthAccessTokenError(rsp)
+
+    #xcz: 读取Gitee用户资料并映射为 OAuthUser 对象。
+    def get_oauth_userinfo(self):
+        """调用 Gitee 用户信息接口，将返回数据映射为 OAuthUser 对象。"""
+        if not self.is_access_token_set:
+            return None
+        params = {
+            'access_token': self.access_token
+        }
+        rsp = self.do_get(self.API_URL, params)
+        try:
+            datas = json.loads(rsp)
+            user = OAuthUser()
+            user.metadata = rsp
+            user.picture = datas.get('avatar_url', '')
+            # Gitee 返回的 name 可能为空，如果为空则使用 login (用户名) 兜底
+            user.nickname = datas.get('name') or datas.get('login')
+            user.openid = str(datas.get('id'))
+            user.type = 'gitee'
+            user.token = self.access_token
+            if datas.get('email'):
+                user.email = datas['email']
+            return user
+        except Exception as e:
+            logger.error(e)
+            logger.error('gitee oauth error.rsp:' + rsp)
+            return None
+
+    #xcz: 从Gitee返回的数据中提取头像地址。
+    def get_picture(self, metadata):
+        """从 Gitee 返回的原始数据中提取头像地址。"""
+        datas = json.loads(metadata)
+        return datas.get('avatar_url', '')
 
 
 #xcz: 实现 Facebook 平台的授权码交换和用户资料读取。
