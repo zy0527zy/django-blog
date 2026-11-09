@@ -66,6 +66,7 @@ class OAuthConfig(models.Model):
         ('github', 'GitHub'),
         ('facebook', 'FaceBook'),
         ('qq', 'QQ'),
+        ('gitee', 'Gitee'),  #xcz: 新增 Gitee 第三方登录类型
     )
     # 平台类型，默认 github（可选：weibo / google / github / facebook / qq）
     type = models.CharField(_('type'), max_length=10, choices=TYPE, default='github')
