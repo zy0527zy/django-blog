@@ -3,7 +3,7 @@ import logging
 
 from django.conf import settings
 from django.contrib import auth
-from django.contrib.auth import REDIRECT_FIELD_NAME, get_user_model, logout
+from django.contrib.auth import REDIRECT_FIELD_NAME, get_user_model, logout, update_session_auth_hash
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.hashers import make_password
 from django.http import HttpResponseForbidden, HttpResponseRedirect
@@ -14,14 +14,56 @@ from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views import View
 
-from djangoblog.base_views import LoginFormView, LogoutRedirectView, SecureFormView
+from djangoblog.base_views import AuthenticatedFormView, LoginFormView, LogoutRedirectView, SecureFormView
 from djangoblog.utils import delete_sidebar_cache, generate_code, get_current_site, get_sha256, send_email
 
 from . import utils
-from .forms import ForgetPasswordCodeForm, ForgetPasswordForm, LoginForm, RegisterForm
+from .forms import AccountPasswordChangeForm, ForgetPasswordCodeForm, ForgetPasswordForm, LoginForm, ProfileForm, RegisterForm
 from .models import BlogUser
 
 logger = logging.getLogger(__name__)
+
+
+#swb: 为当前登录用户展示并保存个人资料和本地头像。
+class ProfileView(AuthenticatedFormView):
+    """个人资料编辑页，用户只能更新自己的资料。"""
+
+    form_class = ProfileForm
+    template_name = 'account/profile.html'
+    success_url = '/account/profile/?saved=1'
+
+    #swb: 将当前用户实例绑定到资料表单，避免通过请求参数编辑他人资料。
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.request.user
+        return kwargs
+
+    #swb: 保存表单上传的头像及资料，并刷新用户相关侧栏缓存。
+    def form_valid(self, form):
+        form.save()
+        delete_sidebar_cache()
+        return HttpResponseRedirect(self.success_url)
+
+
+#swb: 为已登录用户提供校验旧密码的密码修改表单。
+class AccountPasswordChangeView(AuthenticatedFormView):
+    """修改当前账户密码，成功后保留当前登录会话。"""
+
+    form_class = AccountPasswordChangeForm
+    template_name = 'account/change_password.html'
+    success_url = '/account/change-password/?saved=1'
+
+    #swb: 将当前认证用户传入 Django 密码更改表单。
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['user'] = self.request.user
+        return kwargs
+
+    #swb: 保存新密码并更新会话哈希，避免改密后当前用户被登出。
+    def form_valid(self, form):
+        user = form.save()
+        update_session_auth_hash(self.request, user)
+        return HttpResponseRedirect(self.success_url)
 
 
 # Create your views here.

@@ -69,6 +69,10 @@ class BlogUserAdmin(UserAdmin):
         'date_joined',
         'source')
     list_display_links = ('id', 'username')
+    #swb: 在用户后台详情中管理本地头像与个人简介字段。
+    fieldsets = UserAdmin.fieldsets + (
+        ('博客资料', {'fields': ('nickname', 'avatar', 'bio', 'creation_time', 'last_modify_time', 'source')}),
+    )
     # 默认按用户 ID 倒序排列，并支持按用户名、昵称和邮箱搜索。
     ordering = ('-id',)
     search_fields = ('username', 'nickname', 'email')

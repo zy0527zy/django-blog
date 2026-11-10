@@ -5,3 +5,5 @@ from django.apps import AppConfig  #zly: 导入 Django 应用配置基类
 #zly: ServermanagerConfig：servermanager 应用的配置类，继承 AppConfig。
 class ServermanagerConfig(AppConfig):
     name = 'servermanager'  #zly: 指定应用名称，Django 通过该名称识别 App。
+    #zly: 后台应用列表显示的中文名称，与任务分工中的“服务器管理”一致。
+    verbose_name = '服务器管理'

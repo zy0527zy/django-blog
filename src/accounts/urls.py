@@ -28,4 +28,7 @@ urlpatterns = [re_path(r'^login/$',
                re_path(r'^forget_password_code/$',
                        views.ForgetPasswordEmailCode.as_view(),
                        name='forget_password_code'),
+               # 已登录用户的个人资料和密码管理页面。
+               path('account/profile/', views.ProfileView.as_view(), name='profile'),
+               path('account/change-password/', views.AccountPasswordChangeView.as_view(), name='change_password'),
                ]
