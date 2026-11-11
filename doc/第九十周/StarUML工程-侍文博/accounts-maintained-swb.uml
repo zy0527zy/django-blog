@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+  <XPD:HEADER>
+    <XPD:SUBUNITS/>
+    <XPD:PROFILES/>
+  </XPD:HEADER>
+  <XPD:BODY>
+    <XPD:OBJ name="DocumentElement" type="UMLProject" guid="swb-project">
+      <XPD:ATTR name="Title" type="string">accounts 维护后设计类图</XPD:ATTR>
+      <XPD:ATTR name="Author" type="string">侍文博 (swb)</XPD:ATTR>
+      <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+      <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="swb-package">
+        <XPD:ATTR name="Name" type="string">accounts-maintained-swb</XPD:ATTR>
+        <XPD:REF name="Namespace">swb-project</XPD:REF>
+        <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+        <XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="swb-diagram">
+          <XPD:ATTR name="Name" type="string">accounts-maintained-swb</XPD:ATTR>
+          <XPD:REF name="DiagramOwner">swb-package</XPD:REF>
+          <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="swb-diagramview">
+            <XPD:REF name="Diagram">swb-diagram</XPD:REF>
+            <XPD:ATTR name="#OwnedViews" type="integer">7</XPD:ATTR>
+            <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="swb-user-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">60</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">145</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B7E5FF</XPD:ATTR>
+              <XPD:REF name="Model">swb-user</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-user-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-user-label">
+                  <XPD:ATTR name="Text" type="string">BlogUser（修改）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-user-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-user-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-user-ac">
+                <XPD:REF name="Model">swb-user</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-user-oc">
+                <XPD:REF name="Model">swb-user</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-user-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-user</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="swb-profileform-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">465</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">145</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B9F2D3</XPD:ATTR>
+              <XPD:REF name="Model">swb-profileform</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-profileform-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-profileform-label">
+                  <XPD:ATTR name="Text" type="string">ProfileForm（新增）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-profileform-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-profileform-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-profileform-ac">
+                <XPD:REF name="Model">swb-profileform</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-profileform-oc">
+                <XPD:REF name="Model">swb-profileform</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-profileform-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-profileform</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[2]" type="UMLClassView" guid="swb-passwordform-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">465</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">370</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">145</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B9F2D3</XPD:ATTR>
+              <XPD:REF name="Model">swb-passwordform</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-passwordform-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-passwordform-label">
+                  <XPD:ATTR name="Text" type="string">AccountPasswordChangeForm（新增）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-passwordform-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-passwordform-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-passwordform-ac">
+                <XPD:REF name="Model">swb-passwordform</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-passwordform-oc">
+                <XPD:REF name="Model">swb-passwordform</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-passwordform-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-passwordform</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="swb-profileview-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">870</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">145</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B9F2D3</XPD:ATTR>
+              <XPD:REF name="Model">swb-profileview</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-profileview-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-profileview-label">
+                  <XPD:ATTR name="Text" type="string">ProfileView（新增）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-profileview-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-profileview-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-profileview-ac">
+                <XPD:REF name="Model">swb-profileview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-profileview-oc">
+                <XPD:REF name="Model">swb-profileview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-profileview-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-profileview</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[4]" type="UMLClassView" guid="swb-passwordview-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">870</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">370</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">145</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B9F2D3</XPD:ATTR>
+              <XPD:REF name="Model">swb-passwordview</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-passwordview-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-passwordview-label">
+                  <XPD:ATTR name="Text" type="string">AccountPasswordChangeView（新增）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-passwordview-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-passwordview-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-passwordview-ac">
+                <XPD:REF name="Model">swb-passwordview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-passwordview-oc">
+                <XPD:REF name="Model">swb-passwordview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-passwordview-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-passwordview</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[5]" type="UMLClassView" guid="swb-baseview-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">870</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">650</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00EEEEEE</XPD:ATTR>
+              <XPD:REF name="Model">swb-baseview</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-baseview-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-baseview-label">
+                  <XPD:ATTR name="Text" type="string">AuthenticatedFormView（复用）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-baseview-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-baseview-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-baseview-ac">
+                <XPD:REF name="Model">swb-baseview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-baseview-oc">
+                <XPD:REF name="Model">swb-baseview</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-baseview-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-baseview</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[6]" type="UMLClassView" guid="swb-abstractuser-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">60</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">650</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00EEEEEE</XPD:ATTR>
+              <XPD:REF name="Model">swb-abstractuser</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="swb-abstractuser-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="swb-abstractuser-label">
+                  <XPD:ATTR name="Text" type="string">AbstractUser（Django）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="swb-abstractuser-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="swb-abstractuser-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="swb-abstractuser-ac">
+                <XPD:REF name="Model">swb-abstractuser</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="swb-abstractuser-oc">
+                <XPD:REF name="Model">swb-abstractuser</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="swb-abstractuser-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">swb-abstractuser</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+          </XPD:OBJ>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="swb-user">
+          <XPD:ATTR name="Name" type="string">BlogUser（修改）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-user-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="swb-profileform">
+          <XPD:ATTR name="Name" type="string">ProfileForm（新增）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-profileform-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="swb-passwordform">
+          <XPD:ATTR name="Name" type="string">AccountPasswordChangeForm（新增）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-passwordform-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="swb-profileview">
+          <XPD:ATTR name="Name" type="string">ProfileView（新增）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-profileview-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[4]" type="UMLClass" guid="swb-passwordview">
+          <XPD:ATTR name="Name" type="string">AccountPasswordChangeView（新增）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-passwordview-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[5]" type="UMLClass" guid="swb-baseview">
+          <XPD:ATTR name="Name" type="string">AuthenticatedFormView（复用）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-baseview-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[6]" type="UMLClass" guid="swb-abstractuser">
+          <XPD:ATTR name="Name" type="string">AbstractUser（Django）</XPD:ATTR>
+          <XPD:REF name="Namespace">swb-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">swb-abstractuser-view</XPD:REF>
+        </XPD:OBJ>
+      </XPD:OBJ>
+    </XPD:OBJ>
+  </XPD:BODY>
+</XPD:PROJECT>

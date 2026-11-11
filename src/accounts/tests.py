@@ -1,8 +1,13 @@
+"""账号注册、登录、个人资料与密码管理功能测试。"""
+
+from io import BytesIO
+
 from django.conf import settings
+from django.core.files.uploadedfile import SimpleUploadedFile
 from django.test import Client, RequestFactory, TestCase
 from django.urls import reverse
 from django.utils import timezone
-from django.core.files.uploadedfile import SimpleUploadedFile
+from PIL import Image
 
 from accounts.models import BlogUser
 from blog.models import Article, Category
@@ -216,11 +221,15 @@ class AccountTest(TestCase):
 
     #swb: 验证资料编辑页只允许登录用户访问并更新当前用户资料。
     def test_profile_update_and_login_required(self):
+        """未登录用户被拒绝访问；登录用户可保存个人资料和有效头像。"""
         response = self.client.get(reverse('account:profile'))
         self.assertEqual(response.status_code, 302)
 
         self.client.force_login(self.blog_user)
-        avatar = SimpleUploadedFile('avatar.png', b'fake-image-data', content_type='image/png')
+        image_buffer = BytesIO()
+        Image.new('RGB', (1, 1), color='white').save(image_buffer, format='PNG')
+        avatar = SimpleUploadedFile(
+            'avatar.png', image_buffer.getvalue(), content_type='image/png')
         response = self.client.post(reverse('account:profile'), {
             'nickname': '文博',
             'bio': '热爱写作',
@@ -235,6 +244,7 @@ class AccountTest(TestCase):
 
     #swb: 验证改密需要正确旧密码，保存后新密码生效且会话保持登录。
     def test_change_password_checks_old_password_and_keeps_session(self):
+        """错误旧密码不能修改密码；修改成功后新密码生效且当前会话保持登录。"""
         self.client.force_login(self.blog_user)
         response = self.client.post(reverse('account:change_password'), {
             'old_password': 'wrong-password',
