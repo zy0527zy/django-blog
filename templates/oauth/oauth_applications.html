@@ -7,14 +7,14 @@
         </small>
         <div class="flex gap-2 flex-wrap">
             {% for icon,url in apps %}
-                <a href="{{ url }}"
-                   rel="nofollow"
-                   hx-boost="false"
-                   class="inline-flex items-center justify-center size-10 rounded-lg border border-border hover:border-primary/30 transition-colors bg-card hover:bg-secondary"
-                   title="使用 {{ icon }} 登录">
-                    <span class="icon-sn-{{ icon }}"></span>
-                </a>
-            {% endfor %}
+            <a href="{{ url }}"
+               rel="nofollow"
+               hx-boost="false"
+               class="inline-flex items-center justify-center h-10 px-4 rounded-lg border border-border hover:border-primary text-sm font-medium transition-colors"
+               title="使用 {{ icon }} 登录">
+                {{ icon|title }} 登录
+            </a>
+        {% endfor %}
         </div>
     {% endif %}
 </div>
