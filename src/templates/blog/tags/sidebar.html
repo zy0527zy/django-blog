@@ -182,13 +182,13 @@
             </li>
             {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'account:profile' %}"
+                    <a href="{% url 'account:profile' %}" hx-boost="false"
                        class="block rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-primary">
                         个人资料
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'account:change_password' %}"
+                    <a href="{% url 'account:change_password' %}" hx-boost="false"
                        class="block rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-primary">
                         修改密码
                     </a>
