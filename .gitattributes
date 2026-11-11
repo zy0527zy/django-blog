@@ -3,3 +3,4 @@
 *.conf text eol=lf
 *.mo binary
 *.po text eol=lf
+*.mp4 filter=lfs diff=lfs merge=lfs -text
