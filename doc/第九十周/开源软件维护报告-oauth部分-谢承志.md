@@ -15,7 +15,7 @@
 
 ## 7. 维护代码数量及其质量情况
 
-代码量按小组统一口径统计：**新增 107 行、删除 1 行**（`oauthmanager.py` 新增 `GiteeOauthManager` 与 GitHub 回调修复约 89 行、`models.py` 新增 `gitee` 类型 1 行、迁移 `0004` 新增 18 行）。维护代码复用 `BaseOauthManager` 抽象基类，Gitee 管理器与既有各平台管理器结构一致，未重复造轮子；对第三方返回字段统一采用 `dict.get()` 与空值回退，避免字段缺失抛异常；GitHub 回调修复点以 `#xcz:` 注释说明根因，便于后续维护。
+代码量按小组统一口径统计：**新增 89 行、修改 1 行（受影响 90 行）**（`oauthmanager.py` 新增 `GiteeOauthManager` 与 GitHub 回调修复约 88 行、`models.py` 新增 `gitee` 类型 1 行；已扣除自动迁移 `0004` 的 18 行）。维护代码复用 `BaseOauthManager` 抽象基类，Gitee 管理器与既有各平台管理器结构一致，未重复造轮子；对第三方返回字段统一采用 `dict.get()` 与空值回退，避免字段缺失抛异常；GitHub 回调修复点以 `#xcz:` 注释说明根因，便于后续维护。
 
 ## 8. 维护后的软件原型
 
