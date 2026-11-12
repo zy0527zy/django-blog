@@ -21,6 +21,6 @@
 
 Gitee 第三方登录：登录页点击 Gitee 图标跳转 Gitee 授权页，用户授权后回调完成登录，见 [`oauth-gitee-auth-xcz.png`](imgs/oauth-gitee-auth-xcz.png)；GitHub 回调修复后登录流程恢复正常，见 [`oauth-github-fix-xcz.png`](imgs/oauth-github-fix-xcz.png)。
 
-## 9. 实践收获和体会（草稿，待谢承志本人确认）
+## 9. 实践收获和体会
 
 本次维护让我完整走了一遍「新增第三方登录平台 + 排查既有平台回调 Bug」的流程。Gitee 接入借助抽象基类 `BaseOauthManager`，只需实现四个方法即可接入一个新平台，体会到良好抽象对可扩展性的价值；GitHub 回调地址问题则是在本地复现后，通过对照平台文档与后台配置，定位到 `redirect_uri` 被错误拼接了 `next_url` 导致校验失败，体会到「先复现、再对照文档、最后小步修复」的排查思路。
