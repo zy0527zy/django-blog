@@ -1,0 +1,178 @@
+{% extends "admin/base_site.html" %}
+{# zly: 站点数据统计面板模板，展示文章/评论/用户/邮件等核心指标，仅超级管理员可访问 #}
+
+{% block title %}站点数据统计 | {{ site_title }}{% endblock %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+  .stat-meta {
+    color: var(--body-quiet-color);
+    margin: 0 0 16px;
+  }
+  .stat-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .stat-card {
+    background: var(--body-bg);
+    border: 1px solid var(--hairline-color);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .stat-card .label {
+    color: var(--body-quiet-color);
+    font-size: 13px;
+  }
+  .stat-card .value {
+    display: block;
+    margin-top: 6px;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--body-fg);
+  }
+  .stat-card .sub {
+    display: block;
+    margin-top: 4px;
+    color: var(--body-quiet-color);
+    font-size: 12px;
+  }
+  .stat-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8px 0 28px;
+  }
+  .stat-table th,
+  .stat-table td {
+    border-bottom: 1px solid var(--hairline-color);
+    padding: 8px 10px;
+    text-align: left;
+  }
+  .stat-table th {
+    background: var(--darkened-bg);
+    font-weight: 600;
+  }
+  .stat-actions {
+    margin-top: 8px;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="content-main">
+  <p class="stat-meta">
+    统计时间：{% now "Y-m-d H:i" %}　｜　数据来源：文章、评论、用户、第三方登录与邮件发送日志
+  </p>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <span class="label">文章总数</span>
+      <strong class="value">{{ stats.article_total }}</strong>
+      <span class="sub">已发布 {{ stats.article_published }}　草稿 {{ stats.article_draft }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">总阅读量</span>
+      <strong class="value">{{ stats.article_views }}</strong>
+      <span class="sub">所有文章阅读量之和</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">评论总数</span>
+      <strong class="value">{{ stats.comment_total }}</strong>
+      <span class="sub">待审核 {{ stats.comment_pending }}</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">注册用户</span>
+      <strong class="value">{{ stats.user_total }}</strong>
+      <span class="sub">站点注册账号数</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">第三方登录用户</span>
+      <strong class="value">{{ stats.oauth_user_total }}</strong>
+      <span class="sub">OAuth 绑定账号数</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">分类 / 标签</span>
+      <strong class="value">{{ stats.category_total }} / {{ stats.tag_total }}</strong>
+      <span class="sub">文章分类数与标签数</span>
+    </div>
+    <div class="stat-card">
+      <span class="label">邮件发送成功率</span>
+      <strong class="value">{{ stats.email_success_rate }}%</strong>
+      <span class="sub">成功 {{ stats.email_success }} / 共 {{ stats.email_total }}</span>
+    </div>
+  </div>
+
+  <h2>近 7 天概览</h2>
+  <table class="stat-table">
+    <thead>
+      <tr><th>指标</th><th>数量</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>新增文章</td><td>{{ stats.article_week }}</td></tr>
+      <tr><td>新增评论</td><td>{{ stats.comment_week }}</td></tr>
+      <tr><td>待审核评论</td><td>{{ stats.comment_pending }}</td></tr>
+    </tbody>
+  </table>
+
+  <h2>热门文章 Top 5（按阅读量）</h2>
+  <table class="stat-table">
+    <thead>
+      <tr><th>#</th><th>标题</th><th>阅读量</th><th>发布时间</th></tr>
+    </thead>
+    <tbody>
+      {% for article in stats.top_articles %}
+      <tr>
+        <td>{{ forloop.counter }}</td>
+        <td><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></td>
+        <td>{{ article.views }}</td>
+        <td>{{ article.pub_time|date:"Y-m-d" }}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="4">暂无已发布文章</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <h2>邮件发送情况</h2>
+  <table class="stat-table">
+    <thead>
+      <tr><th>发送总数</th><th>成功</th><th>失败</th><th>成功率</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{ stats.email_total }}</td>
+        <td>{{ stats.email_success }}</td>
+        <td>{{ stats.email_failed }}</td>
+        <td>{{ stats.email_success_rate }}%</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>最近失败邮件</h2>
+  <table class="stat-table">
+    <thead>
+      <tr><th>时间</th><th>收件人</th><th>标题</th><th>失败原因</th><th>重试次数</th></tr>
+    </thead>
+    <tbody>
+      {% for log in stats.recent_failed_emails %}
+      <tr>
+        <td>{{ log.creation_time|date:"Y-m-d H:i" }}</td>
+        <td>{{ log.emailto }}</td>
+        <td>{{ log.title|truncatechars:30 }}</td>
+        <td>{{ log.error_message|default:"-"|truncatechars:60 }}</td>
+        <td>{{ log.retry_count }}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="5">暂无失败邮件</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <p class="stat-actions">
+    <a class="button" href="{% url 'admin:servermanager_emailsendlog_changelist' %}">查看全部邮件日志</a>
+    <a class="button" href="{% url 'admin:index' %}">返回后台首页</a>
+  </p>
+</div>
+{% endblock %}

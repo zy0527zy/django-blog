@@ -1,9 +1,11 @@
 # =============================================================================
 # comments 应用 · URL 路由配置（urls.py）
 # -----------------------------------------------------------------------------
-# 本文件定义 comments 应用对外暴露的两个 URL 地址，把请求分发给对应视图：
+# 本文件定义 comments 应用对外暴露的评论操作地址，把请求分发给对应视图：
 #   1. /article/<文章id>/postcomment  → CommentPostView    提交评论 / 回复
 #   2. /comment/<评论id>/react        → CommentReactionView 评论 Emoji 反应
+#   3. /comment/<评论id>/delete       → delete_comment      删除评论
+#   4. /comment/<评论id>/pin          → toggle_comment_pin  置顶 / 取消置顶
 # 注意：app_name = "comments" 用于在模板/代码中按命名空间引用这些路由。
 # =============================================================================
 from django.urls import path
@@ -24,4 +26,7 @@ urlpatterns = [
         'comment/<int:comment_id>/react',
         views.CommentReactionView.as_view(),
         name='comment_react'),
+    #lyt: 删除和置顶都由服务端校验权限，并且只接受 POST 请求。
+    path('comment/<int:comment_id>/delete', views.delete_comment, name='comment_delete'),
+    path('comment/<int:comment_id>/pin', views.toggle_comment_pin, name='comment_pin'),
 ]

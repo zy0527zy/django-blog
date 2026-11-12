@@ -42,6 +42,17 @@
                             {{ message }}
                         </h1>
 
+                        {# Search box #}
+                        <form action="{% url 'search' %}" method="get"
+                              class="flex items-center justify-center gap-2 mt-6 max-w-md mx-auto">
+                            <input type="search" name="q" placeholder="{% trans 'Search articles...' %}"
+                                   class="w-full rounded-lg border border-border bg-background px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <button type="submit"
+                                    class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+                                {% trans 'Search' %}
+                            </button>
+                        </form>
+
                         {# Action buttons - unified style #}
                         <div class="flex flex-wrap items-center justify-center gap-3 mt-8">
                             <a href="/"

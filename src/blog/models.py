@@ -1,13 +1,16 @@
 #hzh: 本模块定义博客的数据模型，包括文章、分类、标签以及站点配置。
 import logging
 import re
+from datetime import datetime, timedelta
 from abc import abstractmethod
 
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.db import models
+from django.db import models, transaction
+from django.db.models import F
 from django.urls import reverse
 from django.utils.timezone import now
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 from mdeditor.fields import MDTextField
 from uuslug import slugify
@@ -162,10 +165,29 @@ class Article(BaseModel):
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
 
-    # 文章被访问时将浏览量加 1
+    #hzh: 每次阅读同时更新累计次数和本周次数。
     def viewed(self):
-        self.views += 1
-        self.save(update_fields=['views'])
+        today = datetime.now(timezone.get_current_timezone()).date()
+        week_start = today - timedelta(days=today.weekday())
+
+        #hzh: 使用事务与 F 表达式，避免并发访问丢失计数。
+        with transaction.atomic():
+            Article.objects.filter(pk=self.pk).update(
+                views=F('views') + 1
+            )
+
+            weekly, _ = ArticleWeeklyView.objects.get_or_create(
+                article_id=self.pk,
+                week_start=week_start
+            )
+
+            ArticleWeeklyView.objects.filter(
+                pk=weekly.pk
+            ).update(views=F('views') + 1)
+
+        self.refresh_from_db(fields=['views'])
+        #hzh: 阅读量变化后清理首页第一页列表缓存，避免显示旧计数。
+        cache.delete('index_1')
 
     # 获取当前文章可以显示的评论，优先读取缓存，未命中时再查询数据库
     def comment_list(self):
@@ -206,6 +228,37 @@ class Article(BaseModel):
         if match:
             return match.group(1)
         return ""
+
+
+
+#hzh: 按站点时区的自然周记录文章阅读次数。
+class ArticleWeeklyView(models.Model):
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name='weekly_view_records'
+    )
+    week_start = models.DateField()
+    views = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        verbose_name = '文章每周阅读量'
+        verbose_name_plural = verbose_name
+        constraints = [
+            models.UniqueConstraint(
+                fields=['article', 'week_start'],
+                name='uniq_article_week_view'
+            )
+        ]
+        indexes = [
+            models.Index(
+                fields=['week_start', '-views'],
+                name='idx_week_views'
+            )
+        ]
+
+    def __str__(self):
+        return f'{self.article_id}: {self.week_start} ({self.views})'
 
 
 # 文章分类模型，支持父子分类，从而形成多级分类结构
@@ -416,6 +469,21 @@ class BlogSettings(models.Model):
         default='')
     comment_need_review = models.BooleanField(
         '评论是否需要审核', default=False, null=False)
+    #zy: 【第九十周功能新增】站点维护模式开关：开启后前台仅显示维护提示页，后台管理与已登录管理员不受影响。
+    is_maintenance = models.BooleanField(
+        '维护模式',
+        default=False,
+        null=False,
+        blank=False,
+        help_text='开启后前台仅显示维护提示页，后台管理不受影响')
+    #zy: 【第九十周功能新增】全局公告栏：填写后将在页面顶部显示公告，留空则不显示。
+    announcement = models.TextField(
+        '全局公告',
+        max_length=1000,
+        null=True,
+        blank=True,
+        default='',
+        help_text='填写后将在页面顶部显示公告栏，留空则不显示')
 
     class Meta:
         verbose_name = _('Website configuration')

@@ -112,13 +112,14 @@ class ArticleDetailView(DetailView):
 
         # 优化：直接查询父评论，减少数据库查询
         from comments.models import Comment
+        #lyt: 分页前先排置顶评论，确保它始终出现在普通评论之前。
         parent_comments = Comment.objects.filter(
             article=self.object,
             parent_comment=None,
             is_enable=True
         ).select_related('author').prefetch_related(
             'comment_set__author'  # 预加载子评论及其作者
-        ).order_by('-id')
+        ).order_by('-is_top', '-id')
 
         # 获取所有评论用于总数显示
         article_comments = self.object.comment_list()
@@ -429,7 +430,8 @@ def fileupload(request):
 from djangoblog.error_views import (
     page_not_found_view,
     server_error_view,
-    permission_denied_view
+    permission_denied_view,
+    bad_request_view
 )
 
 

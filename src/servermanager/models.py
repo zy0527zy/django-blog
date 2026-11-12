@@ -51,6 +51,12 @@ class EmailSendLog(models.Model):
     send_result = models.BooleanField('结果', default=False)
     #zly: 日志创建时间，自动写入。
     creation_time = models.DateTimeField('创建时间', auto_now_add=True)
+    #zly: 失败重试次数：首次发送不计入，每重试一次 +1。
+    retry_count = models.PositiveIntegerField('重试次数', default=0)
+    #zly: 最后一次重试时间；从未重试时为空。
+    last_retry_time = models.DateTimeField('最后重试时间', null=True, blank=True)
+    #zly: 最近一次发送失败的原因（成功后清空），便于排查 SMTP 问题。
+    error_message = models.TextField('失败原因', blank=True, default='')
 
     #zly: __str__：后台展示邮件标题。
     def __str__(self):

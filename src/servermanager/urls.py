@@ -6,6 +6,7 @@ servermanager应用urls路由配置文件
 from django.urls import path
 from werobot.contrib.django import make_view
 
+from . import views
 from .robot import robot
 
 #zly: 应用命名空间（Django 约定小写，Pylint 的常量命名规则不适用）。
@@ -14,5 +15,7 @@ app_name = "servermanager"  # pylint: disable=invalid-name
 urlpatterns = [
     #zly: 微信公众平台服务器配置的回调地址；make_view 把 WeRoBot 实例包装成 Django 视图。
     path(r'robot', make_view(robot)),
+    #zly: 站点数据统计面板，仅超级管理员可访问。
+    path('statistics/', views.site_statistics, name='site_statistics'),
 
 ]

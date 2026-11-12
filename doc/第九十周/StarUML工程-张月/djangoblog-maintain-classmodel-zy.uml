@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="UWOB9hQZJEeCMtDnbtoh5wAA">
+<XPD:ATTR name="Title" type="string">djangoblog 维护后设计类图（张月）</XPD:ATTR>
+<XPD:ATTR name="Author" type="string">张月 (zy)</XPD:ATTR>
+<XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="WNdC3GBoJUuH3c3IwxuzfwAA">
+<XPD:ATTR name="Name" type="string">djangoblog-maintain-classmodel-zy</XPD:ATTR>
+<XPD:REF name="Namespace">UWOB9hQZJEeCMtDnbtoh5wAA</XPD:REF>
+<XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+<XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="E82LjWW0GEiip8q90jGc4AAA">
+<XPD:ATTR name="Name" type="string">djangoblog-maintain-classmodel-zy</XPD:ATTR>
+<XPD:REF name="DiagramOwner">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="dLNNlKQSj0muXZo3UhbuLwAA">
+<XPD:REF name="Diagram">E82LjWW0GEiip8q90jGc4AAA</XPD:REF>
+<XPD:ATTR name="#OwnedViews" type="integer">7</XPD:ATTR>
+<XPD:OBJ name="OwnedViews[0]" type="UMLPackageView" guid="LboetYavw0qsxdYNFpRYCAAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">110</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">380</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+<XPD:REF name="Model">wU5HlOlIkU6fLcivSOC+NgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="XxDsPC6NakuLZo8zMJlxFwAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="/B2wOd1HwUWuKyTaHm6rdwAA">
+<XPD:ATTR name="Text" type="string">blog（修改）</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="vN6m9DuLaEGkNnLPdTJIOwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="qhRsDabHLkuyuyHUJtp7HAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[1]" type="UMLPackageView" guid="zmYiQ8yBW0+n66nAwzeKSgAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">790</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">110</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">380</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+<XPD:REF name="Model">ORPePpZZ+E64sA+N3RVMoQAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="2x7c6ROfJkGOPNn5l2uThAAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="PTVKgYFrxUewb+lq0q851gAA">
+<XPD:ATTR name="Text" type="string">djangoblog（修改）</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="tJaEH9WqeUS1r8jpTzliGgAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="MpcyKYh/QkmRhWOzV0gCygAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[2]" type="UMLClassView" guid="cWkoacJrSUuF9IMAFHXQZgAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">30</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">430</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">380</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+<XPD:REF name="Model">k8MYWVL7IEOXADMY1MwvkAAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="JCp617fz0kKoMV3B22J5lgAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="oNonXHBTBUyoLoxZANQClAAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">MaintenanceModeMiddleware（新增）</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="WPECOxkGd0abm0dwiLF57gAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="btHwdhF8PkurPKID9msNcAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="rycZqnK7l0ipSDfYwf/u8AAA">
+<XPD:REF name="Model">k8MYWVL7IEOXADMY1MwvkAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="KBV13hGqOEGYUQ4eU7MrqQAA">
+<XPD:REF name="Model">k8MYWVL7IEOXADMY1MwvkAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="FVqR9zuyO0Cp11+V38XzKQAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">k8MYWVL7IEOXADMY1MwvkAAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="Gxyyq65N6EyyiStUTPvv0AAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">600</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">430</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">380</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+<XPD:REF name="Model">L+Tq69x/g0qQEbC+gaOrGgAA</XPD:REF>
+<XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="6d0qQM/g/kmHhY4AVOsVogAA">
+<XPD:OBJ name="NameLabel" type="LabelView" guid="TEH5GKtmi0yTUJHPASSLMQAA">
+<XPD:ATTR name="FontStyle" type="integer">1</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">BlogSettings（修改）</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="LabelView" guid="ESQN6OS5h0CuZNDxM85r7QAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="LabelView" guid="gb9CTT6cCkiBA4qbdgvA+wAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="bbXnMUNKIEebt3uOtsaBwwAA">
+<XPD:REF name="Model">L+Tq69x/g0qQEbC+gaOrGgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="4HTCy2ZKA0e1ot3WkXgjjwAA">
+<XPD:REF name="Model">L+Tq69x/g0qQEbC+gaOrGgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="wKSFOUuYMUWtU7GElmmlsAAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:REF name="Model">L+Tq69x/g0qQEbC+gaOrGgAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[4]" type="UMLDependencyView" guid="Bnfo5dvPX0mPaPx/EC1GmQAA">
+<XPD:ATTR name="FillColor" type="string">$00B9FFFF</XPD:ATTR>
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">10</XPD:ATTR>
+<XPD:ATTR name="Points" type="Points">409,494;600,494</XPD:ATTR>
+<XPD:REF name="Model">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+<XPD:REF name="Head">Gxyyq65N6EyyiStUTPvv0AAA</XPD:REF>
+<XPD:REF name="Tail">cWkoacJrSUuF9IMAFHXQZgAA</XPD:REF>
+<XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="qiIhTl+OfUKH+9c8oVVawQAA">
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">读取 is_maintenance 判断维护模式</XPD:ATTR>
+<XPD:REF name="Model">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="CjQGLfaNPUyShGwFtio2XwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">30</XPD:ATTR>
+<XPD:REF name="Model">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="PropertyLabel" type="EdgeLabelView" guid="C/mnOnh3fUu1o9ohHe+lRwAA">
+<XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+<XPD:ATTR name="Alpha" type="real">-1.5707963267949</XPD:ATTR>
+<XPD:ATTR name="Distance" type="real">15</XPD:ATTR>
+<XPD:REF name="Model">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[5]" type="UMLNoteView" guid="QfGacGAPWEieRPJqIg9T5wAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">25</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">15</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">1155</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">55</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">djangoblog 维护后设计类图（张月）
+</XPD:ATTR>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedViews[6]" type="UMLNoteView" guid="WjSEf/HufEGsXajh3noc3AAA">
+<XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+<XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+<XPD:ATTR name="Left" type="integer">25</XPD:ATTR>
+<XPD:ATTR name="Top" type="integer">625</XPD:ATTR>
+<XPD:ATTR name="Width" type="integer">1155</XPD:ATTR>
+<XPD:ATTR name="Height" type="integer">124</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">第九十周功能修改涉及的核心类与所属包。
+新增类：MaintenanceModeMiddleware（维护模式中间件）。
+修改类：BlogSettings（新增 is_maintenance、announcement 两字段）。
+功能点：维护模式开关、全局公告栏、404/500 错误页完善。
+</XPD:ATTR>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+<XPD:ATTR name="#OwnedElements" type="integer">5</XPD:ATTR>
+<XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="wU5HlOlIkU6fLcivSOC+NgAA">
+<XPD:ATTR name="Name" type="string">blog（修改）</XPD:ATTR>
+<XPD:REF name="Namespace">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+<XPD:REF name="Views[0]">LboetYavw0qsxdYNFpRYCAAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[1]" type="UMLPackage" guid="ORPePpZZ+E64sA+N3RVMoQAA">
+<XPD:ATTR name="Name" type="string">djangoblog（修改）</XPD:ATTR>
+<XPD:REF name="Namespace">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+<XPD:REF name="Views[0]">zmYiQ8yBW0+n66nAwzeKSgAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="k8MYWVL7IEOXADMY1MwvkAAA">
+<XPD:ATTR name="Name" type="string">MaintenanceModeMiddleware（新增）</XPD:ATTR>
+<XPD:REF name="Namespace">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">cWkoacJrSUuF9IMAFHXQZgAA</XPD:REF>
+<XPD:REF name="Views[1]">rycZqnK7l0ipSDfYwf/u8AAA</XPD:REF>
+<XPD:REF name="Views[2]">KBV13hGqOEGYUQ4eU7MrqQAA</XPD:REF>
+<XPD:REF name="Views[3]">FVqR9zuyO0Cp11+V38XzKQAA</XPD:REF>
+<XPD:ATTR name="#ClientDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="ClientDependencies[0]">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="L+Tq69x/g0qQEbC+gaOrGgAA">
+<XPD:ATTR name="Name" type="string">BlogSettings（修改）</XPD:ATTR>
+<XPD:REF name="Namespace">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">Gxyyq65N6EyyiStUTPvv0AAA</XPD:REF>
+<XPD:REF name="Views[1]">bbXnMUNKIEebt3uOtsaBwwAA</XPD:REF>
+<XPD:REF name="Views[2]">4HTCy2ZKA0e1ot3WkXgjjwAA</XPD:REF>
+<XPD:REF name="Views[3]">wKSFOUuYMUWtU7GElmmlsAAA</XPD:REF>
+<XPD:ATTR name="#SupplierDependencies" type="integer">1</XPD:ATTR>
+<XPD:REF name="SupplierDependencies[0]">YPJQw1JV90yFRKOTtBd+6QAA</XPD:REF>
+</XPD:OBJ>
+<XPD:OBJ name="OwnedElements[4]" type="UMLDependency" guid="YPJQw1JV90yFRKOTtBd+6QAA">
+<XPD:ATTR name="Name" type="string">读取 is_maintenance 判断维护模式</XPD:ATTR>
+<XPD:REF name="Namespace">WNdC3GBoJUuH3c3IwxuzfwAA</XPD:REF>
+<XPD:REF name="Client">k8MYWVL7IEOXADMY1MwvkAAA</XPD:REF>
+<XPD:REF name="Supplier">L+Tq69x/g0qQEbC+gaOrGgAA</XPD:REF>
+<XPD:ATTR name="#Views" type="integer">4</XPD:ATTR>
+<XPD:REF name="Views[0]">Bnfo5dvPX0mPaPx/EC1GmQAA</XPD:REF>
+<XPD:REF name="Views[1]">qiIhTl+OfUKH+9c8oVVawQAA</XPD:REF>
+<XPD:REF name="Views[2]">CjQGLfaNPUyShGwFtio2XwAA</XPD:REF>
+<XPD:REF name="Views[3]">C/mnOnh3fUu1o9ohHe+lRwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

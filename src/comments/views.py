@@ -1,22 +1,73 @@
 # =============================================================================
 # comments 应用 · 视图（MVT 中的 V 层）
 # -----------------------------------------------------------------------------
-# 本文件包含两个类视图，分别处理评论相关的两类请求：
+# 本文件包含评论提交、表情反应以及评论删除、置顶的请求处理：
 #   1. CommentPostView    提交评论（表单方式，需要登录）
 #   2. CommentReactionView 评论的 Emoji 反应 / 点赞（JSON 接口，GET 公开 / POST 需登录）
+#   3. delete_comment     作者或管理员删除评论
+#   4. toggle_comment_pin 管理员置顶或取消置顶评论
 # 评论区片段由文章详情页 include 进来，表单提交后再重定向回文章详情页。
 # =============================================================================
 # Create your views here.
 from django.core.exceptions import ValidationError
-from django.http import HttpResponseRedirect, JsonResponse
+from django.contrib.auth.decorators import login_required
+from django.core.cache import cache
+from django.http import HttpResponseBadRequest, HttpResponseForbidden, HttpResponseRedirect, JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views import View
+from django.views.decorators.http import require_POST
 
 from accounts.models import BlogUser
 from blog.models import Article
 from djangoblog.base_views import AuthenticatedFormView
+from djangoblog.constants import CacheKey
+from djangoblog.utils import delete_sidebar_cache, delete_view_cache
 from .forms import CommentForm
 from .models import Comment, CommentReaction
+
+
+def _clear_comment_caches(article_id):
+    """评论内容或顺序变化后，使文章评论和侧栏缓存失效。"""
+    #lyt: 删除不会触发已有的 post_save 信号，因此这里显式清理缓存。
+    cache.delete(CacheKey.ARTICLE_COMMENTS.format(article_id=article_id))
+    delete_view_cache('article_comments', [str(article_id)])
+    delete_sidebar_cache()
+
+
+@require_POST
+@login_required
+def delete_comment(request, comment_id):
+    """允许评论作者或后台管理员删除评论。"""
+    comment = get_object_or_404(Comment, pk=comment_id)
+    #lyt: 身份以登录会话为准；文章作者不等同于评论作者。
+    if request.user.pk != comment.author_id and not request.user.is_staff:
+        return HttpResponseForbidden('无权删除这条评论')
+
+    article_id = comment.article_id
+    article_url = comment.article.get_absolute_url()
+    #lyt: 父评论删除时按现有 CASCADE 规则删除其回复。
+    comment.delete()
+    _clear_comment_caches(article_id)
+    return HttpResponseRedirect(article_url + '#comments')
+
+
+@require_POST
+@login_required
+def toggle_comment_pin(request, comment_id):
+    """允许后台管理员置顶或取消置顶已公开的顶层评论。"""
+    #lyt: 置顶属于管理操作，普通评论作者不能修改排序。
+    if not request.user.is_staff:
+        return HttpResponseForbidden('无权置顶评论')
+
+    comment = get_object_or_404(Comment, pk=comment_id, is_enable=True)
+    #lyt: 回复仍留在原评论的楼中楼中，不参与顶层评论置顶。
+    if comment.parent_comment_id is not None:
+        return HttpResponseBadRequest('只能置顶顶层评论')
+
+    #lyt: 直接更新置顶字段，避免已有 post_save 信号误发新评论通知邮件。
+    Comment.objects.filter(pk=comment.pk).update(is_top=not comment.is_top)
+    _clear_comment_caches(comment.article_id)
+    return HttpResponseRedirect(comment.article.get_absolute_url() + '#comments')
 
 
 class CommentPostView(AuthenticatedFormView):

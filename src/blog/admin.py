@@ -2,12 +2,17 @@
 from django import forms
 from django.contrib import admin
 from django.contrib.auth import get_user_model
+from django.contrib import messages
+from django.core.exceptions import PermissionDenied
+from django.db.models import Max
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.utils.html import format_html
 from django.utils.translation import gettext_lazy as _
 
 # Register your models here.
 from .models import Article, Category, Tag, Links, SideBar, BlogSettings
+from djangoblog.utils import cache
 
 
 # 文章后台编辑表单，使用 Article 模型的全部字段
@@ -43,6 +48,44 @@ def open_article_commentstatus(modeladmin, request, queryset):
     queryset.update(comment_status='o')
 
 
+
+#hzh: 置顶时生成高于当前最大排序值的优先级。
+def _change_article_pin(queryset, pin):
+    if pin:
+        highest = Article.objects.aggregate(
+            highest=Max('article_order')
+        )['highest'] or 0
+        target_order = max(highest, 0) + 1
+    else:
+        target_order = 0
+
+    changed = queryset.exclude(
+        article_order=target_order
+    ).update(article_order=target_order)
+
+    #hzh: 批量更新不会触发模型保存信号，主动清理缓存。
+    if changed:
+        cache.clear()
+
+    return changed
+
+
+@admin.action(description='置顶所选文章')
+def pin_articles(modeladmin, request, queryset):
+    changed = _change_article_pin(queryset, True)
+    modeladmin.message_user(
+        request, f'已置顶 {changed} 篇文章'
+    )
+
+
+@admin.action(description='取消置顶所选文章')
+def unpin_articles(modeladmin, request, queryset):
+    changed = _change_article_pin(queryset, False)
+    modeladmin.message_user(
+        request, f'已取消置顶 {changed} 篇文章'
+    )
+
+
 makr_article_publish.short_description = _('Publish selected articles')
 draft_article.short_description = _('Draft selected articles')
 close_article_commentstatus.short_description = _('Close article comments')
@@ -67,7 +110,8 @@ class ArticlelAdmin(admin.ModelAdmin):
         'views',
         'status',
         'type',
-        'article_order')
+        'article_order',
+        'pin_toggle')
     list_display_links = ('id', 'title')
     list_filter = ('status', 'type', 'category')
     date_hierarchy = 'creation_time'
@@ -78,8 +122,59 @@ class ArticlelAdmin(admin.ModelAdmin):
         makr_article_publish,
         draft_article,
         close_article_commentstatus,
-        open_article_commentstatus]
+        open_article_commentstatus,
+        pin_articles,
+        unpin_articles]
     raw_id_fields = ('author', 'category',)
+
+
+    @admin.display(description='置顶操作')
+    def pin_toggle(self, obj):
+        if obj.article_order > 0:
+            return format_html(
+                '<button type="submit" class="button" '
+                'name="unpin_article_id" value="{}">取消置顶</button>',
+                obj.pk
+            )
+        return format_html(
+            '<button type="submit" class="button" '
+            'name="pin_article_id" value="{}">置顶</button>',
+            obj.pk
+        )
+
+    #hzh: 使用 POST 修改文章状态，并检查后台修改权限。
+    def changelist_view(self, request, extra_context=None):
+        pin_key = None
+        if request.method == 'POST':
+            if 'pin_article_id' in request.POST:
+                pin_key = 'pin_article_id'
+            elif 'unpin_article_id' in request.POST:
+                pin_key = 'unpin_article_id'
+
+        if pin_key is not None:
+            if not self.has_change_permission(request):
+                raise PermissionDenied
+
+            obj = self.get_object(request, request.POST.get(pin_key))
+            if obj is None:
+                self.message_user(
+                    request, '文章不存在或已删除',
+                    level=messages.ERROR
+                )
+            elif not self.has_change_permission(request, obj):
+                raise PermissionDenied
+            else:
+                pin = pin_key == 'pin_article_id'
+                _change_article_pin(
+                    Article.objects.filter(pk=obj.pk), pin
+                )
+                message = '置顶成功' if pin else '取消置顶成功'
+                self.message_user(request, message)
+
+            return HttpResponseRedirect(request.get_full_path())
+
+        return super().changelist_view(request, extra_context)
+
 
     # 将分类名称显示为可点击链接，方便进入对应分类的后台编辑页
     def link_to_category(self, obj):

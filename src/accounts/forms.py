@@ -1,13 +1,46 @@
 #swb: 定义账户表单，并校验登录、注册和密码找回输入。
 from django import forms
 from django.contrib.auth import get_user_model, password_validation
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm, UserCreationForm
 from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.utils.translation import gettext_lazy as _
 
 from . import utils
 from .models import BlogUser
+
+
+#swb: 编辑当前用户的昵称、简介和本地头像文件。
+class ProfileForm(forms.ModelForm):
+    """个人资料表单：仅开放昵称、简介和头像字段。"""
+
+    class Meta:
+        model = BlogUser
+        fields = ('nickname', 'bio', 'avatar')
+        widgets = {
+            'nickname': forms.TextInput(attrs={'class': 'form-control', 'maxlength': 100}),
+            'bio': forms.Textarea(attrs={'class': 'form-control', 'rows': 4, 'maxlength': 500}),
+            'avatar': forms.ClearableFileInput(attrs={'class': 'form-control', 'accept': 'image/*'}),
+        }
+
+    #swb: 限制上传头像的格式和文件大小，避免非图片或过大文件进入媒体目录。
+    def clean_avatar(self):
+        avatar = self.cleaned_data.get('avatar')
+        if avatar and not avatar.name.lower().endswith(('.jpg', '.jpeg', '.png', '.gif', '.webp')):
+            raise ValidationError(_('仅支持 JPG、PNG、GIF 或 WebP 图片'))
+        if avatar and avatar.size > 5 * 1024 * 1024:
+            raise ValidationError(_('头像文件不能超过 5 MB'))
+        return avatar
+
+
+#swb: 复用 Django 密码更改表单校验旧密码和站点密码策略。
+class AccountPasswordChangeForm(PasswordChangeForm):
+    """已登录用户修改密码时使用的表单。"""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.fields.values():
+            field.widget.attrs.update({'class': 'form-control'})
 
 
 #swb: 复用 Django 的认证校验逻辑，并定制登录控件。
