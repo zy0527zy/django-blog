@@ -1,0 +1,39 @@
+@startuml
+title comments 子系统维护后类图（刘雨婷）
+skinparam classAttributeIconSize 0
+skinparam shadowing false
+
+class "Comment\n<<实体·已修改>>" as Comment #FFF0D9 {
+  +body: TextField
+  +is_enable: BooleanField
+  +is_top: BooleanField <<新增>>
+  +parent_comment: ForeignKey(Comment)
+  +author: ForeignKey(BlogUser)
+  +article: ForeignKey(Article)
+}
+class "Article\n<<实体·已有>>" as Article #E8F1FA {
+  +get_absolute_url()
+  +comment_list()
+}
+class "BlogUser\n<<实体·已有>>" as BlogUser #E8F1FA {
+  +is_staff: bool
+}
+class "ArticleDetailView\n<<界面控制·已修改>>" as Detail #FFF0D9 {
+  +get_context_data()
+}
+class "CommentForm\n<<表单·已有>>" as Form #E8F1FA
+
+Article "1" <-- "0..*" Comment : article
+BlogUser "1" <-- "0..*" Comment : author
+Comment "0..1" <-- "0..*" Comment : parent_comment
+Detail ..> Article : 显示文章
+Detail ..> Comment : 置顶优先排序
+Detail ..> Form : 评论表单
+
+note right of Comment
+  删除：作者或管理员通过 POST 操作；
+  置顶：仅管理员操作已公开的顶层评论。
+  delete_comment / toggle_comment_pin
+  为 views.py 中的函数视图，不虚构为类。
+end note
+@enduml

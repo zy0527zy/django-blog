@@ -19,34 +19,6 @@
         {% endfor %}
     {% endif %}
 
-
-    {#hzh: 本周热门按自然周实际阅读次数排序。#}
-    {% if weekly_hot_articles %}
-    <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
-        <h3 class="mb-3 text-sm font-semibold text-foreground">
-            本周热门文章
-        </h3>
-        <ul class="m-0 flex flex-col gap-3 p-0 list-none">
-            {% for a in weekly_hot_articles %}
-            <li class="flex gap-3">
-                <span class="text-sm font-semibold text-primary">
-                    {{ forloop.counter }}
-                </span>
-                <a href="{{ a.get_absolute_url }}"
-                   class="flex min-w-0 flex-col gap-1">
-                    <span class="text-sm text-foreground">
-                        {{ a.title }}
-                    </span>
-                    <span class="text-[11px] text-muted-foreground">
-                        本周 {{ a.weekly_views }} 次阅读
-                    </span>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-
     {# Hot Posts — 第二 #}
     {% if most_read_articles %}
     <div class="rounded-xl border border-border bg-card p-5 shadow-sm">
@@ -210,13 +182,13 @@
             </li>
             {% if user.is_authenticated %}
                 <li>
-                    <a href="{% url 'account:profile' %}"
+                    <a href="{% url 'account:profile' %}" hx-boost="false"
                        class="block rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-primary">
                         个人资料
                     </a>
                 </li>
                 <li>
-                    <a href="{% url 'account:change_password' %}"
+                    <a href="{% url 'account:change_password' %}" hx-boost="false"
                        class="block rounded-lg px-3 py-2 text-sm text-foreground transition-colors hover:bg-secondary hover:text-primary">
                         修改密码
                     </a>

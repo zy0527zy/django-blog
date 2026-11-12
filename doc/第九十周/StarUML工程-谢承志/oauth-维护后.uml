@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+  <XPD:HEADER>
+    <XPD:SUBUNITS/>
+    <XPD:PROFILES/>
+  </XPD:HEADER>
+  <XPD:BODY>
+    <XPD:OBJ name="DocumentElement" type="UMLProject" guid="xcz-project">
+      <XPD:ATTR name="Title" type="string">oauth 维护后设计类图</XPD:ATTR>
+      <XPD:ATTR name="Author" type="string">谢承志 (xcz)</XPD:ATTR>
+      <XPD:ATTR name="#OwnedElements" type="integer">1</XPD:ATTR>
+      <XPD:OBJ name="OwnedElements[0]" type="UMLPackage" guid="xcz-package">
+        <XPD:ATTR name="Name" type="string">oauth-maintained-xcz</XPD:ATTR>
+        <XPD:REF name="Namespace">xcz-project</XPD:REF>
+        <XPD:ATTR name="#OwnedDiagrams" type="integer">1</XPD:ATTR>
+        <XPD:OBJ name="OwnedDiagrams[0]" type="UMLClassDiagram" guid="xcz-diagram">
+          <XPD:ATTR name="Name" type="string">oauth-maintained-xcz</XPD:ATTR>
+          <XPD:REF name="DiagramOwner">xcz-package</XPD:REF>
+          <XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="xcz-diagramview">
+            <XPD:REF name="Diagram">xcz-diagram</XPD:REF>
+            <XPD:ATTR name="#OwnedViews" type="integer">5</XPD:ATTR>
+            <XPD:OBJ name="OwnedViews[0]" type="UMLClassView" guid="xcz-base-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">60</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00EEEEEE</XPD:ATTR>
+              <XPD:REF name="Model">xcz-base</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xcz-base-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="xcz-base-label">
+                  <XPD:ATTR name="Text" type="string">BaseOauthManager（复用）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xcz-base-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="xcz-base-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xcz-base-ac">
+                <XPD:REF name="Model">xcz-base</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="xcz-base-oc">
+                <XPD:REF name="Model">xcz-base</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="xcz-base-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">xcz-base</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[1]" type="UMLClassView" guid="xcz-gitee-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">465</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B9F2D3</XPD:ATTR>
+              <XPD:REF name="Model">xcz-gitee</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xcz-gitee-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="xcz-gitee-label">
+                  <XPD:ATTR name="Text" type="string">GiteeOauthManager（新增）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xcz-gitee-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="xcz-gitee-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xcz-gitee-ac">
+                <XPD:REF name="Model">xcz-gitee</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="xcz-gitee-oc">
+                <XPD:REF name="Model">xcz-gitee</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="xcz-gitee-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">xcz-gitee</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[2]" type="UMLClassView" guid="xcz-github-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">465</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">370</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B7E5FF</XPD:ATTR>
+              <XPD:REF name="Model">xcz-github</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xcz-github-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="xcz-github-label">
+                  <XPD:ATTR name="Text" type="string">GitHubOauthManager（修改）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xcz-github-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="xcz-github-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xcz-github-ac">
+                <XPD:REF name="Model">xcz-github</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="xcz-github-oc">
+                <XPD:REF name="Model">xcz-github</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="xcz-github-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">xcz-github</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[3]" type="UMLClassView" guid="xcz-config-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">870</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">100</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00B7E5FF</XPD:ATTR>
+              <XPD:REF name="Model">xcz-config</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xcz-config-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="xcz-config-label">
+                  <XPD:ATTR name="Text" type="string">OAuthConfig（修改）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xcz-config-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="xcz-config-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xcz-config-ac">
+                <XPD:REF name="Model">xcz-config</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="xcz-config-oc">
+                <XPD:REF name="Model">xcz-config</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="xcz-config-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">xcz-config</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+            <XPD:OBJ name="OwnedViews[4]" type="UMLClassView" guid="xcz-user-view">
+              <XPD:ATTR name="FontFace" type="string">Microsoft YaHei</XPD:ATTR>
+              <XPD:ATTR name="FontSize" type="integer">11</XPD:ATTR>
+              <XPD:ATTR name="Left" type="integer">60</XPD:ATTR>
+              <XPD:ATTR name="Top" type="integer">500</XPD:ATTR>
+              <XPD:ATTR name="Width" type="integer">330</XPD:ATTR>
+              <XPD:ATTR name="Height" type="integer">130</XPD:ATTR>
+              <XPD:ATTR name="FillColor" type="string">$00EEEEEE</XPD:ATTR>
+              <XPD:REF name="Model">xcz-user</XPD:REF>
+              <XPD:OBJ name="NameCompartment" type="UMLNameCompartmentView" guid="xcz-user-nc">
+                <XPD:OBJ name="NameLabel" type="LabelView" guid="xcz-user-label">
+                  <XPD:ATTR name="Text" type="string">OAuthUser（复用）</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="StereotypeLabel" type="LabelView" guid="xcz-user-sl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+                <XPD:OBJ name="PropertyLabel" type="LabelView" guid="xcz-user-pl">
+                  <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                </XPD:OBJ>
+              </XPD:OBJ>
+              <XPD:OBJ name="AttributeCompartment" type="UMLAttributeCompartmentView" guid="xcz-user-ac">
+                <XPD:REF name="Model">xcz-user</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="OperationCompartment" type="UMLOperationCompartmentView" guid="xcz-user-oc">
+                <XPD:REF name="Model">xcz-user</XPD:REF>
+              </XPD:OBJ>
+              <XPD:OBJ name="TemplateParameterCompartment" type="UMLTemplateParameterCompartmentView" guid="xcz-user-tc">
+                <XPD:ATTR name="Visible" type="boolean">False</XPD:ATTR>
+                <XPD:REF name="Model">xcz-user</XPD:REF>
+              </XPD:OBJ>
+            </XPD:OBJ>
+          </XPD:OBJ>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[0]" type="UMLClass" guid="xcz-base">
+          <XPD:ATTR name="Name" type="string">BaseOauthManager（复用）</XPD:ATTR>
+          <XPD:REF name="Namespace">xcz-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">xcz-base-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[1]" type="UMLClass" guid="xcz-gitee">
+          <XPD:ATTR name="Name" type="string">GiteeOauthManager（新增）</XPD:ATTR>
+          <XPD:REF name="Namespace">xcz-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">xcz-gitee-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[2]" type="UMLClass" guid="xcz-github">
+          <XPD:ATTR name="Name" type="string">GitHubOauthManager（修改）</XPD:ATTR>
+          <XPD:REF name="Namespace">xcz-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">xcz-github-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[3]" type="UMLClass" guid="xcz-config">
+          <XPD:ATTR name="Name" type="string">OAuthConfig（修改）</XPD:ATTR>
+          <XPD:REF name="Namespace">xcz-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">xcz-config-view</XPD:REF>
+        </XPD:OBJ>
+        <XPD:OBJ name="OwnedElements[4]" type="UMLClass" guid="xcz-user">
+          <XPD:ATTR name="Name" type="string">OAuthUser（复用）</XPD:ATTR>
+          <XPD:REF name="Namespace">xcz-package</XPD:REF>
+          <XPD:ATTR name="#Views" type="integer">1</XPD:ATTR>
+          <XPD:REF name="Views[0]">xcz-user-view</XPD:REF>
+        </XPD:OBJ>
+      </XPD:OBJ>
+    </XPD:OBJ>
+  </XPD:BODY>
+</XPD:PROJECT>
