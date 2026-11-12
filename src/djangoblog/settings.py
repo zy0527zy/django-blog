@@ -34,6 +34,28 @@ def env_to_bool(env, default):
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+def _load_dotenv():
+    """手动加载项目根目录的 .env 文件。
+
+    原因：VSCode 或命令行直接 `python manage.py runserver` 时不会自动读取 .env，
+    导致 DJANGO_MYSQL_* 等变量缺失、回落到默认值（如密码 root）而连不上 MySQL。
+    这里在读取任何配置前手动解析 .env（KEY=VALUE，支持 # 注释、引号包裹），
+    已存在的环境变量优先，不覆盖。
+    """
+    env_path = BASE_DIR.parent / '.env'
+    if not env_path.is_file():
+        return
+    for line in env_path.read_text(encoding='utf-8').splitlines():
+        line = line.strip()
+        if not line or line.startswith('#') or '=' not in line:
+            continue
+        key, _, value = line.partition('=')
+        os.environ.setdefault(key.strip(), value.strip().strip('"').strip("'"))
+
+
+_load_dotenv()
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
