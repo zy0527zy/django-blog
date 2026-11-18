@@ -414,7 +414,9 @@ def fileupload(request):
                 from PIL import Image
                 image = Image.open(savepath)
                 image.save(savepath, quality=20, optimize=True)
-            url = static(savepath)
+            # 用相对于 STATICFILES 的路径生成 URL，避免把绝对路径拼进 /static/ 前缀
+            relative_path = os.path.relpath(savepath, settings.STATICFILES).replace('\\', '/')
+            url = static(relative_path)
             response.append(url)
         return HttpResponse(response)
 

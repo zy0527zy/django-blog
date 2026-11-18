@@ -303,9 +303,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collectedstatic')
 STATIC_URL = '/static/'
 STATICFILES = os.path.join(BASE_DIR, 'static')
 
-# 添加插件静态文件目录
+# 添加项目级静态文件目录（图床上传的图片、OAuth 头像等）与插件静态文件目录
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'plugins'),  # 让Django能找到插件的静态文件
+    STATICFILES,                          # 项目级 static/ 目录（/static/image/、/static/avatar/ 等）
+    os.path.join(BASE_DIR, 'plugins'),    # 让Django能找到插件的静态文件
 ]
 
 # Vite开发服务器URL（开发模式）
